@@ -22,5 +22,25 @@ include __DIR__ . "/settings.pantheon.php";
 $local_settings = __DIR__ . "/settings.local.php";
 if (file_exists($local_settings)) {
   include $local_settings;
-}
+ }
 $settings['install_profile'] = 'standard';
+if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'dev') {
+    $domain = 'dev.durhamatletico.com';
+  }
+  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'test') {
+    $domain = 'test.durhamatletico.com';
+  }
+  if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
+    $domain = 'www.durhamatletico.com';
+  }
+  else {
+    # Fallback value for multidev or other environments.
+    # This covers environment-sitename.pantheon.io domains
+    # that are generated per environment.
+    $domain = $_SERVER['HTTP_HOST'];
+  }
+
+  # This global variable determines the base for all URLs in Drupal.
+  $base_url = 'https://'. $domain;
+}
