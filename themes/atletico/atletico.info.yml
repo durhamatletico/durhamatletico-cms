@@ -1,0 +1,12 @@
+name: Atletico
+type: theme
+description: 'Durham Atletico theme'
+core: 8.x
+base theme: classy
+libraries:
+ - mappy/global-styling
+regions:
+  navbar: 'Top Navigation Bar'
+  content: Content
+  sidebar: 'Sidebar'
+  footer: 'Footer'
