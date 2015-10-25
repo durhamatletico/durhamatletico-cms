@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
+ */
+
+/* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
+@import "init";
+@import "base/variables";
+
+/* HTML element (SMACSS base) rules */
+@import "base/normalize";
+@import "base/base";
+
+/* Layout rules */
+// Import all layout files.
+
+/* Component rules (called 'modules' in SMACSS) */
+// Import all component files.

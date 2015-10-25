@@ -1,0 +1,42 @@
+/**
+ * @file
+ *
+ * Base styles. Mostly HTML elements.
+ */
+
+body {
+  background-color: $page-background-color;
+  color: $copytext-color;
+  font-family: $copytext-font;
+}
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h4,
+h5,
+h6 {
+  color: $heading-color;
+  font-family: $heading-font;
+  font-weight: normal;
+  text-decoration: none;
+}
+
+hr {
+  background-color: $heading-color; // For modern browsers.
+  border: none;
+  color: $heading-color; // For old IE.
+  height: 2px;
+  width: 80%;
+}
+
+.xdebug-var-dump,
+.kint {
+  margin-top: 100px !important;
+}

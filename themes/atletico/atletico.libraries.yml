@@ -1,4 +1,9 @@
 global-styling:
   css:
     theme:
-      css/styles.css: {}
+      stylesheets/styles.css: {}
+  js:
+    js/navigation.js: {}
+  dependencies:
+    - core/jquery
+
