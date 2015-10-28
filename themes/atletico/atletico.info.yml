@@ -4,7 +4,7 @@ description: 'Durham Atletico theme'
 core: 8.x
 base theme: classy
 libraries:
- - mappy/global-styling
+ - atletico/global-styling
 regions:
   navbar: 'Top Navigation Bar'
   content: Content
