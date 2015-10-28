@@ -1,60 +1,42 @@
-/**
- * @file
- *
- * Custom variables, mixins, and functions.
- */
+// Typography
+$base-font-family: $helvetica;
+$heading-font-family: $base-font-family;
+
+// Font Sizes
+$base-font-size: 1.1em;
+
+// Line height
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$small-spacing: $base-spacing / 2;
+$base-z-index: 0;
 
 // Colors
-$element-background-color: #FFFFF9;     // Eggshell
-$page-background-color: #FFFFFF;        // White
-$heading-color: #5F1251;                // Purple. Consider darkening.
-$link-color: #709130;                   // Green
-$link-hover: lighten($link-color, 25%); // Lighter green
-$copytext-color: #5C5240;               // Brown
+$blue: #477dca;
+$dark-gray: #333;
+$medium-gray: #999;
+$light-gray: #ddd;
 
-// Fonts
-$heading-font: unquote('Noto Serif, Georgia, serif');
-$copytext-font: unquote('Open Sans, Arial, sans-serif');
+// Font Colors
+$base-font-color: $dark-gray;
+$action-color: $blue;
 
-// Other styles
-$border-radius: 8px;
-$general-spacing: 3em;
-$footer-height: 61px; // For sticky footer.
+// Border
+$base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
 
-// Navigation refill variables
-$navigation-background: $element-background-color;
-$navigation-color: $link-color;
-$navigation-color-hover: $link-hover;
-$navigation-height: 73px;
-$navigation-active-link-color: $link-color;
-$navigation-padding: 1.5em;
+// Background Colors
+$base-background-color: #fff;
+$secondary-background-color: tint($base-border-color, 75%);
 
-// Mixins
-@mixin box-shadow {
-  box-shadow: 0 2px 4px lighten($copytext-color, 10%);
-}
+// Forms
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3);
 
-@mixin inverse-box-shadow {
-  box-shadow: 0 -2px 4px lighten($copytext-color, 10%);
-}
-
-@mixin title-box {
-  // To account for mobile menu.
-  margin-top: $general-spacing * 1.8;
-  margin-bottom: $general-spacing;
-
-  @include media ($wide) {
-    margin-top: em($navigation-height) + $general-spacing;
-  }
-
-  @include box-shadow;
-  background-color: $element-background-color;
-  border-radius: $border-radius;
-  text-align: center;
-
-  h2 {
-    color: $copytext-color;
-    margin: 0;
-    padding: 1em .5em;
-  }
-}
+// Animations
+$base-duration: 150ms;
+$base-timing: ease;

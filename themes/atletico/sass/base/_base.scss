@@ -1,42 +1,15 @@
-/**
- * @file
- *
- * Base styles. Mostly HTML elements.
- */
+// Bitters 1.1.0
+// http://bitters.bourbon.io
+// Copyright 2013-2015 thoughtbot, inc.
+// MIT License
 
-body {
-  background-color: $page-background-color;
-  color: $copytext-color;
-  font-family: $copytext-font;
-}
+@import "variables";
 
-a {
-  color: $link-color;
-  text-decoration: none;
-}
+// Neat Settings -- uncomment if using Neat -- must be imported before Neat
+// @import "grid-settings";
 
-h1,
-h2,
-h3,
-h4,
-h4,
-h5,
-h6 {
-  color: $heading-color;
-  font-family: $heading-font;
-  font-weight: normal;
-  text-decoration: none;
-}
-
-hr {
-  background-color: $heading-color; // For modern browsers.
-  border: none;
-  color: $heading-color; // For old IE.
-  height: 2px;
-  width: 80%;
-}
-
-.xdebug-var-dump,
-.kint {
-  margin-top: 100px !important;
-}
+@import "buttons";
+@import "forms";
+@import "lists";
+@import "tables";
+@import "typography";

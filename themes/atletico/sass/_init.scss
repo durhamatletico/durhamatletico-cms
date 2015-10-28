@@ -28,11 +28,3 @@ $horizontal-bar-mode: new-breakpoint(min-width em(950px, $font-size) $grid-colum
 
 // Import grid to be used (Bourbon Neat) now that we've set our overrides.
 @import "lib/neat/neat";
-
-// Fonts -----------------------------------------------------------------------
-
-// Noto Serif (headings)
-@import url(http://fonts.googleapis.com/css?family=Noto+Serif:400,700);
-
-// Open Sans (copytext)
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400);

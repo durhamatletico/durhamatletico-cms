@@ -5,11 +5,8 @@
 
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
 @import "init";
-@import "base/variables";
-
-/* HTML element (SMACSS base) rules */
-@import "base/normalize";
 @import "base/base";
+/* HTML element (SMACSS base) rules */
 
 /* Layout rules */
 // Import all layout files.
