@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8c9fdf621ce53640f24b24749e59717c",
-    "content-hash": "f38613812a285c03a1a18458384fe0b1",
+    "hash": "8b5b76d61c4b6b83c7a0888e30a011d6",
+    "content-hash": "16807aefebb4ae2eaf6285e02a01a5b4",
     "packages": [
         {
             "name": "composer/installers",
@@ -560,6 +560,37 @@
                 "parser"
             ],
             "time": "2014-09-09 13:34:57"
+        },
+        {
+            "name": "drupal/honeypot",
+            "version": "dev-8.x-1.x",
+            "source": {
+                "type": "git",
+                "url": "http://git.drupal.org/project/honeypot.git",
+                "reference": "419477a486323fda17809c2d318ad38e9faa8a7a"
+            },
+            "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Jeff Geerling",
+                    "email": "geerlingguy@mac.com"
+                }
+            ],
+            "description": "Mitigates spam form submissions using the honeypot method.",
+            "homepage": "https://www.drupal.org/project/honeypot",
+            "keywords": [
+                "Honeypot",
+                "deterrent",
+                "form",
+                "honeytrap",
+                "php",
+                "spam"
+            ],
+            "time": "2015-09-03 20:21:58"
         },
         {
             "name": "easyrdf/easyrdf",
@@ -2004,7 +2035,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/47bb3388cfeae41a38087ac8465a7d08fa92ea2e",
+                "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/b85f22bf7a849b566083db894611cbb2398c6c6d",
                 "reference": "47bb3388cfeae41a38087ac8465a7d08fa92ea2e",
                 "shasum": ""
             },
@@ -3644,6 +3675,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/honeypot": 20,
         "php": 0,
         "symfony/class-loader": 0,
         "symfony/console": 0,

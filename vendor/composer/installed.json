@@ -107,7 +107,7 @@
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/47bb3388cfeae41a38087ac8465a7d08fa92ea2e",
+            "url": "https://api.github.com/repos/wikimedia/composer-merge-plugin/zipball/b85f22bf7a849b566083db894611cbb2398c6c6d",
             "reference": "47bb3388cfeae41a38087ac8465a7d08fa92ea2e",
             "shasum": ""
         },
@@ -3757,5 +3757,38 @@
         ],
         "description": "Symfony EventDispatcher Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "drupal/honeypot",
+        "version": "dev-8.x-1.x",
+        "version_normalized": "dev-8.x-1.x",
+        "source": {
+            "type": "git",
+            "url": "http://git.drupal.org/project/honeypot.git",
+            "reference": "419477a486323fda17809c2d318ad38e9faa8a7a"
+        },
+        "time": "2015-09-03 20:21:58",
+        "type": "drupal-module",
+        "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "Jeff Geerling",
+                "email": "geerlingguy@mac.com"
+            }
+        ],
+        "description": "Mitigates spam form submissions using the honeypot method.",
+        "homepage": "https://www.drupal.org/project/honeypot",
+        "keywords": [
+            "Honeypot",
+            "deterrent",
+            "form",
+            "honeytrap",
+            "php",
+            "spam"
+        ]
     }
 ]
