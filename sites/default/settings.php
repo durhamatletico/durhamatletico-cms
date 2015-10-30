@@ -33,12 +33,14 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     $domain = 'dev.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
       '^dev\.durhamatletico\.com$',
+      'dev-durham-atletico\.pantheon\.io$',
     );
   }
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'test') {
     $domain = 'test.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
       '^test\.durhamatletico\.com$',
+      'test-durham-atletico\.pantheon\.io$',
     );
   }
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
