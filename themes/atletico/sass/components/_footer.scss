@@ -1,0 +1,20 @@
+/**
+ * @file
+ *
+ * Styles for the footer region.
+ */
+
+.region-footer {
+  background-color: $logo-red;
+  border-top: solid 1em $base-font-color;
+  clear: both;
+  padding: $navigation-padding;
+
+  .menu--footer {
+    .menu-item {
+      a {
+        color: $base-background-color;
+      }
+    }
+  }
+}

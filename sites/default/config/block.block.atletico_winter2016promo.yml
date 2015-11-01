@@ -1,0 +1,31 @@
+uuid: 788986fd-c400-4e38-a300-d254ea4d32d2
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:17395d6e-df61-49a2-b44d-77704df2fabf'
+  module:
+    - block_content
+    - system
+  theme:
+    - atletico
+id: atletico_winter2016promo
+theme: atletico
+region: content_left
+weight: -7
+provider: null
+plugin: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
+settings:
+  id: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
+  label: 'Winter futsal league in January 2016'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -6,7 +6,11 @@ base theme: classy
 libraries:
  - atletico/global-styling
 regions:
-  navbar: 'Top Navigation Bar'
+  header: 'Header'
+  breadcrumb: 'Breadcrumbs'
+  highlighted: 'Highlighted'
   content: Content
+  content_left: 'Content Left'
+  content_right: 'Content Right'
   sidebar: 'Sidebar'
   footer: 'Footer'

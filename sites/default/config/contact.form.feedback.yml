@@ -1,0 +1,10 @@
+uuid: 13dfb468-8b37-4d43-9200-0a9220e0317a
+langcode: en
+status: true
+dependencies: {  }
+id: feedback
+label: 'Contact Us'
+recipients:
+  - info@durhamatletico.com
+reply: 'Thanks for writing to us! We''ll be in touch soon.'
+weight: 0

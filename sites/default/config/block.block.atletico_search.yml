@@ -1,0 +1,26 @@
+uuid: ee2e5aa9-2c95-4f61-b242-662201857b20
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - atletico
+id: atletico_search
+theme: atletico
+region: content_right
+weight: -6
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: Search
+  provider: search
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

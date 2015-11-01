@@ -1,0 +1,20 @@
+uuid: 03db96b0-0b65-404e-a822-3487f5b2c3f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - atletico
+id: atletico_help
+theme: atletico
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

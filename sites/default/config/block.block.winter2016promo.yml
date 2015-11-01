@@ -1,0 +1,25 @@
+uuid: d00daa51-4ff3-48f8-a445-6982d56c3426
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:17395d6e-df61-49a2-b44d-77704df2fabf'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: winter2016promo
+theme: bartik
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
+settings:
+  id: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
+  label: 'Winter futsal league in January 2016'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

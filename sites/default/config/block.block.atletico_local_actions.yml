@@ -1,0 +1,18 @@
+uuid: 5afa35ae-6aa0-4ed7-b709-9d36b0653315
+langcode: en
+status: true
+dependencies:
+  theme:
+    - atletico
+id: atletico_local_actions
+theme: atletico
+region: content
+weight: -5
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

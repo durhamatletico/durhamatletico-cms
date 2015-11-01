@@ -1,0 +1,20 @@
+uuid: 208e8326-19dd-4e3a-9e00-a805b8ea48d9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - atletico
+id: atletico_messages
+theme: atletico
+region: highlighted
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

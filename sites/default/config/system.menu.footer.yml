@@ -1,0 +1,8 @@
+uuid: 65c08b3f-6fb2-4c2f-ac06-6ea59faeef0a
+langcode: en
+status: true
+dependencies: {  }
+id: footer
+label: Footer
+description: 'Site information links'
+locked: true

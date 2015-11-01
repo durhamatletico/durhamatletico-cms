@@ -1,0 +1,20 @@
+uuid: 4eb35cd8-6fd6-4f14-a300-f3659b5cd481
+langcode: en
+status: false
+dependencies:
+  theme:
+    - atletico
+id: atletico_local_tasks
+theme: atletico
+region: '-1'
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

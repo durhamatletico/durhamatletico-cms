@@ -1,0 +1,180 @@
+/**
+ * @file
+ *
+ * Styles for the header region.
+ */
+
+header {
+
+  .header__top {
+    @include span-columns(12);
+    background-color: $base-background-color;
+    z-index: 1;
+
+    @include media ($small) {
+      min-height: $header-height;
+    }
+  }
+
+  // Logo styles. --------------------------------------------------------------
+
+  .header__logo {
+    display: inline-block;
+    float: left;
+    max-width: 60%;
+    padding-left: $navigation-padding;
+    width: 250px;
+
+    @include media($small) {
+      width: auto;
+    }
+
+    .header__logo--large {
+      max-height: $navigation-height;
+      padding: .5em 0;
+
+      @include media($small) {
+        display: block;
+        margin: 0;
+        max-height: $header-height;
+        max-width: 400px;
+        padding: 1.5em 0;
+      }
+    }
+  }
+
+  // User menu -----------------------------------------------------------------
+  // TODO: Figure out what to do with this on mobile.
+  .menu--account {
+    float: right;
+    padding-right: $navigation-padding;
+
+    ul {
+      margin: 0;
+    }
+
+    .menu-item {
+      display: inline-block;
+      line-height: $navigation-height;
+      margin-left: 1em;
+      padding: 0;
+
+      @include media($small) {
+        line-height: $header-height;
+
+      }
+
+      a {
+        @extend %button;
+        font-size: .8em;
+        padding: .75em;
+
+        @include media($small) {
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  // Main menu: Bourbon's navigation refill ------------------------------------
+
+  .header__main-menu {
+    @include clearfix;
+    background-color: $base-font-color;
+    clear: both;
+    position: relative;
+
+    // Mobile view.
+    // TODO: Mobile menu not expanding on click.
+    .navigation-menu-button {
+      color: $navigation-color;
+      display: block;
+      float: right;
+      font-weight: 700;
+      margin: 0;
+      padding: .5em $navigation-padding .5em .5em;
+      text-transform: uppercase;
+
+      @include media ($small) {
+        display: none;
+      }
+
+      &:focus,
+      &:hover {
+        color: $navigation-color-hover;
+      }
+    }
+
+    // Nav menu.
+
+    nav {
+      float: none;
+      z-index: 9999999;
+
+      @include media ($small) {
+        min-height: $navigation-height;
+      }
+    }
+
+    ul {
+      -webkit-transform-style: preserve-3d; // Stop webkit flicker.
+      clear: both;
+      display: none;
+      margin: 0 auto;
+      overflow: visible;
+      padding: 0;
+      width: 100%;
+      z-index: 9999;
+
+      &.show {
+        display: block;
+      }
+
+      @include media ($small) {
+        @include display(flex);
+        @include justify-content(center);
+        margin: 0 auto;
+        max-width: 80%;
+        padding: 0;
+      }
+    }
+
+    // The nav items.
+
+    ul li {
+      background: $navigation-background;
+      display: block;
+      line-height: 2em;
+      overflow: hidden;
+      padding-right: $navigation-padding;
+      text-align: right;
+      width: 100%;
+      z-index: 9999;
+
+      @include media ($small) {
+        @include flex(1);
+        background: transparent;
+        line-height: $navigation-height;
+        text-align: center;
+        text-decoration: none;
+        width: auto;
+      }
+
+      a {
+        color: $navigation-color;
+        font-weight: 400;
+        text-decoration: none;
+
+        &:focus,
+        &:hover {
+          color: $navigation-color-hover;
+        }
+      }
+    }
+    // Need to match specificity of system CSS file to override it.
+    ul.menu a.is-active {
+      color: $navigation-active-link-color;
+      font-weight: bold;
+    }
+  }
+}

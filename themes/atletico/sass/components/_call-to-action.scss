@@ -1,0 +1,63 @@
+/**
+ * @file
+ *
+ * Styles for the call to action on the front page.
+ */
+
+.path-frontpage .call-to-action {
+  $large-screen: em(860) !default;
+  $call-to-action-background-top: $logo-blue;
+  $call-to-action-background-bottom: darken($action-color, 20%);
+  $call-to-action-color: white;
+  $gradient-angle: 10deg;
+  $call-to-action-image: '../images/call-to-action.jpg';
+
+  @include background(url($call-to-action-image), linear-gradient($gradient-angle, $call-to-action-background-bottom, $call-to-action-background-top), no-repeat $call-to-action-background-top scroll);
+  background-color: $call-to-action-background-bottom;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: $general-spacing * 3;
+  padding-bottom: $general-spacing * 3;
+
+  .call-to-action__inner {
+    @include outer-container;
+    @include clearfix;
+    margin: auto;
+    padding: 7em 1em 1em;
+    text-align: center;
+
+    @include media($small) {
+      padding: 7em 3.5em 3.5em;
+    }
+
+    .call-to-action__copy {
+      text-align: center;
+
+      h2 {
+        color: $call-to-action-color;
+        font-size: 1.4em;
+        margin-bottom: .5em;
+
+        @include media($large-screen) {
+          font-size: 1.8em;
+        }
+      }
+
+      a {
+        @extend %button;
+        font-size: .8em;
+        margin-bottom: 1em;
+
+        @include media($large-screen) {
+          font-size: 1.1em;
+          margin-bottom: 0;
+        }
+
+        &.call-to-action__button--left {
+          margin-right: .5em;
+        }
+      }
+    }
+  }
+}

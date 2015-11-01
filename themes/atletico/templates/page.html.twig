@@ -54,9 +54,6 @@
     {{ page.header }}
   </header>
 
-  {{ page.primary_menu }}
-  {{ page.secondary_menu }}
-
   {{ page.breadcrumb }}
 
   {{ page.highlighted }}
@@ -70,15 +67,21 @@
       {{ page.content }}
     </div>{# /.layout-content #}
 
-    {% if page.sidebar_first %}
-      <aside class="layout-sidebar-first" role="complementary">
-        {{ page.sidebar_first }}
+    {% if page.content_left %}
+      <aside class="layout-content-left" role="complementary">
+        {{ page.content_left }}
       </aside>
     {% endif %}
 
-    {% if page.sidebar_second %}
-      <aside class="layout-sidebar-second" role="complementary">
-        {{ page.sidebar_second }}
+    {% if page.content_right %}
+      <aside class="layout-content-right" role="complementary">
+        {{ page.content_right }}
+      </aside>
+    {% endif %}
+
+    {% if page.sidebar %}
+      <aside class="layout-sidebar" role="complementary">
+        {{ page.sidebar }}
       </aside>
     {% endif %}
 

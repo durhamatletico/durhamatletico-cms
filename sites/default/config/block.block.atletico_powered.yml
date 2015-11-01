@@ -1,0 +1,20 @@
+uuid: 4d2c7ea2-6322-470f-b800-fbbf8d1892e2
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - atletico
+id: atletico_powered
+theme: atletico
+region: '-1'
+weight: -7
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }
