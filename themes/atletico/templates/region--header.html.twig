@@ -1,0 +1,19 @@
+{#
+/**
+* @file
+* Header template, to be included on every page.
+*/
+#}
+<div class="header__top">
+  <div class="header__logo">
+    <a href="/" title="{{ 'Home'|t }}" rel="home">
+      <img class="header__logo--large" src="/themes/atletico/images/logo.png" alt="Durham Atletico logo">
+    </a>
+  </div>
+  {{ elements.atletico_account_menu }}
+</div>
+
+<div class="header__main-menu">
+  <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+  {{ elements.atletico_main_menu }}
+</div>
