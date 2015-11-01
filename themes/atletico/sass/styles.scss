@@ -12,7 +12,10 @@
 /* Layout rules */
 @import "layouts/layout-base";
 @import "layouts/layout-front";
+@import "layouts/layout-node";
+@import "layouts/layout-posts";
 
 /* Component rules (called 'modules' in SMACSS) */
 @import "components/header";
+@import "components/call-to-action";
 @import "components/footer";

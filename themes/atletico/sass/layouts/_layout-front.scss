@@ -14,7 +14,11 @@
 
     border: solid 1px $light-gray;
     border-radius: $base-border-radius * 2;
-    padding: $general-spacing * 2;
+    padding: $general-spacing;
+
+    @include media($small) {
+      padding: $general-spacing * 2;
+    }
   }
 
   .layout-content-left {

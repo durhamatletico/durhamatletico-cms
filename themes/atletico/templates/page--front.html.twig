@@ -63,6 +63,16 @@
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
+    <div class="call-to-action">
+      <div class="call-to-action__inner">
+        <div class="call-to-action__copy">
+          <h2>Winter league begins in December, stay tuned!</h2>
+          <a class="call-to-action__button--left" href="/posts">Read the latest news</a>
+          <a class="call-to-action__button--right" href="/posts">Read more about futsal</a>
+        </div>
+      </div>
+    </div>
+
     {% if page.content_left %}
       <aside class="layout-content-left" role="complementary">
         {{ page.content_left }}
