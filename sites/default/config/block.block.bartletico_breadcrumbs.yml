@@ -1,0 +1,20 @@
+uuid: 56800558-745d-459d-b200-fc9611cb4c2c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - bartletico
+id: bartletico_breadcrumbs
+theme: bartletico
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

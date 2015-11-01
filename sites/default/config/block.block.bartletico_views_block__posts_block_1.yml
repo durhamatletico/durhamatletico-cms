@@ -1,0 +1,24 @@
+uuid: e87680bd-f61a-44bf-8200-e0f0bbd9a6ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.posts
+  module:
+    - views
+  theme:
+    - bartletico
+id: bartletico_views_block__posts_block_1
+theme: bartletico
+region: sidebar_second
+weight: -7
+provider: null
+plugin: 'views_block:posts-block_1'
+settings:
+  id: 'views_block:posts-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }

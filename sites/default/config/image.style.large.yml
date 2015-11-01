@@ -1,0 +1,15 @@
+uuid: 6127e10b-17b8-4030-9400-d1bb35531f83
+langcode: en
+status: true
+dependencies: {  }
+name: large
+label: 'Large (480×480)'
+effects:
+  ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
+    uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
+    id: image_scale
+    weight: 0
+    data:
+      width: 480
+      height: 480
+      upscale: false

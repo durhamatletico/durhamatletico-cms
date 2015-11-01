@@ -1,0 +1,46 @@
+uuid: f459ad45-2a42-4044-b020-32dbfefd2083
+langcode: en
+status: true
+dependencies: {  }
+id: content_editor
+label: 'Content Editor'
+weight: -8
+is_admin: null
+permissions:
+  0: 'administer comments'
+  1: 'access user contact forms'
+  2: 'access contextual links'
+  3: 'access files overview'
+  4: 'use text format full_html'
+  5: 'use text format restricted_html'
+  6: 'access content overview'
+  7: 'administer nodes'
+  8: 'bypass node access'
+  9: 'view all revisions'
+  10: 'view own unpublished content'
+  11: 'create article content'
+  12: 'delete own article content'
+  13: 'edit any article content'
+  14: 'edit own article content'
+  15: 'revert article revisions'
+  16: 'view article revisions'
+  17: 'create page content'
+  18: 'delete own page content'
+  19: 'delete page revisions'
+  20: 'edit any page content'
+  21: 'edit own page content'
+  22: 'revert page revisions'
+  23: 'view page revisions'
+  24: 'create url aliases'
+  25: 'access in-place editing'
+  26: 'use advanced search'
+  27: 'view post access counter'
+  29: 'view the administration theme'
+  30: 'delete terms in tags'
+  31: 'edit terms in tags'
+  32: 'access toolbar'
+  33: 'access tour'
+  34: 'access user profiles'
+  35: 'administer blocks'
+  36: 'access administration pages'
+  37: 'administer menu'

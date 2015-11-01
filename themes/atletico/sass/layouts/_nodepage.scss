@@ -1,0 +1,78 @@
+/**
+ * @file
+ *
+ * Node page layout styles.
+ */
+
+.path-node {
+
+  main {
+    min-height: 100%; // For sticky footer.
+  }
+
+  // For all nodes pages.
+  article {
+    // 10 columns on mobile (see _base.scss), 8 columns on narrow and up.
+    @include media ($wide) {
+      @include span-columns(8 of 10);
+      @include shift(1 of 10);
+    }
+
+    // For sticky footer.
+    overflow: auto;
+    padding-bottom: $general-spacing + em($footer-height);
+
+  }
+
+  // For Place nodes.
+  // 10 columns on all screens. Switch to 2-column layout on x-wide screens.
+  &.node--type-place {
+
+    article {
+      @include span-columns(10 of 10);
+      @include shift(0);
+    }
+
+    .node__content {
+      clear: both;
+
+      .view-photo-slideshow,
+      .field-node--soundcloud-url {
+        margin: 0 auto $general-spacing;
+      }
+
+    }
+
+    // Title box: 10 columns on mobile and narrow, 6 on wide and up.
+    .node-title-box {
+      @include span-columns(10 of 10);
+
+      @include media ($wide) {
+        @include span-columns(6 of 8);
+        @include shift(1 of 8);
+      }
+
+      .field--name-address-text {
+        padding-bottom: 1.5em;
+      }
+    }
+
+  }
+
+  // For Basic Page nodes (e.g. About).
+  &.node--type-page {
+
+    // Title box: 10 columns on mobile and narrow, 8 on wide and up.
+    #block-atletico-page-title {
+      @include span-columns(10 of 10);
+
+      @include media ($wide) {
+        @include span-columns(8 of 8);
+      }
+    }
+
+    img {
+      display: block;
+    }
+  }
+}
