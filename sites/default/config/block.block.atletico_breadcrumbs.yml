@@ -1,6 +1,6 @@
 uuid: 811020c3-4b95-4cd3-9200-d8edfc3bb770
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - system
@@ -8,7 +8,7 @@ dependencies:
     - atletico
 id: atletico_breadcrumbs
 theme: atletico
-region: breadcrumb
+region: '-1'
 weight: 0
 provider: null
 plugin: system_breadcrumb_block
