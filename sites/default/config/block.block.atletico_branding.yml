@@ -9,7 +9,7 @@ dependencies:
 id: atletico_branding
 theme: atletico
 region: header
-weight: 0
+weight: -5
 provider: null
 plugin: system_branding_block
 settings:
