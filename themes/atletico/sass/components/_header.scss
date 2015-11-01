@@ -6,93 +6,103 @@
 
 header {
 
+  // Top header area. ----------------------------------------------------------
   .header__top {
-    @include span-columns(12);
+    @include span-columns(10);
+    @include shift(1);
     background-color: $base-background-color;
     z-index: 1;
 
     @include media ($small) {
       min-height: $header-height;
     }
-  }
 
-  // Logo styles. --------------------------------------------------------------
+    // Logo styles. ------------------------------------------------------------
+    .header__logo {
+      width: 100%;
 
-  .header__logo {
-    display: inline-block;
-    float: left;
-    max-width: 60%;
-    padding-left: $navigation-padding;
-    width: 250px;
+      @include media($header-break) {
+        display: inline-block;
+        float: left;
+        width: auto;
+      }
 
-    @include media($small) {
-      width: auto;
-    }
-
-    .header__logo--large {
-      max-height: $navigation-height;
-      padding: .5em 0;
-
-      @include media($small) {
+      .header__logo--large {
         display: block;
-        margin: 0;
-        max-height: $header-height;
-        max-width: 400px;
-        padding: 1.5em 0;
-      }
-    }
-  }
+        margin: 0 auto;
+        max-height: 7em;
+        padding: 1em 0;
 
-  // User menu -----------------------------------------------------------------
-  // TODO: Figure out what to do with this on mobile.
-  .menu--account {
-    float: right;
-    padding-right: $navigation-padding;
-
-    ul {
-      margin: 0;
-    }
-
-    .menu-item {
-      display: inline-block;
-      line-height: $navigation-height;
-      margin-left: 1em;
-      padding: 0;
-
-      @include media($small) {
-        line-height: $header-height;
-
-      }
-
-      a {
-        @extend %button;
-        font-size: .8em;
-        padding: .75em;
+        @include media($header-break) {
+          max-height: $navigation-height;
+          padding: .5em 0;
+        }
 
         @include media($small) {
-          font-size: 1em;
+          margin: 0;
+          max-height: $header-height;
+          max-width: 400px;
+          padding: 1.5em 0;
+        }
+      }
+    }
+
+    // User menu ---------------------------------------------------------------
+    .menu--account {
+      display: none;
+
+      @include media($header-break) {
+        display: inline-block;
+        float: right;
+      }
+
+      ul {
+        margin: 0;
+      }
+
+      .menu-item {
+        display: inline-block;
+        line-height: $navigation-height;
+        margin-left: .5em;
+        padding: 0;
+
+        @include media($small) {
+          line-height: $header-height;
+        }
+
+        a {
+          @extend %button;
+          font-size: .8em;
+          padding: .75em;
+
+          @include media($small) {
+            font-size: 1em;
+          }
         }
       }
     }
   }
 
-  // Main menu: Bourbon's navigation refill ------------------------------------
-
+  // Main menu bar. ------------------------------------------------------------
   .header__main-menu {
     @include clearfix;
-    background-color: $base-font-color;
+    background-color: $navigation-background;
     clear: both;
     position: relative;
 
-    // Mobile view.
-    // TODO: Mobile menu not expanding on click.
+    .header__main-menu__wrapper {
+      @include span-columns(10);
+      @include shift(1);
+    }
+
+    // Mobile menu button.
     .navigation-menu-button {
       color: $navigation-color;
       display: block;
       float: right;
       font-weight: 700;
+      line-height: 3em;
       margin: 0;
-      padding: .5em $navigation-padding .5em .5em;
       text-transform: uppercase;
 
       @include media ($small) {
@@ -105,76 +115,103 @@ header {
       }
     }
 
-    // Nav menu.
+    // Main menu. --------------------------------------------------------------
 
-    nav {
+    .menu--main {
       float: none;
       z-index: 9999999;
 
       @include media ($small) {
         min-height: $navigation-height;
       }
-    }
 
-    ul {
-      -webkit-transform-style: preserve-3d; // Stop webkit flicker.
-      clear: both;
-      display: none;
-      margin: 0 auto;
-      overflow: visible;
-      padding: 0;
-      width: 100%;
-      z-index: 9999;
-
-      &.show {
-        display: block;
-      }
-
-      @include media ($small) {
-        @include display(flex);
-        @include justify-content(center);
+      ul {
+        -webkit-transform-style: preserve-3d; // Stop webkit flicker.
+        clear: both;
+        display: none;
         margin: 0 auto;
-        max-width: 80%;
+        overflow: visible;
         padding: 0;
-      }
-    }
+        width: 100%;
+        z-index: 9999;
 
-    // The nav items.
+        &.show {
+          display: block;
+        }
 
-    ul li {
-      background: $navigation-background;
-      display: block;
-      line-height: 2em;
-      overflow: hidden;
-      padding-right: $navigation-padding;
-      text-align: right;
-      width: 100%;
-      z-index: 9999;
-
-      @include media ($small) {
-        @include flex(1);
-        background: transparent;
-        line-height: $navigation-height;
-        text-align: center;
-        text-decoration: none;
-        width: auto;
+        @include media ($small) {
+          @include display(flex);
+          @include justify-content(center);
+          margin: 0 auto;
+          padding: 0;
+        }
       }
 
-      a {
-        color: $navigation-color;
-        font-weight: 400;
-        text-decoration: none;
+      // The nav items.
 
-        &:focus,
-        &:hover {
-          color: $navigation-color-hover;
+      ul li {
+        background: $navigation-background;
+        border-bottom: solid 1px transparentize($navigation-color, .3);
+        display: block;
+        line-height: 2em;
+        overflow: hidden;
+        text-align: right;
+        width: 100%;
+        z-index: 9999;
+
+        @include media ($small) {
+          @include flex(1);
+          background: transparent;
+          line-height: $navigation-height;
+          text-align: center;
+          text-decoration: none;
+          width: auto;
+        }
+
+        a {
+          color: $navigation-color;
+          font-weight: 400;
+          text-decoration: none;
+
+          &:focus,
+          &:hover {
+            color: $navigation-color-hover;
+          }
         }
       }
     }
+
     // Need to match specificity of system CSS file to override it.
     ul.menu a.is-active {
       color: $navigation-active-link-color;
       font-weight: bold;
+    }
+
+    // User menu - only on very small screens. ---------------------------------
+    .menu--account {
+      display: inline-block;
+      float: left;
+
+      @include media($header-break) {
+        display: none;
+      }
+
+      .menu {
+        margin: 0;
+      }
+
+      .menu-item {
+        display: inline-block;
+        margin-right: .5em;
+        padding: .5em 0;
+
+        a {
+          @extend %button;
+          color: $base-background-color;
+          font-size: .8em;
+          padding: .75em;
+        }
+      }
     }
   }
 }

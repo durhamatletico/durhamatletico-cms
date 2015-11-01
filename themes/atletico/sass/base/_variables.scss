@@ -41,10 +41,11 @@ $base-duration: 150ms;
 $base-timing: ease;
 
 // Navigation refill variables
-$navigation-background: transparentize($logo-blue, .1);
+$navigation-background: $base-font-color;
 $navigation-color: transparentize($base-background-color, .2);;
 $navigation-color-hover: $base-background-color;
 $header-height: 8em;
+$header-break: em(450);
 $navigation-height: 4em;
 $navigation-active-link-color: $base-background-color;
 $navigation-padding: 1.5em;

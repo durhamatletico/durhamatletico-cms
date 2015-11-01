@@ -8,9 +8,14 @@
   background-color: $logo-red;
   border-top: solid 1em $base-font-color;
   clear: both;
-  padding: $navigation-padding;
+  padding-bottom: $navigation-padding;
+  padding-top: $navigation-padding;
 
   .menu--footer {
+    @include span-columns(10);
+    @include shift(1);
+    float: none;
+
     .menu-item {
       a {
         color: $base-background-color;
