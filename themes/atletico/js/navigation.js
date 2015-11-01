@@ -4,9 +4,9 @@
 
   menuToggle.on('click', function(e) {
     e.preventDefault();
-    $('#js-navigation-menu').slideToggle(function(){
-      if($('#js-navigation-menu').is(':hidden')) {
-        $('#js-navigation-menu').removeAttr('style');
+    $('#block-atletico-main-menu .menu').slideToggle(function(){
+      if($('#block-atletico-main-menu .menu').is(':hidden')) {
+        $('#block-atletico-main-menu .menu').removeAttr('style');
       }
     });
   });
