@@ -13,6 +13,9 @@ sites/*/services*.yml
 /sites/default/**/files
 /sites/default/**/private
 
+# Allow tracking configuration changes.
+!/sites/default/config/*
+
 # Ignore SimpleTest multi-site environment.
 sites/simpletest
 

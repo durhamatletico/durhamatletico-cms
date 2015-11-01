@@ -1,0 +1,11 @@
+protect_all_forms: false
+log: true
+element_name: url
+time_limit: 5
+form_settings:
+  user_register_form: false
+  user_pass: false
+  contact_message_feedback_form: true
+  contact_message_personal_form: true
+  node_type_node_form: false
+  comment_comment_form: true
