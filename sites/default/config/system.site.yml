@@ -1,0 +1,12 @@
+uuid: abc4f5e7-49cf-48a0-b426-380bd5642f06
+name: 'Durham Atlético'
+mail: kosta@kostaharlan.net
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
