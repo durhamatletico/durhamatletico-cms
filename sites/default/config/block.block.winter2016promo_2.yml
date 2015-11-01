@@ -1,0 +1,31 @@
+uuid: 48913b0b-d49a-49ab-9f00-d4359f08af22
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:17395d6e-df61-49a2-b44d-77704df2fabf'
+  module:
+    - block_content
+    - system
+  theme:
+    - atletico
+id: winter2016promo_2
+theme: atletico
+region: sidebar
+weight: -8
+provider: null
+plugin: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
+settings:
+  id: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
+  label: 'Winter 2016 Promo'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

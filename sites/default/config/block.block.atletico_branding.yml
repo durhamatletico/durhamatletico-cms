@@ -1,0 +1,23 @@
+uuid: 63706ba1-3c74-46e1-8f01-1abd8894b4e7
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - atletico
+id: atletico_branding
+theme: atletico
+region: header
+weight: 0
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: false
+  use_site_slogan: false
+visibility: {  }

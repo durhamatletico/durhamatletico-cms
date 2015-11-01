@@ -1,0 +1,20 @@
+uuid: 811020c3-4b95-4cd3-9200-d8edfc3bb770
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - atletico
+id: atletico_breadcrumbs
+theme: atletico
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

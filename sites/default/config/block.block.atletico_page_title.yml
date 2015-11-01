@@ -1,0 +1,18 @@
+uuid: 4c712211-7e2c-45d0-9800-d3595160d9fd
+langcode: en
+status: true
+dependencies:
+  theme:
+    - atletico
+id: atletico_page_title
+theme: atletico
+region: content
+weight: -7
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

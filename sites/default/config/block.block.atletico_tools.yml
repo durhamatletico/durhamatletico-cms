@@ -1,0 +1,24 @@
+uuid: f27a249a-437b-4188-851c-289b47c96195
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - atletico
+id: atletico_tools
+theme: atletico
+region: header
+weight: -5
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

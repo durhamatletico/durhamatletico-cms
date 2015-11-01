@@ -1,0 +1,20 @@
+uuid: aa153817-898f-42c0-9c08-8c1a6e7427b1
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - atletico
+id: atletico_content
+theme: atletico
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
