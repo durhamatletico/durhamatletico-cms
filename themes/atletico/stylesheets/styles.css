@@ -391,7 +391,7 @@ body .field--name-field-tags .field__items .field__item {
   border-radius: 6px;
   padding: 1em;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 9, ../sass/layouts/_layout-front.scss */
   .path-frontpage .layout-content-left,
   .path-frontpage .layout-content-right {
@@ -406,7 +406,7 @@ body .field--name-field-tags .field__items .field__item {
     margin-right: 0;
   }
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 9, ../sass/layouts/_layout-front.scss */
   .path-frontpage .layout-content-left,
   .path-frontpage .layout-content-right {
@@ -417,7 +417,7 @@ body .field--name-field-tags .field__items .field__item {
 .path-frontpage .layout-content-left {
   margin-bottom: 3em;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 24, ../sass/layouts/_layout-front.scss */
   .path-frontpage .layout-content-left {
     margin-bottom: 0;
@@ -464,7 +464,7 @@ header .header__top {
 header .header__top:last-child {
   margin-right: 0;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 10, ../sass/components/_header.scss */
   header .header__top {
     min-height: 8em;
@@ -496,7 +496,7 @@ header .header__top .header__logo .header__logo--large {
     padding: .5em 0;
   }
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 30, ../sass/components/_header.scss */
   header .header__top .header__logo .header__logo--large {
     margin: 0;
@@ -527,7 +527,7 @@ header .header__top .menu--account .menu-item {
   margin-left: .5em;
   padding: 0;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 63, ../sass/components/_header.scss */
   header .header__top .menu--account .menu-item {
     line-height: 8em;
@@ -538,7 +538,7 @@ header .header__top .menu--account .menu-item a {
   font-size: .8em;
   padding: .75em;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 73, ../sass/components/_header.scss */
   header .header__top .menu--account .menu-item a {
     font-size: 1em;
@@ -578,7 +578,7 @@ header .header__main-menu .navigation-menu-button {
   margin: 0;
   text-transform: uppercase;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 99, ../sass/components/_header.scss */
   header .header__main-menu .navigation-menu-button {
     display: none;
@@ -593,7 +593,7 @@ header .header__main-menu .menu--main {
   float: none;
   z-index: 9999999;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 120, ../sass/components/_header.scss */
   header .header__main-menu .menu--main {
     min-height: 4em;
@@ -614,7 +614,7 @@ header .header__main-menu .menu--main ul {
 header .header__main-menu .menu--main ul.show {
   display: block;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 128, ../sass/components/_header.scss */
   header .header__main-menu .menu--main ul {
     display: -webkit-box;
@@ -648,7 +648,7 @@ header .header__main-menu .menu--main ul li {
   width: 100%;
   z-index: 9999;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 152, ../sass/components/_header.scss */
   header .header__main-menu .menu--main ul li {
     -webkit-box-flex: 1;
@@ -745,7 +745,7 @@ header .header__main-menu .menu--account .menu-item a {
   content: "";
   display: table;
 }
-@media screen and (min-width: 36.11111em) {
+@media screen and (min-width: 40.625em) {
   /* line 23, ../sass/components/_call-to-action.scss */
   .path-frontpage .call-to-action .call-to-action__inner {
     padding: 7em 3.5em 3.5em;
