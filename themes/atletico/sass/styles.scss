@@ -5,14 +5,14 @@
 
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
 @import "init";
+
 /* HTML element (SMACSS base) rules */
 @import "base/base";
 
 /* Layout rules */
-@import "layouts/base";
-@import "layouts/frontpage";
-@import "layouts/nodepage";
-@import "layouts/page";
+@import "layouts/layout-base";
+@import "layouts/layout-front";
 
 /* Component rules (called 'modules' in SMACSS) */
-// Import all component files.
+@import "components/header";
+@import "components/footer";

@@ -1,0 +1,17 @@
+/**
+ * @file
+ *
+ * Site-wide layout styles.
+ */
+
+body {
+  @include outer-container();
+
+  main {
+    @include span-columns(10);
+    @include shift(1);
+    @include clearfix;
+
+    padding: $general-spacing * 3 0;
+  }
+}
