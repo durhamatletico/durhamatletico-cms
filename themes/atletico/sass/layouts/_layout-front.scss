@@ -1,0 +1,31 @@
+/**
+ * @file
+ *
+ * Layout styles for the front page.
+ */
+
+.path-frontpage {
+
+  .layout-content-left,
+  .layout-content-right {
+    @include media($small) {
+      @include span-columns(5 of 10);
+    }
+
+    border: solid 1px $light-gray;
+    border-radius: $base-border-radius * 2;
+    padding: $general-spacing;
+
+    @include media($small) {
+      padding: $general-spacing * 2;
+    }
+  }
+
+  .layout-content-left {
+    margin-bottom: $general-spacing * 3;
+
+    @include media($small) {
+      margin-bottom: 0;
+    }
+  }
+}
