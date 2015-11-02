@@ -4,6 +4,20 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.user.compact
+    - field.field.user.user.field_birth_date
+    - field.field.user.user.field_facebook
+    - field.field.user.user.field_favorite_team_or_player
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_instagram
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_linkedin
+    - field.field.user.user.field_opt_in_for_email_news
+    - field.field.user.user.field_opt_in_social_media
+    - field.field.user.user.field_opt_in_text_alerts
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_preferred_language
+    - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_twitter
     - field.field.user.user.user_picture
   module:
     - image
@@ -22,4 +36,18 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
+  field_birth_date: true
+  field_facebook: true
+  field_favorite_team_or_player: true
+  field_first_name: true
+  field_instagram: true
+  field_last_name: true
+  field_linkedin: true
+  field_opt_in_for_email_news: true
+  field_opt_in_social_media: true
+  field_opt_in_text_alerts: true
+  field_phone: true
+  field_preferred_language: true
+  field_terms_and_conditions: true
+  field_twitter: true
   member_for: true

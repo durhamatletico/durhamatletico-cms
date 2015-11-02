@@ -14,6 +14,7 @@ dependencies:
     - field.field.user.user.field_opt_in_social_media
     - field.field.user.user.field_opt_in_text_alerts
     - field.field.user.user.field_phone
+    - field.field.user.user.field_preferred_language
     - field.field.user.user.field_terms_and_conditions
     - field.field.user.user.field_twitter
     - field.field.user.user.user_picture
@@ -21,6 +22,8 @@ dependencies:
     - datetime
     - image
     - link
+    - options
+    - telephone
     - user
 id: user.user.default
 targetEntityType: user
@@ -118,9 +121,16 @@ content:
   field_phone:
     weight: 8
     label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+  field_preferred_language:
+    weight: 19
+    label: above
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: list_default
   field_terms_and_conditions:
     weight: 17
     label: above
@@ -143,6 +153,8 @@ content:
     type: link
   member_for:
     weight: 5
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0

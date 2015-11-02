@@ -1,0 +1,30 @@
+uuid: d1146e68-e30a-4a3d-871b-27be9782e702
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_preferred_language
+field_name: field_preferred_language
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: English
+      label: English
+    -
+      value: Español
+      label: Español
+    -
+      value: Other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
