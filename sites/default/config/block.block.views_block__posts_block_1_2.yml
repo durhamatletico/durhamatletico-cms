@@ -1,18 +1,17 @@
-uuid: d01a6030-719b-4683-8d00-e2640387aa23
+uuid: 18df2856-8fab-42e2-8e4b-7568952d78c7
 langcode: en
 status: true
 dependencies:
   config:
     - views.view.posts
   module:
-    - system
     - views
   theme:
     - atletico
-id: atletico_views_block__posts_block_1
+id: views_block__posts_block_1_2
 theme: atletico
-region: content_right
-weight: -8
+region: sidebar
+weight: null
 provider: null
 plugin: 'views_block:posts-block_1'
 settings:
@@ -22,9 +21,4 @@ settings:
   label_display: visible
   views_label: ''
   items_per_page: none
-visibility:
-  request_path:
-    id: request_path
-    pages: '<front>'
-    negate: false
-    context_mapping: {  }
+visibility: {  }

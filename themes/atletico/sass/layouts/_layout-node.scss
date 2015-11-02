@@ -5,7 +5,24 @@
  */
 
 .path-node {
+
+  // Tabs viewable by admins.
+  #block-atletico-local-tasks {
+    margin-bottom: 1.5em;
+    text-align: center;
+  }
+
   section {
-    margin-top: $general-spacing * 2;
+    margin-top: $general-spacing * 1.5;
+  }
+
+  .node__links {
+    .comment-forbidden {
+      padding: 0;
+    }
+  }
+
+  .layout-sidebar {
+    // TODO.
   }
 }
