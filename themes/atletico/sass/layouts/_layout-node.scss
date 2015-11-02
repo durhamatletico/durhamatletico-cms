@@ -30,35 +30,24 @@
   }
 
   .layout-sidebar {
+    margin-top: $general-spacing * 3;
+
     @include media($medium) {
       @include span-columns(3 of 10);
       @include shift(.25);
+      margin-top: 0;
     }
 
     .block {
-      @extend %block;
       margin-bottom: $general-spacing * 3;
-    }
 
-    h2 {
-      text-align: center;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     .item-list li {
       margin-left: 0;
-    }
-
-    // Recent posts.
-    .block-views-blockposts-block-1 {
-      .item-list li {
-        border-bottom: solid 1px $light-gray;
-        padding-bottom: .25em;
-
-        &:last-child {
-          border: none;
-          padding: none;
-        }
-      }
     }
   }
 }

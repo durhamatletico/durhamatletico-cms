@@ -472,6 +472,10 @@ body .field--name-field-tags .field__items .field__item {
     margin-right: 0;
   }
 }
+/* line 32, ../sass/layouts/_layout-node.scss */
+.path-node .layout-sidebar {
+  margin-top: 3em;
+}
 @media screen and (min-width: 60em) {
   /* line 32, ../sass/layouts/_layout-node.scss */
   .path-node .layout-sidebar {
@@ -480,33 +484,24 @@ body .field--name-field-tags .field__items .field__item {
     margin-right: 2.84259%;
     width: 28.01019%;
     margin-left: 2.57106%;
+    margin-top: 0;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
   .path-node .layout-sidebar:last-child {
     margin-right: 0;
   }
 }
-/* line 38, ../sass/layouts/_layout-node.scss */
+/* line 41, ../sass/layouts/_layout-node.scss */
 .path-node .layout-sidebar .block {
   margin-bottom: 3em;
 }
-/* line 43, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar h2 {
-  text-align: center;
+/* line 44, ../sass/layouts/_layout-node.scss */
+.path-node .layout-sidebar .block:last-child {
+  margin-bottom: 0;
 }
-/* line 47, ../sass/layouts/_layout-node.scss */
+/* line 49, ../sass/layouts/_layout-node.scss */
 .path-node .layout-sidebar .item-list li {
   margin-left: 0;
-}
-/* line 53, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar .block-views-blockposts-block-1 .item-list li {
-  border-bottom: solid 1px #ddd;
-  padding-bottom: .25em;
-}
-/* line 57, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar .block-views-blockposts-block-1 .item-list li:last-child {
-  border: none;
-  padding: none;
 }
 
 /**
@@ -862,6 +857,38 @@ header .header__main-menu .menu--account .menu-item a {
 /* line 63, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a.call-to-action__button--left {
   margin-right: .5em;
+}
+
+/**
+ * @file
+ *
+ * Styles for node page sidebar.
+ */
+/* line 8, ../sass/components/_sidebar.scss */
+.path-node .layout-sidebar .block {
+  padding: 0;
+}
+/* line 12, ../sass/components/_sidebar.scss */
+.path-node .layout-sidebar .block h2 {
+  background-color: #4a4a4a;
+  border-radius: 6px 6px 0 0;
+  color: #fff;
+  padding: .5em 0;
+  text-align: center;
+}
+/* line 21, ../sass/components/_sidebar.scss */
+.path-node .layout-sidebar .block .view-content {
+  padding: 0 1em 1em;
+}
+/* line 28, ../sass/components/_sidebar.scss */
+.path-node .layout-sidebar .block-views-blockposts-block-1 .item-list li {
+  border-bottom: solid 1px #ddd;
+  padding-bottom: .25em;
+}
+/* line 32, ../sass/components/_sidebar.scss */
+.path-node .layout-sidebar .block-views-blockposts-block-1 .item-list li:last-child {
+  border: none;
+  padding: 0;
 }
 
 /**
