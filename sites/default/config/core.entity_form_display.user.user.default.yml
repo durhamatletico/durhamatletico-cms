@@ -3,9 +3,25 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_birth_date
+    - field.field.user.user.field_facebook
+    - field.field.user.user.field_favorite_team_or_player
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_instagram
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_linkedin
+    - field.field.user.user.field_opt_in_for_email_news
+    - field.field.user.user.field_opt_in_social_media
+    - field.field.user.user.field_opt_in_text_alerts
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_twitter
     - field.field.user.user.user_picture
   module:
+    - datetime
     - image
+    - link
+    - telephone
     - user
 id: user.user.default
 targetEntityType: user
@@ -13,18 +29,108 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
-  contact:
-    weight: 5
-  language:
     weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  contact:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  field_birth_date:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_facebook:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_favorite_team_or_player:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_first_name:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_instagram:
+    weight: 12
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_last_name:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+  field_linkedin:
+    weight: 13
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  field_opt_in_for_email_news:
+    weight: 9
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_opt_in_social_media:
+    weight: 10
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_opt_in_text_alerts:
+    weight: 8
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_phone:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+  field_terms_and_conditions:
+    weight: 16
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  field_twitter:
+    weight: 14
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+  language:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
   timezone:
     weight: 6
   user_picture:
     type: image_image
     settings:
-      progress_indicator: throbber
+      progress_indicator: bar
       preview_image_style: thumbnail
     third_party_settings: {  }
-    weight: -1
+    weight: 1
 hidden: {  }

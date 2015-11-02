@@ -1,0 +1,24 @@
+uuid: 05006517-35e7-4b5b-9217-23fa3869961e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_opt_in_social_media
+  module:
+    - user
+id: user.user.field_opt_in_social_media
+field_name: field_opt_in_social_media
+entity_type: user
+bundle: user
+label: 'Opt-in for social media links'
+description: 'Opt-in if you would like other registered players (logged-in users only) to be able to view links to your social media accounts.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Opt-in
+  off_label: Opt-out
+field_type: boolean

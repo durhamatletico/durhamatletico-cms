@@ -1,0 +1,18 @@
+uuid: 3f18b468-1e76-4ee6-b502-2ebd00609d7d
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_opt_in_text_alerts
+field_name: field_opt_in_text_alerts
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

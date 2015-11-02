@@ -1,0 +1,24 @@
+uuid: 0d3c6381-b7f4-4a92-8725-37e196eb3272
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_opt_in_for_email_news
+  module:
+    - user
+id: user.user.field_opt_in_for_email_news
+field_name: field_opt_in_for_email_news
+entity_type: user
+bundle: user
+label: 'Opt-in for email news'
+description: 'Opt-in to receive a periodic newsletter from us. <strong>(Recommended)</strong>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Opt-in to email newsletter'
+  off_label: Opt-out
+field_type: boolean

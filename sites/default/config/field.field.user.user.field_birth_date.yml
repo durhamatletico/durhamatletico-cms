@@ -1,0 +1,24 @@
+uuid: 90ac483d-e61a-4455-b600-f7849a52cfb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_birth_date
+  module:
+    - datetime
+    - user
+id: user.user.field_birth_date
+field_name: field_birth_date
+entity_type: user
+bundle: user
+label: 'Birth date'
+description: 'The futsal league is open to players ages 18 and over.'
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: relative
+    default_date: '-18 years'
+default_value_callback: ''
+settings: {  }
+field_type: datetime

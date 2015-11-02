@@ -1,0 +1,14 @@
+uuid: 5a7ba332-3430-4098-8300-eaf7fe560408
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.player
+  module:
+    - user
+id: user_add_role_action.player
+label: 'Add the Player role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: player
