@@ -423,6 +423,14 @@ body .field--name-field-tags .field__items .field__item {
     margin-bottom: 0;
   }
 }
+/* line 31, ../sass/layouts/_layout-front.scss */
+.path-frontpage .layout-content-left .field--name-body h2 {
+  margin-top: 1.5em;
+}
+/* line 37, ../sass/layouts/_layout-front.scss */
+.path-frontpage .layout-content-right .menu--tools h2 {
+  margin-top: 1.5em;
+}
 
 /**
  * @file
@@ -769,8 +777,13 @@ header .header__main-menu .menu--account .menu-item a {
 }
 /* line 47, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a {
+  background-color: #ea3745;
   font-size: .8em;
   margin-bottom: 1em;
+}
+/* line 53, ../sass/components/_call-to-action.scss */
+.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:hover, .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:focus {
+  background-color: #ef6570;
 }
 @media screen and (min-width: 53.75em) {
   /* line 47, ../sass/components/_call-to-action.scss */
@@ -779,7 +792,7 @@ header .header__main-menu .menu--account .menu-item a {
     margin-bottom: 0;
   }
 }
-/* line 57, ../sass/components/_call-to-action.scss */
+/* line 63, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a.call-to-action__button--left {
   margin-right: .5em;
 }
