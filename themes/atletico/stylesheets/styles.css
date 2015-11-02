@@ -328,6 +328,20 @@ picture {
   max-width: 100%;
 }
 
+/* line 68, ../sass/base/_typography.scss */
+blockquote {
+  border-left: 4px solid #ddd;
+  margin-left: 1em;
+  padding-left: .5em;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 68, ../sass/base/_typography.scss */
+  blockquote {
+    margin-left: 2em;
+    padding-left: 1em;
+  }
+}
+
 /* Layout rules */
 /**
  * @file
@@ -437,9 +451,18 @@ body .field--name-field-tags .field__items .field__item {
  *
  * Layout styles for node pages.
  */
-/* line 8, ../sass/layouts/_layout-node.scss */
+/* line 10, ../sass/layouts/_layout-node.scss */
+.path-node #block-atletico-local-tasks {
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+/* line 15, ../sass/layouts/_layout-node.scss */
 .path-node section {
-  margin-top: 2em;
+  margin-top: 1.5em;
+}
+/* line 20, ../sass/layouts/_layout-node.scss */
+.path-node .node__links .comment-forbidden {
+  padding: 0;
 }
 
 /**
@@ -826,4 +849,31 @@ header .header__main-menu .menu--account .menu-item a {
 /* line 20, ../sass/components/_footer.scss */
 .region-footer .menu--footer .menu-item a {
   color: #fff;
+}
+
+/**
+ * @file
+ *
+ * Styles for node pages.
+ */
+/* line 8, ../sass/components/_node.scss */
+.path-node h1 {
+  border-bottom: solid 4px #ea3745;
+  padding-bottom: .5em;
+  text-align: center;
+}
+/* line 14, ../sass/components/_node.scss */
+.path-node .node__meta {
+  margin-bottom: 1.5em;
+  text-align: center;
+}
+/* line 21, ../sass/components/_node.scss */
+.path-node .node__content .field--name-body p:last-child {
+  margin-bottom: 0;
+}
+/* line 25, ../sass/components/_node.scss */
+.path-node .node__content .field--name-field-tags {
+  border-bottom: solid 4px #ea3745;
+  margin: 1.5em 0;
+  padding-bottom: 1.5em;
 }

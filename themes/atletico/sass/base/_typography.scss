@@ -64,3 +64,15 @@ picture {
   margin: 0;
   max-width: 100%;
 }
+
+blockquote,
+%blockquote {
+  border-left: 4px solid $light-gray;
+  margin-left: 1em;
+  padding-left: .5em;
+
+  @include media($small) {
+    margin-left: 2em;
+    padding-left: 1em;
+  }
+}
