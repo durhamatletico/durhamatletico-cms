@@ -49,3 +49,10 @@ $header-break: em(450);
 $navigation-height: 4em;
 $navigation-active-link-color: $base-background-color;
 $navigation-padding: 1.5em;
+
+// Custom mixins and abstract classes
+%block {
+  border: solid 1px $light-gray;
+  border-radius: $base-border-radius * 2;
+  padding: $general-spacing;
+}
