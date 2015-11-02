@@ -36,6 +36,7 @@ content:
     label: hidden
 hidden:
   field_birth_date: true
+  field_city: true
   field_facebook: true
   field_first_name: true
   field_instagram: true
