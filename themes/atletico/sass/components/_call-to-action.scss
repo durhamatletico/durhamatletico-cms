@@ -46,8 +46,14 @@
 
       a {
         @extend %button;
+        background-color: $logo-red;
         font-size: .8em;
         margin-bottom: 1em;
+
+        &:hover,
+        &:focus {
+          background-color: lighten($logo-red, 10%);
+        }
 
         @include media($large-screen) {
           font-size: 1.1em;
