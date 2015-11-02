@@ -1,6 +1,6 @@
 dependencies:
   post:
-    - cd themes/atletico; gem install
+    - cd themes/atletico; bundle install
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint . -e stylesheets/styles.css,sass/lib/*
