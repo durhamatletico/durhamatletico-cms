@@ -6,4 +6,4 @@ test:
     - cd themes/atletico; bundle exec scss-lint . -e stylesheets/styles.css,sass/lib/*
 machine:
   php:
-    version: 5.5
+    version: 5.5.21
