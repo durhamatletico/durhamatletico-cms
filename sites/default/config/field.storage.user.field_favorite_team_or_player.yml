@@ -1,0 +1,19 @@
+uuid: 49c8943c-16b2-4afb-9e08-8e8e87adf8dd
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_favorite_team_or_player
+field_name: field_favorite_team_or_player
+entity_type: user
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

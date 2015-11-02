@@ -1,0 +1,14 @@
+uuid: a689fc60-b694-41e0-ac00-e26edd0776a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.team_captain
+  module:
+    - user
+id: user_add_role_action.team_captain
+label: 'Add the Team Captain role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: team_captain

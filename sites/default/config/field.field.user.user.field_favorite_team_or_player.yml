@@ -1,0 +1,20 @@
+uuid: 134d4918-6fd1-46bb-8900-e621ebb2b75b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_favorite_team_or_player
+  module:
+    - user
+id: user.user.field_favorite_team_or_player
+field_name: field_favorite_team_or_player
+entity_type: user
+bundle: user
+label: 'Favorite team or player'
+description: 'Who is your favorite futsal/soccer team or player? This helps us filter out spam user registrations from real people.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

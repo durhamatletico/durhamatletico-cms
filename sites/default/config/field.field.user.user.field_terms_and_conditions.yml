@@ -1,0 +1,24 @@
+uuid: 5e09bef8-5448-4307-9909-9ab72b335ed6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_terms_and_conditions
+  module:
+    - user
+id: user.user.field_terms_and_conditions
+field_name: field_terms_and_conditions
+entity_type: user
+bundle: user
+label: 'Terms and Conditions'
+description: 'By registering on this site, you accept our <a href="#">terms and conditions</a> and our <a href=#">privacy policy</a>.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'I accept the terms and conditions'
+  off_label: 'I do not accept the terms and conditions'
+field_type: boolean

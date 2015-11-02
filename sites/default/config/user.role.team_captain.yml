@@ -1,0 +1,9 @@
+uuid: bf6c79bb-24cf-4176-b309-9aeeb4de3e09
+langcode: en
+status: true
+dependencies: {  }
+id: team_captain
+label: 'Team Captain'
+weight: -7
+is_admin: null
+permissions: {  }

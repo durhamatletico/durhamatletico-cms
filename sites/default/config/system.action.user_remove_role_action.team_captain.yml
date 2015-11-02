@@ -1,0 +1,14 @@
+uuid: 53865f4b-3c2e-4e26-b309-9c3912984941
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.team_captain
+  module:
+    - user
+id: user_remove_role_action.team_captain
+label: 'Remove the Team Captain role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: team_captain

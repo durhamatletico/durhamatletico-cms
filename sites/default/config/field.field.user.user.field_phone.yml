@@ -1,0 +1,21 @@
+uuid: 9a8973f9-595c-47ea-a15b-917e1d38052e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_phone
+  module:
+    - telephone
+    - user
+id: user.user.field_phone
+field_name: field_phone
+entity_type: user
+bundle: user
+label: Phone
+description: 'We will only use your phone number if you opt-in for text message alerts from us.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone
