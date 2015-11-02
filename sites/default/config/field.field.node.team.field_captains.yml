@@ -1,0 +1,27 @@
+uuid: 51387769-be01-4da0-8f00-da1863b3763e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_captains
+    - node.type.team
+id: node.team.field_captains
+field_name: field_captains
+entity_type: node
+bundle: team
+label: 'Team Captain(s)'
+description: 'Add the player or players who captain the team.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+field_type: entity_reference

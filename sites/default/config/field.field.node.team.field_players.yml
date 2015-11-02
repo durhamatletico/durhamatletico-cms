@@ -1,0 +1,27 @@
+uuid: 08fa2361-6c1a-4fd5-a008-8c482c4f6d7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_players
+    - node.type.team
+id: node.team.field_players
+field_name: field_players
+entity_type: node
+bundle: team
+label: Players
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+field_type: entity_reference

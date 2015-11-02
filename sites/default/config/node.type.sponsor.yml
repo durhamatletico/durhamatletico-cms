@@ -1,0 +1,17 @@
+uuid: e9c60f6f-4372-4d1e-9302-2ff7aa0e93a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Sponsor
+type: sponsor
+description: 'Use the <em>sponsor</em> content type to add sponsors for the league.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

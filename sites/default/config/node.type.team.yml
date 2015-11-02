@@ -1,0 +1,17 @@
+uuid: 8c344390-7ca9-4fea-9b21-335f53d8b683
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Team
+type: team
+description: 'Use the <em>team</em> content type to add a team of players for a division.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

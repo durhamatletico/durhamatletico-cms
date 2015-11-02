@@ -1,0 +1,24 @@
+uuid: 0068a2f6-5078-40a2-9703-3c00b1d0d3a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.sponsor.body
+    - node.type.sponsor
+  module:
+    - text
+    - user
+id: node.sponsor.default
+targetEntityType: node
+bundle: sponsor
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden: {  }
