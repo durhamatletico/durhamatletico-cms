@@ -2,6 +2,12 @@ name: Honeypot
 type: module
 description: 'Mitigates spam form submissions using the honeypot method.'
 package: "Spam control"
-core: 8.x
+# core: 8.x
 configure: honeypot.config
 hidden: false
+
+# Information added by Drupal.org packaging script on 2015-10-01
+version: '8.x-1.21'
+core: '8.x'
+project: 'honeypot'
+datestamp: 1443738541
