@@ -8,15 +8,10 @@
 
   .layout-content-left,
   .layout-content-right {
+    @extend %block;
+
     @include media($small) {
       @include span-columns(5 of 10);
-    }
-
-    border: solid 1px $light-gray;
-    border-radius: $base-border-radius * 2;
-    padding: $general-spacing;
-
-    @include media($small) {
       padding: $general-spacing * 2;
     }
   }

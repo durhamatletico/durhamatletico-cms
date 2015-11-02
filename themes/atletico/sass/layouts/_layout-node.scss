@@ -22,7 +22,32 @@
     }
   }
 
+  // Two column layout on larger screens.
+  .layout-content {
+    @include media($medium) {
+      @include span-columns(6.75 of 10);
+    }
+  }
+
   .layout-sidebar {
-    // TODO.
+    margin-top: $general-spacing * 3;
+
+    @include media($medium) {
+      @include span-columns(3 of 10);
+      @include shift(.25);
+      margin-top: 0;
+    }
+
+    .block {
+      margin-bottom: $general-spacing * 3;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .item-list li {
+      margin-left: 0;
+    }
   }
 }
