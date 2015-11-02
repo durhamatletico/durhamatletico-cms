@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_birth_date
     - field.field.user.user.field_facebook
-    - field.field.user.user.field_favorite_team_or_player
     - field.field.user.user.field_first_name
     - field.field.user.user.field_instagram
     - field.field.user.user.field_last_name
@@ -38,7 +37,6 @@ content:
 hidden:
   field_birth_date: true
   field_facebook: true
-  field_favorite_team_or_player: true
   field_first_name: true
   field_instagram: true
   field_last_name: true

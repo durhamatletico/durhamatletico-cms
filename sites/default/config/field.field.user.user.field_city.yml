@@ -1,0 +1,20 @@
+uuid: 8d381230-5b2e-4158-8000-d429efae71b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_city
+  module:
+    - user
+id: user.user.field_city
+field_name: field_city
+entity_type: user
+bundle: user
+label: 'What city do you live in?'
+description: 'Please enter the name of the city you live in.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

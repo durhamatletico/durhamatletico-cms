@@ -1,14 +1,16 @@
-uuid: 49c8943c-16b2-4afb-9e08-8e8e87adf8dd
+uuid: 5bc07a32-df78-4ed2-8609-9d80a52ca76f
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: user.field_favorite_team_or_player
-field_name: field_favorite_team_or_player
+id: user.field_city
+field_name: field_city
 entity_type: user
-type: string_long
+type: string
 settings:
+  max_length: 20
+  is_ascii: false
   case_sensitive: false
 module: core
 locked: false
