@@ -1,0 +1,9 @@
+uuid: cdc0addb-7b80-4008-9500-0db9af0d4086
+langcode: en
+status: true
+dependencies: {  }
+id: es
+label: Spanish
+direction: ltr
+weight: 1
+locked: false

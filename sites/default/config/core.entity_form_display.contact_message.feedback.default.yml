@@ -11,6 +11,11 @@ mode: default
 content:
   copy:
     weight: 50
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
   mail:
     weight: -40
   message:

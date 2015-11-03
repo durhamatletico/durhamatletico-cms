@@ -1,0 +1,30 @@
+label: 'Página principal'
+display:
+  default:
+    display_options:
+      empty:
+        area_text_custom:
+          content: 'Aún no se ha creado contenido para la portada.'
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todos -'
+            offset_label: Desplazamiento
+          tags:
+            previous: '‹ Anterior'
+            next: 'Siguiente >'
+            first: '« Primero'
+            last: 'Último »'
+    display_title: Maestro
+  feed_1:
+    display_title: Feed
+  page_1:
+    display_title: Página

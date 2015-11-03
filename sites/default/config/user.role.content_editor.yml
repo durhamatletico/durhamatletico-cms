@@ -44,3 +44,7 @@ permissions:
   35: 'administer blocks'
   36: 'access administration pages'
   37: 'administer menu'
+  38: 'create content translations'
+  39: 'delete content translations'
+  40: 'update content translations'
+  41: 'translate any entity'

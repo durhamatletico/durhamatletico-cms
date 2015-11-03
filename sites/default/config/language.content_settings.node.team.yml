@@ -1,0 +1,16 @@
+uuid: 44bf8506-6932-422d-af3c-608b8aa3575f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.team
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.team
+target_entity_type_id: node
+target_bundle: team
+default_langcode: site_default
+language_alterable: true

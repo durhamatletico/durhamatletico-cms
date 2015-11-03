@@ -1,0 +1,32 @@
+description: 'Todo el contenido, por letra.'
+display:
+  default:
+    display_title: Maestro
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Aplicar
+          reset_button_label: Reiniciar
+          exposed_sorts_label: 'Ordenar por'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Elementos por página'
+            items_per_page_options_all_label: '- Todos -'
+            offset_label: Desplazamiento
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        title:
+          label: Título
+        name:
+          label: Autor
+        changed:
+          label: 'Última actualización'
+  attachment_1:
+    display_title: Adjunto
+  page_1:
+    display_title: Página

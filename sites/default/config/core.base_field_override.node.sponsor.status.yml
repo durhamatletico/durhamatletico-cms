@@ -1,0 +1,22 @@
+uuid: 5d15445a-8d1b-40d4-ba51-810ba2612c56
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.sponsor
+id: node.sponsor.status
+field_name: status
+entity_type: node
+bundle: sponsor
+label: 'Publishing status'
+description: 'A boolean indicating whether the node is published.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

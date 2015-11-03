@@ -34,3 +34,4 @@ hidden:
   field_sponsors: true
   field_team_logo: true
   field_team_photo: true
+  langcode: true

@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_birth_date
+    - field.field.user.user.field_city
     - field.field.user.user.field_facebook
     - field.field.user.user.field_first_name
     - field.field.user.user.field_instagram
