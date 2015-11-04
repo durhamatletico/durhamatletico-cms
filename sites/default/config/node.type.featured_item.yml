@@ -1,0 +1,17 @@
+uuid: e3fa5ba2-7238-49f7-a300-de418f571d76
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Featured Item'
+type: featured_item
+description: 'Use this content type to create a Featured Item for the homepage.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

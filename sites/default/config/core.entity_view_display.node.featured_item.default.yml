@@ -1,0 +1,47 @@
+uuid: ca41c011-002e-468d-ae28-402c46bd7565
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.featured_item.field_call_to_action_big_text
+    - field.field.node.featured_item.field_call_to_action_image
+    - field.field.node.featured_item.field_call_to_action_links
+    - node.type.featured_item
+  module:
+    - image
+    - link
+    - user
+id: node.featured_item.default
+targetEntityType: node
+bundle: featured_item
+mode: default
+content:
+  field_call_to_action_big_text:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+  field_call_to_action_image:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_call_to_action_links:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  links:
+    weight: 100
+hidden:
+  langcode: true

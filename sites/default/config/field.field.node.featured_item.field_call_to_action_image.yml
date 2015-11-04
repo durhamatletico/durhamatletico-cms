@@ -1,0 +1,38 @@
+uuid: c1d91e1c-0040-42fe-a502-2cb194f5f3fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_call_to_action_image
+    - node.type.featured_item
+  module:
+    - image
+id: node.featured_item.field_call_to_action_image
+field_name: field_call_to_action_image
+entity_type: node
+bundle: featured_item
+label: 'Call to action background image'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '200 KB'
+  max_resolution: 800x482
+  min_resolution: 800x300
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image
