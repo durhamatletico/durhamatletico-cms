@@ -16,10 +16,12 @@ content:
   body:
     label: hidden
     type: text_default
-    weight: 100
+    weight: 0
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 101
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true

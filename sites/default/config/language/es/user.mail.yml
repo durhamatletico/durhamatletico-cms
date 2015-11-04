@@ -1,4 +1,5 @@
 cancel_confirm:
+  body: "[user:display-name],\r\n\r\nA request to cancel your account has been made at [site:name].\r\n\r\nYou may now cancel your account on [site:url-brief] by clicking this link or copying and pasting it into your browser:\r\n\r\n[user:cancel-url]\r\n\r\nNOTE: The cancellation of your account is not reversible.\r\n\r\nThis link expires in one day and nothing will happen if it is not used.\r\n\r\n--  [site:name] team"
   subject: 'Solicitud de cancelación de cuenta para [user:display-name] en [site:name]'
 password_reset:
   subject: 'Reemplazo de información de inicio de sesión para [user:display-name] en[site:name]'
