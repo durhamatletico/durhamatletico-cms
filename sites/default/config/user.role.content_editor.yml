@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: content_editor
 label: 'Content Editor'
-weight: -6
+weight: -5
 is_admin: null
 permissions:
   0: 'administer comments'
