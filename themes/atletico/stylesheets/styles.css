@@ -513,6 +513,11 @@ body .field--name-field-tags .field__items .field__item {
 .path-posts article {
   margin-bottom: 2em;
 }
+/* line 11, ../sass/layouts/_layout-posts.scss */
+.path-posts article img {
+  display: block;
+  margin: 1em auto;
+}
 
 /* Component rules (called 'modules' in SMACSS) */
 /**
