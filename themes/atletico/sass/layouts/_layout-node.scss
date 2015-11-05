@@ -4,6 +4,7 @@
  * Layout styles for node pages.
  */
 
+// All node pages.
 .path-node {
 
   // Tabs viewable by admins.
@@ -15,6 +16,17 @@
   section {
     margin-top: $general-spacing * 1.5;
   }
+
+  article {
+    img {
+      display: block;
+      margin: 1em auto;
+    }
+  }
+}
+
+// Articles.
+.node--type-article {
 
   .node__links {
     .comment-forbidden {
@@ -48,6 +60,17 @@
 
     .item-list li {
       margin-left: 0;
+    }
+  }
+}
+
+// Basic pages.
+.node--type-page {
+
+  main {
+    @include media($medium) {
+      @include span-columns(8 of 12);
+      @include shift(2);
     }
   }
 }
