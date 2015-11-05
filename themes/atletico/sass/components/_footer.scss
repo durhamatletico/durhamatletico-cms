@@ -5,20 +5,62 @@
  */
 
 .region-footer {
-  background-color: $logo-red;
-  border-top: solid 1em $base-font-color;
+  background-color: $footer-background;
+  border-top: solid 1em $logo-red;
   clear: both;
-  padding-bottom: $navigation-padding;
-  padding-top: $navigation-padding;
+  padding-bottom: $navigation-padding / 2;
+  padding-top: $navigation-padding / 2;
 
-  .menu--footer {
+  .footer__wrapper {
     @include span-columns(10);
     @include shift(1);
     float: none;
+  }
+
+  .footer__logo {
+    display: inline-block;
+
+    img {
+      line-height: 1em;
+    }
+  }
+
+  .menu--footer {
+    display: inline-block;
+    float: right;
+
+    .menu {
+      line-height: 1.5em;
+      margin: 0 0 1em 0;
+      padding: 0;
+
+      @include media($small) {
+        float: left;
+        margin-left: 2em;
+        margin-bottom: 0;
+      }
+    }
 
     .menu-item {
+      line-height: 1.5em;
+      list-style: none;
+      padding-top: 0;
+      text-align: right;
+
+      @include media($small) {
+        display: inline;
+        line-height: 4em;
+        padding-right: 2em;
+        text-align: left;
+      }
+
       a {
-        color: $base-background-color;
+        color: $navigation-color;
+
+        &:hover,
+        &:focus {
+          color: $base-background-color;
+        }
       }
     }
   }
