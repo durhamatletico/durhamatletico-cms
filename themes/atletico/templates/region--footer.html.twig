@@ -1,0 +1,22 @@
+{#
+/**
+* @file
+* Footer template, to be included on every page.
+*/
+#}
+{%
+set classes = [
+'region',
+'region-' ~ region|clean_class,
+]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="footer__wrapper">
+      <div class="footer__logo">
+        <img src="/themes/atletico/images/logo-mobile.png">
+      </div>
+      {{ content }}
+    </div>
+  </div>
+{% endif %}

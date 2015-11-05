@@ -14,7 +14,7 @@ html {
 }
 
 /* HTML element (SMACSS base) rules */
-/* line 54, ../sass/base/_variables.scss */
+/* line 59, ../sass/base/_variables.scss */
 .path-frontpage .layout-content-left,
 .path-frontpage .layout-content-right, .path-node .layout-sidebar .block {
   border: solid 1px #ddd;
@@ -231,7 +231,7 @@ th {
 
 /* line 1, ../sass/base/_typography.scss */
 body {
-  color: #4a4a4a;
+  color: #666;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 1.1em;
@@ -350,6 +350,27 @@ blockquote {
   }
 }
 
+/* line 82, ../sass/base/_typography.scss */
+.path-node article h2,
+.path-node article h3,
+.path-node article h4,
+.path-node article h5 {
+  margin-top: 1.5em;
+}
+/* line 87, ../sass/base/_typography.scss */
+.path-node article ul,
+.path-node article ol {
+  margin: 0 0 .75em 2em;
+}
+/* line 92, ../sass/base/_typography.scss */
+.path-node article ul {
+  list-style-type: disc;
+}
+/* line 93, ../sass/base/_typography.scss */
+.path-node article ol {
+  list-style-type: decimal;
+}
+
 /* Layout rules */
 /**
  * @file
@@ -446,39 +467,45 @@ body .field--name-field-tags .field__items .field__item {
  *
  * Layout styles for node pages.
  */
-/* line 10, ../sass/layouts/_layout-node.scss */
+/* line 11, ../sass/layouts/_layout-node.scss */
 .path-node #block-atletico-local-tasks {
   margin-bottom: 1.5em;
   text-align: center;
 }
-/* line 15, ../sass/layouts/_layout-node.scss */
+/* line 16, ../sass/layouts/_layout-node.scss */
 .path-node section {
   margin-top: 1.5em;
 }
-/* line 20, ../sass/layouts/_layout-node.scss */
-.path-node .node__links .comment-forbidden {
+/* line 21, ../sass/layouts/_layout-node.scss */
+.path-node article img {
+  display: block;
+  margin: 1em auto;
+}
+
+/* line 32, ../sass/layouts/_layout-node.scss */
+.node--type-article .node__links .comment-forbidden {
   padding: 0;
 }
 @media screen and (min-width: 60em) {
-  /* line 26, ../sass/layouts/_layout-node.scss */
-  .path-node .layout-content {
+  /* line 38, ../sass/layouts/_layout-node.scss */
+  .node--type-article .layout-content {
     float: left;
     display: block;
     margin-right: 2.84259%;
     width: 66.57616%;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
-  .path-node .layout-content:last-child {
+  .node--type-article .layout-content:last-child {
     margin-right: 0;
   }
 }
-/* line 32, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar {
+/* line 44, ../sass/layouts/_layout-node.scss */
+.node--type-article .layout-sidebar {
   margin-top: 3em;
 }
 @media screen and (min-width: 60em) {
-  /* line 32, ../sass/layouts/_layout-node.scss */
-  .path-node .layout-sidebar {
+  /* line 44, ../sass/layouts/_layout-node.scss */
+  .node--type-article .layout-sidebar {
     float: left;
     display: block;
     margin-right: 2.84259%;
@@ -487,21 +514,36 @@ body .field--name-field-tags .field__items .field__item {
     margin-top: 0;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
-  .path-node .layout-sidebar:last-child {
+  .node--type-article .layout-sidebar:last-child {
     margin-right: 0;
   }
 }
-/* line 41, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar .block {
+/* line 53, ../sass/layouts/_layout-node.scss */
+.node--type-article .layout-sidebar .block {
   margin-bottom: 3em;
 }
-/* line 44, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar .block:last-child {
+/* line 56, ../sass/layouts/_layout-node.scss */
+.node--type-article .layout-sidebar .block:last-child {
   margin-bottom: 0;
 }
-/* line 49, ../sass/layouts/_layout-node.scss */
-.path-node .layout-sidebar .item-list li {
+/* line 61, ../sass/layouts/_layout-node.scss */
+.node--type-article .layout-sidebar .item-list li {
   margin-left: 0;
+}
+
+@media screen and (min-width: 60em) {
+  /* line 70, ../sass/layouts/_layout-node.scss */
+  .node--type-page main {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-left: 17.05961%;
+  }
+  /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+  .node--type-page main:last-child {
+    margin-right: 0;
+  }
 }
 
 /**
@@ -616,7 +658,7 @@ header .header__top .menu--account .menu-item a {
 }
 /* line 87, ../sass/components/_header.scss */
 header .header__main-menu {
-  background-color: #4a4a4a;
+  background-color: #666;
   clear: both;
   position: relative;
 }
@@ -709,7 +751,7 @@ header .header__main-menu .menu--main ul.show {
 }
 /* line 152, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul li {
-  background: #4a4a4a;
+  background: #666;
   border-bottom: solid 1px rgba(255, 255, 255, 0.5);
   display: block;
   line-height: 2em;
@@ -870,7 +912,7 @@ header .header__main-menu .menu--account .menu-item a {
 }
 /* line 12, ../sass/components/_sidebar.scss */
 .path-node .layout-sidebar .block h2 {
-  background-color: #4a4a4a;
+  background-color: #666;
   border-radius: 6px 6px 0 0;
   color: #fff;
   padding: .5em 0;
@@ -898,14 +940,14 @@ header .header__main-menu .menu--account .menu-item a {
  */
 /* line 7, ../sass/components/_footer.scss */
 .region-footer {
-  background-color: #ea3745;
-  border-top: solid 1em #4a4a4a;
+  background-color: #666;
+  border-top: solid 1em #ea3745;
   clear: both;
-  padding-bottom: 1.5em;
-  padding-top: 1.5em;
+  padding-bottom: 0.75em;
+  padding-top: 0.75em;
 }
 /* line 14, ../sass/components/_footer.scss */
-.region-footer .menu--footer {
+.region-footer .footer__wrapper {
   float: left;
   display: block;
   margin-right: 2.35765%;
@@ -914,11 +956,58 @@ header .header__main-menu .menu--account .menu-item a {
   float: none;
 }
 /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
-.region-footer .menu--footer:last-child {
+.region-footer .footer__wrapper:last-child {
   margin-right: 0;
 }
 /* line 20, ../sass/components/_footer.scss */
+.region-footer .footer__logo {
+  display: inline-block;
+}
+/* line 23, ../sass/components/_footer.scss */
+.region-footer .footer__logo img {
+  line-height: 1em;
+}
+/* line 28, ../sass/components/_footer.scss */
+.region-footer .menu--footer {
+  display: inline-block;
+  float: right;
+}
+/* line 32, ../sass/components/_footer.scss */
+.region-footer .menu--footer .menu {
+  line-height: 1.5em;
+  margin: 0 0 1em 0;
+  padding: 0;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 32, ../sass/components/_footer.scss */
+  .region-footer .menu--footer .menu {
+    float: left;
+    margin-left: 2em;
+    margin-bottom: 0;
+  }
+}
+/* line 44, ../sass/components/_footer.scss */
+.region-footer .menu--footer .menu-item {
+  line-height: 1.5em;
+  list-style: none;
+  padding-top: 0;
+  text-align: right;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 44, ../sass/components/_footer.scss */
+  .region-footer .menu--footer .menu-item {
+    display: inline;
+    line-height: 4em;
+    padding-right: 2em;
+    text-align: left;
+  }
+}
+/* line 57, ../sass/components/_footer.scss */
 .region-footer .menu--footer .menu-item a {
+  color: rgba(255, 255, 255, 0.8);
+}
+/* line 60, ../sass/components/_footer.scss */
+.region-footer .menu--footer .menu-item a:hover, .region-footer .menu--footer .menu-item a:focus {
   color: #fff;
 }
 
@@ -947,4 +1036,32 @@ header .header__main-menu .menu--account .menu-item a {
   border-bottom: solid 4px #ea3745;
   margin: 1.5em 0;
   padding-bottom: 1.5em;
+}
+
+/**
+ * @file
+ *
+ * Custom form styles.
+ */
+@media screen and (min-width: 40.625em) {
+  /* line 9, ../sass/components/_forms.scss */
+  .path-user input[type=text],
+  .path-user input[type=password] {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 60em) {
+  /* line 9, ../sass/components/_forms.scss */
+  .path-user input[type=text],
+  .path-user input[type=password] {
+    width: 33%;
+  }
+}
+
+@media screen and (min-width: 60em) {
+  /* line 23, ../sass/components/_forms.scss */
+  .path-contact input[type=text],
+  .path-contact textarea {
+    width: 66%;
+  }
 }

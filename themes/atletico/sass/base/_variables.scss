@@ -18,7 +18,7 @@ $general-spacing: 1em;
 $footer-height: 4em;
 
 // Colors
-$base-font-color: #4a4a4a; // Dark gray.
+$base-font-color: #666; // Dark gray.
 $action-color: #477dca; // Medium blue.
 $light-gray: #ddd;
 $logo-blue: #00bbf1;
@@ -49,6 +49,11 @@ $header-break: em(450);
 $navigation-height: 4em;
 $navigation-active-link-color: $base-background-color;
 $navigation-padding: 1.5em;
+
+// Footer refill variables
+$footer-background: $base-font-color;
+$footer-color: $base-background-color;
+$footer-link-color: $base-background-color;
 
 // Custom mixins and abstract classes
 %block {

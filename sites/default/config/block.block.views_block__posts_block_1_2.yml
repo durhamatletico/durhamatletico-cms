@@ -5,6 +5,7 @@ dependencies:
   config:
     - views.view.posts
   module:
+    - node
     - views
   theme:
     - atletico
@@ -21,4 +22,11 @@ settings:
   label_display: visible
   views_label: ''
   items_per_page: none
-visibility: {  }
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
