@@ -1,0 +1,29 @@
+/**
+ * @file
+ *
+ * Custom form styles.
+ */
+
+// Login form.
+.path-user {
+  input[type=text],
+  input[type=password] {
+    @include media($small) {
+      width: 50%;
+    }
+
+    @include media($medium) {
+      width: 33%;
+    }
+  }
+}
+
+// Contact page.
+.path-contact {
+  input[type=text],
+  textarea {
+    @include media($medium) {
+      width: 66%;
+    }
+  }
+}
