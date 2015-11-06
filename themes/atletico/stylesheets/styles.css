@@ -5,7 +5,6 @@
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Fjalla+One);
 @import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700);
 /* line 4, ../sass/lib/neat/grid/_box-sizing.scss */
 html {
   box-sizing: border-box;
@@ -17,7 +16,7 @@ html {
 }
 
 /* HTML element (SMACSS base) rules */
-/* line 67, ../sass/base/_variables.scss */
+/* line 65, ../sass/base/_variables.scss */
 .path-frontpage .layout-content-left,
 .path-frontpage .layout-content-right, .path-node .layout-sidebar .block {
   border: solid 1px #ddd;
@@ -916,9 +915,11 @@ header .header__main-menu .menu--account .menu-item a {
     margin-bottom: 0;
   }
 }
-/* line 63, ../sass/components/_call-to-action.scss */
-.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a.call-to-action__button--left {
-  margin-right: .5em;
+@media screen and (min-width: 25em) {
+  /* line 63, ../sass/components/_call-to-action.scss */
+  .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a.call-to-action__button--left {
+    margin-right: .5em;
+  }
 }
 
 /**

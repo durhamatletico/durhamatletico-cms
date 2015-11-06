@@ -61,7 +61,9 @@
         }
 
         &.call-to-action__button--left {
-          margin-right: .5em;
+          @include media(em(400)) {
+            margin-right: .5em;
+          }
         }
       }
     }
