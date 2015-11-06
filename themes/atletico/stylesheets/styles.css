@@ -1035,6 +1035,24 @@ header .header__main-menu .menu--account .menu-item a {
 /**
  * @file
  *
+ * Styles for the highlighted region.
+ */
+/* line 8, ../sass/components/_highlighted.scss */
+.region-highlighted .messages {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+}
+/* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+.region-highlighted .messages:last-child {
+  margin-right: 0;
+}
+
+/**
+ * @file
+ *
  * Styles for node pages.
  */
 /* line 8, ../sass/components/_node.scss */
