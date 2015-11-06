@@ -7,6 +7,7 @@
 // Login form.
 .path-user {
   input[type=text],
+  input[type=email],
   input[type=password] {
     @include media($small) {
       width: 50%;
@@ -21,6 +22,7 @@
 // Contact page.
 .path-contact {
   input[type=text],
+  input[type=email],
   textarea {
     @include media($medium) {
       width: 66%;

@@ -14,6 +14,10 @@
       @include span-columns(5 of 10);
       padding: $general-spacing * 2;
     }
+
+    li {
+      margin: 0 0 .5em 0;
+    }
   }
 
   .layout-content-left {
