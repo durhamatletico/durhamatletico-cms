@@ -3,6 +3,9 @@
  * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
  */
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Fjalla+One);
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700);
 /* line 4, ../sass/lib/neat/grid/_box-sizing.scss */
 html {
   box-sizing: border-box;
@@ -14,7 +17,7 @@ html {
 }
 
 /* HTML element (SMACSS base) rules */
-/* line 59, ../sass/base/_variables.scss */
+/* line 67, ../sass/base/_variables.scss */
 .path-frontpage .layout-content-left,
 .path-frontpage .layout-content-right, .path-node .layout-sidebar .block {
   border: solid 1px #ddd;
@@ -34,7 +37,7 @@ header .header__main-menu .menu--account .menu-item a,
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1.1em;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
@@ -86,7 +89,7 @@ input,
 label,
 select {
   display: block;
-  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1.1em;
 }
 
@@ -112,7 +115,7 @@ select[multiple=multiple] {
   border-radius: 3px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   box-sizing: border-box;
-  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1.1em;
   margin-bottom: 0.75em;
   padding: 0.5em;
@@ -232,7 +235,7 @@ th {
 /* line 1, ../sass/base/_typography.scss */
 body {
   color: #666;
-  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "PT Sans", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-feature-settings: "kern", "liga", "pnum";
   font-size: 1.1em;
   line-height: 1.5;
@@ -245,7 +248,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Fjalla One", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   line-height: 1.2;
   margin: 0 0 0.75em;
 }
@@ -443,21 +446,26 @@ body .field--name-field-tags .field__items .field__item {
     margin-right: 0;
   }
 }
-/* line 19, ../sass/layouts/_layout-front.scss */
+/* line 18, ../sass/layouts/_layout-front.scss */
+.path-frontpage .layout-content-left li,
+.path-frontpage .layout-content-right li {
+  margin: 0 0 .5em 0;
+}
+/* line 23, ../sass/layouts/_layout-front.scss */
 .path-frontpage .layout-content-left {
   margin-bottom: 3em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 19, ../sass/layouts/_layout-front.scss */
+  /* line 23, ../sass/layouts/_layout-front.scss */
   .path-frontpage .layout-content-left {
     margin-bottom: 0;
   }
 }
-/* line 26, ../sass/layouts/_layout-front.scss */
+/* line 30, ../sass/layouts/_layout-front.scss */
 .path-frontpage .layout-content-left .field--name-body h2 {
   margin-top: 1.5em;
 }
-/* line 32, ../sass/layouts/_layout-front.scss */
+/* line 36, ../sass/layouts/_layout-front.scss */
 .path-frontpage .layout-content-right .menu--tools h2 {
   margin-top: 1.5em;
 }
@@ -685,7 +693,8 @@ header .header__main-menu .navigation-menu-button {
   color: rgba(255, 255, 255, 0.8);
   display: block;
   float: right;
-  font-weight: 700;
+  font-family: "Fjalla One", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-weight: 400;
   line-height: 3em;
   margin: 0;
   text-transform: uppercase;
@@ -696,22 +705,22 @@ header .header__main-menu .navigation-menu-button {
     display: none;
   }
 }
-/* line 112, ../sass/components/_header.scss */
+/* line 113, ../sass/components/_header.scss */
 header .header__main-menu .navigation-menu-button:focus, header .header__main-menu .navigation-menu-button:hover {
   color: #fff;
 }
-/* line 120, ../sass/components/_header.scss */
+/* line 121, ../sass/components/_header.scss */
 header .header__main-menu .menu--main {
   float: none;
   z-index: 9999999;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 120, ../sass/components/_header.scss */
+  /* line 121, ../sass/components/_header.scss */
   header .header__main-menu .menu--main {
     min-height: 4em;
   }
 }
-/* line 128, ../sass/components/_header.scss */
+/* line 129, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul {
   -webkit-transform-style: preserve-3d;
   clear: both;
@@ -722,12 +731,12 @@ header .header__main-menu .menu--main ul {
   width: 100%;
   z-index: 9999;
 }
-/* line 138, ../sass/components/_header.scss */
+/* line 139, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul.show {
   display: block;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 128, ../sass/components/_header.scss */
+  /* line 129, ../sass/components/_header.scss */
   header .header__main-menu .menu--main ul {
     display: -webkit-box;
     display: -moz-box;
@@ -749,7 +758,7 @@ header .header__main-menu .menu--main ul.show {
     padding: 0;
   }
 }
-/* line 152, ../sass/components/_header.scss */
+/* line 153, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul li {
   background: #666;
   border-bottom: solid 1px rgba(255, 255, 255, 0.5);
@@ -760,8 +769,12 @@ header .header__main-menu .menu--main ul li {
   width: 100%;
   z-index: 9999;
 }
+/* line 163, ../sass/components/_header.scss */
+header .header__main-menu .menu--main ul li:last-child {
+  border-bottom: 0;
+}
 @media screen and (min-width: 40.625em) {
-  /* line 152, ../sass/components/_header.scss */
+  /* line 153, ../sass/components/_header.scss */
   header .header__main-menu .menu--main ul li {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -777,43 +790,50 @@ header .header__main-menu .menu--main ul li {
     width: auto;
   }
 }
-/* line 171, ../sass/components/_header.scss */
+/* line 176, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul li a {
   color: rgba(255, 255, 255, 0.8);
+  font-family: "Fjalla One", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-weight: 400;
   text-decoration: none;
 }
-/* line 176, ../sass/components/_header.scss */
+@media screen and (min-width: 40.625em) {
+  /* line 176, ../sass/components/_header.scss */
+  header .header__main-menu .menu--main ul li a {
+    font-size: 1.25em;
+  }
+}
+/* line 186, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul li a:focus, header .header__main-menu .menu--main ul li a:hover {
   color: #fff;
 }
-/* line 185, ../sass/components/_header.scss */
+/* line 195, ../sass/components/_header.scss */
 header .header__main-menu ul.menu a.is-active {
   color: #fff;
   font-weight: bold;
 }
-/* line 191, ../sass/components/_header.scss */
+/* line 201, ../sass/components/_header.scss */
 header .header__main-menu .menu--account {
   display: inline-block;
   float: left;
 }
 @media screen and (min-width: 28.125em) {
-  /* line 191, ../sass/components/_header.scss */
+  /* line 201, ../sass/components/_header.scss */
   header .header__main-menu .menu--account {
     display: none;
   }
 }
-/* line 199, ../sass/components/_header.scss */
+/* line 209, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu {
   margin: 0;
 }
-/* line 203, ../sass/components/_header.scss */
+/* line 213, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item {
   display: inline-block;
   margin-right: .5em;
   padding: .5em 0;
 }
-/* line 208, ../sass/components/_header.scss */
+/* line 218, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item a {
   color: #fff;
   font-size: .8em;
@@ -876,7 +896,7 @@ header .header__main-menu .menu--account .menu-item a {
 @media screen and (min-width: 53.75em) {
   /* line 37, ../sass/components/_call-to-action.scss */
   .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy h2 {
-    font-size: 1.8em;
+    font-size: 2.25em;
   }
 }
 /* line 47, ../sass/components/_call-to-action.scss */
@@ -1046,6 +1066,7 @@ header .header__main-menu .menu--account .menu-item a {
 @media screen and (min-width: 40.625em) {
   /* line 9, ../sass/components/_forms.scss */
   .path-user input[type=text],
+  .path-user input[type=email],
   .path-user input[type=password] {
     width: 50%;
   }
@@ -1053,14 +1074,16 @@ header .header__main-menu .menu--account .menu-item a {
 @media screen and (min-width: 60em) {
   /* line 9, ../sass/components/_forms.scss */
   .path-user input[type=text],
+  .path-user input[type=email],
   .path-user input[type=password] {
     width: 33%;
   }
 }
 
 @media screen and (min-width: 60em) {
-  /* line 23, ../sass/components/_forms.scss */
+  /* line 24, ../sass/components/_forms.scss */
   .path-contact input[type=text],
+  .path-contact input[type=email],
   .path-contact textarea {
     width: 66%;
   }

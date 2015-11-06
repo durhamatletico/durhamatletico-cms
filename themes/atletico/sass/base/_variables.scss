@@ -1,6 +1,12 @@
 // Typography
-$base-font-family: $helvetica;
-$heading-font-family: $base-font-family;
+// Fjalla One (Headings)
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Fjalla+One);
+
+// PT Sans (Copytext)
+@import url(https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic);
+
+$heading-font-family: 'Fjalla One', $helvetica;
+$base-font-family: 'PT Sans', $helvetica;
 
 // Font Sizes
 $base-font-size: 1.1em;
