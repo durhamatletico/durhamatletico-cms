@@ -1,0 +1,4 @@
+administer stripe_checkout:
+  title: 'Administer Stripe checkout'
+  description: 'Administer access to module'
+  restrict access: true

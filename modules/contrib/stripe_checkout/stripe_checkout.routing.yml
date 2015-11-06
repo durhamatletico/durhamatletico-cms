@@ -1,0 +1,14 @@
+stripe_checkout.settings:
+  path: '/admin/config/services/stripe_checkout'
+  defaults:
+    _form: '\Drupal\stripe_checkout\Form\StripeCheckoutSettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'administer stripe_checkout'
+stripe_checkout.callback:
+  path: '/charge/{id}/{currency}'
+  defaults:
+    _controller: '\Drupal\stripe_checkout\StripeCallback::charge'
+    _title: 'Stripe Callback'
+  requirements:
+    _permission: 'access content'

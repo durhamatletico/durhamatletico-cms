@@ -1,0 +1,5 @@
+stripe_checkout_menu:
+  title: 'Stripe checkout'
+  description: 'Configure global settings for Stripe checkout formatted fields.'
+  parent: system.admin_config_services
+  route_name: stripe_checkout.settings

@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Stripe checkout field module formats integer fields into a Stripe checkout
+ * button.
+ */
+
+use Drupal\field\Entity\FieldInstanceConfig;
+
+/**
+ * Implements hook_theme().
+ */
+function stripe_checkout_theme($existing, $type, $theme, $path) {
+  return array(
+    'stripe_checkout_simple' => array(
+      'function' => 'theme_stripe_checkout_simple',
+      'variables' => array(
+        'description' => NULL,
+        'amount' => NULL,
+        'currency' => NULL,
+        'nid' => NULL,
+      ),
+    ),
+  );
+}
+
+/**
+ * Theme function the Stripe checkout button.
+ */
+function theme_stripe_checkout_simple($variables) {
+
+  // Get global settings
+  $config = \Drupal::config('stripe_checkout.settings');
+  $name = $config->get('stripe_checkout_name');
+  $key = $config->get('stripe_checkout_key_public');
+  $icon = $config->get('stripe_checkout_icon');
+
+  // Render Stripe Checkout button
+  if ($variables['amount'] > 0) {
+
+    // Enforce strict content security policy
+    if ($config->get('stripe_checkout_enforce_csp') == TRUE) {
+      header("Content-Security-Policy: default-src 'self' https://checkout.stripe.com;");
+    }
+
+    // Embed HTML button
+    $output = '<form action="/charge/' . $variables['nid'] . '/' . $variables['currency'] . '" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="' . $key . '"
+      data-image="' . $icon . '"
+      data-name="' . $name . '"
+      data-description="' . $variables['description'] . '"
+      data-amount="' . $variables['amount'] . '"
+      data-currency="' . $variables['currency'] . '">
+    </script>
+    </form>';
+  }
+  else {
+    $output = t("Paid. Thank you.");
+  }
+
+  return $output;
+}
