@@ -1,0 +1,87 @@
+/**
+ * @file
+ *
+ * Styles for the list of posts using the Cards Refill.
+ */
+
+.block-views-blockposts-block-2 {
+  .view-content {
+    @include display(flex);
+    @include flex-wrap(wrap);
+    @include justify-content(center);
+  }
+
+  .views-row {
+    $base-border-color: $light-gray !default;
+    $base-border-radius: 3px !default;
+    $base-spacing: $general-spacing * 1.5;
+    $base-link-color: $action-color !default;
+    ///////////////////////////////////////////////////
+    $card-border-color: $base-border-color;
+    $card-border: 1px solid $card-border-color;
+    $card-background: lighten($card-border-color, 10%);
+    $card-header-background: $card-background;
+    $card-hover-background: lighten($card-background, 5%);
+    $card-margin: 1em;
+
+    @include flex-basis(15em);
+    @include flex-grow(1);
+    @include transition (all .2s ease-in-out);
+    background-color: $card-background;
+    border: $card-border;
+    border-radius: $base-border-radius;
+    box-shadow: 0 2px 4px darken($base-background-color, 10%);
+    cursor: auto;
+    margin: 0 $card-margin $base-spacing;
+    position: relative;
+
+    article {
+      margin-bottom: 0;
+
+      & > h2 {
+        @include transition (all .2s ease-in-out);
+        background-color: $card-header-background;
+        border-bottom: $card-border;
+        border-radius: $base-border-radius $base-border-radius 0 0;
+        font-size: 1.25em;
+        font-weight: bold;
+        line-height: 1.5em;
+        margin-bottom: 0;
+        padding: ($base-spacing / 3) ($base-spacing / 2);
+      }
+    }
+
+    .node__meta,
+    .node__content {
+      font-size: .9em;
+      line-height: 1.5em;
+      padding: ($base-spacing / 2);
+
+      p {
+        margin: 0 0 ($base-spacing / 2);
+      }
+
+      .field--name-field-image {
+        display: none;
+      }
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $card-hover-background;
+
+      .card-header {
+        background-color: $card-hover-background;
+      }
+    }
+
+    &:active {
+      background-color: $card-background;
+
+      .article > h2 {
+        background-color: $card-background;
+      }
+    }
+  }
+
+}
