@@ -6,7 +6,14 @@ dependencies:
     - field.storage.node.field_call_to_action_image
     - node.type.featured_item
   module:
+    - content_translation
     - image
+third_party_settings:
+  content_translation:
+    translation_sync:
+      alt: alt
+      title: title
+      file: '0'
 id: node.featured_item.field_call_to_action_image
 field_name: field_call_to_action_image
 entity_type: node

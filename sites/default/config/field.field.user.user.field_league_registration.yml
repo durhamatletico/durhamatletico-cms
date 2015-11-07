@@ -1,0 +1,27 @@
+uuid: 44fffd37-c140-491e-bc00-f8e83a209d5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_league_registration
+    - node.type.league
+  module:
+    - user
+id: user.user.field_league_registration
+field_name: field_league_registration
+entity_type: user
+bundle: user
+label: 'League Registration'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      league: league
+    sort:
+      field: _none
+field_type: entity_reference
