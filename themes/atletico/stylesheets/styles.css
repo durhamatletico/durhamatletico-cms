@@ -1238,11 +1238,17 @@ header .header__main-menu .menu--account .menu-item a {
 .block-views-blockposts-block-2 .views-row .node__content p {
   margin: 0 0 0.75em;
 }
-/* line 65, ../sass/components/_post-cards.scss */
+/* line 63, ../sass/components/_post-cards.scss */
+.block-views-blockposts-block-2 .views-row .node__meta figure,
+.block-views-blockposts-block-2 .views-row .node__content figure {
+  float: none;
+  margin: 0 0 1em;
+}
+/* line 70, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row .node__content .field--name-field-image {
   display: none;
 }
-/* line 69, ../sass/components/_post-cards.scss */
+/* line 74, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row .node__content .field--name-body img {
   display: block;
   float: none;
@@ -1250,23 +1256,23 @@ header .header__main-menu .menu--account .menu-item a {
   margin: 0 auto 1em;
   max-width: 230px;
 }
-/* line 78, ../sass/components/_post-cards.scss */
+/* line 83, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row .node__content .node__links li {
   margin-top: 0.75em;
 }
-/* line 85, ../sass/components/_post-cards.scss */
+/* line 90, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:focus, .block-views-blockposts-block-2 .views-row:hover {
   background-color: white;
 }
-/* line 89, ../sass/components/_post-cards.scss */
+/* line 94, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:focus .card-header, .block-views-blockposts-block-2 .views-row:hover .card-header {
   background-color: white;
 }
-/* line 94, ../sass/components/_post-cards.scss */
+/* line 99, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:active {
   background-color: #f7f7f7;
 }
-/* line 97, ../sass/components/_post-cards.scss */
+/* line 102, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:active .article > h2 {
   background-color: #f7f7f7;
 }

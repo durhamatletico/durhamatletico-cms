@@ -59,6 +59,11 @@
       p {
         margin: 0 0 ($base-spacing / 2);
       }
+
+      figure {
+        float: none;
+        margin: 0 0 1em;
+      }
     }
 
     .node__content {
