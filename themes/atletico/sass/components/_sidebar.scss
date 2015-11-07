@@ -18,7 +18,8 @@
     }
 
     // May need to add more classes depending on block content.
-    .view-content {
+    .view-content,
+    .field--name-body {
       padding: 0 1em 1em;
     }
   }
@@ -33,6 +34,17 @@
         border: none;
         padding: 0;
       }
+    }
+  }
+
+  // Winter league pre-registration.
+  .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 {
+    p:nth-child(2) {
+      text-align: center;
+    }
+
+    a {
+      @extend %button;
     }
   }
 }
