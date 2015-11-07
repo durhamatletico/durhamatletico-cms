@@ -6,8 +6,7 @@
 
 .path-node {
   h1 {
-    border-bottom: solid 4px $logo-red;
-    padding-bottom: .5em;
+    @extend %underline;
     text-align: center;
   }
 
@@ -17,6 +16,16 @@
   }
 
   .node__content {
+
+    // Handle floated images within posts.
+    .caption-img.align-left,
+    .caption-img.align-right {
+      max-width: 50%;
+
+      img {
+        height: auto;
+      }
+    }
 
     .field--name-body p:last-child {
       margin-bottom: 0;
@@ -28,6 +37,4 @@
       padding-bottom: 1.5em;
     }
   }
-
-
 }
