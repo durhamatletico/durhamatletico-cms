@@ -6,9 +6,6 @@
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
 @import 'init';
 
-/* Import Bitters library. */
-@import 'lib/base/base';
-
 /* HTML element (SMACSS base) rules */
 @import 'base/base';
 
