@@ -31,7 +31,7 @@
       padding-bottom: .25em;
 
       &:last-child {
-        border: none;
+        border: 0;
         padding: 0;
       }
     }
@@ -44,7 +44,7 @@
     }
 
     a {
-      @extend %button;
+      @extend #{$all-buttons};
     }
   }
 }

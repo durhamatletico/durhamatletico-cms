@@ -1,0 +1,19 @@
+scss_files: 'sass/*'
+
+exclude:
+  - 'stylesheets/styles.css'
+  - 'sass/lib/*'
+
+linters:
+  Comment:
+    enabled: false
+  SelectorDepth:
+    enabled: false
+  NestingDepth:
+    enabled: false
+  VendorPrefix:
+    enabled: false
+#  PlaceholderInExtend:
+#    enabled: false
+  SelectorFormat:
+    enabled: false

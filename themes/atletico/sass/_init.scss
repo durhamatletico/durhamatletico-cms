@@ -1,10 +1,10 @@
 // Import variables and mixins to be used (Bourbon).
-@import "lib/bourbon/bourbon";
-@import "lib/neat/neat-helpers";
+@import 'lib/bourbon/bourbon';
+@import 'lib/neat/neat-helpers';
 
 // Turn on Neat's visual grid for development.
 $visual-grid:       false;
-$visual-grid-color: #EEEEEE;
+$visual-grid-color: #eee;
 
 // Set to false if you'd like to remove the responsiveness.
 $responsive:    true;
@@ -26,4 +26,4 @@ $medium:  new-breakpoint(min-width em(960px) $grid-columns);
 $large:   new-breakpoint(min-width em(1120px) $grid-columns);
 
 // Import grid to be used (Bourbon Neat) now that we've set our overrides.
-@import "lib/neat/neat";
+@import 'lib/neat/neat';

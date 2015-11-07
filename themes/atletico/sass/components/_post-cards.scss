@@ -37,7 +37,7 @@
 
     article {
 
-      & > h2 {
+      > h2 {
         @include transition (all .2s ease-in-out);
         background-color: $card-header-background;
         border-bottom: $card-border;
@@ -58,6 +58,11 @@
 
       p {
         margin: 0 0 ($base-spacing / 2);
+      }
+
+      figure {
+        float: none;
+        margin: 0 0 1em;
       }
     }
 

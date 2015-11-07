@@ -1,15 +1,9 @@
-// Bitters 1.1.0
-// http://bitters.bourbon.io
-// Copyright 2013-2015 thoughtbot, inc.
-// MIT License
+/**
+ * @file
+ *
+ * Import base styles and Bitters overrides.
+ */
 
-@import "variables";
-
-// We're using our own grid settings in ../_init.scss.
-// @import "grid-settings";
-
-@import "buttons";
-@import "forms";
-@import "lists";
-@import "tables";
-@import "typography";
+@import '../lib/base/base';
+@import 'buttons';
+@import 'typography';
