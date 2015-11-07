@@ -206,6 +206,19 @@ ol {
   margin: 0;
   padding: 0;
 }
+/* line 7, ../sass/base/_lists.scss */
+.path-node article ul {
+  list-style-type: disc;
+  margin-bottom: 0.75em;
+  padding-left: 1.5em;
+}
+/* line 13, ../sass/base/_lists.scss */
+.path-node article ol {
+  list-style-type: decimal;
+  margin-bottom: 0.75em;
+  padding-left: 1.5em;
+}
+
 /* line 20, ../sass/base/_lists.scss */
 dl {
   margin-bottom: 0.75em;
@@ -377,19 +390,6 @@ blockquote {
 .path-node article h4,
 .path-node article h5 {
   margin-top: 1.5em;
-}
-/* line 87, ../sass/base/_typography.scss */
-.path-node article ul,
-.path-node article ol {
-  margin: 0 0 .75em 2em;
-}
-/* line 92, ../sass/base/_typography.scss */
-.path-node article ul {
-  list-style-type: disc;
-}
-/* line 93, ../sass/base/_typography.scss */
-.path-node article ol {
-  list-style-type: decimal;
 }
 
 /* Layout rules */
