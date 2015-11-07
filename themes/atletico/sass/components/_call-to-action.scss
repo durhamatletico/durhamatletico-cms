@@ -45,7 +45,7 @@
       }
 
       a {
-        @extend %button;
+        @extend #{$all-buttons};
         background-color: $logo-red;
         font-size: .8em;
         margin-bottom: 1em;

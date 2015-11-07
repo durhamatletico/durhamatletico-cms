@@ -44,7 +44,7 @@
     }
 
     a {
-      @extend %button;
+      @extend #{$all-buttons};
     }
   }
 }

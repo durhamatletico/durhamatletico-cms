@@ -71,7 +71,7 @@ header {
         }
 
         a {
-          @extend %button;
+          @extend #{$all-buttons};
           font-size: .8em;
           padding: .75em;
 
@@ -216,7 +216,7 @@ header {
         padding: .5em 0;
 
         a {
-          @extend %button;
+          @extend #{$all-buttons};
           color: $base-background-color;
           font-size: .8em;
           padding: .75em;
