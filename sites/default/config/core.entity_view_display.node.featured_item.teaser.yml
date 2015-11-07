@@ -15,4 +15,7 @@ content:
   links:
     weight: 100
 hidden:
+  field_call_to_action_big_text: true
+  field_call_to_action_image: true
+  field_call_to_action_links: true
   langcode: true

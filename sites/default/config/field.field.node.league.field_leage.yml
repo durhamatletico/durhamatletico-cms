@@ -1,0 +1,24 @@
+uuid: cb365b86-3444-44a4-b12b-430e7ac25b4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_leage
+    - node.type.league
+  module:
+    - datetime
+id: node.league.field_leage
+field_name: field_leage
+entity_type: node
+bundle: league
+label: 'League End Date'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

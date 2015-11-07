@@ -1,0 +1,17 @@
+uuid: bab31973-4791-4876-8a03-03176a1620ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: League
+type: league
+description: 'Use this content type to add a <em>League</em> to the system. Note that, e.g. <em>Winter League Division 1</em> and <em>Winter League Division 2</em> are two separate Leagues.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

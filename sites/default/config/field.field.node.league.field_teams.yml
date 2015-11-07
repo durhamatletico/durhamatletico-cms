@@ -1,0 +1,26 @@
+uuid: e8d4613c-c494-43a8-bb00-e518cf7d2860
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teams
+    - node.type.league
+    - node.type.team
+id: node.league.field_teams
+field_name: field_teams
+entity_type: node
+bundle: league
+label: Teams
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      team: team
+    sort:
+      field: _none
+field_type: entity_reference

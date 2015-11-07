@@ -1,0 +1,26 @@
+uuid: b82ecba8-c1e4-4e27-bd09-09389fd2bd14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sponsors
+    - node.type.league
+    - node.type.sponsor
+id: node.league.field_sponsors
+field_name: field_sponsors
+entity_type: node
+bundle: league
+label: Sponsors
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      sponsor: sponsor
+    sort:
+      field: _none
+field_type: entity_reference

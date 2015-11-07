@@ -1,0 +1,99 @@
+uuid: 204e9099-ed94-4a93-b100-d6589f5b29eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.league.body
+    - field.field.node.league.field_leage
+    - field.field.node.league.field_league_start_date
+    - field.field.node.league.field_sponsors
+    - field.field.node.league.field_teams
+    - node.type.league
+  module:
+    - datetime
+    - path
+    - text
+id: node.league.default
+targetEntityType: node
+bundle: league
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 31
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+  field_leage:
+    weight: 33
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_league_start_date:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+  field_sponsors:
+    weight: 34
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_teams:
+    weight: 35
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  langcode:
+    type: language_select
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

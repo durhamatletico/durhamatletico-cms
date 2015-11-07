@@ -1,0 +1,27 @@
+uuid: 5addd6f7-0509-4390-ad00-a97b92467692
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.league.body
+    - node.type.league
+  module:
+    - text
+    - user
+id: node.league.teaser
+targetEntityType: node
+bundle: league
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true
