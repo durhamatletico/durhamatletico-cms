@@ -67,3 +67,20 @@ $footer-link-color: $base-background-color;
   border-radius: $base-border-radius * 2;
   padding: $general-spacing;
 }
+
+%underline {
+  border-bottom: solid 4px $logo-red;
+  padding-bottom: .5em;
+}
+
+%button--light {
+  border: solid 1px $light-gray;
+  border-radius: $base-border-radius;
+  display: inline-block;
+  font-weight: 600;
+  padding: .5em;
+
+  &:first-child {
+    margin-right: .5em;
+  }
+}

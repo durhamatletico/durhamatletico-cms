@@ -24,11 +24,31 @@ html {
   padding: 1em;
 }
 
+/* line 71, ../sass/base/_variables.scss */
+.path-node h1, .path-posts h1 {
+  border-bottom: solid 4px #ea3745;
+  padding-bottom: .5em;
+}
+
+/* line 76, ../sass/base/_variables.scss */
+.path-posts .block-system-main-block .view-posts .node__links li, .block-views-blockposts-block-2 .views-row .node__content .node__links li {
+  border: solid 1px #ddd;
+  border-radius: 3px;
+  display: inline-block;
+  font-weight: 600;
+  padding: .5em;
+}
+/* line 83, ../sass/base/_variables.scss */
+.path-posts .block-system-main-block .view-posts .node__links li:first-child, .block-views-blockposts-block-2 .views-row .node__content .node__links li:first-child {
+  margin-right: .5em;
+}
+
 /* line 1, ../sass/base/_buttons.scss */
 button, input[type="button"], input[type="reset"], input[type="submit"],
 header .header__top .menu--account .menu-item a,
 header .header__main-menu .menu--account .menu-item a,
-.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a {
+.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a,
+.path-node .layout-sidebar .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 a {
   appearance: none;
   background-color: #477dca;
   border: 0;
@@ -53,9 +73,11 @@ button:hover, button:focus, input[type="button"]:hover, input[type="button"]:foc
 header .header__top .menu--account .menu-item a:hover,
 header .header__main-menu .menu--account .menu-item a:hover,
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:hover,
+.path-node .layout-sidebar .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 a:hover,
 header .header__top .menu--account .menu-item a:focus,
 header .header__main-menu .menu--account .menu-item a:focus,
-.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:focus {
+.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:focus,
+.path-node .layout-sidebar .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 a:focus {
   background-color: #00bbf1;
   color: #fff;
 }
@@ -63,7 +85,8 @@ header .header__main-menu .menu--account .menu-item a:focus,
 button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled,
 header .header__top .menu--account .menu-item a:disabled,
 header .header__main-menu .menu--account .menu-item a:disabled,
-.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:disabled {
+.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:disabled,
+.path-node .layout-sidebar .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 a:disabled {
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -71,7 +94,8 @@ header .header__main-menu .menu--account .menu-item a:disabled,
 button:disabled:hover, input[type="button"]:disabled:hover, input[type="reset"]:disabled:hover, input[type="submit"]:disabled:hover,
 header .header__top .menu--account .menu-item a:disabled:hover,
 header .header__main-menu .menu--account .menu-item a:disabled:hover,
-.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:disabled:hover {
+.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:disabled:hover,
+.path-node .layout-sidebar .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 a:disabled:hover {
   background-color: #477dca;
 }
 
@@ -187,6 +211,19 @@ ol {
   margin: 0;
   padding: 0;
 }
+/* line 7, ../sass/base/_lists.scss */
+.path-node article ul {
+  list-style-type: disc;
+  margin-bottom: 0.75em;
+  padding-left: 1.5em;
+}
+/* line 13, ../sass/base/_lists.scss */
+.path-node article ol {
+  list-style-type: decimal;
+  margin-bottom: 0.75em;
+  padding-left: 1.5em;
+}
+
 /* line 20, ../sass/base/_lists.scss */
 dl {
   margin-bottom: 0.75em;
@@ -359,19 +396,6 @@ blockquote {
 .path-node article h5 {
   margin-top: 1.5em;
 }
-/* line 87, ../sass/base/_typography.scss */
-.path-node article ul,
-.path-node article ol {
-  margin: 0 0 .75em 2em;
-}
-/* line 92, ../sass/base/_typography.scss */
-.path-node article ul {
-  list-style-type: disc;
-}
-/* line 93, ../sass/base/_typography.scss */
-.path-node article ol {
-  list-style-type: decimal;
-}
 
 /* Layout rules */
 /**
@@ -490,29 +514,29 @@ body .field--name-field-tags .field__items .field__item {
 }
 
 /* line 32, ../sass/layouts/_layout-node.scss */
-.node--type-article .node__links .comment-forbidden {
+.path-node.node--type-article .node__links .comment-forbidden {
   padding: 0;
 }
 @media screen and (min-width: 60em) {
   /* line 38, ../sass/layouts/_layout-node.scss */
-  .node--type-article .layout-content {
+  .path-node.node--type-article .layout-content {
     float: left;
     display: block;
     margin-right: 2.84259%;
     width: 66.57616%;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
-  .node--type-article .layout-content:last-child {
+  .path-node.node--type-article .layout-content:last-child {
     margin-right: 0;
   }
 }
 /* line 44, ../sass/layouts/_layout-node.scss */
-.node--type-article .layout-sidebar {
+.path-node.node--type-article .layout-sidebar {
   margin-top: 3em;
 }
 @media screen and (min-width: 60em) {
   /* line 44, ../sass/layouts/_layout-node.scss */
-  .node--type-article .layout-sidebar {
+  .path-node.node--type-article .layout-sidebar {
     float: left;
     display: block;
     margin-right: 2.84259%;
@@ -521,26 +545,26 @@ body .field--name-field-tags .field__items .field__item {
     margin-top: 0;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
-  .node--type-article .layout-sidebar:last-child {
+  .path-node.node--type-article .layout-sidebar:last-child {
     margin-right: 0;
   }
 }
 /* line 53, ../sass/layouts/_layout-node.scss */
-.node--type-article .layout-sidebar .block {
+.path-node.node--type-article .layout-sidebar .block {
   margin-bottom: 3em;
 }
 /* line 56, ../sass/layouts/_layout-node.scss */
-.node--type-article .layout-sidebar .block:last-child {
+.path-node.node--type-article .layout-sidebar .block:last-child {
   margin-bottom: 0;
 }
 /* line 61, ../sass/layouts/_layout-node.scss */
-.node--type-article .layout-sidebar .item-list li {
+.path-node.node--type-article .layout-sidebar .item-list li {
   margin-left: 0;
 }
 
 @media screen and (min-width: 60em) {
   /* line 70, ../sass/layouts/_layout-node.scss */
-  .node--type-page main {
+  .path-node.node--type-page main {
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -548,7 +572,7 @@ body .field--name-field-tags .field__items .field__item {
     margin-left: 17.05961%;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
-  .node--type-page main:last-child {
+  .path-node.node--type-page main:last-child {
     margin-right: 0;
   }
 }
@@ -559,8 +583,8 @@ body .field--name-field-tags .field__items .field__item {
  * Layout styles for the posts page.
  */
 /* line 8, ../sass/layouts/_layout-posts.scss */
-.path-posts article {
-  margin-bottom: 2em;
+.path-posts .block-views-blockposts-block-2 {
+  margin-top: 3em;
 }
 
 /* Component rules (called 'modules' in SMACSS) */
@@ -940,18 +964,23 @@ header .header__main-menu .menu--account .menu-item a {
   text-align: center;
 }
 /* line 21, ../sass/components/_sidebar.scss */
-.path-node .layout-sidebar .block .view-content {
+.path-node .layout-sidebar .block .view-content,
+.path-node .layout-sidebar .block .field--name-body {
   padding: 0 1em 1em;
 }
-/* line 28, ../sass/components/_sidebar.scss */
+/* line 29, ../sass/components/_sidebar.scss */
 .path-node .layout-sidebar .block-views-blockposts-block-1 .item-list li {
   border-bottom: solid 1px #ddd;
   padding-bottom: .25em;
 }
-/* line 32, ../sass/components/_sidebar.scss */
+/* line 33, ../sass/components/_sidebar.scss */
 .path-node .layout-sidebar .block-views-blockposts-block-1 .item-list li:last-child {
   border: none;
   padding: 0;
+}
+/* line 42, ../sass/components/_sidebar.scss */
+.path-node .layout-sidebar .block-block-contentcda87539-c65e-4ba4-8607-7c33e836dea8 p:nth-child(2) {
+  text-align: center;
 }
 
 /**
@@ -1057,20 +1086,28 @@ header .header__main-menu .menu--account .menu-item a {
  */
 /* line 8, ../sass/components/_node.scss */
 .path-node h1 {
-  border-bottom: solid 4px #ea3745;
-  padding-bottom: .5em;
   text-align: center;
 }
-/* line 14, ../sass/components/_node.scss */
+/* line 13, ../sass/components/_node.scss */
 .path-node .node__meta {
   margin-bottom: 1.5em;
   text-align: center;
 }
 /* line 21, ../sass/components/_node.scss */
+.path-node .node__content .caption-img.align-left,
+.path-node .node__content .caption-img.align-right {
+  max-width: 50%;
+}
+/* line 25, ../sass/components/_node.scss */
+.path-node .node__content .caption-img.align-left img,
+.path-node .node__content .caption-img.align-right img {
+  height: auto;
+}
+/* line 30, ../sass/components/_node.scss */
 .path-node .node__content .field--name-body p:last-child {
   margin-bottom: 0;
 }
-/* line 25, ../sass/components/_node.scss */
+/* line 34, ../sass/components/_node.scss */
 .path-node .node__content .field--name-field-tags {
   border-bottom: solid 4px #ea3745;
   margin: 1.5em 0;
@@ -1106,6 +1143,32 @@ header .header__main-menu .menu--account .menu-item a {
   .path-contact textarea {
     width: 66%;
   }
+}
+
+/**
+ * @file
+ *
+ * Styles for /posts.
+ */
+/* line 13, ../sass/components/_posts.scss */
+.path-posts .block-system-main-block .view-posts .node__meta {
+  margin-bottom: 1em;
+}
+/* line 18, ../sass/components/_posts.scss */
+.path-posts .block-system-main-block .view-posts .node__content img {
+  display: block;
+  margin: 0 auto 1em;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 18, ../sass/components/_posts.scss */
+  .path-posts .block-system-main-block .view-posts .node__content img {
+    float: left;
+    margin: 0 2em 1em 0;
+  }
+}
+/* line 30, ../sass/components/_posts.scss */
+.path-posts .block-system-main-block .view-posts .node__links li {
+  margin-top: 1em;
 }
 
 /**
@@ -1160,11 +1223,7 @@ header .header__main-menu .menu--account .menu-item a {
   margin: 0 1em 1.5em;
   position: relative;
 }
-/* line 38, ../sass/components/_post-cards.scss */
-.block-views-blockposts-block-2 .views-row article {
-  margin-bottom: 0;
-}
-/* line 41, ../sass/components/_post-cards.scss */
+/* line 40, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row article > h2 {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -1178,36 +1237,47 @@ header .header__main-menu .menu--account .menu-item a {
   margin-bottom: 0;
   padding: 0.5em 0.75em;
 }
-/* line 54, ../sass/components/_post-cards.scss */
+/* line 53, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row .node__meta,
 .block-views-blockposts-block-2 .views-row .node__content {
   font-size: .9em;
   line-height: 1.5em;
   padding: 0.75em;
 }
-/* line 60, ../sass/components/_post-cards.scss */
+/* line 59, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row .node__meta p,
 .block-views-blockposts-block-2 .views-row .node__content p {
   margin: 0 0 0.75em;
 }
-/* line 64, ../sass/components/_post-cards.scss */
-.block-views-blockposts-block-2 .views-row .node__meta .field--name-field-image,
+/* line 65, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row .node__content .field--name-field-image {
   display: none;
 }
-/* line 76, ../sass/components/_post-cards.scss */
+/* line 69, ../sass/components/_post-cards.scss */
+.block-views-blockposts-block-2 .views-row .node__content .field--name-body img {
+  display: block;
+  float: none;
+  height: auto;
+  margin: 0 auto 1em;
+  max-width: 230px;
+}
+/* line 78, ../sass/components/_post-cards.scss */
+.block-views-blockposts-block-2 .views-row .node__content .node__links li {
+  margin-top: 0.75em;
+}
+/* line 85, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:focus, .block-views-blockposts-block-2 .views-row:hover {
   background-color: white;
 }
-/* line 80, ../sass/components/_post-cards.scss */
+/* line 89, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:focus .card-header, .block-views-blockposts-block-2 .views-row:hover .card-header {
   background-color: white;
 }
-/* line 85, ../sass/components/_post-cards.scss */
+/* line 94, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:active {
   background-color: #f7f7f7;
 }
-/* line 88, ../sass/components/_post-cards.scss */
+/* line 97, ../sass/components/_post-cards.scss */
 .block-views-blockposts-block-2 .views-row:active .article > h2 {
   background-color: #f7f7f7;
 }

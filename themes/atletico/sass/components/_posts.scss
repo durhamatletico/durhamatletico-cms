@@ -1,0 +1,36 @@
+/**
+ * @file
+ *
+ * Styles for /posts.
+ */
+
+.path-posts {
+  h1 {
+    @extend %underline;
+  }
+
+  .block-system-main-block .view-posts {
+    .node__meta {
+      margin-bottom: $general-spacing
+    }
+
+    .node__content {
+      img {
+        display: block;
+        margin: 0 auto 1em;
+
+        @include media($small) {
+          float: left;
+          margin: 0 2em 1em 0;
+        }
+      }
+    }
+
+    .node__links {
+      li {
+        @extend %button--light;
+        margin-top: $general-spacing;
+      }
+    }
+  }
+}

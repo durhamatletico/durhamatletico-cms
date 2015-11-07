@@ -26,7 +26,7 @@
 }
 
 // Articles.
-.node--type-article {
+.path-node.node--type-article {
 
   .node__links {
     .comment-forbidden {
@@ -65,7 +65,7 @@
 }
 
 // Basic pages.
-.node--type-page {
+.path-node.node--type-page {
 
   main {
     @include media($medium) {

@@ -36,7 +36,6 @@
     position: relative;
 
     article {
-      margin-bottom: 0;
 
       & > h2 {
         @include transition (all .2s ease-in-out);
@@ -60,9 +59,26 @@
       p {
         margin: 0 0 ($base-spacing / 2);
       }
+    }
 
+    .node__content {
       .field--name-field-image {
         display: none;
+      }
+
+      .field--name-body img {
+        display: block;
+        float: none;
+        height: auto;
+        margin: 0 auto 1em;
+        max-width: 230px;
+      }
+
+      .node__links {
+        li {
+          @extend %button--light;
+          margin-top: $base-spacing / 2;
+        }
       }
     }
 
@@ -83,5 +99,4 @@
       }
     }
   }
-
 }
