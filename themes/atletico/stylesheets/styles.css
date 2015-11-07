@@ -317,51 +317,51 @@ h1 {
   font-size: 2em;
 }
 
-/* line 4, ../sass/base/_typography.scss */
+/* line 5, ../sass/base/_typography.scss */
 h2 {
   font-size: 1.5em;
 }
 
-/* line 7, ../sass/base/_typography.scss */
+/* line 9, ../sass/base/_typography.scss */
 h3 {
   font-size: 1.4em;
 }
 
-/* line 10, ../sass/base/_typography.scss */
+/* line 13, ../sass/base/_typography.scss */
 h4 {
   font-size: 1.3em;
 }
 
-/* line 13, ../sass/base/_typography.scss */
+/* line 17, ../sass/base/_typography.scss */
 h5 {
   font-size: 1.2em;
 }
 
-/* line 16, ../sass/base/_typography.scss */
+/* line 21, ../sass/base/_typography.scss */
 h6 {
   font-size: 1.1em;
 }
 
-/* line 21, ../sass/base/_typography.scss */
+/* line 26, ../sass/base/_typography.scss */
 a:active, a:focus, a:hover {
   color: #00bbf1;
 }
 
-/* line 28, ../sass/base/_typography.scss */
+/* line 33, ../sass/base/_typography.scss */
 blockquote {
   border-left: 4px solid #ddd;
   margin-left: 1em;
   padding-left: .5em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 28, ../sass/base/_typography.scss */
+  /* line 33, ../sass/base/_typography.scss */
   blockquote {
     margin-left: 2em;
     padding-left: 1em;
   }
 }
 
-/* line 42, ../sass/base/_typography.scss */
+/* line 47, ../sass/base/_typography.scss */
 .path-node article h2,
 .path-node article h3,
 .path-node article h4,
