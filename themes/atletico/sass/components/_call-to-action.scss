@@ -8,7 +8,7 @@
   $large-screen: em(860) !default;
   $call-to-action-background-top: $logo-blue;
   $call-to-action-background-bottom: darken($action-color, 20%);
-  $call-to-action-color: white;
+  $call-to-action-color: $base-background-color;
   $gradient-angle: 10deg;
   $call-to-action-image: '../images/call-to-action.jpg';
 
@@ -50,14 +50,14 @@
         font-size: .8em;
         margin-bottom: 1em;
 
-        &:hover,
-        &:focus {
-          background-color: lighten($logo-red, 10%);
-        }
-
         @include media($large-screen) {
           font-size: 1.1em;
           margin-bottom: 0;
+        }
+
+        &:hover,
+        &:focus {
+          background-color: lighten($logo-red, 10%);
         }
 
         &.call-to-action__button--left {

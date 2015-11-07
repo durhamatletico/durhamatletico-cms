@@ -31,13 +31,13 @@
 
     .menu {
       line-height: 1.5em;
-      margin: 0 0 1em 0;
+      margin: 0 0 1em;
       padding: 0;
 
       @include media($small) {
         float: left;
-        margin-left: 2em;
         margin-bottom: 0;
+        margin-left: 2em;
       }
     }
 

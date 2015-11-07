@@ -5,6 +5,7 @@
  */
 
 // Login form.
+// scss-lint:disable QualifyingElement
 .path-user {
   input[type=text],
   input[type=email],
@@ -29,3 +30,4 @@
     }
   }
 }
+// scss-lint:enable QualifyingElement

@@ -4,27 +4,27 @@
  */
 
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
-@import "init";
+@import 'init';
 
 /* Import Bitters library. */
-@import "lib/base/base";
+@import 'lib/base/base';
 
 /* HTML element (SMACSS base) rules */
-@import "base/base";
+@import 'base/base';
 
 /* Layout rules */
-@import "layouts/layout-base";
-@import "layouts/layout-front";
-@import "layouts/layout-node";
-@import "layouts/layout-posts";
+@import 'layouts/layout-base';
+@import 'layouts/layout-front';
+@import 'layouts/layout-node';
+@import 'layouts/layout-posts';
 
 /* Component rules (called 'modules' in SMACSS) */
-@import "components/header";
-@import "components/call-to-action";
-@import "components/sidebar";
-@import "components/footer";
-@import "components/highlighted";
-@import "components/node";
-@import "components/forms";
-@import "components/posts";
-@import "components/post-cards";
+@import 'components/header';
+@import 'components/call-to-action';
+@import 'components/sidebar';
+@import 'components/footer';
+@import 'components/highlighted';
+@import 'components/node';
+@import 'components/forms';
+@import 'components/posts';
+@import 'components/post-cards';

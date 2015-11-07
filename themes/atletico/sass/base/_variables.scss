@@ -23,7 +23,7 @@ $base-background-color: #fff; // White.
 
 // Navigation refill variables
 $navigation-background: $base-font-color;
-$navigation-color: transparentize($base-background-color, .2);;
+$navigation-color: transparentize($base-background-color, .2);
 $navigation-color-hover: $base-background-color;
 $header-height: 8em;
 $header-break: em(450);
