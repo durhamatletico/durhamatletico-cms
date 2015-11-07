@@ -194,7 +194,11 @@ header {
     // Need to match specificity of system CSS file to override it.
     .menu .is-active {
       color: $navigation-active-link-color;
-      font-weight: bold;
+
+      @include media($small) {
+        border-bottom: solid 1px $navigation-active-link-color;
+        padding-bottom: .25em;
+      }
     }
 
     // User menu - only on very small screens. ---------------------------------

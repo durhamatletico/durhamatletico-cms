@@ -29,5 +29,17 @@
       width: 66%;
     }
   }
+
+  .form-actions {
+    margin: 0;
+
+    input {
+      margin: 1em 0 .5em;
+
+      &:first-child {
+        margin-right: 1em;
+      }
+    }
+  }
 }
 // scss-lint:enable QualifyingElement
