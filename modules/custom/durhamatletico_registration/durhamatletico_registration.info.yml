@@ -1,0 +1,7 @@
+name: Durham Atletico Registration
+type: module
+description: Provides registration functionality for Durham Atletico leagues.
+core: 8.x
+package: Durham Atletico
+dependencies:
+  - stripe_checkout

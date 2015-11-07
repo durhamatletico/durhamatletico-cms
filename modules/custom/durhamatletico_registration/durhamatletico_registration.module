@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains durhamatletico_registration.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function durhamatletico_registration_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the durhamatletico_registration module.
+    case 'help.page.durhamatletico_registration':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides registration functionality for Durham Atletico leagues.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function durhamatletico_registration_theme() {
+  $theme = [];
+
+  return $theme;
+}
