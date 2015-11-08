@@ -1,0 +1,44 @@
+uuid: fe75e5c4-8859-43c1-9429-419d5877b834
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.registration.body
+    - field.field.node.registration.field_balance_due
+    - node.type.registration
+  module:
+    - stripe_checkout
+    - text
+    - user
+id: node.registration.default
+targetEntityType: node
+bundle: registration
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+  field_balance_due:
+    type: stripe_checkout
+    weight: 3
+    label: above
+    settings:
+      stripe_checkout_description: ''
+      stripe_checkout_currency: ''
+    third_party_settings: {  }
+  langcode:
+    type: language
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+      native_language: false
+    third_party_settings: {  }
+  links:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
