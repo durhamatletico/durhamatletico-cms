@@ -1,4 +1,10 @@
 default:
+  formatters:
+    pretty: true
+    junit:
+      output_path: %paths.base%/build/xml
+    html:
+      output_path: %paths.base%/build/html
   suites:
     default:
       contexts:
@@ -8,12 +14,18 @@ default:
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
   extensions:
+    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
+      name: html
+      renderer: Twig
+      file_name: Index
+      print_args: true
+      print_outp: true
+      loop_break: true
     Behat\MinkExtension:
       goutte: ~
       selenium2: ~
-      base_url: http://local.durhamatletico.com
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: 'drupal' 
-      drupal: 
-        drupal_root: '/var/www/durhamatletico'
+imports:
+  - behat.local.yml

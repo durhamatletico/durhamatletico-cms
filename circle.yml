@@ -1,9 +1,21 @@
 dependencies:
   post:
+    - cp tests/scripts/durhamatletico.conf /etc/apache2/sites-available
+    - a2ensite durhamatletico.conf
+    - sudo service apache2 restart
+    - composer install -d tests --prefer-source --no-interaction
     - cd themes/atletico; bundle install
+    - tests/scripts/build.sh
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint
+    - tests/bin/behat -vv --colors -c tests/behat.yml
+general:
+  artifacts:
+    - "tests/build/xml"
+    - "tests/build/html"
 machine:
   php:
     version: 5.5.21
+  services:
+    - mysql

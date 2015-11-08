@@ -1,0 +1,10 @@
+# Copy this file to `behat.local.yml`.
+default:
+  extensions:
+    Behat\MinkExtension:
+      # Set this to your local URL.
+      base_url: 'http://127.0.0.1:8080'
+    Drupal\DrupalExtension:
+      drupal:
+        # Set this to the Drupal root on your machine.
+        drupal_root: "/home/kosta/src/durham-atletico"

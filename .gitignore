@@ -53,3 +53,4 @@ Thumbs.db
 # SASS #
 ##########
 .sass-cache
+/tests/behat.local.yml
