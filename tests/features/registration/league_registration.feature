@@ -71,7 +71,15 @@ Feature: Allow registered users to sign up for a leauge
     # Then I should get a 200 HTTP response
     # And I should see "Submitted by testuser"
 
+  @api
   Scenario: Users may only create one registration node per league
+    Given I am logged in as a user with the "authenticated user" role
+    When I go to "node/add/registration"
+    And I press "Save"
+    Then I should see "Submitted by"
+    And I should get a 200 HTTP response
+    When I go to "node/add/registration"
+    Then I should see "Member for"
 
   Scenario: Users may pay for an individual registration
 
