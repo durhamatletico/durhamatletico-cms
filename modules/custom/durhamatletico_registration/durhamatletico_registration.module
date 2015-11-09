@@ -44,39 +44,8 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 function durhamatletico_registration_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
   $type = $node->bundle();
   if ($type == 'registration' && $op == 'view') {
-    if ($account->hasPermission('administer content')) {
-      return \Drupal\Core\Access\AccessResult::allowed();
-    }
-    if ($node->getOwner()->getAccountName() === $account->getAccountName()) {
-      return \Drupal\Core\Access\AccessResult::allowed();
-    }
-    return \Drupal\Core\Access\AccessResult::forbidden();
+    return \Drupal::service('durhamatletico_registration.registration')->canViewRegistration($node, $account);
   }
-
-//  switch ($op) {
-//    case 'create':
-//      return AccessResult::allowedIfHasPermission($account, 'create ' . $type . ' content');
-//
-//    case 'update':
-//      if ($account->hasPermission('edit any ' . $type . ' content', $account)) {
-//        return AccessResult::allowed()->cachePerPermissions();
-//      }
-//      else {
-//        return AccessResult::allowedIf($account->hasPermission('edit own ' . $type . ' content', $account) && ($account->id() == $node->getOwnerId()))->cachePerPermissions()->cachePerUser()->cacheUntilEntityChanges($node);
-//      }
-//
-//    case 'delete':
-//      if ($account->hasPermission('delete any ' . $type . ' content', $account)) {
-//        return AccessResult::allowed()->cachePerPermissions();
-//      }
-//      else {
-//        return AccessResult::allowedIf($account->hasPermission('delete own ' . $type . ' content', $account) && ($account->id() == $node->getOwnerId()))->cachePerPermissions()->cachePerUser()->cacheUntilEntityChanges($node);
-//      }
-//
-//    default:
-//      // No opinion.
-//      return AccessResult::neutral();
-//  }
   return \Drupal\Core\Access\AccessResult::neutral();
 }
 

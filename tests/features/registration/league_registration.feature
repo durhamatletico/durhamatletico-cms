@@ -49,13 +49,27 @@ Feature: Allow registered users to sign up for a leauge
     When I press "Save"
     Then I should see "has been created"
 
-    @api
+    @api @needswork
   Scenario: Users may only view their own registrations, not anyone else's
+    Given users:
+    | name     | mail            | status |
+    | testuser | testuser@example.com | 1      |
+    Given "registration" content:
+    | title                     | author | path | status |
+    | testuser | testuser      | /testregistration | 1 |
     Given I am logged in as a user with the "authenticated user" role
+    When I go to "/testregistration"
+    Then I should get a 403 HTTP response
     When I go to "node/add/registration"
     And I press "Save"
     Then I should see "Submitted by"
     And I should get a 200 HTTP response
+    Given I am logged in as "testuser"
+    When I go to "/testregistration"
+    # This currently doesn't work because the node author isn't properly
+    # set to `testuser` by DrupalExtension.
+    # Then I should get a 200 HTTP response
+    # And I should see "Submitted by testuser"
 
   Scenario: Users may only create one registration node per league
 
