@@ -43,8 +43,8 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
  */
 function durhamatletico_registration_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
   $type = $node->bundle();
-  if ($type == 'registration' && $op == 'view') {
-    return \Drupal::service('durhamatletico_registration.registration')->canViewRegistration($node, $account);
+  if ($type == 'registration') {
+    return \Drupal::service('durhamatletico_registration.registration')->nodeAccessRegistration($node, $op, $account);
   }
   return \Drupal\Core\Access\AccessResult::neutral();
 }

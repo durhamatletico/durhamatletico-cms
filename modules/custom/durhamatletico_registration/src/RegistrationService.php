@@ -20,6 +20,13 @@ class RegistrationService {
   public function __construct() {
   }
 
+  public function nodeAccessRegistration(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
+    if ($op == 'view') {
+      return $this->canViewRegistration($node, $account);
+    }
+    return \Drupal\Core\Access\AccessResult::neutral();
+  }
+
   /**
    * Determine if a user can view a given registration node.
    *
