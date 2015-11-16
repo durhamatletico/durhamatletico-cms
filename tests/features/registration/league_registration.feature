@@ -80,6 +80,11 @@ Feature: Allow registered users to sign up for a leauge
     And I should get a 200 HTTP response
     When I go to "node/add/registration"
     Then I should see "Member for"
+   
+
+  Scenario: Users should see a link to register for the league
+    
+  Scenario: Users who have registered should not see a link to register for the league
 
   Scenario: Users may pay for an individual registration
 

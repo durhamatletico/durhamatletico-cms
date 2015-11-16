@@ -23,6 +23,14 @@ class RegistrationService {
   public function __construct() {
   }
 
+  /**
+   * Node access callback.
+   *
+   * @param \Drupal\node\NodeInterface $node
+   * @param $op
+   * @param \Drupal\Core\Session\AccountInterface $account
+   * @return \Drupal\Core\Access\AccessResult
+   */
   public function nodeAccessRegistration(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
     if ($op == 'view') {
       return $this->canViewRegistration($node, $account);
@@ -51,6 +59,21 @@ class RegistrationService {
   }
 
   /**
+   * Get registration node(s) for user, if any.
+   *
+   * @param \Drupal\user\UserInterface $user
+   * @return array
+   */
+  public function getRegistrationNodeForUser(\Drupal\user\UserInterface $user) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'registration')
+      ->condition('uid', $user->id());
+    $nids = $query->execute();
+    return $nids;
+  }
+
+  /**
    * Check if a user can create a new registration.
    *
    * Users are only allowed to create one registration node. An exception is
@@ -58,17 +81,11 @@ class RegistrationService {
    *
    * @return bool
    */
-  public function canCreateNewRegistration() {
+  public function canCreateNewRegistration(\Drupal\user\UserInterface $user) {
     if (\Drupal::currentUser()->hasPermission('administer content')) {
       return TRUE;
     }
-
-    $query = \Drupal::entityQuery('node')
-      ->condition('status', 1)
-      ->condition('type', 'registration')
-      ->condition('uid', \Drupal::currentUser()->id());
-    $nids = $query->execute();
-
+    $nids = $this->getRegistrationNodeForUser($user);
     if (count($nids)) {
       $response = new RedirectResponse('/user');
       $response->send();

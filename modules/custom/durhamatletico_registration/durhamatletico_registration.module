@@ -29,7 +29,8 @@ function durhamatletico_registration_help($route_name, RouteMatchInterface $rout
 function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_registration_form') {
     // If the user already created a registration, direct them back to theirs.
-    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration();
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
 
     if (\Drupal::currentUser()->hasPermission('administer content')) {
       return;
