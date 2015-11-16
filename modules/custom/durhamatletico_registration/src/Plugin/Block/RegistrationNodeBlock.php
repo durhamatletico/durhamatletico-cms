@@ -30,10 +30,18 @@ class RegistrationNodeBlock extends BlockBase {
     $registration_node = \Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($user);
     $build = [];
     if (!count($registration_node)) {
-      $url = Url::fromRoute('node.add_page');
+      $url = Url::fromRoute('node.add', ['node_type' => 'registration']);
       $build['registration_node_block']['#markup'] = t('@clickhere for the winter 2016 futsal league.', array('@clickhere' => \Drupal::l(t('Click here to register'), $url)));
     }
-    // TODO: Show the user what leagues they are registered for.
+    else {
+      $node = \Drupal\node\Entity\Node::load(array_shift($registration_node));
+      $balance_due = $node->get('field_balance_due')->getValue();
+      if ($balance_due[0]['value'] == '60') {
+        // Registration is unpaid.
+        drupal_set_message(t('Your registration is not complete! You have a balance due on your registration. Please visit @node to pay.',
+          array('@node' => \Drupal::l('this link', Url::fromRoute('entity.node.canonical', ['node' => $node->id()])))), 'warning');
+      }
+    }
     return $build;
   }
 
