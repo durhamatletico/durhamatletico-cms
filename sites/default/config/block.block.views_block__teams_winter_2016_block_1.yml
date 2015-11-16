@@ -1,6 +1,6 @@
 uuid: 62d14078-ea38-4f38-a700-b6565f6830f8
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.teams_winter_2016
