@@ -10,16 +10,16 @@ field_name: field_balance_due
 entity_type: node
 bundle: registration
 label: 'Balance due'
-description: ''
+description: test
 required: false
 translatable: true
 default_value:
   -
-    value: 60
+    value: 6000
 default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: $
+  prefix: ''
   suffix: ''
 field_type: integer
