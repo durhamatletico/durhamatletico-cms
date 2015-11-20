@@ -24,4 +24,8 @@ content:
   links:
     weight: 100
 hidden:
+  field_leage: true
+  field_league_start_date: true
+  field_sponsors: true
+  field_teams: true
   langcode: true
