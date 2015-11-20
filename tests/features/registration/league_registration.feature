@@ -92,7 +92,8 @@ Feature: Allow registered users to sign up for a leauge
       Then I should see "Submitted by"
       And I should get a 200 HTTP response
       When I go to "/user"
-      Then I should not see the link "Click here to register"
+      Then I should see the text "Your registration is not complete! You have a balance of $60 due on your registration"
+      And I should not see the link "Click here to register"
 
   Scenario: Users may pay for an individual registration
 

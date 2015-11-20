@@ -36,10 +36,10 @@ class RegistrationNodeBlock extends BlockBase {
     else {
       $node = \Drupal\node\Entity\Node::load(array_shift($registration_node));
       $balance_due = $node->get('field_balance_due')->getValue();
-      if ($balance_due[0]['value'] == '6000') {
+      if ($balance_due[0]['value'] > 0) {
         // Registration is unpaid.
-        drupal_set_message(t('Your registration is not complete! You have a balance due on your registration. Please visit @node to pay.',
-          array('@node' => \Drupal::l('this link', Url::fromRoute('entity.node.canonical', ['node' => $node->id()])))), 'warning');
+        drupal_set_message(t('Your registration is not complete! You have a balance of $@amount due on your registration. Please visit @node to pay.',
+          array('@amount' => $balance_due[0]['value'] / 100, '@node' => \Drupal::l('this link', Url::fromRoute('entity.node.canonical', ['node' => $node->id()])))), 'warning');
       }
     }
     return $build;
