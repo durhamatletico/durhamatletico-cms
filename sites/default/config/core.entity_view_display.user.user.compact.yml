@@ -10,6 +10,7 @@ dependencies:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_instagram
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_league_registration
     - field.field.user.user.field_linkedin
     - field.field.user.user.field_opt_in_for_email_news
     - field.field.user.user.field_opt_in_social_media
@@ -42,6 +43,7 @@ hidden:
   field_first_name: true
   field_instagram: true
   field_last_name: true
+  field_league_registration: true
   field_linkedin: true
   field_opt_in_for_email_news: true
   field_opt_in_social_media: true

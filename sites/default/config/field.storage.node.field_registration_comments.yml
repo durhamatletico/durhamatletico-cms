@@ -1,0 +1,19 @@
+uuid: 3cae3062-5ede-4cbe-9e02-2ec689e16d9a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_registration_comments
+field_name: field_registration_comments
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

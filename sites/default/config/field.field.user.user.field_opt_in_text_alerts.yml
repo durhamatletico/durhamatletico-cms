@@ -13,7 +13,7 @@ bundle: user
 label: 'Opt-in for text message alerts'
 description: 'If you opt-in, we can send you text messages when games are canceled or postponed. <strong>(Recommended)</strong>'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 1

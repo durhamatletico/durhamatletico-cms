@@ -14,7 +14,7 @@ bundle: user
 label: Phone
 description: 'We will only use your phone number if you opt-in for text message alerts from us.'
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

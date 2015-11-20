@@ -1,0 +1,5 @@
+stripe_checkout_name: 'My Company Name'
+stripe_checkout_key_secret: sk_my-test-key
+stripe_checkout_key_public: pk_my-test-key
+stripe_checkout_currency: USD
+stripe_checkout_enforce_csp: 1

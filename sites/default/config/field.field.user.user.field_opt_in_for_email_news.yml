@@ -13,7 +13,7 @@ bundle: user
 label: 'Opt-in for email news'
 description: 'Opt-in to receive a periodic newsletter from us. <strong>(Recommended)</strong>'
 required: false
-translatable: false
+translatable: true
 default_value:
   -
     value: 1

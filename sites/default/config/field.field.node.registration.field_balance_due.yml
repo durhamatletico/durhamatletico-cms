@@ -1,0 +1,25 @@
+uuid: da838050-8c82-41e7-bb5d-939d7c29651d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_balance_due
+    - node.type.registration
+id: node.registration.field_balance_due
+field_name: field_balance_due
+entity_type: node
+bundle: registration
+label: 'Balance due'
+description: test
+required: false
+translatable: true
+default_value:
+  -
+    value: 6000
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

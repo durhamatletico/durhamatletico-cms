@@ -1,0 +1,23 @@
+uuid: 9237934a-4469-49fa-bd42-6601bfe2a8ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_waiver
+    - node.type.registration
+id: node.registration.field_registration_waiver
+field_name: field_registration_waiver
+entity_type: node
+bundle: registration
+label: 'Registration Waiver'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'By clicking continue, you agree to the <a href="/node/22">conditions of this waiver</a>.'
+  off_label: 'Off'
+field_type: boolean
