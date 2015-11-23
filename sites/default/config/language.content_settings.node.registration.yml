@@ -1,0 +1,16 @@
+uuid: 1a5a35aa-93ed-407a-b700-a98e11e900fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.registration
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.registration
+target_entity_type_id: node
+target_bundle: registration
+default_langcode: authors_default
+language_alterable: false

@@ -16,3 +16,5 @@ permissions:
   - 'access shortcuts'
   - 'search content'
   - 'edit own comments'
+  - 'create registration content'
+  - 'access kint'

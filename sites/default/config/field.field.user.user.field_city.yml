@@ -13,7 +13,7 @@ bundle: user
 label: 'What city do you live in?'
 description: 'Please enter the name of the city you live in.'
 required: true
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }

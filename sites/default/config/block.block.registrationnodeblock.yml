@@ -1,0 +1,34 @@
+uuid: 64241f8a-b9b6-4f15-830e-140db8e47692
+langcode: en
+status: true
+dependencies:
+  module:
+    - durhamatletico_registration
+    - system
+    - user
+  theme:
+    - atletico
+id: registrationnodeblock
+theme: atletico
+region: content
+weight: -10
+provider: null
+plugin: registration_node_block
+settings:
+  id: registration_node_block
+  label: 'Registration node block'
+  provider: durhamatletico_registration
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

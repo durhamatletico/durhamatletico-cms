@@ -9,6 +9,7 @@ dependencies:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_instagram
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_league_registration
     - field.field.user.user.field_linkedin
     - field.field.user.user.field_opt_in_for_email_news
     - field.field.user.user.field_opt_in_social_media
@@ -132,6 +133,10 @@ content:
     third_party_settings: {  }
   timezone:
     weight: 6
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:
@@ -139,4 +144,5 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     weight: 1
-hidden: {  }
+hidden:
+  field_league_registration: true

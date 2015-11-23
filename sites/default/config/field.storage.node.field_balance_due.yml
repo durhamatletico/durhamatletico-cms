@@ -1,0 +1,20 @@
+uuid: 6b8020a3-fa72-4eca-8100-c38c562cb101
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_balance_due
+field_name: field_balance_due
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

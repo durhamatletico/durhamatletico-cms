@@ -2,10 +2,7 @@ uuid: ab3538d5-35a8-4fc7-9a0e-14348f0c8cb7
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:cda87539-c65e-4ba4-8607-7c33e836dea8'
   module:
-    - block_content
     - node
   theme:
     - atletico

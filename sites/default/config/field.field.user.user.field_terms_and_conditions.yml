@@ -13,7 +13,7 @@ bundle: user
 label: 'Terms and Conditions'
 description: 'By registering on this site, you accept our <a href="#">terms and conditions</a> and our <a href=#">privacy policy</a>.'
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     value: 1

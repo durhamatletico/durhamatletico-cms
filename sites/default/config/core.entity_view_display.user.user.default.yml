@@ -9,6 +9,7 @@ dependencies:
     - field.field.user.user.field_first_name
     - field.field.user.user.field_instagram
     - field.field.user.user.field_last_name
+    - field.field.user.user.field_league_registration
     - field.field.user.user.field_linkedin
     - field.field.user.user.field_opt_in_for_email_news
     - field.field.user.user.field_opt_in_social_media
@@ -31,7 +32,7 @@ bundle: user
 mode: default
 content:
   field_birth_date:
-    weight: 10
+    weight: 7
     label: above
     settings:
       format_type: medium
@@ -39,14 +40,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_city:
-    weight: 20
+    weight: 16
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_facebook:
-    weight: 12
+    weight: 9
     label: above
     settings:
       trim_length: 80
@@ -57,14 +58,14 @@ content:
     third_party_settings: {  }
     type: link
   field_first_name:
-    weight: 6
+    weight: 3
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_instagram:
-    weight: 13
+    weight: 10
     label: above
     settings:
       trim_length: 80
@@ -75,14 +76,21 @@ content:
     third_party_settings: {  }
     type: link
   field_last_name:
-    weight: 7
+    weight: 4
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+  field_league_registration:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_linkedin:
-    weight: 14
+    weight: 11
     label: above
     settings:
       trim_length: 80
@@ -93,7 +101,7 @@ content:
     third_party_settings: {  }
     type: link
   field_opt_in_for_email_news:
-    weight: 18
+    weight: 14
     label: above
     settings:
       format: default
@@ -102,7 +110,7 @@ content:
     third_party_settings: {  }
     type: boolean
   field_opt_in_social_media:
-    weight: 11
+    weight: 8
     label: above
     settings:
       format: default
@@ -111,7 +119,7 @@ content:
     third_party_settings: {  }
     type: boolean
   field_opt_in_text_alerts:
-    weight: 9
+    weight: 6
     label: above
     settings:
       format: default
@@ -120,20 +128,20 @@ content:
     third_party_settings: {  }
     type: boolean
   field_phone:
-    weight: 8
+    weight: 5
     label: above
     settings:
       title: ''
     third_party_settings: {  }
     type: telephone_link
   field_preferred_language:
-    weight: 19
+    weight: 15
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_terms_and_conditions:
-    weight: 17
+    weight: 13
     label: above
     settings:
       format: default
@@ -142,7 +150,7 @@ content:
     third_party_settings: {  }
     type: boolean
   field_twitter:
-    weight: 15
+    weight: 12
     label: above
     settings:
       trim_length: 80
@@ -153,12 +161,12 @@ content:
     third_party_settings: {  }
     type: link
   member_for:
-    weight: 5
+    weight: 2
     settings: {  }
     third_party_settings: {  }
   user_picture:
     type: image
-    weight: 0
+    weight: 1
     settings:
       image_style: thumbnail
       image_link: content

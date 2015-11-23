@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Contains durhamatletico_registration.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_user_login().
+ */
+function durhamatletico_registration_user_login($account) {
+  // Check if user hasn't created a registration node. If so, direct them to
+  // register.
+  $reg_node = reset(\Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($account));
+  if (!count($reg_node)) {
+    $response = new RedirectResponse('/node/add/registration');
+    $response->send();
+  }
+}
+
+/**
+ * Implements hook_help().
+ */
+function durhamatletico_registration_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the durhamatletico_registration module.
+    case 'help.page.durhamatletico_registration':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides registration functionality for Durham Atletico leagues.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'node_registration_form') {
+    // If the user already created a registration, direct them back to theirs.
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
+
+    if (\Drupal::currentUser()->hasPermission('administer content')) {
+      return;
+    }
+
+    // Hide fields from non-privileged users.
+    unset($form['revision_information']);
+    unset($form['revision_log']);
+    $form['title']['#access'] = FALSE;
+    $form['title']['widget'][0]['value']['#default_value'] = \Drupal::currentUser()->getDisplayName() . ' - Winter 2016 registration';
+  }
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function durhamatletico_registration_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
+  $type = $node->bundle();
+  if ($type == 'registration') {
+    return \Drupal::service('durhamatletico_registration.registration')->nodeAccessRegistration($node, $op, $account);
+  }
+  return \Drupal\Core\Access\AccessResult::neutral();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function durhamatletico_registration_theme() {
+  $theme = [];
+
+  return $theme;
+}
