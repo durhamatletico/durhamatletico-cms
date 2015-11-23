@@ -6,6 +6,20 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_user_login().
+ */
+function durhamatletico_registration_user_login($account) {
+  // Check if user hasn't created a registration node. If so, direct them to
+  // register.
+  $reg_node = reset(\Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($account));
+  if (!count($reg_node)) {
+    $response = new RedirectResponse('/node/add/registration');
+    $response->send();
+  }
+}
 
 /**
  * Implements hook_help().
