@@ -1,0 +1,18 @@
+uuid: d8f0eaa0-6088-4384-b500-f001c36a6b9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.registration
+id: node.registration.title
+field_name: title
+entity_type: node
+bundle: registration
+label: 'Player name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

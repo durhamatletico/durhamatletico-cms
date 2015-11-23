@@ -9,7 +9,7 @@ dependencies:
 id: atletico_messages
 theme: atletico
 region: highlighted
-weight: -9
+weight: -12
 provider: null
 plugin: system_messages_block
 settings:

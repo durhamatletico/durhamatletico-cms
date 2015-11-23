@@ -1,0 +1,26 @@
+uuid: aba86b25-ade9-4635-9124-363a90ee0c45
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.registration.field_balance_due
+    - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_teams
+    - field.field.node.registration.field_registration_waiver
+    - node.type.registration
+  module:
+    - user
+id: node.registration.teaser
+targetEntityType: node
+bundle: registration
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_balance_due: true
+  field_registration_comments: true
+  field_registration_teams: true
+  field_registration_waiver: true
+  langcode: true

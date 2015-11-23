@@ -1,0 +1,5 @@
+services:
+  durhamatletico_registration.registration:
+    class: Drupal\durhamatletico_registration\RegistrationService
+    arguments: []
+

@@ -1,0 +1,83 @@
+uuid: 162a2473-edb4-495c-9707-7e3135c889b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.registration.field_balance_due
+    - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_teams
+    - field.field.node.registration.field_registration_waiver
+    - node.type.registration
+  module:
+    - path
+id: node.registration.default
+targetEntityType: node
+bundle: registration
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+  field_registration_comments:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+  field_registration_teams:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_registration_waiver:
+    weight: 10
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
+  langcode:
+    type: language_select
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 6
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_balance_due: true

@@ -14,7 +14,7 @@ bundle: user
 label: 'Birth date'
 description: 'The futsal league is open to players ages 18 and over.'
 required: true
-translatable: false
+translatable: true
 default_value:
   -
     default_date_type: relative
