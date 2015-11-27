@@ -1,0 +1,9 @@
+uuid: a9830866-bfea-4dac-b744-6818a40f344d
+langcode: en
+status: true
+dependencies: {  }
+id: league_administrator
+label: 'League Administrator'
+weight: -4
+is_admin: null
+permissions: {  }

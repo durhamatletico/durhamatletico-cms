@@ -1,0 +1,14 @@
+uuid: 9e5fab2a-75b9-44b5-8d04-4c87a4706139
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.league_administrator
+  module:
+    - user
+id: user_remove_role_action.league_administrator
+label: 'Remove the League Administrator role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: league_administrator

@@ -1,0 +1,14 @@
+uuid: 4479fe44-70fd-4213-953e-62a5f9454847
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.league_administrator
+  module:
+    - user
+id: user_add_role_action.league_administrator
+label: 'Add the League Administrator role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: league_administrator
