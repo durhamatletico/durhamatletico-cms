@@ -18,3 +18,4 @@ permissions:
   - 'edit own comments'
   - 'create registration content'
   - 'access kint'
+  - 'change own username'

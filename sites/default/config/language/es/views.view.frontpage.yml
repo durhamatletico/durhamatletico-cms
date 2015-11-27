@@ -1,10 +1,13 @@
 label: 'Página principal'
+description: 'All content promoted to the front page.'
 display:
   default:
     display_options:
       empty:
         area_text_custom:
           content: 'Aún no se ha creado contenido para la portada.'
+        title:
+          title: 'Bienvenido a [site:name]'
       exposed_form:
         options:
           submit_button: Aplicar

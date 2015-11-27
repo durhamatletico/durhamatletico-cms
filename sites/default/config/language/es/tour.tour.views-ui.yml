@@ -1,16 +1,23 @@
 label: 'Ver página de edición'
 tips:
+  views-main:
+    label: 'Manage view settings'
+    body: 'View or edit the configuration.'
   views-ui-displays:
     label: 'Mostrar en esta vista'
+    body: 'A display is a way of outputting the results, e.g., as a page or a block. A view can contain multiple displays, which are listed here. The active display is highlighted.'
   views-ui-view-admin:
     label: 'Administración de Vista'
+    body: 'Realizar tareas administrativas, como agregar una descripción y la creación de un clon. Haga clic en el botón desplegable para ver las opciones disponibles.'
   views-ui-format:
     label: 'Formato de salida'
+    body: 'Elija la forma de mostrar los resultados. Por ejemplo, elija <em>Contenido</em> para mostrar cada elemento completamente, utilizando sus opciones de visualización configuradas. O seleccione <em>Campos</em>, que le permite mostrar sólo campos específicos para cada resultado. Formatos adicionales se pueden agregar mediante la instalación de módulos para <em>extender</em> la funcionalidad básica de Drupal.'
   views-ui-fields:
     label: Campos
     body: 'Si esta vista utiliza campos, ellos están listados aquí. Usted puede hacer click en un campo para configurarlo.'
   views-ui-filter:
     label: 'Filtrar su vista'
+    body: 'Adicionar filtros para limitar los resultados en la salida. E.g., para mostrar sólo contenido que está publicado, Usted debería adicionar un filtro para <em>Publicado</em> y seleccionar <em>Sí</em>'
   views-ui-filter-operations:
     label: 'Acciones de filtrado'
     body: 'Adicionar, reordenar o eliminar filtros.'

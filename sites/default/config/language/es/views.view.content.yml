@@ -22,6 +22,7 @@ display:
           label: Título
         type:
           label: 'Tipo de contenido'
+          separator: ', '
         name:
           label: Autor
         status:
@@ -62,4 +63,5 @@ display:
         title: Contenido
       tab_options:
         title: Contenido
+        description: 'Buscar y administrar contenido'
     display_title: Página

@@ -16,7 +16,7 @@ provider: null
 plugin: registration_node_block
 settings:
   id: registration_node_block
-  label: 'Registration node block'
+  label: 'Winter Futsal League 2016 Registration'
   provider: durhamatletico_registration
   label_display: visible
 visibility:

@@ -37,7 +37,12 @@ display:
           label: 'Último acceso'
         operations:
           label: Operaciones
+        mail:
+          separator: ', '
       filters:
+        combine:
+          expose:
+            label: 'Nombre o correo contienen'
         roles_target_id:
           expose:
             label: Rol

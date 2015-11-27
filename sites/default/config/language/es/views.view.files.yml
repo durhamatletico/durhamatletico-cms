@@ -21,8 +21,11 @@ display:
             items_per_page_options_all_label: '- Todos -'
             offset_label: Desplazamiento
       fields:
+        fid:
+          label: Fid
         filename:
           label: Nombre
+          separator: ', '
         filemime:
           label: 'Tipo MIME'
         filesize:
@@ -31,8 +34,11 @@ display:
           label: Estado
         created:
           label: 'Fecha de subida al servidor'
+        changed:
+          label: 'Fecha de modificación'
         count:
           label: 'Usado en'
+          format_plural_string: "1 lugar\x03@count lugares"
       filters:
         filename:
           expose:
@@ -48,6 +54,7 @@ display:
         area_text_custom:
           content: 'No hay archivos disponibles.'
   page_1:
+    display_title: 'Vista general de archivos'
     display_options:
       menu:
         title: Archivos
@@ -68,10 +75,14 @@ display:
           label: Entidad
         type:
           label: 'Tipo de entidad'
+        module:
+          label: 'Registrando módulo'
         count:
           label: 'Conteo de usos'
+          format_plural_string: "1\x03@count"
       title: 'Usos del archivo'
       arguments:
         fid:
           exception:
             title: Todo(s)
+          title: 'Información de uso del fichero para {{ arguments.fid }}'

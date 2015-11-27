@@ -1,3 +1,4 @@
+label: 'Who''s online block'
 description: 'Muestra los nombres de los usuarios de los usuarios activos más recientemente, y el número total de usuarios activos.'
 display:
   default:
@@ -16,7 +17,14 @@ display:
             label: 'Último acceso'
             description: 'Un usuario se considera conectado si ha transcurrido este tiempo o menos desde su última visita a una página.'
       title: 'Quién está conectado'
+      header:
+        result:
+          content: 'Hay actualmente @total usuarios en línea.'
+      empty:
+        area_text_custom:
+          content: 'Hay actualmente 0 usuarios en línea.'
   who_s_online_block:
     display_title: 'Quién está conectado'
     display_options:
       block_description: 'Quién está conectado'
+      display_description: 'Una lista de usuarios que actualmente han iniciado sesión.'

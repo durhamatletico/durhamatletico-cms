@@ -2,5 +2,9 @@ label: 'Añadiendo idiomas'
 tips:
   language-add-overview:
     label: 'Añadiendo idiomas'
+    body: '<p>This page provides the ability to add common languages to your site.</p><p>If the desired language is not available, you can add a custom language.</p>'
   language-add-choose:
     label: 'Elegir idioma'
+    body: '<p>Seleccione un idioma de la lista, o seleccione "Idioma personalizado ..." al final de la lista.</p><p>Haga clic en el botón "Agregar idioma" cuando haya terminado de elegir su idioma.</p><p>Al agregar un idioma personalizado, usted obtendrá un formulario adicional donde se puede proporcionar el nombre, código y dirección del idioma.</p>'
+  language-add-continue:
+    label: Continuando

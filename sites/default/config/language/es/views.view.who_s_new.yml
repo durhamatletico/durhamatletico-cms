@@ -15,5 +15,6 @@ display:
   block_1:
     display_title: 'Usuarios nuevos'
     display_options:
+      display_description: 'Una lista de nuevos usuarios'
       block_description: 'Usuarios nuevos'
       block_category: Usuario

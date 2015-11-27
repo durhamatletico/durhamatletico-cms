@@ -1,3 +1,4 @@
+label: Glossary
 description: 'Todo el contenido, por letra.'
 display:
   default:
@@ -30,3 +31,6 @@ display:
     display_title: Adjunto
   page_1:
     display_title: Página
+    display_options:
+      menu:
+        title: Glossary
