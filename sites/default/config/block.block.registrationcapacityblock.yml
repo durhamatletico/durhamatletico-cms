@@ -1,0 +1,28 @@
+uuid: ab9808dc-9467-494d-9000-bfabdfcfcd9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - durhamatletico_registration
+    - system
+  theme:
+    - atletico
+id: registrationcapacityblock
+theme: atletico
+region: content_left
+weight: -13
+provider: null
+plugin: registration_capacity_block
+settings:
+  id: registration_capacity_block
+  label: 'Registration capacity'
+  provider: durhamatletico_registration
+  format: full_html
+  label_display: visible
+  capacity: '120'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
