@@ -50,7 +50,6 @@ class RegistrationCapacityBlock extends BlockBase {
       ->condition('status', 1)
       ->condition('type', 'registration')
       ->execute());
-    $registration_node_count = 30;
     $registration_percentage = (int) round((($registration_node_count / $this->configuration['capacity']) * 100));
     $message = '<br /><p>There are <strong>' . ((int) $this->configuration['capacity'] - $registration_node_count) . '</strong> registrations still available for the winter league. Please don\'t delay <a href="/user/register">in registering</a> -- we will exceed capacity and don\'t want you to be left out!</p>';
     $progress_markup = array(
