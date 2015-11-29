@@ -22,6 +22,37 @@ function durhamatletico_registration_user_login($account) {
 }
 
 /**
+ * {inheritdoc}
+ */
+function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getType() === 'registration') {
+    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()->getDefaultLanguage()->getId(), $entity, 'info@durhamatletico.com');
+    $author = \Drupal\user\Entity\User::load($entity->getOwnerId());
+    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()->getDefaultLanguage()->getId(), $entity, 'info@durhamatletico.com');
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function durhamatletico_registration_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'new_registration_admin':
+      $message['subject'] = 'New registration: ' . $params->getTitle();
+      $message['body'][] = 'A new registration was received, please see https://www.durhamatletic.com/node/' . $params->id();
+      break;
+    case 'new_registration_user':
+      $message['subject'] = 'Thank you for registering!';
+      $author = \Drupal\user\Entity\User::load($params->getOwnerId());
+      $markup = 'Dear ' . $author->getDisplayName() . ',' . "\n\n";
+      $markup .= 'Thank you for registering for the winter futsal league! We are excited to have you join us. We will be in touch soon with more information as teams are formed and we put the schedule together. In the meantime, feel free to contact us at info@durhamatletico.com with any questions!' . "\n\n";
+      $markup .= 'David & Kosta for Durham Atletico';
+      $message['body'][] = $markup;
+      break;
+  }
+}
+
+/**
  * Implements hook_help().
  */
 function durhamatletico_registration_help($route_name, RouteMatchInterface $route_match) {
