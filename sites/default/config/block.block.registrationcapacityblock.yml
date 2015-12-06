@@ -17,8 +17,8 @@ settings:
   id: registration_capacity_block
   label: 'Registration capacity'
   provider: durhamatletico_registration
-  format: full_html
   label_display: visible
+  format: full_html
   capacity: '120'
 visibility:
   request_path:
