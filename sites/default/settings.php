@@ -33,6 +33,10 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
       '^dev\.durhamatletico\.com$',
       'dev-durham-atletico\.pantheon\.io$',
     );
+    if ($stripe_file = file_get_contents('sites/default/files/private/stripe.json')) {
+      $stripe_config = json_decode($stripe_file, TRUE);
+      $config['stripe_checkout.settings'] = $stripe_config['dev'];
+    }
   }
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'test') {
     $domain = 'test.durhamatletico.com';
@@ -40,12 +44,20 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
       '^test\.durhamatletico\.com$',
       'test-durham-atletico\.pantheon\.io$',
     );
+    if ($stripe_file = file_get_contents('sites/default/files/private/stripe.json')) {
+      $stripe_config = json_decode($stripe_file, TRUE);
+      $config['stripe_checkout.settings'] = $stripe_config['test'];
+    }
   }
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
     $domain = 'www.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
       '^www\.durhamatletico\.com$',
     );
+    if ($stripe_file = file_get_contents('sites/default/files/private/stripe.json')) {
+      $stripe_config = json_decode($stripe_file, TRUE);
+      $config['stripe_checkout.settings'] = $stripe_config['live'];
+    }
   }
   else {
     $domain = $_SERVER['HTTP_HOST'];
