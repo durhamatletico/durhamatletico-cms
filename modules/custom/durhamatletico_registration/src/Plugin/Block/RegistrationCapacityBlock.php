@@ -50,15 +50,29 @@ class RegistrationCapacityBlock extends BlockBase {
       ->condition('status', 1)
       ->condition('type', 'registration')
       ->execute());
-    $registration_percentage = (int) round((($registration_node_count / $this->configuration['capacity']) * 100));
-    $message = '<br /><p>There are <strong>' . ((int) $this->configuration['capacity'] - $registration_node_count) . '</strong> registrations still available for the winter league. Please don\'t delay <a href="/user/register">in registering</a> -- we will exceed capacity and don\'t want you to be left out!</p>';
-    $progress_markup = array(
-      '#theme' => 'progress_bar',
-      '#percentage' => $registration_percentage,
-      '#message' => array('#markup' => $registration_node_count . ' of ' . $this->configuration['capacity']),
+    $team_nodes = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'team')
+      ->execute();
+    $rows = [];
+    foreach ($team_nodes as $team_nid) {
+      $team_node = \Drupal\node\Entity\Node::load($team_nid);
+      $rows[] = array(
+        str_replace('- Winter 2016', '', $team_node->getTitle()),
+        count($team_node->get('field_players')),
+      );
+    }
+
+    asort($rows);
+
+    $team_markup = array(
+      'header' => array('Team', '# Players Registered'),
+      'rows' => $rows,
     );
-    $markup = \Drupal::theme()->render('progress_bar', $progress_markup);
-    $markup .= $message;
+    $markup = '<br /><p>There are <strong>' . count($team_nodes) . '</strong> teams signed up, and ';
+    $markup .= '<strong>' . ((int) $this->configuration['capacity'] - $registration_node_count) . '</strong> registrations are still available for the winter league.';
+    $markup .= 'Please don\'t delay <a href="/user/register">in registering</a> -- we will exceed capacity and don\'t want you to be left out!</p>';
+    $markup .= \Drupal::theme()->render('table', $team_markup);
     $build['registration_capacity_block_capacity']['#markup'] = $markup;
     $build['#allowed_attributes']['exact'] = array('div' => array('exact' => 'style'));
     return $build;
