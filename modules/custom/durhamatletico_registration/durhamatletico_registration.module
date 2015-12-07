@@ -22,13 +22,26 @@ function durhamatletico_registration_user_login($account) {
 }
 
 /**
- * {inheritdoc}
+ * {@inheritdoc}
  */
 function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
   if ($entity->getType() === 'registration') {
+    // If needed, make sure team node is updated with entity reference to player.
+    \Drupal::service('durhamatletico_registration.registration')->assignPlayerToTeam($entity);
+    // Send mail.
     \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()->getDefaultLanguage()->getId(), $entity, 'info@durhamatletico.com');
     $author = \Drupal\user\Entity\User::load($entity->getOwnerId());
     \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()->getDefaultLanguage()->getId(), $entity, 'info@durhamatletico.com');
+  }
+}
+
+/**
+ * {@inheritdoc}
+ */
+function durhamatletico_registration_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+  // If needed, make sure team node is updated with entity reference to player.
+  if ($entity->getType() === 'registration') {
+    \Drupal::service('durhamatletico_registration.registration')->assignPlayerToTeam($entity);
   }
 }
 
@@ -39,7 +52,7 @@ function durhamatletico_registration_mail($key, &$message, $params) {
   switch ($key) {
     case 'new_registration_admin':
       $message['subject'] = 'New registration: ' . $params->getTitle();
-      $message['body'][] = 'A new registration was received, please see https://www.durhamatletic.com/node/' . $params->id();
+      $message['body'][] = 'A new registration was received, please see https://www.durhamatletico.com/node/' . $params->id();
       break;
     case 'new_registration_user':
       $message['subject'] = 'Thank you for registering!';

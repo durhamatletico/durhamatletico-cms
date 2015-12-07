@@ -74,6 +74,31 @@ class RegistrationService {
   }
 
   /**
+   * Assign a player to a team.
+   *
+   * Incoming entity will be a registration node with a reference
+   * to a team. When that's updated, load the team node and make
+   * sure the player is assigned/removed from the team node.
+   *
+   * TODO: This does not update the previous revision, so manual
+   * clean up is needed if the player is switched to a different
+   * team.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   */
+  public function assignPlayerToTeam(\Drupal\Core\Entity\EntityInterface $entity) {
+    $team_nid = $entity->get('field_registration_teams')->getValue();
+    $team_node = \Drupal\node\Entity\Node::load($team_nid[0]['target_id']);
+    $team_node->get('field_players')->setValue(
+      array_merge(
+        $team_node->get('field_players')->getValue(),
+        array($entity->getOwnerId())
+      )
+    );
+    $team_node->save();
+  }
+
+  /**
    * Check if a user can create a new registration.
    *
    * Users are only allowed to create one registration node. An exception is
