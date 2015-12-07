@@ -13,10 +13,35 @@ set classes = [
 {% if content %}
   <div{{ attributes.addClass(classes) }}>
     <div class="footer__wrapper">
-      <div class="footer__logo">
-        <img src="/themes/atletico/images/logo-mobile.png">
+      <div class="footer-logo">
+        <img src="/themes/atletico/images/logo-mobile.png" alt="Mobile logo">
       </div>
-      {{ content }}
+      <div class="footer-links">
+        <div class="footer__menu">
+          {{ elements.atletico_footer }}
+        </div>
+        <ul class="footer__address">
+          <li><h4>Durham Atletico</h4></li>
+          <li>201 W. Main St.</li>
+          <li>Durham, NC 27701</li>
+        </ul>
+        <div class="footer__menu--mobile">
+          <hr>
+          {{ elements.atletico_footer }}
+          <hr>
+        </div>
+        <div class="footer__social-media">
+          <p>Follow us on<br>Facebook and Twitter!</p>
+          <ul class="footer__social-media__links">
+            <li class="footer__icon"><a href="https://www.facebook.com/durhamatletico/"><i class="fa fa-facebook-square fa-lg fa-3x"></i></a></li>
+            <li class="footer__icon"><a href="https://twitter.com/DurhamAtletico"><i class="fa fa-twitter-square fa-lg fa-3x"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <hr>
+
+      <p>Copyright © 2015 -- Present, Durham Atletico</p>
     </div>
   </div>
 {% endif %}

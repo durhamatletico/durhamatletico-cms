@@ -4,65 +4,113 @@
  * Styles for the footer region.
  */
 
-.region-footer {
-  background-color: $footer-background;
+.footer__wrapper {
+  $footer-background: $base-font-color;
+  $footer-color: $base-background-color;
+  $footer-link-color: $footer-color;
+  $footer-break: 740px;
+
+  background: $footer-background;
   border-top: solid 1em $logo-red;
   clear: both;
-  padding-bottom: $navigation-padding / 2;
-  padding-top: $navigation-padding / 2;
-  text-align: right;
+  padding: ($base-spacing * 2) $gutter;
+  width: 100%;
 
-  .footer__wrapper {
-    @include span-columns(10);
-    @include shift(1);
-    float: none;
+  .footer-links {
+    @include media($footer-break) {
+      @include display(flex);
+      @include justify-content(center);
+      @include flex-wrap(wrap);
+    }
   }
 
-  .footer__logo {
-    display: inline-block;
-    float: left;
+  .footer-logo {
+    margin-bottom: 2em;
+    text-align: center;
 
     img {
-      line-height: 1em;
+      height: 3em;
     }
   }
 
-  .menu--footer {
-    display: inline-block;
+  ul,
+  div {
+    margin-bottom: $general-spacing;
+    padding: 0;
 
-    .menu {
-      line-height: 1.5em;
-      margin: 0;
-      padding: 0;
-
-      @include media($small) {
-        float: left;
-        margin-bottom: 0;
-        margin-left: 2em;
-      }
+    @include media($footer-break) {
+      @include flex-basis(13em);
+      @include flex-shrink(0);
     }
+  }
+
+  ul.menu {
+    margin-left: 0;
 
     .menu-item {
-      line-height: 1.5em;
-      list-style: none;
       padding-top: 0;
-      text-align: right;
+    }
+  }
 
-      @include media($small) {
-        display: inline;
-        line-height: 4em;
-        padding-right: 2em;
-        text-align: left;
-      }
+  li {
+    color: $base-background-color;
+    line-height: 1.5em;
+    list-style: none;
+    text-align: center;
+  }
 
-      a {
-        color: $navigation-color;
+  li a {
+    color: $footer-link-color;
+    text-decoration: none;
 
-        &:hover,
-        &:focus {
-          color: $base-background-color;
-        }
-      }
+    &:focus,
+    &:hover {
+      color: $logo-blue;
+    }
+  }
+
+  li h3 {
+    color: $footer-color;
+    font-size: 1em;
+    margin-bottom: 0.4em;
+  }
+
+  hr {
+    border: 1px solid transparentize($footer-color, 0.3);
+    margin: $general-spacing * 2 auto;
+    width: 12em;
+  }
+
+  p {
+    color: $footer-color;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+    text-align: center;
+  }
+
+  .footer__social-media__links {
+    @include display(flex);
+    @include justify-content(center);
+
+    .footer__icon {
+      padding: 1.5em .5em .5em;
+    }
+  }
+
+  .footer__menu {
+    display: none;
+
+    @include media($footer-break) {
+      display: block;
+    }
+  }
+
+  .footer__menu--mobile {
+    display: block;
+
+    @include media($footer-break) {
+      display: none;
     }
   }
 }
