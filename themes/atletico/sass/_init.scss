@@ -27,3 +27,7 @@ $large:   new-breakpoint(min-width em(1120px) $grid-columns);
 
 // Import grid to be used (Bourbon Neat) now that we've set our overrides.
 @import 'lib/neat/neat';
+
+.kint {
+  clear: both;
+}
