@@ -88,14 +88,16 @@ class RegistrationService {
    */
   public function assignPlayerToTeam(\Drupal\Core\Entity\EntityInterface $entity) {
     $team_nid = $entity->get('field_registration_teams')->getValue();
-    $team_node = \Drupal\node\Entity\Node::load($team_nid[0]['target_id']);
-    $team_node->get('field_players')->setValue(
-      array_merge(
-        $team_node->get('field_players')->getValue(),
-        array($entity->getOwnerId())
-      )
-    );
-    $team_node->save();
+    if (isset($team_nid[0]['target_id'])) {
+      $team_node = \Drupal\node\Entity\Node::load($team_nid[0]['target_id']);
+      $team_node->get('field_players')->setValue(
+        array_merge(
+          $team_node->get('field_players')->getValue(),
+          array($entity->getOwnerId())
+        )
+      );
+      $team_node->save();
+    }
   }
 
   /**
