@@ -59,19 +59,18 @@ class RegistrationCapacityBlock extends BlockBase {
       $team_node = \Drupal\node\Entity\Node::load($team_nid);
       $rows[] = array(
         str_replace('- Winter 2016', '', $team_node->getTitle()),
-        count($team_node->get('field_players')),
       );
     }
 
     asort($rows);
 
     $team_markup = array(
-      'header' => array('Team', '# Players Registered'),
+      'header' => array('Team'),
       'rows' => $rows,
     );
     $markup = '<br /><p>There are <strong>' . count($team_nodes) . '</strong> teams signed up, and ';
     $markup .= '<strong>' . ((int) $this->configuration['capacity'] - $registration_node_count) . '</strong> registrations are still available for the winter league.';
-    $markup .= 'Please don\'t delay <a href="/user/register">in registering</a> -- we will exceed capacity and don\'t want you to be left out!</p>';
+    $markup .= ' Please don\'t delay <a href="/user/register">in registering</a> -- we will exceed capacity and don\'t want you to be left out!</p>';
     $markup .= \Drupal::theme()->render('table', $team_markup);
     $build['registration_capacity_block_capacity']['#markup'] = $markup;
     $build['#allowed_attributes']['exact'] = array('div' => array('exact' => 'style'));
