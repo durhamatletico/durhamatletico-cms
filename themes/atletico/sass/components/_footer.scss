@@ -4,6 +4,7 @@
  * Styles for the footer region.
  */
 
+// Actual footer.
 .footer__wrapper {
   $footer-background: $base-font-color;
   $footer-color: $base-background-color;
@@ -111,6 +112,60 @@
 
     @include media($footer-break) {
       display: none;
+    }
+  }
+}
+
+// Sponsor region.
+.footer__sponsors {
+  @include span-columns(10);
+  @include shift(1);
+
+  margin-bottom: $general-spacing * 3;
+  text-align: center;
+
+  .views-row {
+    padding: .5em;
+  }
+
+  hr {
+    margin: 0 0 $general-spacing * 3;
+  }
+
+  // Tier 3.
+  .block-views-blocksponsors-block-1 {
+    @include media($medium) {
+      @include span-columns(6 of 10);
+    }
+
+    img {
+      height: auto;
+      max-width: 100%;
+
+      @include media($medium) {
+        max-width: 375px;
+      }
+    }
+  }
+
+  // Tier 5.
+  .block-views-blocksponsors-block-3 {
+    @include media($medium) {
+      @include span-columns(4 of 10);
+    }
+
+    .view-content {
+      @include display(flex);
+      @include justify-content(center);
+    }
+
+    img {
+      height: auto;
+      max-width: 80%;
+
+      @include media($medium) {
+        max-width: 100px;
+      }
     }
   }
 }
