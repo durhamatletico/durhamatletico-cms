@@ -12,7 +12,6 @@ module:
   contextual: 0
   datetime: 0
   dblog: 0
-  devel: 0
   durhamatletico_registration: 0
   dynamic_page_cache: 0
   editor: 0
@@ -24,7 +23,6 @@ module:
   history: 0
   honeypot: 0
   image: 0
-  kint: 0
   language: 0
   link: 0
   locale: 0
