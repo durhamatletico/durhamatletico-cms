@@ -1,0 +1,27 @@
+uuid: 10772b50-c7cb-4f9b-be02-2fcf2d420180
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_registration_shirt_type
+field_name: field_registration_shirt_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: M
+      label: M
+    -
+      value: F
+      label: F
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

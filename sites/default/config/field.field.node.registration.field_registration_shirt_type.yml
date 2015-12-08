@@ -1,0 +1,21 @@
+uuid: 4c5c7765-d769-4e71-8600-a04a902f1451
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_shirt_type
+    - node.type.registration
+  module:
+    - options
+id: node.registration.field_registration_shirt_type
+field_name: field_registration_shirt_type
+entity_type: node
+bundle: registration
+label: 'Shirt Type'
+description: 'Select the shirt type (Female/Male)'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

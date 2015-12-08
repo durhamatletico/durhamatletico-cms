@@ -1,0 +1,39 @@
+uuid: 487e1aee-ab94-4d9a-863a-58a7bc1682b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_registration_shirt_size
+field_name: field_registration_shirt_size
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: S
+      label: S
+    -
+      value: M
+      label: M
+    -
+      value: L
+      label: L
+    -
+      value: XL
+      label: XL
+    -
+      value: 2XL
+      label: 2XL
+    -
+      value: 3XL
+      label: 3XL
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

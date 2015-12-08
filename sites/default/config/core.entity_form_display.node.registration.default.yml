@@ -5,6 +5,9 @@ dependencies:
   config:
     - field.field.node.registration.field_balance_due
     - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_shirt_number
+    - field.field.node.registration.field_registration_shirt_size
+    - field.field.node.registration.field_registration_shirt_type
     - field.field.node.registration.field_registration_teams
     - field.field.node.registration.field_registration_waiver
     - node.type.registration
@@ -27,13 +30,29 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+  field_registration_shirt_number:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_registration_shirt_size:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_registration_shirt_type:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_registration_teams:
     weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
   field_registration_waiver:
-    weight: 10
+    weight: 13
     settings:
       display_label: false
     third_party_settings: {  }

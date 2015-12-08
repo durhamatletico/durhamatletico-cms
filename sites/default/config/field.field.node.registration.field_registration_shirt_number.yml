@@ -1,0 +1,23 @@
+uuid: b7bde9c9-4252-4917-9438-562d279eb3f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_shirt_number
+    - node.type.registration
+id: node.registration.field_registration_shirt_number
+field_name: field_registration_shirt_number
+entity_type: node
+bundle: registration
+label: 'Shirt Number'
+description: 'Select the number you''d like on your shirt. One or two digits only please.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 99
+  prefix: ''
+  suffix: ''
+field_type: integer
