@@ -4,8 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.sponsor.body
+    - field.field.node.sponsor.field_sponsor_logo
+    - field.field.node.sponsor.field_sponsor_website
+    - field.field.node.sponsor.field_tier
     - node.type.sponsor
   module:
+    - image
+    - options
     - text
     - user
 id: node.sponsor.default
@@ -19,6 +24,27 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+  field_sponsor_logo:
+    weight: 103
+    label: above
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+  field_sponsor_website:
+    weight: 104
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_tier:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   links:
     weight: 100
 hidden:

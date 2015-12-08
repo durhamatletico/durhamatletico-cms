@@ -1,0 +1,21 @@
+uuid: d082ba6a-a7af-4cbd-bc42-66ac1f9ba643
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tier
+    - node.type.sponsor
+  module:
+    - options
+id: node.sponsor.field_tier
+field_name: field_tier
+entity_type: node
+bundle: sponsor
+label: Tier
+description: 'Tier of sponsorship, 1 being the highest level.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

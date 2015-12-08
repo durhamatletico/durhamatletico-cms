@@ -16,11 +16,6 @@ html {
   box-sizing: inherit;
 }
 
-/* line 31, ../sass/_init.scss */
-.kint {
-  clear: both;
-}
-
 /* HTML element (SMACSS base) rules */
 /**
  * @file
@@ -4361,7 +4356,7 @@ header .header__main-menu .menu--account .menu-item a {
  *
  * Styles for the footer region.
  */
-/* line 7, ../sass/components/_footer.scss */
+/* line 8, ../sass/components/_footer.scss */
 .footer__wrapper {
   background: #666;
   border-top: solid 1em #ea3745;
@@ -4370,7 +4365,7 @@ header .header__main-menu .menu--account .menu-item a {
   width: 100%;
 }
 @media screen and (min-width: 740px) {
-  /* line 19, ../sass/components/_footer.scss */
+  /* line 20, ../sass/components/_footer.scss */
   .footer__wrapper .footer-links {
     display: -webkit-box;
     display: -moz-box;
@@ -4397,23 +4392,23 @@ header .header__main-menu .menu--account .menu-item a {
     flex-wrap: wrap;
   }
 }
-/* line 27, ../sass/components/_footer.scss */
+/* line 28, ../sass/components/_footer.scss */
 .footer__wrapper .footer-logo {
   margin-bottom: 2em;
   text-align: center;
 }
-/* line 31, ../sass/components/_footer.scss */
+/* line 32, ../sass/components/_footer.scss */
 .footer__wrapper .footer-logo img {
   height: 3em;
 }
-/* line 36, ../sass/components/_footer.scss */
+/* line 37, ../sass/components/_footer.scss */
 .footer__wrapper ul,
 .footer__wrapper div {
   margin-bottom: 1em;
   padding: 0;
 }
 @media screen and (min-width: 740px) {
-  /* line 36, ../sass/components/_footer.scss */
+  /* line 37, ../sass/components/_footer.scss */
   .footer__wrapper ul,
   .footer__wrapper div {
     -webkit-flex-basis: 13em;
@@ -4426,43 +4421,43 @@ header .header__main-menu .menu--account .menu-item a {
     -ms-flex-negative: 0;
   }
 }
-/* line 47, ../sass/components/_footer.scss */
+/* line 48, ../sass/components/_footer.scss */
 .footer__wrapper ul.menu {
   margin-left: 0;
 }
-/* line 50, ../sass/components/_footer.scss */
+/* line 51, ../sass/components/_footer.scss */
 .footer__wrapper ul.menu .menu-item {
   padding-top: 0;
 }
-/* line 55, ../sass/components/_footer.scss */
+/* line 56, ../sass/components/_footer.scss */
 .footer__wrapper li {
   color: #fff;
   line-height: 1.5em;
   list-style: none;
   text-align: center;
 }
-/* line 62, ../sass/components/_footer.scss */
+/* line 63, ../sass/components/_footer.scss */
 .footer__wrapper li a {
   color: #fff;
   text-decoration: none;
 }
-/* line 66, ../sass/components/_footer.scss */
+/* line 67, ../sass/components/_footer.scss */
 .footer__wrapper li a:focus, .footer__wrapper li a:hover {
   color: #00bbf1;
 }
-/* line 72, ../sass/components/_footer.scss */
+/* line 73, ../sass/components/_footer.scss */
 .footer__wrapper li h3 {
   color: #fff;
   font-size: 1em;
   margin-bottom: 0.4em;
 }
-/* line 78, ../sass/components/_footer.scss */
+/* line 79, ../sass/components/_footer.scss */
 .footer__wrapper hr {
   border: 1px solid rgba(255, 255, 255, 0.7);
   margin: 2em auto;
   width: 12em;
 }
-/* line 84, ../sass/components/_footer.scss */
+/* line 85, ../sass/components/_footer.scss */
 .footer__wrapper p {
   color: #fff;
   line-height: 1.5em;
@@ -4470,7 +4465,7 @@ header .header__main-menu .menu--account .menu-item a {
   max-width: 35em;
   text-align: center;
 }
-/* line 92, ../sass/components/_footer.scss */
+/* line 93, ../sass/components/_footer.scss */
 .footer__wrapper .footer__social-media__links {
   display: -webkit-box;
   display: -moz-box;
@@ -4489,28 +4484,128 @@ header .header__main-menu .menu--account .menu-item a {
   justify-content: center;
   -ms-flex-pack: center;
 }
-/* line 96, ../sass/components/_footer.scss */
+/* line 97, ../sass/components/_footer.scss */
 .footer__wrapper .footer__social-media__links .footer__icon {
   padding: 1.5em .5em .5em;
 }
-/* line 101, ../sass/components/_footer.scss */
+/* line 102, ../sass/components/_footer.scss */
 .footer__wrapper .footer__menu {
   display: none;
 }
 @media screen and (min-width: 740px) {
-  /* line 101, ../sass/components/_footer.scss */
+  /* line 102, ../sass/components/_footer.scss */
   .footer__wrapper .footer__menu {
     display: block;
   }
 }
-/* line 109, ../sass/components/_footer.scss */
+/* line 110, ../sass/components/_footer.scss */
 .footer__wrapper .footer__menu--mobile {
   display: block;
 }
 @media screen and (min-width: 740px) {
-  /* line 109, ../sass/components/_footer.scss */
+  /* line 110, ../sass/components/_footer.scss */
   .footer__wrapper .footer__menu--mobile {
     display: none;
+  }
+}
+
+/* line 120, ../sass/components/_footer.scss */
+.footer__sponsors {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 82.94039%;
+  margin-left: 8.5298%;
+  margin-bottom: 3em;
+  text-align: center;
+}
+/* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+.footer__sponsors:last-child {
+  margin-right: 0;
+}
+/* line 127, ../sass/components/_footer.scss */
+.footer__sponsors .views-row {
+  padding: .5em;
+}
+/* line 131, ../sass/components/_footer.scss */
+.footer__sponsors hr {
+  margin: 0 0 3em;
+}
+@media screen and (min-width: 60em) {
+  /* line 136, ../sass/components/_footer.scss */
+  .footer__sponsors .block-views-blocksponsors-block-1 {
+    float: left;
+    display: block;
+    margin-right: 2.84259%;
+    width: 58.86297%;
+  }
+  /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+  .footer__sponsors .block-views-blocksponsors-block-1:last-child {
+    margin-right: 0;
+  }
+}
+/* line 141, ../sass/components/_footer.scss */
+.footer__sponsors .block-views-blocksponsors-block-1 img {
+  height: auto;
+  max-width: 100%;
+}
+@media screen and (min-width: 60em) {
+  /* line 141, ../sass/components/_footer.scss */
+  .footer__sponsors .block-views-blocksponsors-block-1 img {
+    max-width: 375px;
+  }
+}
+/* line 152, ../sass/components/_footer.scss */
+.footer__sponsors .block-views-blocksponsors-block-3 {
+  border-top: solid 1px #ddd;
+  margin-top: 3em;
+  padding-top: 3em;
+}
+@media screen and (min-width: 60em) {
+  /* line 152, ../sass/components/_footer.scss */
+  .footer__sponsors .block-views-blocksponsors-block-3 {
+    float: left;
+    display: block;
+    margin-right: 2.84259%;
+    width: 38.29445%;
+    border-left: solid 1px #ddd;
+    border-top: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+  /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+  .footer__sponsors .block-views-blocksponsors-block-3:last-child {
+    margin-right: 0;
+  }
+}
+/* line 165, ../sass/components/_footer.scss */
+.footer__sponsors .block-views-blocksponsors-block-3 .view-content {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+}
+/* line 170, ../sass/components/_footer.scss */
+.footer__sponsors .block-views-blocksponsors-block-3 img {
+  height: auto;
+  max-width: 80%;
+}
+@media screen and (min-width: 60em) {
+  /* line 170, ../sass/components/_footer.scss */
+  .footer__sponsors .block-views-blocksponsors-block-3 img {
+    max-width: 100px;
   }
 }
 

@@ -1,0 +1,19 @@
+uuid: 288bb104-174c-4657-8a03-3a11fb70f756
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sponsor_website
+    - node.type.sponsor
+id: node.sponsor.field_sponsor_website
+field_name: field_sponsor_website
+entity_type: node
+bundle: sponsor
+label: 'Sponsor website'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

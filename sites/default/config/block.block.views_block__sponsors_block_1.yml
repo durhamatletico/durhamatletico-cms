@@ -1,0 +1,24 @@
+uuid: 44be6988-c5fa-4614-b000-e354e95cf445
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.sponsors
+  module:
+    - views
+  theme:
+    - atletico
+id: views_block__sponsors_block_1
+theme: atletico
+region: footer
+weight: -13
+provider: null
+plugin: 'views_block:sponsors-block_1'
+settings:
+  id: 'views_block:sponsors-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility: {  }
