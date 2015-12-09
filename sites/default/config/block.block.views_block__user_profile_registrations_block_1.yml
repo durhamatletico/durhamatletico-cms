@@ -1,34 +1,37 @@
-uuid: 56beb735-a44e-4e09-941b-276365e7e037
+uuid: 13885e71-715d-4c9e-b201-1e9b3ecdbd20
 langcode: en
 status: true
 dependencies:
+  config:
+    - views.view.user_profile_registrations
   module:
-    - durhamatletico_registration
     - system
     - user
+    - views
   theme:
     - atletico
-id: registrationinstructionblock
+id: views_block__user_profile_registrations_block_1
 theme: atletico
-region: content
-weight: -15
+region: sidebar
+weight: -14
 provider: null
-plugin: registration_instruction_block
+plugin: 'views_block:user_profile_registrations-block_1'
 settings:
-  id: registration_instruction_block
-  label: 'Registration instructions'
-  provider: durhamatletico_registration
+  id: 'views_block:user_profile_registrations-block_1'
+  label: ''
+  provider: views
   label_display: visible
+  views_label: ''
+  items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: "/user/register\r\n/user"
+    pages: /user
     negate: false
     context_mapping: {  }
   user_role:
     id: user_role
     roles:
-      anonymous: anonymous
       authenticated: authenticated
     negate: false
     context_mapping:
