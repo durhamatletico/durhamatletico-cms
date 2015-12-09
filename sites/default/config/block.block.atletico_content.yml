@@ -9,7 +9,7 @@ dependencies:
 id: atletico_content
 theme: atletico
 region: content
-weight: -9
+weight: -7
 provider: null
 plugin: system_main_block
 settings:

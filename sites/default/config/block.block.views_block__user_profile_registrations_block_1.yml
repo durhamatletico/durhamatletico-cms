@@ -12,7 +12,7 @@ dependencies:
     - atletico
 id: views_block__user_profile_registrations_block_1
 theme: atletico
-region: sidebar
+region: content
 weight: -14
 provider: null
 plugin: 'views_block:user_profile_registrations-block_1'
@@ -26,7 +26,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /user
+    pages: "/user\r\n/user/*"
     negate: false
     context_mapping: {  }
   user_role:
