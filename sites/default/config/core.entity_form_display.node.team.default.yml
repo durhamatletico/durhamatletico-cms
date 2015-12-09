@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.team.field_captains
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
+    - field.field.node.team.field_team_jersey_color
     - field.field.node.team.field_team_logo
     - field.field.node.team.field_team_photo
     - node.type.team
@@ -56,6 +57,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_team_jersey_color:
+    weight: 37
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_team_logo:
     weight: 34
     settings:
@@ -99,6 +107,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  translation:
+    weight: 10
   uid:
     type: entity_reference_autocomplete
     weight: 5

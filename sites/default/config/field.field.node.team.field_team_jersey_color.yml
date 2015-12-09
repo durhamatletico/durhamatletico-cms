@@ -1,0 +1,19 @@
+uuid: 7f66e047-0eca-4209-b700-c80aa2c2f497
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team_jersey_color
+    - node.type.team
+id: node.team.field_team_jersey_color
+field_name: field_team_jersey_color
+entity_type: node
+bundle: team
+label: 'Jersey Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
