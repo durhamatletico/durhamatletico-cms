@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Contains durhamatletico_core.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_help().
+ */
+function durhamatletico_core_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the durhamatletico_core module.
+    case 'help.page.durhamatletico_core':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides core functionality for the Durham Atletico site') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function durhamatletico_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+  if ($account->hasPermission('administer users')) {
+    return AccessResult::allowed();
+  }
+  // If user is looking at their own account, pass.
+  if ($operation !== 'view') {
+    return AccessResult::neutral();
+  }
+  list($base, $uid) = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+  if ($base !== 'user') {
+    return AccessResult::neutral();
+  }
+  if ($uid <= 0) {
+    return AccessResult::neutral();
+  }
+  if ($uid == $account->id()) {
+    // Let the logged in user look at their account page.
+    return AccessResult::neutral();
+  }
+
+  // Public fields.
+  $public_fields = [
+    'field_first_name',
+  ];
+  if (!in_array($field_definition->getName(), $public_fields)) {
+    return AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_theme().
+ */
+function durhamatletico_core_theme() {
+  $theme = [];
+
+  return $theme;
+}

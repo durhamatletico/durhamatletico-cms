@@ -8,6 +8,7 @@
 namespace Drupal\durhamatletico_registration;
 
 use Drupal\Core\Url;
+use Drupal\Core\Access\AccessResult;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 /**
@@ -35,7 +36,7 @@ class RegistrationService {
     if ($op == 'view') {
       return $this->canViewRegistration($node, $account);
     }
-    return \Drupal\Core\Access\AccessResult::neutral();
+    return AccessResult::neutral();
   }
 
   /**
@@ -50,12 +51,12 @@ class RegistrationService {
    */
   public function canViewRegistration(\Drupal\node\NodeInterface $node, \Drupal\Core\Session\AccountInterface $account) {
     if ($account->hasPermission('administer content')) {
-      return \Drupal\Core\Access\AccessResult::allowed();
+      return AccessResult::allowed();
     }
     if ($node->getOwner()->getAccountName() === $account->getAccountName()) {
-      return \Drupal\Core\Access\AccessResult::allowed();
+      return AccessResult::allowed();
     }
-    return \Drupal\Core\Access\AccessResult::forbidden();
+    return AccessResult::forbidden();
   }
 
   /**

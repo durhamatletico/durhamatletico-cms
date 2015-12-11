@@ -1,0 +1,14 @@
+{
+  "name": "drupal/durhamatletico_core",
+  "type": "drupal-module",
+  "description": "Provides core functionality for the Durham Atletico site",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "http://drupal.org/project/durhamatletico_core",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/durhamatletico_core",
+    "source": "http://cgit.drupalcode.org/durhamatletico_core"
+  },
+  "require": { }
+}
