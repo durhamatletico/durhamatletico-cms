@@ -6,4 +6,5 @@ id: player
 label: Player
 weight: -8
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access user profiles'

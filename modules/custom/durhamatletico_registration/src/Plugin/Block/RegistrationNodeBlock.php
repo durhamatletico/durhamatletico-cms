@@ -26,7 +26,17 @@ class RegistrationNodeBlock extends BlockBase {
   public function build() {
     // Look up if user already has a registration node. If so, don't show this
     // block.
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    list($base, $uid) = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+    if ($base !== 'user') {
+      return [];
+    }
+    if ($uid <= 0) {
+      return [];
+    }
+    if ($uid !== \Drupal::currentUser()->id()) {
+      return [];
+    }
+    $user = \Drupal\user\Entity\User::load((int) $uid);
     $registration_node = \Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($user);
     $build = [];
     if (!count($registration_node)) {

@@ -19,4 +19,5 @@ permissions:
   - 'create registration content'
   - 'access kint'
   - 'change own username'
-  - 'edit own registration content'
+  - 'access user profiles'
+  - 'access user contact forms'

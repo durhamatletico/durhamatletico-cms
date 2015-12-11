@@ -57,9 +57,11 @@ class RegistrationCapacityBlock extends BlockBase {
     $rows = [];
     foreach ($team_nodes as $team_nid) {
       $team_node = \Drupal\node\Entity\Node::load($team_nid);
-      $rows[] = array(
-        str_replace('- Winter 2016', '', $team_node->getTitle()),
-      );
+      $string = str_replace('- Winter 2016', '', $team_node->getTitle());
+      if ($team_node->get('field_team_jersey_color')->value) {
+        $string .= '(' . $team_node->get('field_team_jersey_color')->value . ')';
+      }
+      $rows[] = array($string);
     }
 
     asort($rows);
