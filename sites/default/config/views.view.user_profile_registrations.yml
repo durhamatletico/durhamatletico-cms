@@ -91,7 +91,7 @@ display:
             ellipsis: false
             strip_tags: false
             html: false
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           settings:
             link_to_entity: true
@@ -320,8 +320,9 @@ display:
             title: All
           title_enable: false
           title: ''
-          default_argument_type: current_user
-          default_argument_options: {  }
+          default_argument_type: user
+          default_argument_options:
+            user: false
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -350,7 +351,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -370,7 +370,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
