@@ -90,12 +90,12 @@ class RegistrationService {
     $team_nid = $entity->get('field_registration_teams')->getValue();
     if (isset($team_nid[0]['target_id'])) {
       $team_node = \Drupal\node\Entity\Node::load($team_nid[0]['target_id']);
-      $team_node->get('field_players')->setValue(
-        array_merge(
-          $team_node->get('field_players')->getValue(),
-          array($entity->getOwnerId())
-        )
+      $player_nids = array_merge(
+        $team_node->get('field_players')->getValue(),
+        array(array('target_id' => $entity->getOwnerId()))
       );
+      $player_nids = array_map("unserialize", array_unique(array_map("serialize", $player_nids)));
+      $team_node->get('field_players')->setValue($player_nids);
       $team_node->save();
     }
   }
