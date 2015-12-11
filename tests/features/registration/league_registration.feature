@@ -46,6 +46,9 @@ Feature: Allow registered users to sign up for a leauge
     When I go to "node/add/registration"
     Then I should not see "Player name"
     And I should not see "Revision information"
+    Given I select "F" from "Shirt Type"
+    And I select "M" from "Shirt Size"
+    And for "Shirt Number" I enter "4"
     When I press "Save"
     Then I should see "has been created"
 
@@ -61,6 +64,9 @@ Feature: Allow registered users to sign up for a leauge
     When I go to "/testregistration"
     Then I should get a 403 HTTP response
     When I go to "node/add/registration"
+    Given I select "F" from "Shirt Type"
+    And I select "M" from "Shirt Size"
+    And for "Shirt Number" I enter "4"
     And I press "Save"
     Then I should see "Submitted by"
     And I should get a 200 HTTP response
@@ -75,6 +81,9 @@ Feature: Allow registered users to sign up for a leauge
   Scenario: Users may only create one registration node per league
     Given I am logged in as a user with the "authenticated user" role
     When I go to "node/add/registration"
+    Given I select "F" from "Shirt Type"
+    And I select "M" from "Shirt Size"
+    And for "Shirt Number" I enter "4"
     And I press "Save"
     Then I should see "Submitted by"
     And I should get a 200 HTTP response
@@ -86,13 +95,16 @@ Feature: Allow registered users to sign up for a leauge
   Scenario: Users should see a link to register for the league
       Given I am logged in as a user with the "authenticated user" role
       When I go to "/user"
-      Then I should see the link "Click here to register"
-      When I follow "Click here to register"
+      Then I should see the link "click here to create a registration"
+      When I follow "click here to create a registration"
+      Given I select "F" from "Shirt Type"
+      And I select "M" from "Shirt Size"
+      And for "Shirt Number" I enter "4"
       And I press "Save"
       Then I should see "Submitted by"
       And I should get a 200 HTTP response
       When I go to "/user"
-      Then I should see the text "Your registration is not complete! You have a balance of $60 due on your registration"
+      Then I should not see the text "Paid. Thank you"
       And I should not see the link "Click here to register"
 
   Scenario: Users may pay for an individual registration
