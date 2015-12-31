@@ -6,6 +6,8 @@ dependencies:
     - composer install -d tests --prefer-source --no-interaction
     - cd themes/atletico; bundle install
     - tests/scripts/build.sh
+  pre:
+    - sudo apt-get update; sudo apt-get install pv
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint
