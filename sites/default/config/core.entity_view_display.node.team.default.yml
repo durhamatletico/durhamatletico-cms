@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.team.body
+    - field.field.node.team.field_abbreviation
     - field.field.node.team.field_captains
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
@@ -26,6 +27,13 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+  field_abbreviation:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
   field_captains:
     weight: 4
     label: above

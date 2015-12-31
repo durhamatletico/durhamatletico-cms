@@ -15,4 +15,11 @@ content:
   links:
     weight: 100
 hidden:
+  field_away_team: true
+  field_division: true
+  field_game_date: true
+  field_game_status: true
+  field_home_team: true
+  field_referee: true
+  field_venue: true
   langcode: true

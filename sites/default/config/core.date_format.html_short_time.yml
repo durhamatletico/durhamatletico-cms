@@ -1,0 +1,8 @@
+uuid: b123d5ba-63d0-4eb3-ab47-71bec084f3de
+langcode: und
+status: true
+dependencies: {  }
+id: html_short_time
+label: 'HTML Short Time'
+locked: false
+pattern: 'H:i'

@@ -24,4 +24,7 @@ content:
   links:
     weight: 100
 hidden:
+  field_abbreviation: true
+  field_google_map: true
+  field_image: true
   langcode: true

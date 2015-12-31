@@ -1,6 +1,6 @@
 uuid: ab9808dc-9467-494d-9000-bfabdfcfcd9f
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - durhamatletico_registration
@@ -9,8 +9,8 @@ dependencies:
     - atletico
 id: registrationcapacityblock
 theme: atletico
-region: content_left
-weight: -13
+region: '-1'
+weight: -7
 provider: null
 plugin: registration_capacity_block
 settings:

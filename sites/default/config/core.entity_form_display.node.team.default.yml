@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.team.body
+    - field.field.node.team.field_abbreviation
     - field.field.node.team.field_captains
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
@@ -33,6 +34,13 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
+  field_abbreviation:
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_captains:
     weight: 33
     settings:

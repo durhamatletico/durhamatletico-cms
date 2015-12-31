@@ -4,6 +4,7 @@ global-styling:
       stylesheets/styles.css: {}
   js:
     js/navigation.js: {}
+    js/global.js: {}
   dependencies:
     - core/jquery
 

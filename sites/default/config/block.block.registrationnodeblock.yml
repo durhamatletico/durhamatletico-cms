@@ -11,7 +11,7 @@ dependencies:
 id: registrationnodeblock
 theme: atletico
 region: '-1'
-weight: -8
+weight: -9
 provider: null
 plugin: registration_node_block
 settings:
