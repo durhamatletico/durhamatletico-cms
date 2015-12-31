@@ -45,6 +45,8 @@
     }
   }
 
+  // Need high specificity to override Drupal styles.
+  // scss-lint:disable QualifyingElement
   ul.menu {
     margin-left: 0;
 
@@ -52,32 +54,33 @@
       padding-top: 0;
     }
   }
+  // scss-lint:enable QualifyingElement
 
   li {
     color: $base-background-color;
     line-height: 1.5em;
     list-style: none;
     text-align: center;
-  }
 
-  li a {
-    color: $footer-link-color;
-    text-decoration: none;
+    a {
+      color: $footer-link-color;
+      text-decoration: none;
 
-    &:focus,
-    &:hover {
-      color: $logo-blue;
+      &:focus,
+      &:hover {
+        color: $logo-blue;
+      }
+    }
+
+    h3 {
+      color: $footer-color;
+      font-size: 1em;
+      margin-bottom: .4em;
     }
   }
 
-  li h3 {
-    color: $footer-color;
-    font-size: 1em;
-    margin-bottom: 0.4em;
-  }
-
   hr {
-    border: 1px solid transparentize($footer-color, 0.3);
+    border: 1px solid transparentize($footer-color, .3);
     margin: $general-spacing * 2 auto;
     width: 12em;
   }
