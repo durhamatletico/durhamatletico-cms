@@ -1,0 +1,16 @@
+uuid: 56f69a93-05ee-471f-9e0e-14298f0b05be
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.season
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.season
+target_entity_type_id: node
+target_bundle: season
+default_langcode: site_default
+language_alterable: false

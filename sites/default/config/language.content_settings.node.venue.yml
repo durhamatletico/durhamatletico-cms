@@ -1,0 +1,11 @@
+uuid: eb1de89c-bbd3-4d71-be62-987e676c3842
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.venue
+id: node.venue
+target_entity_type_id: node
+target_bundle: venue
+default_langcode: site_default
+language_alterable: false

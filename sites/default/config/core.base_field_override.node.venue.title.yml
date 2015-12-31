@@ -1,14 +1,14 @@
-uuid: ffabd069-2c5a-4a70-b003-3a5f82f6eaf1
+uuid: 2dfea5ea-8547-4d49-a64d-77012b8ce3d1
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.league
-id: node.league.title
+    - node.type.venue
+id: node.venue.title
 field_name: title
 entity_type: node
-bundle: league
-label: 'Division Name'
+bundle: venue
+label: 'Venue name'
 description: ''
 required: true
 translatable: true

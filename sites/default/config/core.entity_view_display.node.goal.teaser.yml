@@ -1,0 +1,18 @@
+uuid: 3cafbe64-3d28-4006-9b0b-11c2e47f0835
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.goal
+  module:
+    - user
+id: node.goal.teaser
+targetEntityType: node
+bundle: goal
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  langcode: true

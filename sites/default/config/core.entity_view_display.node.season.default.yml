@@ -1,0 +1,33 @@
+uuid: 5e3f13ae-ca46-4941-8500-fd1380087641
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.season.body
+    - field.field.node.season.field_divisions
+    - node.type.season
+  module:
+    - text
+    - user
+id: node.season.default
+targetEntityType: node
+bundle: season
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_divisions:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 100
+hidden:
+  langcode: true

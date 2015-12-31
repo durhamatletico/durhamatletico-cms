@@ -1,0 +1,22 @@
+uuid: 87bd9322-4ffa-49ba-9630-4819658e5822
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.venue
+  module:
+    - text
+id: node.venue.body
+field_name: body
+entity_type: node
+bundle: venue
+label: Description
+description: 'Recommended to include an iframe embed code of the Google Map for the location of the venue.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

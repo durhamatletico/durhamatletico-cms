@@ -1,0 +1,75 @@
+uuid: 1f470712-cad2-4565-b461-973f0edb25c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.game.field_away_team
+    - field.field.node.game.field_division
+    - field.field.node.game.field_game_date
+    - field.field.node.game.field_game_status
+    - field.field.node.game.field_home_team
+    - field.field.node.game.field_referee
+    - field.field.node.game.field_venue
+    - node.type.game
+  module:
+    - datetime
+    - options
+    - user
+id: node.game.default
+targetEntityType: node
+bundle: game
+mode: default
+content:
+  field_away_team:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_division:
+    weight: 107
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_game_date:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_game_status:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+  field_home_team:
+    weight: 101
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_referee:
+    weight: 106
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+  field_venue:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 100
+hidden:
+  langcode: true

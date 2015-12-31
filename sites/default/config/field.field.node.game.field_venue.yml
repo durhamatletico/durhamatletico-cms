@@ -1,0 +1,26 @@
+uuid: 83da42d2-5a14-4cc6-bd1a-26e84f8151d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_venue
+    - node.type.game
+    - node.type.venue
+id: node.game.field_venue
+field_name: field_venue
+entity_type: node
+bundle: game
+label: Venue
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      venue: venue
+    sort:
+      field: _none
+field_type: entity_reference

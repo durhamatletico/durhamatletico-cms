@@ -1,0 +1,26 @@
+uuid: 22b1b7cd-b488-4e1e-a100-ee2474fb9590
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_division
+    - node.type.game
+    - node.type.league
+id: node.game.field_division
+field_name: field_division
+entity_type: node
+bundle: game
+label: Division
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      league: league
+    sort:
+      field: _none
+field_type: entity_reference

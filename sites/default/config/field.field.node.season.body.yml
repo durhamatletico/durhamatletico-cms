@@ -1,0 +1,22 @@
+uuid: e09e8126-eb4e-4c6f-9806-6ae54c1e1949
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.season
+  module:
+    - text
+id: node.season.body
+field_name: body
+entity_type: node
+bundle: season
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

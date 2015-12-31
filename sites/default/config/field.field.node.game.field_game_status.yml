@@ -1,0 +1,23 @@
+uuid: f1cd12c3-f882-4478-ae54-84e688bb30b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_game_status
+    - node.type.game
+  module:
+    - options
+id: node.game.field_game_status
+field_name: field_game_status
+entity_type: node
+bundle: game
+label: 'Game Status'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'Not yet played'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

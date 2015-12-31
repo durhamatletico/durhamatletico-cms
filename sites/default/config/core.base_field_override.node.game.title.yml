@@ -1,14 +1,14 @@
-uuid: ffabd069-2c5a-4a70-b003-3a5f82f6eaf1
+uuid: 22afc9fd-3103-434d-9c1c-282d233074f9
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.league
-id: node.league.title
+    - node.type.game
+id: node.game.title
 field_name: title
 entity_type: node
-bundle: league
-label: 'Division Name'
+bundle: game
+label: 'Home team vs Away team'
 description: ''
 required: true
 translatable: true

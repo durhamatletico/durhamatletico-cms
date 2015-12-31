@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: League
+name: Division
 type: league
-description: 'Use this content type to add a <em>League</em> to the system. Note that, e.g. <em>Winter League Division 1</em> and <em>Winter League Division 2</em> are two separate Leagues.'
+description: 'Use this content type to add a <em>Division</em> to the system.'
 help: ''
 new_revision: true
 preview_mode: 1

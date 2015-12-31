@@ -1,0 +1,28 @@
+uuid: e363674c-603a-4ecc-8930-48832d3c8693
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_player_who_scored
+    - node.type.goal
+id: node.goal.field_player_who_scored
+field_name: field_player_who_scored
+entity_type: node
+bundle: goal
+label: 'Player who scored'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: field_last_name
+      direction: ASC
+field_type: entity_reference

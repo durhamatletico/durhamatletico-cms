@@ -1,0 +1,24 @@
+uuid: 6f0a0e99-a371-481e-9f00-dc2a4644f5a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_game_date
+    - node.type.game
+  module:
+    - datetime
+id: node.game.field_game_date
+field_name: field_game_date
+entity_type: node
+bundle: game
+label: 'Game Date'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

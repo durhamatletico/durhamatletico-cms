@@ -1,0 +1,27 @@
+uuid: 18130fa8-f895-435d-8905-5f94a9b2ebf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.season.body
+    - node.type.season
+  module:
+    - text
+    - user
+id: node.season.teaser
+targetEntityType: node
+bundle: season
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+  links:
+    weight: 100
+hidden:
+  langcode: true
