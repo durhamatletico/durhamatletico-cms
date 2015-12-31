@@ -3,7 +3,7 @@
 set -e
 
 # Get Pantheon's Command Line Tool, terminus.
-sudo curl https://github.com/pantheon-systems/cli/releases/download/0.9.2/terminus.phar -L -o /usr/local/bin/terminus && sudo chmod +x /usr/local/bin/terminus
+sudo curl https://github.com/pantheon-systems/cli/releases/download/0.10.0/terminus.phar -L -o /usr/local/bin/terminus && sudo chmod +x /usr/local/bin/terminus
 
 # Log into terminus.
 terminus auth login $PANTHEON_EMAIL --password=$PANTHEON_PASSWORD
@@ -18,7 +18,7 @@ gunzip < database.sql.gz | mysql -uroot durhamatletico_circle
 # TODO: Get files?
 
 # Install Drush
-sudo curl https://github.com/drush-ops/drush/releases/download/8.0.0-rc3/drush.phar -L -o /usr/local/bin/drush && sudo chmod +x /usr/local/bin/drush
+sudo curl https://github.com/drush-ops/drush/releases/download/8.0.1/drush.phar -L -o /usr/local/bin/drush && sudo chmod +x /usr/local/bin/drush
 
 # Overwrite settings.local.php
 sudo mv tests/scripts/settings.local.php sites/default/settings.local.php
