@@ -1,0 +1,40 @@
+uuid: 685c66e7-b5e7-41d4-8c05-5ceeccbf08ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.rosters
+  module:
+    - node
+    - user
+    - views
+  theme:
+    - atletico
+id: views_block__rosters_block_1
+theme: atletico
+region: content
+weight: -9
+provider: null
+plugin: 'views_block:rosters-block_1'
+settings:
+  id: 'views_block:rosters-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+  node_type:
+    id: node_type
+    bundles:
+      team: team
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
