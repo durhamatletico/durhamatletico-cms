@@ -1,23 +1,23 @@
-uuid: 13885e71-715d-4c9e-b201-1e9b3ecdbd20
+uuid: 4fa8c3df-62ed-4801-8232-506b4e341d81
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.user_profile_registrations
+    - views.view.profile_my_teams
   module:
     - system
     - user
     - views
   theme:
     - atletico
-id: views_block__user_profile_registrations_block_1
+id: views_block__profile_my_teams_block_1
 theme: atletico
 region: content
-weight: -15
+weight: -16
 provider: null
-plugin: 'views_block:user_profile_registrations-block_1'
+plugin: 'views_block:profile_my_teams-block_1'
 settings:
-  id: 'views_block:user_profile_registrations-block_1'
+  id: 'views_block:profile_my_teams-block_1'
   label: ''
   provider: views
   label_display: visible

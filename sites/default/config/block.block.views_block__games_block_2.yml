@@ -1,4 +1,4 @@
-uuid: 8cbd7587-4746-4567-b306-6dcce44a6986
+uuid: c91ea01f-258c-4620-894d-777b0ff3501c
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,8 @@ dependencies:
     - atletico
 id: views_block__games_block_2
 theme: atletico
-region: content_left
-weight: -14
+region: content
+weight: -7
 provider: null
 plugin: 'views_block:games-block_2'
 settings:
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '<front>'
+    pages: /futsal
     negate: false
     context_mapping: {  }

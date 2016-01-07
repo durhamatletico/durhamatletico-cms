@@ -1,0 +1,8 @@
+uuid: 0cbd2113-3f40-48b6-9b06-6bee93f34d1c
+langcode: en
+status: true
+dependencies: {  }
+id: html_shorter_time
+label: 'HTML Shorter Time'
+locked: false
+pattern: 'g A'

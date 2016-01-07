@@ -5,9 +5,11 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.team.body
+    - field.field.node.team.field_abbreviation
     - field.field.node.team.field_captains
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
+    - field.field.node.team.field_team_jersey_color
     - field.field.node.team.field_team_logo
     - field.field.node.team.field_team_photo
     - node.type.team
@@ -29,9 +31,11 @@ content:
   links:
     weight: 100
 hidden:
+  field_abbreviation: true
   field_captains: true
   field_players: true
   field_sponsors: true
+  field_team_jersey_color: true
   field_team_logo: true
   field_team_photo: true
   langcode: true

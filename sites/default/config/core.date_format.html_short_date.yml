@@ -1,0 +1,8 @@
+uuid: bffb119a-7462-4ff0-9b01-1e7b9fe0baf2
+langcode: zxx
+status: true
+dependencies: {  }
+id: html_short_date
+label: 'HTML Short Date'
+locked: false
+pattern: 'M j'
