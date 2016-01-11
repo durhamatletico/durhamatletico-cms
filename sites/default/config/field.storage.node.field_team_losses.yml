@@ -1,0 +1,20 @@
+uuid: fe0373fc-1117-4d5a-9b00-d0a41e990e67
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_team_losses
+field_name: field_team_losses
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

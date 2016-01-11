@@ -7,6 +7,7 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Access\AccessResult;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_help().
@@ -21,6 +22,26 @@ function durhamatletico_core_help($route_name, RouteMatchInterface $route_match)
       return $output;
 
     default:
+  }
+}
+
+/**
+ * {@inheritdoc}.
+ */
+function durhamatletico_core_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getType() === 'game') {
+    // Update standings for both teams.
+    $home_team = $entity->get('field_home_team')->getValue();
+    $away_team = $entity->get('field_away_team')->getValue();
+    $teams = array($home_team, $away_team);
+    foreach ($teams as $team) {
+      $team_node = Node::load($team[0]['target_id']);
+      // Get all the games this team has played.
+      // Get all the goals this team has scored.
+      // Get all the goals in games this team has played that other teams scored.
+      // Get all the wins/draws/losses based on analyzing game scores.
+      // Update the team node.
+    }
   }
 }
 

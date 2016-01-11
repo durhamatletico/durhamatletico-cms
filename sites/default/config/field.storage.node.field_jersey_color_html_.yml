@@ -1,0 +1,21 @@
+uuid: 9fe16755-8ac3-4477-9d05-5d61391ecf0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_jersey_color_html_
+field_name: field_jersey_color_html_
+entity_type: node
+type: string
+settings:
+  max_length: 7
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

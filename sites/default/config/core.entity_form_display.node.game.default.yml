@@ -4,10 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.node.game.field_away_team
+    - field.field.node.game.field_away_team_score
     - field.field.node.game.field_division
     - field.field.node.game.field_game_date
     - field.field.node.game.field_game_status
     - field.field.node.game.field_home_team
+    - field.field.node.game.field_home_team_score
     - field.field.node.game.field_referee
     - field.field.node.game.field_venue
     - node.type.game
@@ -32,6 +34,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_away_team_score:
+    weight: 39
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   field_division:
     weight: 37
     settings:
@@ -58,6 +66,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_home_team_score:
+    weight: 38
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   field_referee:
     weight: 36
     settings:

@@ -6,11 +6,19 @@ dependencies:
     - field.field.node.team.body
     - field.field.node.team.field_abbreviation
     - field.field.node.team.field_captains
+    - field.field.node.team.field_jersey_color_html_
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
+    - field.field.node.team.field_team_draws
+    - field.field.node.team.field_team_games_played
+    - field.field.node.team.field_team_goal_difference
+    - field.field.node.team.field_team_goals_for
     - field.field.node.team.field_team_jersey_color
     - field.field.node.team.field_team_logo
+    - field.field.node.team.field_team_losses
     - field.field.node.team.field_team_photo
+    - field.field.node.team.field_team_points
+    - field.field.node.team.field_team_wins
     - node.type.team
   module:
     - image
@@ -49,6 +57,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_jersey_color_html_:
+    weight: 46
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
   field_players:
     weight: 32
     settings:
@@ -65,6 +80,30 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_team_draws:
+    weight: 41
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_team_games_played:
+    weight: 39
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_team_goal_difference:
+    weight: 44
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_team_goals_for:
+    weight: 43
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   field_team_jersey_color:
     weight: 37
     settings:
@@ -79,6 +118,12 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+  field_team_losses:
+    weight: 42
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   field_team_photo:
     weight: 35
     settings:
@@ -86,6 +131,18 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+  field_team_points:
+    weight: 45
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_team_wins:
+    weight: 40
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   langcode:
     type: language_select
     weight: 2
