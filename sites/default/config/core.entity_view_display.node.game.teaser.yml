@@ -4,6 +4,13 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.game.field_away_team
+    - field.field.node.game.field_division
+    - field.field.node.game.field_game_date
+    - field.field.node.game.field_game_status
+    - field.field.node.game.field_home_team
+    - field.field.node.game.field_referee
+    - field.field.node.game.field_venue
     - node.type.game
   module:
     - user

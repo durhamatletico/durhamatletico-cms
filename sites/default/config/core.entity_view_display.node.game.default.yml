@@ -38,8 +38,8 @@ content:
     weight: 103
     label: above
     settings:
+      timezone_override: America/New_York
       format_type: medium
-      timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
   field_game_status:
@@ -71,5 +71,7 @@ content:
     type: entity_reference_label
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   langcode: true
