@@ -7,6 +7,7 @@ dependencies:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - node.type.registration
+    - system.menu.admin
   module:
     - datetime
     - node
@@ -29,7 +30,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access user profiles'
+          perm: 'administer users'
       cache:
         type: tag
         options: {  }
@@ -507,6 +508,15 @@ display:
     display_options:
       display_extenders: {  }
       path: admin/registration/names-emails
+      menu:
+        type: normal
+        title: 'Registration - Names and Emails'
+        description: ''
+        expanded: false
+        parent: system.admin_content
+        weight: 0
+        context: '0'
+        menu_name: admin
     cache_metadata:
       max-age: 0
       contexts:
