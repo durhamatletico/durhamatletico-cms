@@ -53,7 +53,7 @@ display:
       pager:
         type: some
         options:
-          items_per_page: 9
+          items_per_page: 8
           offset: 0
       style:
         type: table
@@ -88,14 +88,14 @@ display:
             field_game_date:
               sortable: false
               default_sort_order: asc
-              align: views-align-left
+              align: views-align-right
               separator: ''
               empty_column: false
               responsive: ''
             field_game_date_1:
               sortable: false
               default_sort_order: asc
-              align: views-align-left
+              align: views-align-right
               separator: ''
               empty_column: false
               responsive: ''
@@ -242,7 +242,7 @@ display:
           click_sort_column: value
           type: datetime_default
           settings:
-            timezone_override: ''
+            timezone_override: America/New_York
             format_type: html_short_date
           group_column: value
           group_columns: {  }
@@ -265,7 +265,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_game_date }} — {{ field_game_date_1 }}'
             make_link: true
             path: 'node/{{ nid }}'
@@ -651,7 +651,7 @@ display:
       pager:
         type: mini
         options:
-          items_per_page: 9
+          items_per_page: 8
           offset: 0
           id: 0
           total_pages: null
@@ -797,7 +797,7 @@ display:
           click_sort_column: value
           type: datetime_default
           settings:
-            timezone_override: ''
+            timezone_override: America/New_York
             format_type: html_short_date
           group_column: value
           group_columns: {  }
@@ -820,7 +820,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_game_date }} — {{ field_game_date_1 }}'
             make_link: true
             path: 'node/{{ nid }}'
