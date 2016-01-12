@@ -1,0 +1,5 @@
+services:
+  durhamatletico_core.content_entry:
+    class: Drupal\durhamatletico_core\ContentEntry
+    arguments: []
+
