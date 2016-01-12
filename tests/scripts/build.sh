@@ -14,7 +14,7 @@ terminus site backups get --element=db --site=durham-atletico --env=live --to=da
 # Import the DB
 echo "CREATE database durhamatletico_circle;" | mysql -uroot
 gunzip database.sql.gz
-pv database.sql | mysql -uroot durhamatletico_circle
+pv database.sql | mysql -u ubuntu circle_test
 
 # TODO: Get files?
 

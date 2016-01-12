@@ -1,8 +1,8 @@
 <?php
 
 $databases['default']['default'] = array(
-  'database' => 'durhamatletico_circle',
-  'username' => 'root',
+  'database' => 'circle_test',
+  'username' => 'ubuntu',
   'password' => '',
   'prefix' => '',
   'host' => '127.0.0.1',
