@@ -34,10 +34,18 @@ function durhamatletico_core_form_node_game_form_alter(&$form, \Drupal\Core\Form
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function durhamatletico_core_form_node_goal_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['title']['#access'] = FALSE;
+  $form['title']['widget'][0]['value']['#default_value'] = 'Goal';
+}
+
+/**
  * {@inheritdoc}
  */
 function durhamatletico_core_node_presave(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity->getType() === 'game') {
+  if (in_array($entity->getType(), ['game', 'goal'])) {
     \Drupal::service('durhamatletico_core.content_entry')->setTitle($entity);
   }
 }

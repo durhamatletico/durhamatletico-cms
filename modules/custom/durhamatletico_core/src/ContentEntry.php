@@ -8,6 +8,7 @@
 namespace Drupal\durhamatletico_core;
 
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 
 /**
  * Class ContentEntry.
@@ -39,7 +40,13 @@ class ContentEntry implements ContentEntryInterface {
       );
     }
     if ($entity->getType() === 'goal') {
-
+      $player = $entity->get('field_player_who_scored')->getValue();
+      $player = User::load($player[0]['target_id']);
+      $game = $entity->get('field_game')->getValue();
+      $game = Node::load($game[0]['target_id']);
+      $entity->setTitle(
+        sprintf('%s in %s', $player->get('field_first_name')->getString(), $game->getTitle())
+      );
     }
   }
 
