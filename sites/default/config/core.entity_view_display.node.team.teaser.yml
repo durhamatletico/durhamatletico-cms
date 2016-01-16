@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.team.field_team_draws
     - field.field.node.team.field_team_games_played
     - field.field.node.team.field_team_goal_difference
+    - field.field.node.team.field_team_goals_against
     - field.field.node.team.field_team_goals_for
     - field.field.node.team.field_team_jersey_color
     - field.field.node.team.field_team_logo
@@ -47,6 +48,7 @@ hidden:
   field_team_draws: true
   field_team_games_played: true
   field_team_goal_difference: true
+  field_team_goals_against: true
   field_team_goals_for: true
   field_team_jersey_color: true
   field_team_logo: true
