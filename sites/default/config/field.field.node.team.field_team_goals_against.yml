@@ -1,0 +1,25 @@
+uuid: 2f9e7547-2893-4d4d-b100-f32dd25efbda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_team_goals_against
+    - node.type.team
+id: node.team.field_team_goals_against
+field_name: field_team_goals_against
+entity_type: node
+bundle: team
+label: 'Goals Against'
+description: 'This is a computed field. <strong>Do not edit directly!</strong>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

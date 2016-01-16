@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.user.field_last_name
   module:
+    - node
     - user
 id: players
 label: Players
@@ -161,7 +162,17 @@ display:
       header: {  }
       footer: {  }
       empty: {  }
-      relationships: {  }
+      relationships:
+        reverse__node__field_players:
+          id: reverse__node__field_players
+          table: users_field_data
+          field: reverse__node__field_players
+          relationship: none
+          group_type: group
+          admin_label: field_players
+          required: true
+          entity_type: user
+          plugin_id: entity_reverse
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
@@ -185,6 +196,14 @@ display:
         options:
           search_fields:
             field_last_name: field_last_name
+      row:
+        type: entity_reference
+        options:
+          default_field_elements: true
+          inline:
+            field_last_name: field_last_name
+          separator: '-'
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:

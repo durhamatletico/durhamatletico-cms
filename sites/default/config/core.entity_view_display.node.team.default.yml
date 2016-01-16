@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.team.field_team_draws
     - field.field.node.team.field_team_games_played
     - field.field.node.team.field_team_goal_difference
+    - field.field.node.team.field_team_goals_against
     - field.field.node.team.field_team_goals_for
     - field.field.node.team.field_team_jersey_color
     - field.field.node.team.field_team_logo
@@ -49,6 +50,14 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_team_goals_against:
+    weight: 7
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
   field_team_jersey_color:
     weight: 6
     label: inline
