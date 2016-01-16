@@ -1,0 +1,25 @@
+/**
+ * @file
+ * Styles for game nodes.
+ */
+
+.jersey-color {
+  width: 1em;
+  height: 1em;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.7em;
+}
+
+.views-field-field-abbreviation {
+  a {
+    display: inline-block;
+  }
+}
+
+.view-id-standings {
+  .views-field-field-abbreviation {
+    width: 40%;
+  }
+}

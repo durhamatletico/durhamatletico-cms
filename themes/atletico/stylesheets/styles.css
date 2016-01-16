@@ -4847,3 +4847,27 @@ header .header__main-menu .menu--account .menu-item a {
 .block-views-blockposts-block-2 .views-row:active .article > h2 {
   background-color: #f7f7f7;
 }
+
+/**
+ * @file
+ * Styles for game nodes.
+ */
+/* line 6, ../sass/components/_games.scss */
+.jersey-color {
+  width: 1em;
+  height: 1em;
+  background-color: red;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 0.7em;
+}
+
+/* line 16, ../sass/components/_games.scss */
+.views-field-field-abbreviation a {
+  display: inline-block;
+}
+
+/* line 22, ../sass/components/_games.scss */
+.view-id-standings .views-field-field-abbreviation {
+  width: 40%;
+}

@@ -9,4 +9,7 @@
             });
         }
     });
+    $('.jersey-color').each(function(index, value) {
+        $(this).css('background-color', $(this).attr('data-color'));
+    });
 })(jQuery);
