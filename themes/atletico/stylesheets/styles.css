@@ -4856,7 +4856,7 @@ header .header__main-menu .menu--account .menu-item a {
 .jersey-color {
   width: 1em;
   height: 1em;
-  background-color: red;
+  background-color: #ffffff;
   border-radius: 50%;
   display: inline-block;
   margin-right: 0.7em;

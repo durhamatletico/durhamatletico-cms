@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_abbreviation
     - field.storage.node.field_game_date
+    - field.storage.node.field_jersey_color_html_
     - node.type.game
   module:
     - datetime
@@ -319,6 +320,69 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_jersey_color_html_:
+          id: field_jersey_color_html_
+          table: node__field_jersey_color_html_
+          field: field_jersey_color_html_
+          relationship: field_home_team
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_abbreviation_1:
           id: field_abbreviation_1
           table: node__field_abbreviation
@@ -329,8 +393,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="jersey-color" data-color="{{ field_jersey_color_html_ }}">   </div> {{ field_abbreviation_1 }}'
             make_link: true
             path: 'node/{{ nid }}'
             absolute: false
@@ -431,6 +495,69 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        field_jersey_color_html__1:
+          id: field_jersey_color_html__1
+          table: node__field_jersey_color_html_
+          field: field_jersey_color_html_
+          relationship: field_away_team
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_abbreviation:
           id: field_abbreviation
           table: node__field_abbreviation
@@ -441,8 +568,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="jersey-color" data-color="{{ field_jersey_color_html__1 }}">   </div> {{ field_abbreviation }}'
             make_link: true
             path: 'node/{{ nid }}'
             absolute: false
@@ -619,6 +746,7 @@ display:
       tags:
         - 'config:field.storage.node.field_abbreviation'
         - 'config:field.storage.node.field_game_date'
+        - 'config:field.storage.node.field_jersey_color_html_'
   block_1:
     display_plugin: block
     id: block_1
@@ -640,6 +768,7 @@ display:
       tags:
         - 'config:field.storage.node.field_abbreviation'
         - 'config:field.storage.node.field_game_date'
+        - 'config:field.storage.node.field_jersey_color_html_'
   block_2:
     display_plugin: block
     id: block_2
@@ -874,6 +1003,69 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_jersey_color_html_:
+          id: field_jersey_color_html_
+          table: node__field_jersey_color_html_
+          field: field_jersey_color_html_
+          relationship: field_home_team
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_abbreviation_1:
           id: field_abbreviation_1
           table: node__field_abbreviation
@@ -884,8 +1076,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="jersey-color" data-color="{{ field_jersey_color_html_ }}">   </div> {{ field_abbreviation_1 }}'
             make_link: true
             path: 'node/{{ nid }}'
             absolute: false
@@ -986,6 +1178,69 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
+        field_jersey_color_html__1:
+          id: field_jersey_color_html__1
+          table: node__field_jersey_color_html_
+          field: field_jersey_color_html_
+          relationship: field_away_team
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_abbreviation:
           id: field_abbreviation
           table: node__field_abbreviation
@@ -996,8 +1251,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="jersey-color" data-color="{{ field_jersey_color_html__1 }}">   </div> {{ field_abbreviation }}'
             make_link: true
             path: 'node/{{ nid }}'
             absolute: false
@@ -1123,3 +1378,4 @@ display:
       tags:
         - 'config:field.storage.node.field_abbreviation'
         - 'config:field.storage.node.field_game_date'
+        - 'config:field.storage.node.field_jersey_color_html_'
