@@ -3,3 +3,7 @@ services:
     class: Drupal\durhamatletico_core\ContentEntry
     arguments: []
 
+  durhamatletico_core.standings:
+    class: Drupal\durhamatletico_core\StandingsService
+    arguments: []
+
