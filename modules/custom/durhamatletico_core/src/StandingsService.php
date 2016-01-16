@@ -22,7 +22,6 @@ class StandingsService implements StandingsServiceInterface {
   }
 
   public function updateStandings(\Drupal\Core\Entity\EntityInterface $entity) {
-    // TODO: Only update if game is played.
     // Update standings for both teams.
     $home_team = $entity->get('field_home_team')->getValue();
     $away_team = $entity->get('field_away_team')->getValue();
