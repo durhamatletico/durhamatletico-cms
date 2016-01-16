@@ -9,7 +9,7 @@ dependencies:
 id: atletico_help
 theme: atletico
 region: content
-weight: -13
+weight: -14
 provider: null
 plugin: help_block
 settings:

@@ -11,7 +11,7 @@ dependencies:
 id: registrationinstructionblock
 theme: atletico
 region: content
-weight: -14
+weight: -15
 provider: null
 plugin: registration_instruction_block
 settings:

@@ -1,22 +1,22 @@
-uuid: bf2dc997-3782-4648-9200-abb32aea749f
+uuid: e37511bc-ecb3-4815-900d-13512bf57b63
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.posts
+    - views.view.standings
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__posts_block_2
+id: views_block__standings_block_2
 theme: atletico
 region: content
-weight: -5
+weight: -6
 provider: null
-plugin: 'views_block:posts-block_2'
+plugin: 'views_block:standings-block_2'
 settings:
-  id: 'views_block:posts-block_2'
+  id: 'views_block:standings-block_2'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /posts
+    pages: /futsal
     negate: false
     context_mapping: {  }
