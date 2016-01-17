@@ -26,8 +26,20 @@
 
 
 .game-list {
+  // TODO: Adjust font size for smaller screens.
   font-size: 100%;
-  // TODO: Adjust this for smaller screens.
+  background-color: #f7f7f7;
+  padding-left: 1em;
+  tr:hover {
+    background-color: red;
+  }
+  cursor: pointer;
+}
+
+
+
+table>tbody>tr:hover {
+  background-color: #f0f0f0;
 }
 
 .view-id-games {
@@ -35,5 +47,12 @@
     float: left;
     font-weight: bold;
     min-width: 150px;
+    padding-bottom: 1em;
+  }
+
+  table tr td:nth-child(1){
+    // TODO: This isn't working.
+    border-top-width: 2px;
+    border-top-color: #477dca;
   }
 }

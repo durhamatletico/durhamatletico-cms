@@ -82,7 +82,6 @@ display:
             nothing: nothing
             field_abbreviation: field_abbreviation
             field_jersey_color_html__1: field_jersey_color_html__1
-            field_abbreviation_2: field_abbreviation_2
           info:
             nid:
               sortable: false
@@ -137,13 +136,6 @@ display:
               sortable: false
               default_sort_order: asc
               align: views-align-right
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_abbreviation_2:
-              sortable: false
-              default_sort_order: asc
-              align: ''
               separator: ''
               empty_column: false
               responsive: ''
@@ -1214,7 +1206,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_abbreviation }} <div class="jersey-color away-team" data-color="{{ field_jersey_color_html__1 }}"></div>'
             make_link: true
             path: 'node/{{ nid }}'
@@ -1956,7 +1948,7 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '{{ field_abbreviation }} <div class="jersey-color away-team" data-color="{{ field_jersey_color_html__1 }}"></div>'
             make_link: true
             path: 'node/{{ nid }}'
