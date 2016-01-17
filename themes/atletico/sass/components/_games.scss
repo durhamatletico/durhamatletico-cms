@@ -23,3 +23,17 @@
     width: 40%;
   }
 }
+
+
+.game-list {
+  font-size: 100%;
+  // TODO: Adjust this for smaller screens.
+}
+
+.view-id-games {
+  caption {
+    float: left;
+    font-weight: bold;
+    min-width: 150px;
+  }
+}

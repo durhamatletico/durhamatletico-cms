@@ -4871,3 +4871,15 @@ header .header__main-menu .menu--account .menu-item a {
 .view-id-standings .views-field-field-abbreviation {
   width: 40%;
 }
+
+/* line 28, ../sass/components/_games.scss */
+.game-list {
+  font-size: 100%;
+}
+
+/* line 34, ../sass/components/_games.scss */
+.view-id-games caption {
+  float: left;
+  font-weight: bold;
+  min-width: 150px;
+}

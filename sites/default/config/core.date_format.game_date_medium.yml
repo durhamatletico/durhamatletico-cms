@@ -1,0 +1,8 @@
+uuid: 1f719b44-1097-4119-8920-327b02a3bf4e
+langcode: zxx
+status: true
+dependencies: {  }
+id: game_date_medium
+label: 'Game date medium'
+locked: false
+pattern: 'l, M j'
