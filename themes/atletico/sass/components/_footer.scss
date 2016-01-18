@@ -53,6 +53,10 @@
     .menu-item {
       padding-top: 0;
     }
+
+    a.is-active {
+      color: $logo-blue;
+    }
   }
   // scss-lint:enable QualifyingElement
 
