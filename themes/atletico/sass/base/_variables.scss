@@ -39,6 +39,10 @@ $footer-background: $base-font-color;
 $footer-color: $base-background-color;
 $footer-link-color: $base-background-color;
 
+// Table colors (e.g. /futsal)
+$table-background: #f7f7f7;
+$table-background-hover: #f0f0f0;
+
 // Custom mixins and abstract classes
 %block {
   border: solid 1px $light-gray;
