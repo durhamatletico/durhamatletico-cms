@@ -1,0 +1,106 @@
+/**
+ * @file
+ * Styles for game nodes.
+ */
+
+.node--type-game {
+
+  // Score section.
+  .game__score {
+    @include display(flex);
+    @include justify-content(center);
+
+    margin-top: $general-spacing * 3;
+    text-align: center;
+
+    article h2 {
+      font-size: 1em;
+      line-height: 1.5em;
+      margin-top: 0;
+
+      @include media($small) {
+        font-size: 2em;
+      }
+    }
+
+    .field--name-field-home-team,
+    .field--name-field-away-team {
+      width: 41%;
+    }
+
+    .field--name-field-home-team {
+      padding-right: 1em;
+    }
+
+    .field--name-field-away-team {
+      padding-left: 1em;
+    }
+
+    .field--name-field-home-team-score,
+    .field--name-field-away-team-score,
+    .game__score__dash {
+      font-size: 1em;
+      width: 6%;
+
+      @include media($small) {
+        font-size: 2em;
+      }
+    }
+
+    .field--name-field-captains {
+      font-size: .9em;
+
+      @include media($small) {
+        font-size: 1.25em;
+      }
+
+      .field__label {
+        line-height: 1em;
+        margin: 1em 0 .5em 0;
+      }
+    }
+
+    // Hide jersey color.
+    .field--name-field-team-jersey-color {
+      display: none;
+    }
+  }
+
+  // Game information.
+  .game__meta {
+    font-size: .9em;
+    margin-top: $general-spacing * 3;
+
+    @include media($small) {
+      font-size: 1em;
+    }
+
+    > div {
+      border-bottom: 1px solid $light-gray;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      .field__label,
+      .field__item {
+        display: inline-block;
+        padding-bottom: .5em;
+        padding-top: .5em;
+      }
+
+      .field__label {
+        padding-right: 1em;
+        text-align: right;
+        width: 50%;
+      }
+
+      .field__item {
+        border-left: 1px solid $light-gray;
+        padding-left: 1em;
+        width: 48%;
+      }
+    }
+  }
+
+}
