@@ -23,29 +23,28 @@ bundle: game
 mode: default
 content:
   field_away_team:
-    weight: 102
-    label: above
+    type: entity_reference_entity_view
+    weight: 4
+    label: hidden
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
   field_away_team_score:
-    weight: 109
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
+    type: number_unformatted
+    weight: 3
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: number_integer
   field_division:
-    weight: 107
+    weight: 7
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   field_game_date:
-    weight: 103
+    weight: 6
     label: above
     settings:
       timezone_override: America/New_York
@@ -53,42 +52,41 @@ content:
     third_party_settings: {  }
     type: datetime_default
   field_game_status:
-    weight: 105
+    weight: 5
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
   field_home_team:
-    weight: 101
-    label: above
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
     settings:
-      link: true
+      view_mode: default
+      link: false
     third_party_settings: {  }
-    type: entity_reference_label
   field_home_team_score:
-    weight: 108
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
+    type: number_unformatted
+    weight: 2
+    label: hidden
+    settings: {  }
     third_party_settings: {  }
-    type: number_integer
   field_referee:
-    weight: 106
+    weight: 9
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
   field_venue:
-    weight: 104
+    weight: 8
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
   links:
-    weight: 100
+    weight: 0
     settings: {  }
     third_party_settings: {  }
 hidden:
