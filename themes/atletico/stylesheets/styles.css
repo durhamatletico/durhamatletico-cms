@@ -4930,45 +4930,45 @@ header .header__main-menu .menu--account .menu-item a {
 /* line 57, ../sass/components/_game-nodes.scss */
 .node--type-game .game__score .field--name-field-captains .field__label {
   line-height: 1em;
-  margin: 1em 0 .5em 0;
+  margin: 1em 0 .5em;
 }
-/* line 64, ../sass/components/_game-nodes.scss */
+/* line 65, ../sass/components/_game-nodes.scss */
 .node--type-game .game__score .field--name-field-team-jersey-color {
   display: none;
 }
-/* line 70, ../sass/components/_game-nodes.scss */
+/* line 71, ../sass/components/_game-nodes.scss */
 .node--type-game .game__meta {
   font-size: .9em;
   margin-top: 3em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 70, ../sass/components/_game-nodes.scss */
+  /* line 71, ../sass/components/_game-nodes.scss */
   .node--type-game .game__meta {
     font-size: 1em;
   }
 }
-/* line 78, ../sass/components/_game-nodes.scss */
+/* line 79, ../sass/components/_game-nodes.scss */
 .node--type-game .game__meta > div {
   border-bottom: 1px solid #ddd;
 }
-/* line 81, ../sass/components/_game-nodes.scss */
+/* line 82, ../sass/components/_game-nodes.scss */
 .node--type-game .game__meta > div:last-child {
   border-bottom: 0;
 }
-/* line 85, ../sass/components/_game-nodes.scss */
+/* line 86, ../sass/components/_game-nodes.scss */
 .node--type-game .game__meta > div .field__label,
 .node--type-game .game__meta > div .field__item {
   display: inline-block;
   padding-bottom: .5em;
   padding-top: .5em;
 }
-/* line 92, ../sass/components/_game-nodes.scss */
+/* line 93, ../sass/components/_game-nodes.scss */
 .node--type-game .game__meta > div .field__label {
   padding-right: 1em;
   text-align: right;
   width: 50%;
 }
-/* line 98, ../sass/components/_game-nodes.scss */
+/* line 99, ../sass/components/_game-nodes.scss */
 .node--type-game .game__meta > div .field__item {
   border-left: 1px solid #ddd;
   padding-left: 1em;
