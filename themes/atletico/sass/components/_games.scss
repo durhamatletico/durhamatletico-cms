@@ -35,9 +35,12 @@
   .game-list {
     background-color: $table-background;
     cursor: pointer;
-    // TODO: Adjust font size for smaller screens.
-    font-size: 100%;
+    font-size: 80%;
     padding-left: 1em;
+
+    @include media($small) {
+      font-size: 100%;
+    }
 
     &:hover {
       background-color: $table-background-hover;
@@ -53,7 +56,68 @@
   }
 }
 
+// Set widths for games table cells on small screens.
+.block-views-blockgames-block-2,
+.block-views-blockgames-block-3 {
+  // Time field.
+  td:first-child {
+    width: 15%;
+  }
+
+  // Jersey color fields.
+  .views-field-field-jersey-color-html-,
+  .views-field-field-jersey-color-html__1 {
+    width: 1.25em;
+  }
+
+  td:first-child,
+  .views-field-field-jersey-color-html-,
+  .views-field-field-jersey-color-html__1 {
+    @include media($small) {
+      width: auto;
+    }
+  }
+}
+
+// Set widths for upcoming games table cells on small screens.
+.block-views-blockgames-block-2 {
+  // "v" field.
+  .views-field-nothing {
+    width: 1.5em;
+  }
+
+  // Game location.
+  .views-field-field-abbreviation-2 {
+    width: 15%;
+  }
+
+  .views-field-nothing,
+  .views-field-field-abbreviation-2 {
+    @include media($small) {
+      width: auto;
+    }
+  }
+}
+
+// Set widths for past games table cells on small screens.
+.block-views-blockgames-block-3 {
+  // Score field.
+  .views-field-nothing {
+    width: 4em;
+
+    @include media($small) {
+      width: auto;
+    }
+  }
+}
+
 .view-id-standings {
+  font-size: 80%;
+
+  @include media($small) {
+    font-size: 100%;
+  }
+
   .views-field-field-abbreviation {
     width: 40%;
   }
