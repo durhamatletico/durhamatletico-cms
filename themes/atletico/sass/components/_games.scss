@@ -18,9 +18,14 @@
   background-color: $base-background-color;
   border-radius: 50%;
   display: inline-block;
-  height: 1em;
-  margin-right: .7em;
-  width: 1em;
+  height: .75em;
+  margin-right: .75em;
+  width: .75em;
+
+  @include media($small) {
+    height: 1em;
+    width: 1em;
+  }
 }
 
 .view-id-games {
@@ -67,7 +72,11 @@
   // Jersey color fields.
   .views-field-field-jersey-color-html-,
   .views-field-field-jersey-color-html__1 {
-    width: 1.25em;
+    width: 1.5em;
+  }
+
+  .views-field-field-jersey-color-html__1 {
+    padding-left: .25em;
   }
 
   td:first-child,
@@ -76,6 +85,13 @@
     @include media($small) {
       width: auto;
     }
+  }
+
+  // Team names.
+  .views-field-field-abbreviation-1,
+  .views-field-field-abbreviation {
+    overflow: hidden;
+    white-space: nowrap;
   }
 }
 
@@ -88,6 +104,10 @@
 
   // Game location.
   .views-field-field-abbreviation-2 {
+    overflow: hidden;
+    padding-right: .5em;
+    text-align: right;
+    white-space: nowrap;
     width: 15%;
   }
 
@@ -118,7 +138,10 @@
     font-size: 100%;
   }
 
+  // Team name.
   .views-field-field-abbreviation {
+    overflow: hidden;
+    white-space: nowrap;
     width: 40%;
   }
 }

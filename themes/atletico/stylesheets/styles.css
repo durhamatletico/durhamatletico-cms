@@ -4869,18 +4869,25 @@ header .header__main-menu .menu--account .menu-item a {
   background-color: #fff;
   border-radius: 50%;
   display: inline-block;
-  height: 1em;
-  margin-right: .7em;
-  width: 1em;
+  height: .75em;
+  margin-right: .75em;
+  width: .75em;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 17, ../sass/components/_games.scss */
+  .jersey-color {
+    height: 1em;
+    width: 1em;
+  }
 }
 
-/* line 28, ../sass/components/_games.scss */
+/* line 33, ../sass/components/_games.scss */
 .view-id-games caption {
   font-weight: bold;
   padding-bottom: 1em;
   text-align: left;
 }
-/* line 35, ../sass/components/_games.scss */
+/* line 40, ../sass/components/_games.scss */
 .view-id-games .game-list {
   background-color: #f7f7f7;
   cursor: pointer;
@@ -4888,38 +4895,43 @@ header .header__main-menu .menu--account .menu-item a {
   padding-left: 1em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 35, ../sass/components/_games.scss */
+  /* line 40, ../sass/components/_games.scss */
   .view-id-games .game-list {
     font-size: 100%;
   }
 }
-/* line 45, ../sass/components/_games.scss */
+/* line 50, ../sass/components/_games.scss */
 .view-id-games .game-list:hover {
   background-color: #f0f0f0;
 }
-/* line 49, ../sass/components/_games.scss */
+/* line 54, ../sass/components/_games.scss */
 .view-id-games .game-list:first-child {
   border-top: solid 2px #477dca;
 }
-/* line 53, ../sass/components/_games.scss */
+/* line 58, ../sass/components/_games.scss */
 .view-id-games .game-list td:first-child {
   padding-left: .5em;
 }
 
-/* line 63, ../sass/components/_games.scss */
+/* line 68, ../sass/components/_games.scss */
 .block-views-blockgames-block-2 td:first-child,
 .block-views-blockgames-block-3 td:first-child {
   width: 15%;
 }
-/* line 68, ../sass/components/_games.scss */
+/* line 73, ../sass/components/_games.scss */
 .block-views-blockgames-block-2 .views-field-field-jersey-color-html-,
 .block-views-blockgames-block-2 .views-field-field-jersey-color-html__1,
 .block-views-blockgames-block-3 .views-field-field-jersey-color-html-,
 .block-views-blockgames-block-3 .views-field-field-jersey-color-html__1 {
-  width: 1.25em;
+  width: 1.5em;
+}
+/* line 78, ../sass/components/_games.scss */
+.block-views-blockgames-block-2 .views-field-field-jersey-color-html__1,
+.block-views-blockgames-block-3 .views-field-field-jersey-color-html__1 {
+  padding-left: .25em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 73, ../sass/components/_games.scss */
+  /* line 82, ../sass/components/_games.scss */
   .block-views-blockgames-block-2 td:first-child,
   .block-views-blockgames-block-2 .views-field-field-jersey-color-html-,
   .block-views-blockgames-block-2 .views-field-field-jersey-color-html__1,
@@ -4929,45 +4941,59 @@ header .header__main-menu .menu--account .menu-item a {
     width: auto;
   }
 }
+/* line 91, ../sass/components/_games.scss */
+.block-views-blockgames-block-2 .views-field-field-abbreviation-1,
+.block-views-blockgames-block-2 .views-field-field-abbreviation,
+.block-views-blockgames-block-3 .views-field-field-abbreviation-1,
+.block-views-blockgames-block-3 .views-field-field-abbreviation {
+  overflow: hidden;
+  white-space: nowrap;
+}
 
-/* line 85, ../sass/components/_games.scss */
+/* line 101, ../sass/components/_games.scss */
 .block-views-blockgames-block-2 .views-field-nothing {
   width: 1.5em;
 }
-/* line 90, ../sass/components/_games.scss */
+/* line 106, ../sass/components/_games.scss */
 .block-views-blockgames-block-2 .views-field-field-abbreviation-2 {
+  overflow: hidden;
+  padding-right: .5em;
+  text-align: right;
+  white-space: nowrap;
   width: 15%;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 94, ../sass/components/_games.scss */
+  /* line 114, ../sass/components/_games.scss */
   .block-views-blockgames-block-2 .views-field-nothing,
   .block-views-blockgames-block-2 .views-field-field-abbreviation-2 {
     width: auto;
   }
 }
 
-/* line 105, ../sass/components/_games.scss */
+/* line 125, ../sass/components/_games.scss */
 .block-views-blockgames-block-3 .views-field-nothing {
   width: 4em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 105, ../sass/components/_games.scss */
+  /* line 125, ../sass/components/_games.scss */
   .block-views-blockgames-block-3 .views-field-nothing {
     width: auto;
   }
 }
 
-/* line 114, ../sass/components/_games.scss */
+/* line 134, ../sass/components/_games.scss */
 .view-id-standings {
   font-size: 80%;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 114, ../sass/components/_games.scss */
+  /* line 134, ../sass/components/_games.scss */
   .view-id-standings {
     font-size: 100%;
   }
 }
-/* line 121, ../sass/components/_games.scss */
+/* line 142, ../sass/components/_games.scss */
 .view-id-standings .views-field-field-abbreviation {
+  overflow: hidden;
+  white-space: nowrap;
   width: 40%;
 }
