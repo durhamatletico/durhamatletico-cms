@@ -3,56 +3,58 @@
  * Styles for game nodes.
  */
 
-.jersey-color {
-  width: 1em;
-  height: 1em;
-  background-color: #ffffff;
-  border-radius: 50%;
-  display: inline-block;
-  margin-right: 0.7em;
+.node--type-page {
+  .block-views-blockgames-block-2,
+  .block-views-blockgames-block-3,
+  .block-views-blockstandings-block-1,
+  .block-views-blockstandings-block-2 {
+    h2 {
+      margin-top: $general-spacing * 2;
+    }
+  }
 }
 
-.views-field-field-abbreviation {
-  a {
-    display: inline-block;
+.jersey-color {
+  background-color: $base-background-color;
+  border-radius: 50%;
+  display: inline-block;
+  height: 1em;
+  margin-right: .7em;
+  width: 1em;
+}
+
+.view-id-games {
+  // Game date.
+  caption {
+    font-weight: bold;
+    padding-bottom: 1em;
+    text-align: left;
+  }
+
+  // Table rows.
+  .game-list {
+    background-color: $table-background;
+    cursor: pointer;
+    // TODO: Adjust font size for smaller screens.
+    font-size: 100%;
+    padding-left: 1em;
+
+    &:hover {
+      background-color: $table-background-hover;
+    }
+
+    &:first-child {
+      border-top: solid 2px $action-color;
+    }
+
+    td:first-child {
+      padding-left: .5em;
+    }
   }
 }
 
 .view-id-standings {
   .views-field-field-abbreviation {
     width: 40%;
-  }
-}
-
-
-.game-list {
-  // TODO: Adjust font size for smaller screens.
-  font-size: 100%;
-  background-color: #f7f7f7;
-  padding-left: 1em;
-  tr:hover {
-    background-color: red;
-  }
-  cursor: pointer;
-}
-
-
-
-table>tbody>tr:hover {
-  background-color: #f0f0f0;
-}
-
-.view-id-games {
-  caption {
-    float: left;
-    font-weight: bold;
-    min-width: 150px;
-    padding-bottom: 1em;
-  }
-
-  table tr td:nth-child(1){
-    // TODO: This isn't working.
-    border-top-width: 2px;
-    border-top-color: #477dca;
   }
 }

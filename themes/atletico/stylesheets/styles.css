@@ -3379,7 +3379,7 @@ html {
   content: "";
 }
 
-/* line 43, ../sass/base/_variables.scss */
+/* line 47, ../sass/base/_variables.scss */
 .path-frontpage .layout-content-left,
 .path-frontpage .layout-content-right, .path-node .layout-sidebar .block {
   border: solid 1px #ddd;
@@ -3387,13 +3387,13 @@ html {
   padding: 1em;
 }
 
-/* line 49, ../sass/base/_variables.scss */
+/* line 53, ../sass/base/_variables.scss */
 .path-node h1, .path-posts h1 {
   border-bottom: solid 4px #ea3745;
   padding-bottom: .5em;
 }
 
-/* line 54, ../sass/base/_variables.scss */
+/* line 58, ../sass/base/_variables.scss */
 .path-posts .block-system-main-block .view-posts .node__links li, .block-views-blockposts-block-2 .views-row .node__content .node__links li {
   border: solid 1px #ddd;
   border-radius: 3px;
@@ -3401,7 +3401,7 @@ html {
   font-weight: 600;
   padding: .5em;
 }
-/* line 61, ../sass/base/_variables.scss */
+/* line 65, ../sass/base/_variables.scss */
 .path-posts .block-system-main-block .view-posts .node__links li:first-child, .block-views-blockposts-block-2 .views-row .node__content .node__links li:first-child {
   margin-right: .5em;
 }
@@ -4856,52 +4856,51 @@ header .header__main-menu .menu--account .menu-item a {
  * @file
  * Styles for game nodes.
  */
-/* line 6, ../sass/components/_games.scss */
+/* line 11, ../sass/components/_games.scss */
+.node--type-page .block-views-blockgames-block-2 h2,
+.node--type-page .block-views-blockgames-block-3 h2,
+.node--type-page .block-views-blockstandings-block-1 h2,
+.node--type-page .block-views-blockstandings-block-2 h2 {
+  margin-top: 2em;
+}
+
+/* line 17, ../sass/components/_games.scss */
 .jersey-color {
-  width: 1em;
-  height: 1em;
-  background-color: #ffffff;
+  background-color: #fff;
   border-radius: 50%;
   display: inline-block;
-  margin-right: 0.7em;
-}
-
-/* line 16, ../sass/components/_games.scss */
-.views-field-field-abbreviation a {
-  display: inline-block;
-}
-
-/* line 22, ../sass/components/_games.scss */
-.view-id-standings .views-field-field-abbreviation {
-  width: 40%;
+  height: 1em;
+  margin-right: .7em;
+  width: 1em;
 }
 
 /* line 28, ../sass/components/_games.scss */
-.game-list {
-  font-size: 100%;
+.view-id-games caption {
+  font-weight: bold;
+  padding-bottom: 1em;
+  text-align: left;
+}
+/* line 35, ../sass/components/_games.scss */
+.view-id-games .game-list {
   background-color: #f7f7f7;
-  padding-left: 1em;
   cursor: pointer;
+  font-size: 100%;
+  padding-left: 1em;
 }
-/* line 33, ../sass/components/_games.scss */
-.game-list tr:hover {
-  background-color: red;
-}
-
-/* line 41, ../sass/components/_games.scss */
-table > tbody > tr:hover {
+/* line 42, ../sass/components/_games.scss */
+.view-id-games .game-list:hover {
   background-color: #f0f0f0;
 }
-
 /* line 46, ../sass/components/_games.scss */
-.view-id-games caption {
-  float: left;
-  font-weight: bold;
-  min-width: 150px;
-  padding-bottom: 1em;
+.view-id-games .game-list:first-child {
+  border-top: solid 2px #477dca;
 }
-/* line 53, ../sass/components/_games.scss */
-.view-id-games table tr td:nth-child(1) {
-  border-top-width: 2px;
-  border-top-color: #477dca;
+/* line 50, ../sass/components/_games.scss */
+.view-id-games .game-list td:first-child {
+  padding-left: .5em;
+}
+
+/* line 57, ../sass/components/_games.scss */
+.view-id-standings .views-field-field-abbreviation {
+  width: 40%;
 }
