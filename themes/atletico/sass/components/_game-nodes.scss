@@ -5,6 +5,11 @@
 
 .node--type-game {
 
+  // Hide node title.
+  #block-atletico-page-title {
+    display: none;
+  }
+
   // Score section.
   .game__score {
     @include display(flex);
