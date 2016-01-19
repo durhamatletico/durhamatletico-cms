@@ -84,22 +84,14 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
   {% endif %}
   {{ title_suffix }}
 
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="game__score">
       {{ content.field_home_team }}
       {{ content.field_home_team_score }}
       {% if content.field_home_team_score|render %}
         <p class="game__score__dash">-</p>
+      {% else %}
+        <p class="game__score__versus">v</p>
       {% endif %}
       {{ content.field_away_team_score }}
       {{ content.field_away_team }}
