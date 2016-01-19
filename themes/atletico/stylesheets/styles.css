@@ -5005,13 +5005,13 @@ header .header__main-menu .menu--account .menu-item a {
 }
 
 /* line 33, ../sass/components/_games-landing-page.scss */
-.view-id-games caption {
+.view-id-standings caption, .view-id-games caption {
   font-weight: bold;
   padding-bottom: 1em;
   text-align: left;
 }
 /* line 40, ../sass/components/_games-landing-page.scss */
-.view-id-games .game-list {
+.view-id-standings .team-standings, .view-id-standings .game-list, .view-id-games .team-standings, .view-id-games .game-list {
   background-color: #f7f7f7;
   cursor: pointer;
   font-size: 80%;
@@ -5019,20 +5019,20 @@ header .header__main-menu .menu--account .menu-item a {
 }
 @media screen and (min-width: 40.625em) {
   /* line 40, ../sass/components/_games-landing-page.scss */
-  .view-id-games .game-list {
+  .view-id-standings .team-standings, .view-id-standings .game-list, .view-id-games .team-standings, .view-id-games .game-list {
     font-size: 100%;
   }
 }
 /* line 50, ../sass/components/_games-landing-page.scss */
-.view-id-games .game-list:hover {
+.view-id-standings .team-standings:hover, .view-id-standings .game-list:hover, .view-id-games .team-standings:hover, .view-id-games .game-list:hover {
   background-color: #f0f0f0;
 }
 /* line 54, ../sass/components/_games-landing-page.scss */
-.view-id-games .game-list:first-child {
+.view-id-standings .team-standings:first-child, .view-id-standings .game-list:first-child, .view-id-games .team-standings:first-child, .view-id-games .game-list:first-child {
   border-top: solid 2px #477dca;
 }
 /* line 58, ../sass/components/_games-landing-page.scss */
-.view-id-games .game-list td:first-child {
+.view-id-standings .team-standings td:first-child, .view-id-standings .game-list td:first-child, .view-id-games .team-standings td:first-child, .view-id-games .game-list td:first-child {
   padding-left: .5em;
 }
 

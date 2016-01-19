@@ -28,7 +28,7 @@
   }
 }
 
-.view-id-games {
+.view-id-standings, .view-id-games {
   // Game date.
   caption {
     font-weight: bold;
@@ -37,7 +37,7 @@
   }
 
   // Table rows.
-  .game-list {
+  .team-standings, .game-list {
     background-color: $table-background;
     cursor: pointer;
     font-size: 80%;
