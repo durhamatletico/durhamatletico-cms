@@ -11,3 +11,9 @@ definitions:
     parent: ''
     expanded: false
     enabled: true
+  comment__admin:
+    weight: -68
+    menu_name: admin
+    parent: system.admin_content
+    expanded: false
+    enabled: true

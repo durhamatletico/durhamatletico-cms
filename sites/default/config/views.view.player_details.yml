@@ -1,19 +1,21 @@
-uuid: 6db491cc-563d-4770-bc00-d507ae8966f4
+uuid: bb834fd1-d33f-4782-af00-aea2c4e115b6
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.user.field_birth_date
+    - field.storage.node.field_registration_shirt_number
+    - field.storage.node.field_registration_teams
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - node.type.registration
     - system.menu.admin
+    - user.role.administrator
+    - user.role.league_administrator
   module:
-    - datetime
     - node
     - user
-id: registration_names_and_emails
-label: 'Registration - Names and Emails'
+id: player_details
+label: 'Player Details'
 module: views
 description: ''
 tag: ''
@@ -28,9 +30,11 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'administer users'
+          role:
+            league_administrator: league_administrator
+            administrator: administrator
       cache:
         type: tag
         options: {  }
@@ -38,7 +42,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -80,16 +84,24 @@ display:
           row_class: ''
           default_row_class: true
           override: true
-          sticky: false
+          sticky: true
           caption: ''
           summary: ''
           description: ''
           columns:
+            name: name
             field_first_name: field_first_name
             field_last_name: field_last_name
-            mail: mail
-            field_birth_date: field_birth_date
+            field_registration_shirt_number: field_registration_shirt_number
+            field_registration_teams: field_registration_teams
           info:
+            name:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_first_name:
               sortable: true
               default_sort_order: asc
@@ -104,14 +116,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            mail:
+            field_registration_shirt_number:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_birth_date:
+            field_registration_teams:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -123,6 +135,52 @@ display:
       row:
         type: fields
       fields:
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          entity_type: user
+          entity_field: name
+          alter:
+            alter_text: false
+            make_link: false
+            absolute: false
+            trim: false
+            word_boundary: false
+            ellipsis: false
+            strip_tags: false
+            html: false
+          hide_empty: false
+          empty_zero: false
+          plugin_id: field
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Name
+          exclude: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_alter_empty: true
+          click_sort_column: value
+          type: user_name
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_first_name:
           id: field_first_name
           table: user__field_first_name
@@ -249,14 +307,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        mail:
-          id: mail
-          table: users_field_data
-          field: mail
-          relationship: none
+        field_registration_shirt_number:
+          id: field_registration_shirt_number
+          table: node__field_registration_shirt_number
+          field: field_registration_shirt_number
+          relationship: uid
           group_type: group
           admin_label: ''
-          label: Email
+          label: 'Shirt Number'
           exclude: false
           alter:
             alter_text: false
@@ -298,74 +356,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          entity_type: user
-          entity_field: mail
-          plugin_id: field
-        field_birth_date:
-          id: field_birth_date
-          table: user__field_birth_date
-          field: field_birth_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Birth date'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_plain
+          type: number_integer
           settings:
-            timezone_override: ''
-            format_type: medium
+            thousand_separator: ''
+            prefix_suffix: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -377,6 +371,120 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_registration_teams:
+          id: field_registration_teams
+          table: node__field_registration_teams
+          field: field_registration_teams
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: Team
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: true
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        edit_node:
+          id: edit_node
+          table: node
+          field: edit_node
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          label: 'Edit Registration'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          text: Edit
+          entity_type: node
+          plugin_id: entity_link_edit
       filters:
         status:
           value: true
@@ -389,47 +497,6 @@ display:
           expose:
             operator: ''
           group: 1
-        nid:
-          id: nid
-          table: node_field_data
-          field: nid
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          operator: 'not empty'
-          value:
-            min: ''
-            max: ''
-            value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: nid
-          plugin_id: numeric
         type:
           id: type
           table: node_field_data
@@ -470,8 +537,20 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-      sorts: {  }
-      title: 'Registration - Names and Emails'
+      sorts:
+        field_last_name_value:
+          id: field_last_name_value
+          table: user__field_last_name
+          field: field_last_name_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      title: 'Player Details'
       header: {  }
       footer: {  }
       empty: {  }
@@ -495,9 +574,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user.permissions
+        - user.roles
       tags:
-        - 'config:field.storage.user.field_birth_date'
+        - 'config:field.storage.node.field_registration_shirt_number'
+        - 'config:field.storage.node.field_registration_teams'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   page_1:
@@ -507,15 +587,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/registration/names-emails
+      path: admin/content/player-details
       menu:
         type: normal
-        title: 'Registration - Names and Emails'
-        description: ''
-        expanded: false
-        parent: system.admin_content
-        weight: -65
-        context: '0'
+        title: 'Player Details'
         menu_name: admin
     cache_metadata:
       max-age: 0
@@ -523,8 +598,9 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user.permissions
+        - user.roles
       tags:
-        - 'config:field.storage.user.field_birth_date'
+        - 'config:field.storage.node.field_registration_shirt_number'
+        - 'config:field.storage.node.field_registration_teams'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
