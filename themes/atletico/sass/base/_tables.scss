@@ -1,0 +1,30 @@
+/**
+ * @file
+ *
+ * Custom table styles.
+ */
+
+/**
+ * Responsive tables.
+ */
+// scss-lint:disable QualifyingElement
+th.priority-low,
+td.priority-low,
+th.priority-medium,
+td.priority-medium {
+  display: none;
+
+  @include media($small) {
+    display: table-cell;
+  }
+}
+
+th.priority-low,
+td.priority-low {
+  display: none;
+
+  @include media($medium) {
+    display: table-cell;
+  }
+}
+// scss-lint:enable QualifyingElement
