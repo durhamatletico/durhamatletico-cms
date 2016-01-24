@@ -28,44 +28,24 @@
   }
 }
 
-.view-id-standings,
-.view-id-games {
+.view-id-games,
+.view-id-standings {
   // Game date.
   caption {
     font-weight: bold;
     padding-bottom: 1em;
     text-align: left;
   }
+}
 
-  // Table rows.
-  .team-standings,
-  .game-list {
-    background-color: $table-background;
-    cursor: pointer;
-    font-size: 80%;
-    padding-left: 1em;
-
-    @include media($small) {
-      font-size: 100%;
-    }
-
-    &:hover {
-      background-color: $table-background-hover;
-    }
-
-    &:first-child {
-      border-top: solid 2px $action-color;
-    }
-
-    td:first-child {
-      padding-left: .5em;
-    }
-  }
+// Table rows.
+.view-id-games .game-list,
+.view-id-standings .team-standings {
+  @extend %atletico-table;
 }
 
 // Set widths for games table cells on small screens.
-.block-views-blockgames-block-2,
-.block-views-blockgames-block-3 {
+.view-id-games {
   // Time field.
   td:first-child {
     width: 15%;
@@ -98,7 +78,7 @@
 }
 
 // Set widths for upcoming games table cells on small screens.
-.block-views-blockgames-block-2 {
+.view-id-games--upcoming {
   // "v" field.
   .views-field-nothing {
     width: 1.5em;
@@ -122,7 +102,7 @@
 }
 
 // Set widths for past games table cells on small screens.
-.block-views-blockgames-block-3 {
+.view-id-games--previous {
   // Score field.
   .views-field-nothing {
     width: 4em;
@@ -134,16 +114,50 @@
 }
 
 .view-id-standings {
-  font-size: 80%;
-
-  @include media($small) {
-    font-size: 100%;
-  }
-
   // Team name.
   .views-field-field-abbreviation {
     overflow: hidden;
     white-space: nowrap;
     width: 40%;
+  }
+}
+
+// Style game views on front page.
+.region-content-left,
+.region-content-right {
+  .view-id-standings .team-standings,
+  .view-id-games .game-list {
+    font-size: 80%;
+
+    @include media($medium) {
+      font-size: 100%;
+    }
+  }
+
+  // Game views.
+  .view-id-games {
+    // Time field.
+    td:first-child {
+      width: 4em;
+    }
+
+    // Jersey color fields.
+    .views-field-field-jersey-color-html-,
+    .views-field-field-jersey-color-html__1 {
+      width: 1.5em;
+    }
+
+    // "v" field.
+    .views-field-nothing {
+      width: 1.5em;
+    }
+
+    .views-field-field-jersey-color-html-,
+    .views-field-field-jersey-color-html__1,
+    .views-field-nothing {
+      @include media($medium) {
+        width: 3em;
+      }
+    }
   }
 }
