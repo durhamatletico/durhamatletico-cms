@@ -72,3 +72,26 @@ $table-background-hover: #f0f0f0;
     margin-right: .5em;
   }
 }
+
+%atletico-table {
+  background-color: $table-background;
+  cursor: pointer;
+  font-size: 80%;
+  padding-left: 1em;
+
+  @include media($small) {
+    font-size: 100%;
+  }
+
+  &:hover {
+    background-color: $table-background-hover;
+  }
+
+  &:first-child {
+    border-top: solid 2px $action-color;
+  }
+
+  td:first-child {
+    padding-left: .5em;
+  }
+}

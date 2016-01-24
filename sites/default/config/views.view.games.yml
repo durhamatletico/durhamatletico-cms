@@ -754,6 +754,7 @@ display:
       link_url: futsal
       link_display: custom_url
       use_ajax: true
+      css_class: view-id-games--upcoming
     cache_metadata:
       max-age: 0
       contexts:
@@ -1435,6 +1436,7 @@ display:
         filter_groups: false
         title: false
         sorts: false
+        css_class: false
       link_display: '0'
       link_url: futsal
       use_more: false
@@ -2144,6 +2146,7 @@ display:
             label: ''
           granularity: hour
           plugin_id: datetime
+      css_class: view-id-games--previous
     cache_metadata:
       max-age: 0
       contexts:
