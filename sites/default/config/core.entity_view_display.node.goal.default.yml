@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.goal.field_game
+    - field.field.node.goal.field_is_own_goal
     - field.field.node.goal.field_player_who_scored
     - node.type.goal
   module:
@@ -20,6 +21,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_is_own_goal:
+    weight: 103
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
   field_player_who_scored:
     weight: 101
     label: above

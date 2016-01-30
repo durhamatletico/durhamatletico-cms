@@ -3386,7 +3386,9 @@ html {
 
 /* line 53, ../sass/base/_variables.scss */
 .path-frontpage .layout-content-left,
-.path-frontpage .layout-content-right, .path-node .layout-sidebar .block {
+.path-frontpage .layout-content-right,
+main .layout-content-left,
+main .layout-content-right, .path-node .layout-sidebar .block {
   border: solid 1px #ddd;
   border-radius: 6px;
   padding: 1em;
@@ -3413,7 +3415,8 @@ html {
 
 /* line 76, ../sass/base/_variables.scss */
 .view-id-games .game-list,
-.view-id-standings .team-standings {
+.view-id-standings .team-standings, .block-golden-boot-winter2016,
+.block-golden-boot-winter2016division2 {
   background-color: #f7f7f7;
   cursor: pointer;
   font-size: 80%;
@@ -3422,23 +3425,27 @@ html {
 @media screen and (min-width: 40.625em) {
   /* line 76, ../sass/base/_variables.scss */
   .view-id-games .game-list,
-  .view-id-standings .team-standings {
+  .view-id-standings .team-standings, .block-golden-boot-winter2016,
+  .block-golden-boot-winter2016division2 {
     font-size: 100%;
   }
 }
 /* line 86, ../sass/base/_variables.scss */
 .view-id-games .game-list:hover,
-.view-id-standings .team-standings:hover {
+.view-id-standings .team-standings:hover, .block-golden-boot-winter2016:hover,
+.block-golden-boot-winter2016division2:hover {
   background-color: #f0f0f0;
 }
 /* line 90, ../sass/base/_variables.scss */
 .view-id-games .game-list:first-child,
-.view-id-standings .team-standings:first-child {
+.view-id-standings .team-standings:first-child, .block-golden-boot-winter2016:first-child,
+.block-golden-boot-winter2016division2:first-child {
   border-top: solid 2px #477dca;
 }
 /* line 94, ../sass/base/_variables.scss */
 .view-id-games .game-list td:first-child,
-.view-id-standings .team-standings td:first-child {
+.view-id-standings .team-standings td:first-child, .block-golden-boot-winter2016 td:first-child,
+.block-golden-boot-winter2016division2 td:first-child {
   padding-left: .5em;
 }
 
@@ -3863,9 +3870,11 @@ body .field--name-field-tags .field__items .field__item {
  * Layout styles for the front page.
  */
 @media screen and (min-width: 40.625em) {
-  /* line 9, ../sass/layouts/_layout-front.scss */
+  /* line 10, ../sass/layouts/_layout-front.scss */
   .path-frontpage .layout-content-left,
-  .path-frontpage .layout-content-right {
+  .path-frontpage .layout-content-right,
+  main .layout-content-left,
+  main .layout-content-right {
     float: left;
     display: block;
     margin-right: 2.84259%;
@@ -3874,31 +3883,39 @@ body .field--name-field-tags .field__items .field__item {
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
   .path-frontpage .layout-content-left:last-child,
-  .path-frontpage .layout-content-right:last-child {
+  .path-frontpage .layout-content-right:last-child,
+  main .layout-content-left:last-child,
+  main .layout-content-right:last-child {
     margin-right: 0;
   }
 }
-/* line 18, ../sass/layouts/_layout-front.scss */
+/* line 19, ../sass/layouts/_layout-front.scss */
 .path-frontpage .layout-content-left li,
-.path-frontpage .layout-content-right li {
+.path-frontpage .layout-content-right li,
+main .layout-content-left li,
+main .layout-content-right li {
   margin: 0 0 .5em;
 }
-/* line 23, ../sass/layouts/_layout-front.scss */
-.path-frontpage .layout-content-left {
+/* line 24, ../sass/layouts/_layout-front.scss */
+.path-frontpage .layout-content-left,
+main .layout-content-left {
   margin-bottom: 3em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 23, ../sass/layouts/_layout-front.scss */
-  .path-frontpage .layout-content-left {
+  /* line 24, ../sass/layouts/_layout-front.scss */
+  .path-frontpage .layout-content-left,
+  main .layout-content-left {
     margin-bottom: 0;
   }
 }
-/* line 30, ../sass/layouts/_layout-front.scss */
-.path-frontpage .layout-content-left .field--name-body h2 {
+/* line 31, ../sass/layouts/_layout-front.scss */
+.path-frontpage .layout-content-left .field--name-body h2,
+main .layout-content-left .field--name-body h2 {
   margin-top: 1.5em;
 }
-/* line 36, ../sass/layouts/_layout-front.scss */
-.path-frontpage .layout-content-right .menu--tools h2 {
+/* line 37, ../sass/layouts/_layout-front.scss */
+.path-frontpage .layout-content-right .menu--tools h2,
+main .layout-content-right .menu--tools h2 {
   margin-top: 1.5em;
 }
 
@@ -5205,5 +5222,22 @@ header .header__main-menu .menu--account .menu-item a {
   .region-content-right .view-id-games .views-field-field-jersey-color-html__1,
   .region-content-right .view-id-games .views-field-nothing {
     width: 3em;
+  }
+}
+
+/**
+ * @file
+ * Styles for golden boot blocks.
+ */
+/* line 7, ../sass/components/_golden-boot.scss */
+.block-golden-boot-winter2016,
+.block-golden-boot-winter2016division2 {
+  font-size: 80%;
+}
+@media screen and (min-width: 60em) {
+  /* line 7, ../sass/components/_golden-boot.scss */
+  .block-golden-boot-winter2016,
+  .block-golden-boot-winter2016division2 {
+    font-size: 100%;
   }
 }

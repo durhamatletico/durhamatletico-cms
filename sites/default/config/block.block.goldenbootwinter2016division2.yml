@@ -1,0 +1,26 @@
+uuid: 4894c54c-4312-4e3f-9900-fd6fceb30d17
+langcode: en
+status: true
+dependencies:
+  module:
+    - durhamatletico_core
+    - system
+  theme:
+    - atletico
+id: goldenbootwinter2016division2
+theme: atletico
+region: content_right
+weight: -18
+provider: null
+plugin: golden_boot_winter2016division2
+settings:
+  id: golden_boot_winter2016division2
+  label: 'Golden Boot Division 2'
+  provider: durhamatletico_core
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: /futsal
+    negate: false
+    context_mapping: {  }

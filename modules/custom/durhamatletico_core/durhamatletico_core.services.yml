@@ -7,3 +7,7 @@ services:
     class: Drupal\durhamatletico_core\StandingsService
     arguments: []
 
+  durhamatletico_core.goldenboot:
+    class: Drupal\durhamatletico_core\GoldenBoot
+    arguments: []
+
