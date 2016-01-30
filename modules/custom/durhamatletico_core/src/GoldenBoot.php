@@ -62,6 +62,9 @@ class GoldenBoot implements GoldenBootInterface {
 
     return [
       '#type' => 'table',
+      '#cache' => [
+        'tags' => ['node_list'],
+      ],
       '#header' => $headers,
       '#rows' => $rows,
     ];
@@ -82,7 +85,7 @@ class GoldenBoot implements GoldenBootInterface {
     if (!$jersey_number) {
       return FALSE;
     }
-    return sprintf('%s %s. (%d)',
+    return sprintf('%s %s. (#%d)',
         $player->get('field_first_name')->getString(),
         substr($player->get('field_last_name')->getString(), 0, 1),
         $jersey_number

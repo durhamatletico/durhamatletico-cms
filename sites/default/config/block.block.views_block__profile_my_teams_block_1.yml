@@ -13,7 +13,7 @@ dependencies:
 id: views_block__profile_my_teams_block_1
 theme: atletico
 region: content
-weight: -17
+weight: -19
 provider: null
 plugin: 'views_block:profile_my_teams-block_1'
 settings:
