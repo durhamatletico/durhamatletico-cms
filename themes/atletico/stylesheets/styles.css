@@ -5229,3 +5229,15 @@ header .header__main-menu .menu--account .menu-item a {
  * @file
  * Styles for golden boot blocks.
  */
+/* line 7, ../sass/components/_golden-boot.scss */
+.block-golden-boot-winter2016,
+.block-golden-boot-winter2016division2 {
+  font-size: 80%;
+}
+@media screen and (min-width: 60em) {
+  /* line 7, ../sass/components/_golden-boot.scss */
+  .block-golden-boot-winter2016,
+  .block-golden-boot-winter2016division2 {
+    font-size: 100%;
+  }
+}

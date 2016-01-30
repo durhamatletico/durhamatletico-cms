@@ -85,10 +85,10 @@ class GoldenBoot implements GoldenBootInterface {
     if (!$jersey_number) {
       return FALSE;
     }
-    return sprintf('%s %s. (#%d)',
+    return sprintf('#%d %s %s.',
+        $jersey_number,
         $player->get('field_first_name')->getString(),
-        substr($player->get('field_last_name')->getString(), 0, 1),
-        $jersey_number
+        substr($player->get('field_last_name')->getString(), 0, 1)
     );
   }
 
