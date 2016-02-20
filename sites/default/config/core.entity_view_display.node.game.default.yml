@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.game.field_away_team
     - field.field.node.game.field_away_team_score
+    - field.field.node.game.field_cup_round
     - field.field.node.game.field_division
     - field.field.node.game.field_game_date
     - field.field.node.game.field_game_status
@@ -36,6 +37,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_cup_round:
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
   field_division:
     weight: 7
     label: above
