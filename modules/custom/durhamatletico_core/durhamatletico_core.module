@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\node\Entity\Node;
 use Drupal\Core\Access\AccessResult;
 
 /**
@@ -53,8 +54,13 @@ function durhamatletico_core_node_presave(Drupal\Core\Entity\EntityInterface $en
  * {@inheritdoc}.
  */
 function durhamatletico_core_node_update(Drupal\Core\Entity\EntityInterface $entity) {
-  if ($entity->getType() === 'game') {
-    \Drupal::service('durhamatletico_core.standings')->updateStandings($entity);
+  // Only update standings if the game has been played & is part of a league competition.
+  if ($entity->getType() === 'game'
+  && $entity->get('field_game_status')->getString() == 'Played') {
+    $competition = Node::load($entity->get('field_division')->entity->id());
+    if ($competition && $competition->get('field_competition_type')->getString() == 'league') {
+      \Drupal::service('durhamatletico_core.standings')->updateStandings($entity);
+    }
   }
 }
 
