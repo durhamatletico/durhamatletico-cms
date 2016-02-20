@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.venue.field_abbreviation
     - field.field.node.venue.field_google_map
     - field.field.node.venue.field_image
+    - image.style.thumbnail
     - node.type.venue
   module:
     - image

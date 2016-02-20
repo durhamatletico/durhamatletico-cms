@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.team.field_team_photo
     - field.field.node.team.field_team_points
     - field.field.node.team.field_team_wins
+    - image.style.thumbnail
     - node.type.team
   module:
     - image

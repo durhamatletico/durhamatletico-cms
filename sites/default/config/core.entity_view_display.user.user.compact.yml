@@ -20,6 +20,7 @@ dependencies:
     - field.field.user.user.field_terms_and_conditions
     - field.field.user.user.field_twitter
     - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
     - image
     - user

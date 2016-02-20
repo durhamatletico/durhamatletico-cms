@@ -5,6 +5,9 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.venue.body
+    - field.field.node.venue.field_abbreviation
+    - field.field.node.venue.field_google_map
+    - field.field.node.venue.field_image
     - node.type.venue
   module:
     - text

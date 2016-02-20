@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.league.body
+    - field.field.node.league.field_leage
+    - field.field.node.league.field_league_start_date
+    - field.field.node.league.field_sponsors
+    - field.field.node.league.field_teams
     - node.type.league
   module:
     - text

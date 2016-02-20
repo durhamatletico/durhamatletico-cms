@@ -32,4 +32,6 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+  translation:
+    weight: 10
 hidden: {  }

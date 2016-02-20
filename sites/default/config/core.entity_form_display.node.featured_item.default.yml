@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.featured_item.field_call_to_action_big_text
     - field.field.node.featured_item.field_call_to_action_image
     - field.field.node.featured_item.field_call_to_action_links
+    - image.style.thumbnail
     - node.type.featured_item
   module:
     - image

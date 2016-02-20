@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.sponsor.field_sponsor_logo
     - field.field.node.sponsor.field_sponsor_website
     - field.field.node.sponsor.field_tier
+    - image.style.thumbnail
     - node.type.sponsor
   module:
     - image

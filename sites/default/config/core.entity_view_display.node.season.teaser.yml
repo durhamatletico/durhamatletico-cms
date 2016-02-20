@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.season.body
+    - field.field.node.season.field_divisions
     - node.type.season
   module:
     - text
