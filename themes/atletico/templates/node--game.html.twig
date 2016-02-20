@@ -86,15 +86,17 @@ view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
 
   <div{{ content_attributes.addClass('node__content') }}>
     <div class="game__score">
-      {{ content.field_home_team }}
-      {{ content.field_home_team_score }}
-      {% if content.field_home_team_score|render %}
-        <p class="game__score__dash">-</p>
-      {% else %}
-        <p class="game__score__versus">v</p>
+      {% if content.field_home_team['#object'] is not empty and content.field_away_team['#object'] is not empty %}
+        {{ content.field_home_team }}
+        {{ content.field_home_team_score }}
+        {% if content.field_home_team_score|render %}
+          <p class="game__score__dash">-</p>
+        {% else %}
+          <p class="game__score__versus">v</p>
+        {% endif %}
+        {{ content.field_away_team_score }}
+        {{ content.field_away_team }}
       {% endif %}
-      {{ content.field_away_team_score }}
-      {{ content.field_away_team }}
     </div>
     <div class="game__meta">
       {{ content|without('field_home_team', 'field_home_team_score', 'field_away_team', 'field_away_team_score') }}

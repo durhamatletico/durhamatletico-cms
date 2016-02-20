@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.league.body
+    - field.field.node.league.field_competition_type
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_sponsors
@@ -31,6 +32,11 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
+  field_competition_type:
+    weight: 36
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_leage:
     weight: 33
     settings: {  }

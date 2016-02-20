@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.league.body
+    - field.field.node.league.field_competition_type
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_sponsors
@@ -11,6 +12,7 @@ dependencies:
     - node.type.league
   module:
     - datetime
+    - options
     - text
     - user
 id: node.league.default
@@ -24,6 +26,12 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+  field_competition_type:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
   field_leage:
     weight: 103
     label: above

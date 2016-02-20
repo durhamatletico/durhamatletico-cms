@@ -8,9 +8,9 @@ third_party_settings:
   menu_ui:
     available_menus: {  }
     parent: ''
-name: Division
+name: Competition
 type: league
-description: 'Use this content type to add a <em>Division</em> to the system.'
+description: 'Use this content type to add a <em>Competition</em> to the system. Competitions can be leagues or cups that are part of a particular season'
 help: ''
 new_revision: true
 preview_mode: 1

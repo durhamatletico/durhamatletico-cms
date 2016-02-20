@@ -8,7 +8,7 @@ id: node.league.title
 field_name: title
 entity_type: node
 bundle: league
-label: 'Division Name'
+label: 'Competition Name'
 description: ''
 required: true
 translatable: true
