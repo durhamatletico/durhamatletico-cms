@@ -1,0 +1,23 @@
+uuid: 2d7de46c-8a98-4d96-b300-c913f55985ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cup_round
+    - node.type.game
+id: node.game.field_cup_round
+field_name: field_cup_round
+entity_type: node
+bundle: game
+label: 'Cup Round'
+description: 'If this game is part of a cup/tournament, specify which round this is game is in (round 1, round 2, round 3, etc).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: Round
+  suffix: ''
+field_type: integer
