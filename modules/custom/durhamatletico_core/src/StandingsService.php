@@ -15,13 +15,27 @@ use Drupal\node\Entity\Node;
  * @package Drupal\durhamatletico_core
  */
 class StandingsService implements StandingsServiceInterface {
+
+  protected $entity;
+
   /**
    * Constructor.
    */
   public function __construct() {
   }
 
+  /**
+   * Update the standings for teams in the given game entity.
+   *
+   * Given a 'game' node containing two teams, analyze the results and update
+   * the wins/draws/losses/points/goals for both teams.
+   *
+   * The data is stored directly in each team node.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   */
   public function updateStandings(\Drupal\Core\Entity\EntityInterface $entity) {
+    $this->entity = $entity;
     // Update standings for both teams.
     $home_team = $entity->get('field_home_team')->getValue();
     $away_team = $entity->get('field_away_team')->getValue();
@@ -52,12 +66,23 @@ class StandingsService implements StandingsServiceInterface {
     $group = $query->orConditionGroup()
       ->condition('field_home_team', $team_node->id())
       ->condition('field_away_team', $team_node->id());
-    return Node::loadMultiple(
+    $games = Node::loadMultiple(
       $query->condition('status', 1)
+      ->condition('type', 'game')
       ->condition($group)
       ->condition('field_game_status', 'Played')
       ->execute()
     );
+    // Now filter out only games that are part of the original entity's competition.
+    $current_division = $this->entity->get('field_division')->entity->id();
+    return array_filter($games, function($game) use ($current_division) {
+      if ($game->get('field_division')->entity->id() == $current_division) {
+        return TRUE;
+      }
+      else {
+        return FALSE;
+      }
+    });
   }
 
   protected function getGoalsForTeam($team_nid) {
