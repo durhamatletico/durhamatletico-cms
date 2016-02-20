@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.goal.field_game
     - field.field.node.goal.field_is_own_goal
     - field.field.node.goal.field_player_who_scored
+    - field.field.node.goal.field_quantity
     - node.type.goal
   module:
     - user
@@ -37,6 +38,14 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+  field_quantity:
+    weight: 104
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
   links:
     weight: 100
 hidden:

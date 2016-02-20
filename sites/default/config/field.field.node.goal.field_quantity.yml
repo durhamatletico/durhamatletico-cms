@@ -1,0 +1,25 @@
+uuid: 64407b50-efc5-4d5d-b600-dea810128bd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quantity
+    - node.type.goal
+id: node.goal.field_quantity
+field_name: field_quantity
+entity_type: node
+bundle: goal
+label: Quantity
+description: 'Use this field for quickly entering lots of goals for a single player in a single game. For example, if the username <em>erwin</em> scored 5 goals in one game, you''d set the quantity to <em>5</em>, set the username to <em>erwin<</em>, and reference the game. When you click "Save", our code will create 5 goal nodes. (If you mess up, visit <em>admin/content</em> to manually delete goals.)'
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

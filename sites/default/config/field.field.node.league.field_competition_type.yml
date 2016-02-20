@@ -1,0 +1,23 @@
+uuid: dcc23423-b778-449f-ad46-70bdb281262d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_competition_type
+    - node.type.league
+  module:
+    - options
+id: node.league.field_competition_type
+field_name: field_competition_type
+entity_type: node
+bundle: league
+label: 'Competition Type'
+description: 'Specify if this competition is a League or Cup.'
+required: true
+translatable: false
+default_value:
+  -
+    value: league
+default_value_callback: ''
+settings: {  }
+field_type: list_string

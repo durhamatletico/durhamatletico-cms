@@ -23,6 +23,30 @@ class ContentEntry implements ContentEntryInterface {
   }
 
   /**
+   * Helper to assist with rapid goal entry.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   */
+  public function addGoals(\Drupal\Core\Entity\EntityInterface $entity) {
+    // If quantity is 1, do nothing.
+    $quantity = (int) $entity->get('field_quantity')->getString();
+    if ($quantity == 1) {
+      return;
+    }
+    // Otherwise, create new nodes.
+    for ($i = 1; $i < $quantity; $i++) {
+      $node = Node::create([
+        'type' => 'goal',
+        'title' => $entity->get('title')->getString(),
+        'field_game' => $entity->get('field_game'),
+        'field_player_who_scored' => $entity->field_player_who_scored,
+      ]);
+      $node->save();
+    }
+    drupal_set_message(sprintf('Created %d goals!', $quantity));
+  }
+
+  /**
    * Helper to auto-generate node titles.
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity

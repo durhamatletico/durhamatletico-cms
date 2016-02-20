@@ -1,0 +1,39 @@
+uuid: a379709b-d01e-4456-b506-6aaf21c6a2f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.player_lookup
+  module:
+    - system
+    - user
+    - views
+  theme:
+    - seven
+id: views_block__player_lookup_block_1
+theme: seven
+region: help
+weight: -3
+provider: null
+plugin: 'views_block:player_lookup-block_1'
+settings:
+  id: 'views_block:player_lookup-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /node/add/goal
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      league_administrator: league_administrator
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

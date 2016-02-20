@@ -1,0 +1,27 @@
+uuid: d6eb9aaf-4701-4b60-a104-4a6b3a4f2926
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_competition_type
+field_name: field_competition_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: league
+      label: League
+    -
+      value: cup
+      label: Cup
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

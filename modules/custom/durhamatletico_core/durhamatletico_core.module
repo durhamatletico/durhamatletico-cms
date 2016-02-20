@@ -48,6 +48,10 @@ function durhamatletico_core_node_presave(Drupal\Core\Entity\EntityInterface $en
   if (in_array($entity->getType(), ['game', 'goal'])) {
     \Drupal::service('durhamatletico_core.content_entry')->setTitle($entity);
   }
+  if ($entity->getType() == 'goal') {
+    \Drupal::service('durhamatletico_core.content_entry')->addGoals($entity);
+    $entity->set('field_quantity', 1, FALSE);
+  }
 }
 
 /**

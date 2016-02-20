@@ -9,7 +9,7 @@ dependencies:
 id: seven_help
 theme: seven
 region: help
-weight: 0
+weight: -4
 provider: null
 plugin: help_block
 settings:

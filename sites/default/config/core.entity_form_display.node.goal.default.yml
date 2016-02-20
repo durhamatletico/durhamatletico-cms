@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.goal.field_game
     - field.field.node.goal.field_is_own_goal
     - field.field.node.goal.field_player_who_scored
+    - field.field.node.goal.field_quantity
     - node.type.goal
   module:
     - path
@@ -41,6 +42,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_quantity:
+    weight: 34
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
   langcode:
     type: language_select
     weight: 2
