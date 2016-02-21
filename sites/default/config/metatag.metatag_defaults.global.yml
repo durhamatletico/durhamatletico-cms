@@ -1,0 +1,18 @@
+uuid: 8bb2215a-b6b6-45f5-8717-23c666734faf
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5rOnjIF_aDyGBmfXNhJnkPXxQMlem0CmVmggV-TF3Fg
+id: global
+label: Global
+tags:
+  keywords: 'futsal soccer futbol'
+  image_src: 'https://www.durhamatletico.com/themes/atletico/images/logo.png'
+  title: '[current-page:title] | [site:name]'
+  canonical_url: 'http://www.durhamatletico.com'
+  news_keywords: 'futsal soccer futbol'
+  og_site_name: 'Durham Atlético'
+  og_email: info@durhamatletico.com
+  og_country_name: 'United States'
+  og_type: sports

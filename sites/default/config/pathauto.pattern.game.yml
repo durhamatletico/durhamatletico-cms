@@ -1,0 +1,23 @@
+uuid: 9e154f3c-e04d-42f3-9300-c7e59b171f69
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+id: game
+label: Game
+type: 'canonical_entities:node'
+pattern: 'game/[node:nid]-[node:title]'
+selection_criteria:
+  f3620c83-eb35-40b2-8304-4e242c4590fa:
+    id: 'entity_bundle:node'
+    bundles:
+      game: game
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f3620c83-eb35-40b2-8304-4e242c4590fa
+selection_logic: and
+weight: -5
+context_definitions: {  }

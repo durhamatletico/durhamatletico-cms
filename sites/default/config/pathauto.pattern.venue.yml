@@ -1,0 +1,23 @@
+uuid: f4c38b05-b7df-49a4-a561-97ac343bfdc8
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+id: venue
+label: Venue
+type: 'canonical_entities:node'
+pattern: 'venue/[node:nid]-[node:title]'
+selection_criteria:
+  5038b3a8-4ff5-43fb-b826-38a095c55c26:
+    id: 'entity_bundle:node'
+    bundles:
+      venue: venue
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 5038b3a8-4ff5-43fb-b826-38a095c55c26
+selection_logic: and
+weight: -5
+context_definitions: {  }

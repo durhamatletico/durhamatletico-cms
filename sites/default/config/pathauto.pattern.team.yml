@@ -1,0 +1,23 @@
+uuid: a544dda5-0836-47f7-ae55-8529501f323c
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+id: team
+label: Team
+type: 'canonical_entities:node'
+pattern: 'team/[node:nid]-[node:title]'
+selection_criteria:
+  89269d83-4ddc-47cf-8c00-f03caec00635:
+    id: 'entity_bundle:node'
+    bundles:
+      team: team
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 89269d83-4ddc-47cf-8c00-f03caec00635
+selection_logic: and
+weight: -5
+context_definitions: {  }

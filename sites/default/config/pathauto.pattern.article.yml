@@ -1,0 +1,23 @@
+uuid: 2d629319-0f38-4837-8638-56328bbed3bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+id: article
+label: Article
+type: 'canonical_entities:node'
+pattern: 'posts/[node:nid]-[node:title]'
+selection_criteria:
+  89da76eb-14d6-4c91-a006-6effb01a6ec2:
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 89da76eb-14d6-4c91-a006-6effb01a6ec2
+selection_logic: and
+weight: -5
+context_definitions: {  }
