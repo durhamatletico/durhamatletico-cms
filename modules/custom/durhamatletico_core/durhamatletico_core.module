@@ -93,15 +93,15 @@ function durhamatletico_core_entity_field_access($operation, \Drupal\Core\Field\
       // Let the logged in user look at their account page.
       return AccessResult::neutral();
     }
-  }
 
-  // User first name is considered a public field. Allow people to see it in any
-  // context, not juse /user.
-  $public_fields = [
-    'field_first_name',
-  ];
-  if (!in_array($field_definition->getName(), $public_fields)) {
-    return AccessResult::forbidden();
+    // Check for accessing user fields.
+    // TODO: This needs to be for any context.
+    $public_fields = [
+      'field_first_name',
+    ];
+    if (!in_array($field_definition->getName(), $public_fields)) {
+      return AccessResult::forbidden();
+    }
   }
 
   return AccessResult::neutral();
