@@ -72,26 +72,31 @@ function durhamatletico_core_node_update(Drupal\Core\Entity\EntityInterface $ent
  * Implements hook_entity_field_access().
  */
 function durhamatletico_core_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
-  if ($account->hasPermission('administer users')) {
-    return AccessResult::allowed();
-  }
-  // If user is looking at their own account, pass.
-  if ($operation !== 'view') {
-    return AccessResult::neutral();
-  }
-  list($base, $uid) = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
-  if ($base !== 'user') {
-    return AccessResult::neutral();
-  }
-  if ($uid <= 0) {
-    return AccessResult::neutral();
-  }
-  if ($uid == $account->id()) {
-    // Let the logged in user look at their account page.
-    return AccessResult::neutral();
+  // Restrict access to '/user' URLs for viewing user profiles.
+  if (strpos(\Drupal::service('path.current')->getPath(), 'user') !== FALSE) {
+
+    if ($account->hasPermission('administer users')) {
+      return AccessResult::allowed();
+    }
+    // If user is looking at their own account, pass.
+    if ($operation !== 'view') {
+      return AccessResult::neutral();
+    }
+    list($base, $uid) = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+    if ($base !== 'user') {
+      return AccessResult::neutral();
+    }
+    if ($uid <= 0) {
+      return AccessResult::neutral();
+    }
+    if ($uid == $account->id()) {
+      // Let the logged in user look at their account page.
+      return AccessResult::neutral();
+    }
   }
 
-  // Public fields.
+  // User first name is considered a public field. Allow people to see it in any
+  // context, not juse /user.
   $public_fields = [
     'field_first_name',
   ];
