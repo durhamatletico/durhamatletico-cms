@@ -2,8 +2,10 @@ global-styling:
   css:
     theme:
       stylesheets/styles.css: {}
+      stylesheets/jquery.bracket.min.css: {}
   js:
     js/navigation.js: {}
+    js/jquery.bracket.min.js: {}
     js/global.js: {}
   dependencies:
     - core/jquery

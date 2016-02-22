@@ -1,0 +1,15 @@
+drupal.rdfui.autocomplete:
+  version: VERSION
+  js:
+    js/rdfui.autocomplete.js: {}
+  css:
+    theme:
+      css/rdfui.autocomplete.css: {}
+  dependencies:
+    - core/drupal.autocomplete
+    - core/jquery
+    - core/jquery.ui.tooltip
+    - core/jquery.ui.button
+
+
+

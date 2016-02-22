@@ -1,0 +1,29 @@
+uuid: 8af9e038-7c92-438f-be03-3c6485c55f2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.venue
+  module:
+    - node
+id: node.venue
+targetEntityType: node
+bundle: venue
+types:
+  - 'schema:SportsActivityLocation'
+fieldMappings:
+  title:
+    properties:
+      - 'schema:name'
+  body:
+    properties:
+      - ''
+  field_abbreviation:
+    properties:
+      - 'schema:alternateName'
+  field_google_map:
+    properties:
+      - ''
+  field_image:
+    properties:
+      - 'schema:image'

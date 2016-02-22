@@ -1,0 +1,7 @@
+rdf_builder.content:
+  path: '/admin/structure/types/rdf'
+  defaults:
+    _form: '\Drupal\rdf_builder\Form\ContentBuilderForm'
+  requirements:
+    _permission: 'administer content types'
+

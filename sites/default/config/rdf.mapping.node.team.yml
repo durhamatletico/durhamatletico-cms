@@ -1,0 +1,68 @@
+uuid: c6375d53-e445-446a-a459-89a39d928eea
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.team
+  module:
+    - node
+id: node.team
+targetEntityType: node
+bundle: team
+types:
+  - 'schema:SportsTeam'
+fieldMappings:
+  title:
+    properties:
+      - 'schema:name'
+  body:
+    properties:
+      - ''
+  field_abbreviation:
+    properties:
+      - 'schema:alternateName'
+  field_captains:
+    properties:
+      - 'schema:coach'
+  field_jersey_color_html_:
+    properties:
+      - ''
+  field_players:
+    properties:
+      - 'schema:athlete'
+  field_sponsors:
+    properties:
+      - ''
+  field_team_draws:
+    properties:
+      - ''
+  field_team_games_played:
+    properties:
+      - ''
+  field_team_goals_against:
+    properties:
+      - ''
+  field_team_goals_for:
+    properties:
+      - ''
+  field_team_goal_difference:
+    properties:
+      - ''
+  field_team_jersey_color:
+    properties:
+      - ''
+  field_team_logo:
+    properties:
+      - ''
+  field_team_losses:
+    properties:
+      - ''
+  field_team_photo:
+    properties:
+      - ''
+  field_team_points:
+    properties:
+      - ''
+  field_team_wins:
+    properties:
+      - ''

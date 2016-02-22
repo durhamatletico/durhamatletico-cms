@@ -1,0 +1,47 @@
+uuid: e33b8c9d-258a-482d-8e00-a5067e84453b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.game
+  module:
+    - node
+id: node.game
+targetEntityType: node
+bundle: game
+types:
+  - 'schema:SportsEvent'
+fieldMappings:
+  title:
+    properties:
+      - 'schema:name'
+  field_away_team:
+    properties:
+      - 'schema:awayTeam'
+  field_away_team_score:
+    properties:
+      - ''
+  field_cup_round:
+    properties:
+      - ''
+  field_division:
+    properties:
+      - ''
+  field_game_date:
+    properties:
+      - 'schema:startDate'
+  field_game_status:
+    properties:
+      - 'schema:eventStatus'
+  field_home_team:
+    properties:
+      - 'schema:homeTeam'
+  field_home_team_score:
+    properties:
+      - ''
+  field_referee:
+    properties:
+      - ''
+  field_venue:
+    properties:
+      - 'schema:location'

@@ -1,0 +1,21 @@
+name: RDF UI Builder
+type: module
+description: 'Schema.org driven Content Typr Builder for Drupal 8'
+package: Custom
+# version: VERSION
+# core: 8.x
+hidden: false
+
+dependencies:
+  - rdfui
+
+
+
+
+
+
+# Information added by Drupal.org packaging script on 2016-01-27
+version: '8.x-1.0-beta1'
+core: '8.x'
+project: 'rdfui'
+datestamp: 1453871340

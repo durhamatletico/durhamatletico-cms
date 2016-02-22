@@ -1,0 +1,14 @@
+uuid: 095e80b2-7ad5-42ca-bc00-f88a9c59c8f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.league
+  module:
+    - node
+id: node.league
+targetEntityType: node
+bundle: league
+types:
+  - 'schema:SportsEvent'
+fieldMappings: {  }

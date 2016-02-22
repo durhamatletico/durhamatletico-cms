@@ -1,0 +1,62 @@
+<?php
+/**
+ * @file
+ * Allows content types and fields to be mapped with RDF data from Schema.org.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\rdfui\ContentMappings;
+
+/**
+ * Implements hook_help().
+ */
+function rdfui_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.rdfui':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The RDF UI module provides an administrative user interface (UI) for mapping content types and fields with RDF schema. The module currently supports schemas from <a href="@schema">Schema.org</a>.', array('@schema' => 'http://schema.org/')) . '</p>';
+      $output .= '<h3>' . t('Specifying Mappings') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Content Types') . '</dt>';
+      $output .= '<dd>' . t('Content types are mapped with Schema.org types') . '<dl>';
+      $output .= '<dt>' . t('Fields') . '</dt>';
+      $output .= '<dd>' . t('Fields will be mapped with Schema.org properties') . '</li>';
+      $output .= '</dl>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function rdfui_form_node_type_add_form_alter(&$form, &$form_state) {
+  $form += ContentMappings::alterForm($form, $form_state);
+  // Add validation handler if required.
+  $form['actions']['submit']['#submit'][] = 'rdfui_node_type_form_submit';
+  $form['actions']['save_continue']['#submit'][] = 'rdfui_node_type_form_submit';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function rdfui_form_node_type_edit_form_alter(&$form, &$form_state, $form_id) {
+  $form += ContentMappings::alterForm($form, $form_state);
+  // Add validation handler if required.
+  $form['actions']['submit']['#submit'][] = 'rdfui_node_type_form_submit';
+}
+
+/**
+ * Handles submission the altered NodeTypeForm.
+ *
+ * @param array $form
+ *   An associative array containing the structure of the form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ *
+ * @see rdfui_form_node_type_add_form_alter()
+ * @see rdfui_form_node_type_edit_form_alter()
+ */
+function rdfui_node_type_form_submit(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  ContentMappings::submitForm($form, $form_state);
+}
