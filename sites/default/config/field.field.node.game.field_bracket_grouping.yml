@@ -1,0 +1,23 @@
+uuid: b28bacf2-0afd-46b9-ae3d-61cb0c7b51ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bracket_grouping
+    - node.type.game
+id: node.game.field_bracket_grouping
+field_name: field_bracket_grouping
+entity_type: node
+bundle: game
+label: 'Bracket Grouping'
+description: 'If this is a cup game, use this field for grouping games together. The value should be <em>1</em> or <em>2</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 2
+  prefix: ''
+  suffix: ''
+field_type: integer

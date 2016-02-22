@@ -588,7 +588,19 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: numeric
-      sorts: {  }
+      sorts:
+        field_bracket_grouping_value:
+          id: field_bracket_grouping_value
+          table: node__field_bracket_grouping
+          field: field_bracket_grouping_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
       header: {  }
       footer: {  }
       empty: {  }

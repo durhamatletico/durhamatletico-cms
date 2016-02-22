@@ -1,0 +1,20 @@
+uuid: 87e98440-ca75-4750-9914-20ddc273acf6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_bracket_grouping
+field_name: field_bracket_grouping
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
