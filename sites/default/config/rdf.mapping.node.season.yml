@@ -1,0 +1,14 @@
+uuid: d411c462-95a1-411f-8b3f-63870e1297e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.season
+  module:
+    - node
+id: node.season
+targetEntityType: node
+bundle: season
+types:
+  - ''
+fieldMappings: {  }

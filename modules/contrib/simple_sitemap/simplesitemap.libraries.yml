@@ -1,0 +1,12 @@
+fieldsetSummaries:
+  version: VERSION
+  js:
+    js/simplesitemap.fieldsetSummaries.js: {}
+  dependencies:
+    - core/jquery
+form:
+  version: VERSION
+  js:
+    js/simplesitemap.form.js: {}
+  dependencies:
+    - core/jquery

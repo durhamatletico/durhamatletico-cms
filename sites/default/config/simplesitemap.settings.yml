@@ -1,0 +1,38 @@
+custom:
+  -
+    path: /
+    priority: '1.0'
+  -
+    path: /futsal
+    priority: '1.0'
+entity_types:
+  node_type:
+    venue:
+      index: 1
+      priority: '0.5'
+    team:
+      index: 1
+      priority: '0.5'
+    sponsor:
+      index: 1
+      priority: '0.5'
+    season:
+      index: 1
+      priority: '0.5'
+    game:
+      index: 1
+      priority: '0.9'
+    league:
+      index: 1
+      priority: '0.5'
+    page:
+      index: 1
+      priority: '0.9'
+    article:
+      index: 1
+      priority: '0.7'
+settings:
+  max_links: '2000'
+  cron_generate: 1
+_core:
+  default_config_hash: uDGBx4ZNvgnxslgMEbxBCn9B9totBSlyjNkB7qQKb_I

@@ -1,0 +1,12 @@
+simplesitemap.settings:
+  route_name: simplesitemap.settings
+  title: 'Settings'
+  base_route: simplesitemap.settings
+  weight: -1
+
+simplesitemap.settings_custom:
+  route_name: simplesitemap.settings_custom
+  title: 'Custom links'
+  base_route: simplesitemap.settings
+
+

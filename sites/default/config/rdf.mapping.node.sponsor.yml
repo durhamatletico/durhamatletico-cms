@@ -1,0 +1,14 @@
+uuid: 5278eccc-b437-49b0-8100-fcbf6b0721b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.sponsor
+  module:
+    - node
+id: node.sponsor
+targetEntityType: node
+bundle: sponsor
+types:
+  - ''
+fieldMappings: {  }
