@@ -18,6 +18,6 @@ default_value_callback: ''
 settings:
   min: 1
   max: null
-  prefix: Round
+  prefix: 'Round '
   suffix: ''
 field_type: integer

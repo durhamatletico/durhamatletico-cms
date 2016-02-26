@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.game.field_away_team
     - field.field.node.game.field_away_team_score
+    - field.field.node.game.field_bracket_grouping
+    - field.field.node.game.field_cup_round
     - field.field.node.game.field_division
     - field.field.node.game.field_game_date
     - field.field.node.game.field_game_status
@@ -26,6 +28,8 @@ content:
 hidden:
   field_away_team: true
   field_away_team_score: true
+  field_bracket_grouping: true
+  field_cup_round: true
   field_division: true
   field_game_date: true
   field_game_status: true
