@@ -14,8 +14,8 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 function durhamatletico_registration_user_login($account) {
   // Check if user hasn't created a registration node. If so, direct them to
   // register.
-  $reg_node = reset(\Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($account));
-  if (!count($reg_node)) {
+  $reg_node = \Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($account);
+  if (!count(reset($reg_node))) {
     $response = new RedirectResponse('/node/add/registration');
     $response->send();
   }
