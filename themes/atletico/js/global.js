@@ -21,23 +21,34 @@
         }).then(function(data) {
             var teams = [];
             var round_one_results = [];
+            var round_two_results = [];
+            var round_three_results = [[]];
             $.each(data, function (index, value) {
-                teams.push([value.home, value.away]);
-                round_one_results.push([value.home_score, value.away_score]);
+                if (parseInt(value.cup_round) == 1) {
+                    // Just get the teams once, in round one.
+                    teams.push([value.home, value.away]);
+                    round_one_results.push([parseInt(value.home_score), parseInt(value.away_score)]);
+                }
+                else if ((parseInt(value.cup_round) == 2) && parseInt(value.grouping) == 1) {
+                    // Only look at winning teams.
+                    round_two_results.push([parseInt(value.home_score), parseInt(value.away_score)]);
+                }
+                else if (parseInt(value.cup_round) == 3 && parseInt(value.grouping) == 1) {
+                    // Only look at finalists.
+                    if (value.home_score) {
+                        // Game has been played.
+                        round_three_results.push([parseInt(value.home_score), parseInt(value.away_score)]);
+                    }
+                }
             });
 
-            for (var i = 0; i < round_one_results.length; i++) {
-                for (var x = 0; x < round_one_results[i].length; x++) {
-                    round_one_results[i][x] = parseInt(round_one_results[i][x]);
-                }
-            };
             var data = {
                 teams : teams,
                 results :
                     [
                         round_one_results,
-                        [[], []],
-                        [[]]
+                        round_two_results,
+                        round_three_results
                     ]
             };
             $('#'.concat(value)).bracket({
