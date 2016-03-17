@@ -4637,6 +4637,19 @@ header .header__main-menu .menu--account .menu-item a {
     float: left;
     display: block;
     margin-right: 2.84259%;
+    width: 53.72084%;
+  }
+  /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+  .footer__sponsors .block-views-blocksponsors-block-1:last-child {
+    margin-right: 0;
+  }
+}
+@media screen and (min-width: 70em) {
+  /* line 143, ../sass/components/_footer.scss */
+  .footer__sponsors .block-views-blocksponsors-block-1 {
+    float: left;
+    display: block;
+    margin-right: 2.84259%;
     width: 58.86297%;
   }
   /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
@@ -4644,30 +4657,30 @@ header .header__main-menu .menu--account .menu-item a {
     margin-right: 0;
   }
 }
-/* line 148, ../sass/components/_footer.scss */
+/* line 152, ../sass/components/_footer.scss */
 .footer__sponsors .block-views-blocksponsors-block-1 img {
   height: auto;
   max-width: 100%;
 }
 @media screen and (min-width: 60em) {
-  /* line 148, ../sass/components/_footer.scss */
+  /* line 152, ../sass/components/_footer.scss */
   .footer__sponsors .block-views-blocksponsors-block-1 img {
     max-width: 375px;
   }
 }
-/* line 159, ../sass/components/_footer.scss */
+/* line 163, ../sass/components/_footer.scss */
 .footer__sponsors .block-views-blocksponsors-block-3 {
   border-top: solid 1px #ddd;
   margin-top: 3em;
   padding-top: 3em;
 }
 @media screen and (min-width: 60em) {
-  /* line 159, ../sass/components/_footer.scss */
+  /* line 163, ../sass/components/_footer.scss */
   .footer__sponsors .block-views-blocksponsors-block-3 {
     float: left;
     display: block;
     margin-right: 2.84259%;
-    width: 38.29445%;
+    width: 43.43658%;
     border-left: solid 1px #ddd;
     border-top: 0;
     margin-top: 0;
@@ -4678,7 +4691,20 @@ header .header__main-menu .menu--account .menu-item a {
     margin-right: 0;
   }
 }
-/* line 172, ../sass/components/_footer.scss */
+@media screen and (min-width: 70em) {
+  /* line 163, ../sass/components/_footer.scss */
+  .footer__sponsors .block-views-blocksponsors-block-3 {
+    float: left;
+    display: block;
+    margin-right: 2.84259%;
+    width: 38.29445%;
+  }
+  /* line 89, ../sass/lib/neat/grid/_span-columns.scss */
+  .footer__sponsors .block-views-blocksponsors-block-3:last-child {
+    margin-right: 0;
+  }
+}
+/* line 180, ../sass/components/_footer.scss */
 .footer__sponsors .block-views-blocksponsors-block-3 .view-content {
   display: -webkit-box;
   display: -moz-box;
@@ -4696,14 +4722,21 @@ header .header__main-menu .menu--account .menu-item a {
   -o-justify-content: center;
   justify-content: center;
   -ms-flex-pack: center;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-/* line 177, ../sass/components/_footer.scss */
+/* line 186, ../sass/components/_footer.scss */
 .footer__sponsors .block-views-blocksponsors-block-3 img {
   height: auto;
   max-width: 80%;
 }
 @media screen and (min-width: 60em) {
-  /* line 177, ../sass/components/_footer.scss */
+  /* line 186, ../sass/components/_footer.scss */
   .footer__sponsors .block-views-blocksponsors-block-3 img {
     max-width: 100px;
   }
