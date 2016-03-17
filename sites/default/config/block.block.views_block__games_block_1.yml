@@ -1,6 +1,6 @@
 uuid: 9be9a5e8-aa35-41f4-b814-208523725bea
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.games
@@ -11,8 +11,8 @@ dependencies:
     - atletico
 id: views_block__games_block_1
 theme: atletico
-region: content_left
-weight: -17
+region: '-1'
+weight: -11
 provider: null
 plugin: 'views_block:games-block_1'
 settings:

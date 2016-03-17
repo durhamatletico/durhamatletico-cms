@@ -11,7 +11,7 @@ type: 'canonical_entities:node'
 pattern: 'venue/[node:nid]-[node:title]'
 selection_criteria:
   5038b3a8-4ff5-43fb-b826-38a095c55c26:
-    id: 'entity_bundle:node'
+    id: node_type
     bundles:
       venue: venue
     negate: false
@@ -20,4 +20,4 @@ selection_criteria:
     uuid: 5038b3a8-4ff5-43fb-b826-38a095c55c26
 selection_logic: and
 weight: -5
-context_definitions: {  }
+relationships: {  }

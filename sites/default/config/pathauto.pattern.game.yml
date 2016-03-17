@@ -11,7 +11,7 @@ type: 'canonical_entities:node'
 pattern: 'game/[node:nid]-[node:title]'
 selection_criteria:
   f3620c83-eb35-40b2-8304-4e242c4590fa:
-    id: 'entity_bundle:node'
+    id: node_type
     bundles:
       game: game
     negate: false
@@ -20,4 +20,4 @@ selection_criteria:
     uuid: f3620c83-eb35-40b2-8304-4e242c4590fa
 selection_logic: and
 weight: -5
-context_definitions: {  }
+relationships: {  }

@@ -9,13 +9,13 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Component\Utility\Crypt;
 
 /**
- * Implements of hook_cron().
+ * Implements hook_cron().
  */
 function honeypot_cron() {
   // Delete {honeypot_user} entries older than the value of honeypot_expire.
   $expire_limit = \Drupal::config('honeypot.settings')->get('expire');
   db_delete('honeypot_user')
-    ->condition('timestamp', time() - $expire_limit, '<')
+    ->condition('timestamp', REQUEST_TIME - $expire_limit, '<')
     ->execute();
 }
 
@@ -180,6 +180,11 @@ function _honeypot_honeypot_validate($element, FormStateInterface $form_state) {
  * Validate honeypot's time restriction field.
  */
 function _honeypot_time_restriction_validate($element, FormStateInterface $form_state) {
+  if ($form_state->isProgrammed()) {
+    // Don't do anything if the form was submitted programmatically.
+    return;
+  }
+
   $triggering_element = $form_state->getTriggeringElement();
   // Don't do anything if the triggering element is a preview button.
   if ($triggering_element['#value'] == t('Preview')) {
@@ -194,10 +199,10 @@ function _honeypot_time_restriction_validate($element, FormStateInterface $form_
 
   // Make sure current time - (time_limit + form time value) is greater than 0.
   // If not, throw an error.
-  if (!$honeypot_time || time() < ($honeypot_time + $time_limit)) {
+  if (!$honeypot_time || REQUEST_TIME < ($honeypot_time + $time_limit)) {
     _honeypot_log($form_state->getValue('form_id'), 'honeypot_time');
     $time_limit = honeypot_get_time_limit();
-    $form_state->setValue('honeypot_time', honeypot_get_signed_timestamp(time()));
+    $form_state->setValue('honeypot_time', honeypot_get_signed_timestamp(REQUEST_TIME));
     $form_state->setErrorByName('', t('There was a problem with your form submission. Please wait @limit seconds and try again.', ['@limit' => $time_limit]));
   }
 }
@@ -236,22 +241,21 @@ function honeypot_get_time_limit($form_values = array()) {
   // Only calculate time limit if honeypot_time_limit has a value > 0.
   if ($honeypot_time_limit) {
     $expire_time = \Drupal::config('honeypot.settings')->get('expire');
-    // Get value from {honeypot_user} table for authenticated users.
+
+    // Query the {honeypot_user} table to determine the number of failed
+    // submissions for the current user.
     $uid = $account->id();
-    if ($uid) {
-      $number = db_query("SELECT COUNT(*) FROM {honeypot_user} WHERE uid = :uid AND timestamp > :time", [
-        ':uid' => $uid,
-        ':time' => time() - $expire_time,
-      ])->fetchField();
+    $query = db_select('honeypot_user', 'hu')
+      ->condition('uid', $uid)
+      ->condition('timestamp', REQUEST_TIME - $expire_time, '>');
+
+    // For anonymous users, take the hostname into account.
+    if ($uid === 0) {
+      $hostname = \Drupal::request()->getClientIp();
+      $query->condition('hostname', $hostname);
     }
-    // Get value from {flood} table for anonymous users.
-    else {
-      $number = db_query("SELECT COUNT(*) FROM {flood} WHERE event = :event AND identifier = :hostname AND timestamp > :time", [
-        ':event' => 'honeypot.event',
-        ':hostname' => Drupal::request()->getClientIp(),
-        ':time' => time() - $expire_time,
-      ])->fetchField();
-    }
+    $number = $query->countQuery()->execute()->fetchField();
+
     // Don't add more than 30 days' worth of extra time.
     $honeypot_time_limit = (int) min($honeypot_time_limit + exp($number) - 1, 2592000);
     // TODO - Only accepts two args.
@@ -264,7 +268,7 @@ function honeypot_get_time_limit($form_values = array()) {
 }
 
 /**
- * Log the failed submision with timestamp.
+ * Log the failed submission with timestamp and hostname.
  *
  * @param string $form_id
  *   Form ID for the rejected form submission.
@@ -277,19 +281,14 @@ function honeypot_log_failure($form_id, $type) {
   $account = \Drupal::currentUser();
   $uid = $account->id();
 
-  // Log failed submissions for authenticated users.
-  if ($uid) {
-    db_insert('honeypot_user')
-      ->fields([
-        'uid' => $uid,
-        'timestamp' => time(),
-      ])
-      ->execute();
-  }
-  // Register flood event for anonymous users.
-  else {
-    Drupal::flood()->register('honeypot.event');
-  }
+  // Log failed submissions.
+  \Drupal::database()->insert('honeypot_user')
+    ->fields([
+      'uid' => $uid,
+      'hostname' => Drupal::request()->getClientIp(),
+      'timestamp' => REQUEST_TIME,
+    ])
+    ->execute();
 
   // Allow other modules to react to honeypot rejections.
   // TODO - Only accepts two args.
@@ -307,7 +306,7 @@ function honeypot_log_failure($form_id, $type) {
  */
 function honeypot_get_signed_timestamp($time) {
   $private_key = Drupal::service('private_key')->get();
-  return $time . '|' . Crypt::hashBase64($time, $private_key);
+  return $time . '|' . Crypt::hmacBase64($time, $private_key);
 }
 
 /**
@@ -331,10 +330,10 @@ function honeypot_get_time_from_signed_timestamp($signed_timestamp) {
 
   if ($timestamp && $received_hmac) {
     $private_key = Drupal::service('private_key')->get();
-    $calculated_hmac = Crypt::hashBase64($timestamp, $private_key);
+    $calculated_hmac = Crypt::hmacBase64($timestamp, $private_key);
     // Prevent leaking timing information, compare second order hmacs.
     $random_key = Crypt::randomBytes(32);
-    if (Crypt::hashBase64($calculated_hmac, $random_key) === Crypt::hashBase64($received_hmac, $random_key)) {
+    if (Crypt::hmacBase64($calculated_hmac, $random_key) === Crypt::hmacBase64($received_hmac, $random_key)) {
       $honeypot_time = $timestamp;
     }
   }

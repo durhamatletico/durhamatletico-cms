@@ -12,8 +12,12 @@ namespace Drupal\metatag\Plugin\metatag\Tag;
 
 use Drupal\Component\Plugin\PluginBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 abstract class MetaNameBase extends PluginBase {
+
+  use StringTranslationTrait;
+
   /**
    * Machine name of the meta tag plugin.
    *
@@ -141,12 +145,12 @@ abstract class MetaNameBase extends PluginBase {
 
     // Optional handling for items that allow multiple values.
     if (!empty($this->multiple)) {
-      $form['#description'] .= ' ' . t('Multiple values may be used, separated by a comma. Note: Tokens that return multiple values will be handled automatically.');
+      $form['#description'] .= ' ' . $this->t('Multiple values may be used, separated by a comma. Note: Tokens that return multiple values will be handled automatically.');
     }
 
     // Optional handling for images.
     if (!empty($this->image)) {
-      $form['#description'] .= ' ' . t('This will be able to extract the URL from an image field.');
+      $form['#description'] .= ' ' . $this->t('This will be able to extract the URL from an image field.');
     }
 
     return $form;
@@ -160,6 +164,10 @@ abstract class MetaNameBase extends PluginBase {
     $this->value = $value;
   }
 
+  private function tidy($value) {
+    return trim($value);
+  }
+
   public function output() {
     if (empty($this->value)) {
       // If there is no value, we don't want a tag output.
@@ -168,6 +176,8 @@ abstract class MetaNameBase extends PluginBase {
     else {
       // Parse out the image URL, if needed.
       $value = $this->parseImageURL();
+
+      $value = $this->tidy($value);
 
       $element = array(
         '#tag' => 'meta',
@@ -193,11 +203,25 @@ abstract class MetaNameBase extends PluginBase {
     //@TODO: If there is some common validation, put it here. Otherwise, make it abstract?
   }
 
+  /**
+   * Extract any image URLs that might be found in a meta tag.
+   *
+   * @return string
+   *   A comma separated list of any image URLs found in the meta tag's value,
+   *   or the original string if no images were identified.
+   */
   protected function parseImageURL() {
     $value = $this->value();
 
     // If this contains embedded image tags, extract the image URLs.
     if ($this->image()) {
+      // If image tag src is relative (starts with /), convert to an absolute
+      // link.
+      global $base_url;
+      if (strpos($value, '<img src="/') !== FALSE) {
+        $value = str_replace('<img src="/', '<img src="' . $base_url . '/', $value);
+      }
+
       if (strip_tags($value) != $value) {
         if ($this->multiple()) {
           $values = explode(',', $value);
