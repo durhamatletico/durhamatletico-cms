@@ -8,7 +8,8 @@
 .block-golden-boot-winter2016division2 {
   @extend %atletico-table;
   font-size: 80%;
+
   @include media($medium) {
-      font-size: 100%;
-    }
+    font-size: 100%;
+  }
 }
