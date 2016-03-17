@@ -145,7 +145,7 @@ display:
           alter:
             alter_text: false
             text: ''
-            make_link: false
+            make_link: true
             path: '{{ field_sponsor_website }}'
             absolute: false
             external: false

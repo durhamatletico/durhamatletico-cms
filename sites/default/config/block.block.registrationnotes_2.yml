@@ -1,0 +1,31 @@
+uuid: a3e5c9e5-00a3-4c2f-b103-3f15407a03fb
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ae2a2008-21be-46e0-a808-081d7526284f'
+  module:
+    - block_content
+    - system
+  theme:
+    - atletico
+id: registrationnotes_2
+theme: atletico
+region: content_left
+weight: null
+provider: null
+plugin: 'block_content:ae2a2008-21be-46e0-a808-081d7526284f'
+settings:
+  id: 'block_content:ae2a2008-21be-46e0-a808-081d7526284f'
+  label: 'Registration notes'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

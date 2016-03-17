@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_registration_teams
     - node.type.registration
-    - node.type.team
 id: node.registration.field_registration_teams
 field_name: field_registration_teams
 entity_type: node
@@ -17,11 +16,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: views
   handler_settings:
-    target_bundles:
-      team: team
-    sort:
-      field: title
-      direction: ASC
+    view:
+      view_name: registration_select_teams
+      display_name: entity_reference_1
+      arguments: {  }
 field_type: entity_reference
