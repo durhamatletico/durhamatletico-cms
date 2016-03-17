@@ -12,7 +12,7 @@ dependencies:
 id: views_block__posts_block_2
 theme: atletico
 region: content
-weight: -6
+weight: -4
 provider: null
 plugin: 'views_block:posts-block_2'
 settings:

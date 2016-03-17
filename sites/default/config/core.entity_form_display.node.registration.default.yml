@@ -3,8 +3,10 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.registration.field_admin_comments
     - field.field.node.registration.field_balance_due
     - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_season
     - field.field.node.registration.field_registration_shirt_number
     - field.field.node.registration.field_registration_shirt_size
     - field.field.node.registration.field_registration_shirt_type
@@ -23,6 +25,13 @@ content:
     weight: 4
     settings: {  }
     third_party_settings: {  }
+  field_admin_comments:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
   field_registration_comments:
     weight: 9
     settings:
@@ -30,6 +39,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+  field_registration_season:
+    weight: 27
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_registration_shirt_number:
     weight: 12
     settings:

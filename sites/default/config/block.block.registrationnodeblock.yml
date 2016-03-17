@@ -1,6 +1,6 @@
 uuid: 64241f8a-b9b6-4f15-830e-140db8e47692
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - durhamatletico_registration
@@ -10,13 +10,13 @@ dependencies:
     - atletico
 id: registrationnodeblock
 theme: atletico
-region: '-1'
-weight: -9
+region: content
+weight: -18
 provider: null
 plugin: registration_node_block
 settings:
   id: registration_node_block
-  label: 'Winter Futsal League 2016 Registration'
+  label: 'Spring Futsal League 2016 Registration'
   provider: durhamatletico_registration
   label_display: visible
 visibility:

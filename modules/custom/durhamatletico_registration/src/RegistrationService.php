@@ -66,8 +66,10 @@ class RegistrationService {
    * @return array
    */
   public function getRegistrationNodeForUser(\Drupal\user\UserInterface $user) {
+    // TODO: Rework this. @debt.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
+      ->condition('created', 1458176898, '>')
       ->condition('type', 'registration')
       ->condition('uid', $user->id());
     $nids = $query->execute();
@@ -106,6 +108,8 @@ class RegistrationService {
    *
    * Users are only allowed to create one registration node. An exception is
    * granted to admins, but even they shouldn't abuse this rule!
+   *
+   * TODO: This should be one reg node per season/division. @debt.
    *
    * @return bool
    */

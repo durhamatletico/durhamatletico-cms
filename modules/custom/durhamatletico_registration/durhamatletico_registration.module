@@ -7,6 +7,8 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Access\AccessResult;
+use Drupal\node\Entity\Node;
 
 /**
  * Implements hook_user_login().
@@ -46,6 +48,25 @@ function durhamatletico_registration_node_update(Drupal\Core\Entity\EntityInterf
 }
 
 /**
+ * Implements hook_entity_field_access().
+ */
+function durhamatletico_registration_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+  // Restrict access to some fields on registration.
+  $admin_fields = [
+    'field_admin_comments',
+  ];
+  if (in_array($field_definition->getName(), $admin_fields)) {
+    // These are the fields we care about.
+    if ($account->hasPermission('administer users')) {
+      return AccessResult::allowed();
+    }
+    return AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
  * Implements hook_mail().
  */
 function durhamatletico_registration_mail($key, &$message, $params) {
@@ -58,7 +79,7 @@ function durhamatletico_registration_mail($key, &$message, $params) {
       $message['subject'] = 'Thank you for registering!';
       $author = \Drupal\user\Entity\User::load($params->getOwnerId());
       $markup = 'Dear ' . $author->getDisplayName() . ',' . "\n\n";
-      $markup .= 'Thank you for registering for the winter futsal league! We are excited to have you join us. We will be in touch soon with more information as teams are formed and we put the schedule together. In the meantime, feel free to contact us at info@durhamatletico.com with any questions!' . "\n\n";
+      $markup .= 'Thank you for registering for our futsal league! We are excited to have you join us. We will be in touch soon with more information as teams are formed and we put the schedule together. In the meantime, feel free to contact us at info@durhamatletico.com with any questions!' . "\n\n";
       $markup .= 'David & Kosta for Durham Atletico';
       $message['body'][] = $markup;
       break;
@@ -85,20 +106,25 @@ function durhamatletico_registration_help($route_name, RouteMatchInterface $rout
  * Implements hook_form_alter().
  */
 function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form_id == 'node_registration_form') {
+  if ($form_id == 'node_registration_form' || $form_id == 'node_registration_edit_form') {
     // If the user already created a registration, direct them back to theirs.
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
+    // TODO: Rework this. @debt.
+//    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+//    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
 
+    // Hide fields from non-privileged users.
     if (\Drupal::currentUser()->hasPermission('administer content')) {
       return;
     }
-
-    // Hide fields from non-privileged users.
+    
+    // TODO: Rework this. @debt.
+    $form['field_registration_season']['#access'] = FALSE;
+    $form['field_registration_season']['widget'][0]['target_id']['#default_value'] = Node::load(1283);
     unset($form['revision_information']);
     unset($form['revision_log']);
     $form['title']['#access'] = FALSE;
-    $form['title']['widget'][0]['value']['#default_value'] = \Drupal::currentUser()->getDisplayName() . ' - Winter 2016 registration';
+    // TODO: @debt.
+    $form['title']['widget'][0]['value']['#default_value'] = \Drupal::currentUser()->getDisplayName() . ' - Spring 2016 registration';
   }
 }
 

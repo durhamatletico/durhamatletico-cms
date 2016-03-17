@@ -10,7 +10,7 @@ field_name: field_registration_comments
 entity_type: node
 bundle: registration
 label: Comments
-description: 'Please let us know if you have any additional comments. <strong>If you are not part of an existing team</strong>, please let us know (1) how much soccer/futsal experience you have, (2) assess your skills [below average, average, above average, (3) and whether you would prefer to play in the first or second division.'
+description: 'Please let us know if you have any additional comments. <strong>If you are not part of an existing team</strong>, please let us know (1) how much soccer/futsal experience you have, (2) assess your skills [below average, average, above average, (3) and whether you would prefer to play in the first, second or recreation division.'
 required: false
 translatable: false
 default_value: {  }

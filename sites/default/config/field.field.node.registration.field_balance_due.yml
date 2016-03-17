@@ -10,12 +10,12 @@ field_name: field_balance_due
 entity_type: node
 bundle: registration
 label: 'Balance due'
-description: test
+description: 'The balance remaining for registration.'
 required: false
 translatable: true
 default_value:
   -
-    value: 6000
+    value: 6500
 default_value_callback: ''
 settings:
   min: null

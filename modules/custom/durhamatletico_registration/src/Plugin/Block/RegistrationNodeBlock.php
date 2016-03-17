@@ -30,9 +30,12 @@ class RegistrationNodeBlock extends BlockBase {
     if ($base !== 'user') {
       return [];
     }
+    // If anonymous, don't show the block.
     if ($uid <= 0) {
       return [];
     }
+    // If the user ID in the path doesn't match the current user, don't show
+    // this.
     if ($uid !== \Drupal::currentUser()->id()) {
       return [];
     }
@@ -40,8 +43,11 @@ class RegistrationNodeBlock extends BlockBase {
     $registration_node = \Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($user);
     $build = [];
     if (!count($registration_node)) {
+      // TODO: Rework this. @debt.
       $url = Url::fromRoute('node.add', ['node_type' => 'registration']);
-      $build['registration_node_block']['#markup'] = t('@clickhere for the winter 2016 futsal league.', array('@clickhere' => \Drupal::l(t('Click here to register'), $url)));
+      $build['registration_node_block']['#markup'] = t('@clickhere for the spring 2016 futsal league.', array('@clickhere' => \Drupal::l(t('Click here to register'), $url)));
+      $build['registration_node_block']['#prefix'] = '<div class="messages messages--status">';
+      $build['registration_node_block']['#suffix'] = '</div>';
     }
     else {
       $node = \Drupal\node\Entity\Node::load(array_shift($registration_node));
