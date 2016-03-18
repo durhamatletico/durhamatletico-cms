@@ -27,6 +27,8 @@ if (file_exists($local_settings)) {
 
 $settings['install_profile'] = 'standard';
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
+
+  // Dev.
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'dev') {
     $domain = 'dev.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
@@ -37,7 +39,13 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
       $stripe_config = json_decode($stripe_file, TRUE);
       $config['stripe_checkout.settings'] = $stripe_config['dev'];
     }
+    if ($mailgun_file = file_get_contents('sites/default/files/private/mailgun.json')) {
+      $mailgun_config = json_decode($mailgun_file, TRUE);
+      $config['smtp.settings'] = $mailgun_config['dev'];
+    }
   }
+
+  // Test.
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'test') {
     $domain = 'test.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
@@ -48,7 +56,13 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
       $stripe_config = json_decode($stripe_file, TRUE);
       $config['stripe_checkout.settings'] = $stripe_config['test'];
     }
+    if ($mailgun_file = file_get_contents('sites/default/files/private/mailgun.json')) {
+      $mailgun_config = json_decode($mailgun_file, TRUE);
+      $config['smtp.settings'] = $mailgun_config['test'];
+    }
   }
+
+  // Live.
   if ($_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
     $domain = 'www.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
@@ -57,6 +71,10 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     if ($stripe_file = file_get_contents('sites/default/files/private/stripe.json')) {
       $stripe_config = json_decode($stripe_file, TRUE);
       $config['stripe_checkout.settings'] = $stripe_config['live'];
+    }
+    if ($mailgun_file = file_get_contents('sites/default/files/private/mailgun.json')) {
+      $mailgun_config = json_decode($mailgun_file, TRUE);
+      $config['smtp.settings'] = $mailgun_config['live'];
     }
   }
   else {
