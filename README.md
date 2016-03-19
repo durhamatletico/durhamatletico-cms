@@ -10,7 +10,7 @@ The site is hosted on Pantheon.
 
 ## Email
 
-Email is handled via Mailgun although Drupal is not currently set up to use it.
+Email is handled via Mailgun.
 
 ## Tests
 
