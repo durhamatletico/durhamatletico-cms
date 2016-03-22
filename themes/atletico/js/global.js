@@ -1,18 +1,36 @@
+/**
+ * @file
+ * Global JS.
+ */
+
 (function ($) {
-    $('.game-list').each( function() {
-        if ($(this).find('a').length) {
-            $(this).click(function() {
-                window.location=$(this).find('a').attr('href');
-                return false;
-            }).hover(function() {
-                $(this).toggleClass('hover');
-            });
-        }
+
+    // Disable submit button on node form after click.
+    $('.node-form').submit(function(){
+        $('#edit-submit').attr('disabled', 'disabled');
     });
+
+    // TODO: This should not be global.
+    // Make entire row clickable.
+    $('.game-list').each(function() {
+      if ($(this).find('a').length) {
+          $(this).click(function() {
+              window.location = $(this).find('a').attr('href');
+              return false;
+          }).hover(function() {
+              $(this).toggleClass('hover');
+          });
+      }
+    });
+
+    // TODO: This should not be global.
+    // Set jersey color on game lists.
     $('.jersey-color').each(function(index, value) {
         $(this).css('background-color', $(this).attr('data-color'));
     });
 
+    // TODO: This should not be global.
+    // Winter 2016 brackets.
     var data = {
         teams: [
             ["Pitbulls", "Green Street"],
@@ -43,7 +61,7 @@
         init: data
     });
 
-    var data = {
+    data = {
         teams: [
             ["Motorco", "Durham Thursday"],
             ["Minions", "DireWolfpack"],
