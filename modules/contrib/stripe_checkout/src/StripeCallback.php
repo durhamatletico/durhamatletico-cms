@@ -32,7 +32,7 @@ class StripeCallback extends ControllerBase {
     $view_mode = \Drupal::config('core.entity_view_display.node.' . $node->getType() . '.default');
     $fields = $view_mode->get('content');
     foreach ($fields as $field => $values) {
-      if ($values['type'] == 'stripe_checkout') {
+      if (isset($values['type']) && $values['type'] == 'stripe_checkout') {
         $fc = $values['settings']['stripe_checkout_currency'];
         if ($fc == NULL) {
           $fc = $default_currency;
@@ -56,6 +56,7 @@ class StripeCallback extends ControllerBase {
       // Update the node to mark as paid
       $node->$clicked->value = 0;
 
+      $node->revision = new stdClass();
       $node->revision->value = true;
       $node->revision_log->value = "Payment: " . $charge->id; // Messy, but it works.
       $node->save();
