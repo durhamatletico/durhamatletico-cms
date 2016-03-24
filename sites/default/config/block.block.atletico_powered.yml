@@ -9,7 +9,7 @@ dependencies:
 id: atletico_powered
 theme: atletico
 region: '-1'
-weight: -17
+weight: -18
 provider: null
 plugin: system_powered_by_block
 settings:
