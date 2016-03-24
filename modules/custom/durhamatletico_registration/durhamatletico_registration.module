@@ -31,9 +31,9 @@ function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterf
     // If needed, make sure team node is updated with entity reference to player.
     \Drupal::service('durhamatletico_registration.registration')->assignPlayerToTeam($entity);
     // Send mail.
-    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()->getDefaultLanguage()->getId(), $entity, 'info@durhamatletico.com');
+    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()->getDefaultLanguage()->getId(), ['entity' => $entity]);
     $author = \Drupal\user\Entity\User::load($entity->getOwnerId());
-    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()->getDefaultLanguage()->getId(), $entity, 'info@durhamatletico.com');
+    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()->getDefaultLanguage()->getId(), ['entity' => $entity]);
   }
 }
 
@@ -72,12 +72,13 @@ function durhamatletico_registration_entity_field_access($operation, \Drupal\Cor
 function durhamatletico_registration_mail($key, &$message, $params) {
   switch ($key) {
     case 'new_registration_admin':
-      $message['subject'] = 'New registration: ' . $params->getTitle();
-      $message['body'][] = 'A new registration was received, please see https://www.durhamatletico.com/node/' . $params->id();
+      $message['subject'] = 'New registration: ' . $params['entity']->getTitle();
+      $message['body'][] = 'A new registration was received, please see https://www.durhamatletico.com/node/' . $params['entity']->id();
       break;
+
     case 'new_registration_user':
       $message['subject'] = 'Thank you for registering!';
-      $author = \Drupal\user\Entity\User::load($params->getOwnerId());
+      $author = \Drupal\user\Entity\User::load($params['entity']->getOwnerId());
       $markup = 'Dear ' . $author->getDisplayName() . ',' . "\n\n";
       $markup .= 'Thank you for registering for our futsal league! We are excited to have you join us. We will be in touch soon with more information as teams are formed and we put the schedule together. In the meantime, feel free to contact us at info@durhamatletico.com with any questions!' . "\n\n";
       $markup .= 'David & Kosta for Durham Atletico';
