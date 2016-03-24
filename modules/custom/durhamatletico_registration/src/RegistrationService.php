@@ -114,16 +114,30 @@ class RegistrationService {
    * @return bool
    */
   public function canCreateNewRegistration(\Drupal\user\UserInterface $user) {
+    // Let admins do they want.
     if (\Drupal::currentUser()->hasPermission('administer content')) {
       return TRUE;
     }
     $nids = $this->getRegistrationNodeForUser($user);
-    if (count($nids)) {
-      $response = new RedirectResponse('/user');
-      $response->send();
-      drupal_set_message(t('You have already created a registration in the system!'), 'error');
+    if (!count($nids)) {
+      // No existing registrations, go right ahead.
+      return TRUE;
     }
-    return FALSE;
+
+    // TODO: More @debt.
+    // Current season = nid 1283.
+    foreach ($nids as $nid) {
+      // Check if the registration is for the current season.
+      $registration_node = \Drupal\node\Entity\Node::load($nid);
+      if ($registration_node->get('field_registration_season')->entity->id() == 1283) {
+        drupal_set_message(t('You have already created a registration in the system!'), 'error');
+        $response = new RedirectResponse('/user');
+        $response->send();
+        return FALSE;
+
+      }
+    }
+    return TRUE;
   }
 
 }

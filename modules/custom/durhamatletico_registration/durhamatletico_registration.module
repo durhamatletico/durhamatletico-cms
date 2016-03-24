@@ -109,18 +109,19 @@ function durhamatletico_registration_help($route_name, RouteMatchInterface $rout
 function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
   if ($form_id == 'node_registration_form' || $form_id == 'node_registration_edit_form') {
     // If the user already created a registration, direct them back to theirs.
-    // TODO: Rework this. @debt.
-//    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-//    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
 
     // Hide fields from non-privileged users.
     if (\Drupal::currentUser()->hasPermission('administer content')) {
       return;
     }
-    
+
     // TODO: Rework this. @debt.
     $form['field_registration_season']['#access'] = FALSE;
+    // Hardcoded value to nid 1283, which corresponds to the spring season.
     $form['field_registration_season']['widget'][0]['target_id']['#default_value'] = Node::load(1283);
+    unset($form['field_admin_comments']);
     unset($form['revision_information']);
     unset($form['revision_log']);
     $form['title']['#access'] = FALSE;
