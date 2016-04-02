@@ -8,10 +8,11 @@ dependencies:
     - tests/scripts/build.sh
   pre:
     - sudo apt-get update; sudo apt-get install pv
+    - composer config secure-http false
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint
-    - tests/bin/behat -vv --colors -c tests/behat.yml
+    - tests/bin/behat -vvv --colors -c tests/behat.yml
 general:
   artifacts:
     - "tests/build/xml"
