@@ -3,6 +3,7 @@ dependencies:
     - cp tests/scripts/durhamatletico.conf /etc/apache2/sites-available
     - a2ensite durhamatletico.conf
     - sudo service apache2 restart
+    - composer config secure-http false
     - composer install -d tests --prefer-source --no-interaction
     - cd themes/atletico; bundle install
     - tests/scripts/build.sh
