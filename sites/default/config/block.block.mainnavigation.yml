@@ -1,6 +1,6 @@
-uuid: 5f1a89bf-295a-486b-8500-bcbcfc297cb0
+uuid: 81e391c3-6f7b-4d49-a500-f17bb90ab6a9
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - system.menu.main
@@ -8,10 +8,10 @@ dependencies:
     - system
   theme:
     - atletico
-id: atletico_main_menu
+id: mainnavigation
 theme: atletico
-region: '-1'
-weight: -17
+region: header
+weight: -18
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -20,5 +20,5 @@ settings:
   provider: system
   label_display: '0'
   level: 1
-  depth: 1
+  depth: 0
 visibility: {  }
