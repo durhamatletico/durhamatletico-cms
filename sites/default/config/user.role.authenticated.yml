@@ -21,4 +21,3 @@ permissions:
   - 'change own username'
   - 'access user profiles'
   - 'access user contact forms'
-  - 'edit own registration content'
