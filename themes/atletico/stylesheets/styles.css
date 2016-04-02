@@ -4280,14 +4280,15 @@ header .header__main-menu .menu-item--expanded {
     padding-top: 1em;
   }
 }
-/* line 217, ../sass/components/_header.scss */
-header .header__main-menu .menu-item--expanded a {
-  padding-right: .8em;
-}
-/* line 221, ../sass/components/_header.scss */
+/* line 218, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded > a {
-  padding-right: .6em;
   position: relative;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 218, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded > a {
+    padding-right: .5em;
+  }
 }
 /* line 225, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded > a::after {
@@ -4344,8 +4345,8 @@ header .header__main-menu .menu-item--expanded .menu li {
 }
 /* line 270, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu li a {
-  background-color: #5e5e5e;
   display: inline-block;
+  padding-right: .5em;
   text-align: right;
   width: 100%;
 }
