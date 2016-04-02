@@ -8,7 +8,7 @@ dependencies:
     - tests/scripts/build.sh
   pre:
     - sudo apt-get update; sudo apt-get install pv
-    - composer global config secure-http false
+    - composer config secure-http false
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint
