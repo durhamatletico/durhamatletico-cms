@@ -3384,7 +3384,7 @@ html {
   content: "";
 }
 
-/* line 53, ../sass/base/_variables.scss */
+/* line 55, ../sass/base/_variables.scss */
 .path-frontpage .layout-content-left,
 .path-frontpage .layout-content-right,
 main .layout-content-left,
@@ -3394,13 +3394,13 @@ main .layout-content-right, .path-node .layout-sidebar .block {
   padding: 1em;
 }
 
-/* line 59, ../sass/base/_variables.scss */
+/* line 61, ../sass/base/_variables.scss */
 .path-node h1, .path-posts h1 {
   border-bottom: solid 4px #ea3745;
   padding-bottom: .5em;
 }
 
-/* line 64, ../sass/base/_variables.scss */
+/* line 66, ../sass/base/_variables.scss */
 .path-posts .block-system-main-block .view-posts .node__links li, .block-views-blockposts-block-2 .views-row .node__content .node__links li {
   border: solid 1px #ddd;
   border-radius: 3px;
@@ -3408,12 +3408,12 @@ main .layout-content-right, .path-node .layout-sidebar .block {
   font-weight: 600;
   padding: .5em;
 }
-/* line 71, ../sass/base/_variables.scss */
+/* line 73, ../sass/base/_variables.scss */
 .path-posts .block-system-main-block .view-posts .node__links li:first-child, .block-views-blockposts-block-2 .views-row .node__content .node__links li:first-child {
   margin-right: .5em;
 }
 
-/* line 76, ../sass/base/_variables.scss */
+/* line 78, ../sass/base/_variables.scss */
 .view-id-games .game-list,
 .view-id-standings .team-standings, .block-golden-boot-winter2016,
 .block-golden-boot-winter2016division2 {
@@ -3423,26 +3423,26 @@ main .layout-content-right, .path-node .layout-sidebar .block {
   padding-left: 1em;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 76, ../sass/base/_variables.scss */
+  /* line 78, ../sass/base/_variables.scss */
   .view-id-games .game-list,
   .view-id-standings .team-standings, .block-golden-boot-winter2016,
   .block-golden-boot-winter2016division2 {
     font-size: 100%;
   }
 }
-/* line 86, ../sass/base/_variables.scss */
+/* line 88, ../sass/base/_variables.scss */
 .view-id-games .game-list:hover,
 .view-id-standings .team-standings:hover, .block-golden-boot-winter2016:hover,
 .block-golden-boot-winter2016division2:hover {
   background-color: #f0f0f0;
 }
-/* line 90, ../sass/base/_variables.scss */
+/* line 92, ../sass/base/_variables.scss */
 .view-id-games .game-list:first-child,
 .view-id-standings .team-standings:first-child, .block-golden-boot-winter2016:first-child,
 .block-golden-boot-winter2016division2:first-child {
   border-top: solid 2px #477dca;
 }
-/* line 94, ../sass/base/_variables.scss */
+/* line 96, ../sass/base/_variables.scss */
 .view-id-games .game-list td:first-child,
 .view-id-standings .team-standings td:first-child, .block-golden-boot-winter2016 td:first-child,
 .block-golden-boot-winter2016division2 td:first-child {
@@ -4266,27 +4266,126 @@ header .header__main-menu .menu .is-active {
   }
 }
 /* line 205, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded {
+  overflow: visible !important;
+  padding-right: 0;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 205, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded {
+    position: relative;
+  }
+  /* line 212, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded > ul > li:first-child a {
+    padding-top: 1em;
+  }
+}
+/* line 217, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded a {
+  padding-right: .8em;
+}
+/* line 221, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded > a {
+  padding-right: .6em;
+  position: relative;
+}
+/* line 225, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded > a::after {
+  position: absolute;
+  top: auto;
+  right: -0.4em;
+  bottom: auto;
+  left: auto;
+  color: rgba(255, 255, 255, 0.8);
+}
+@media screen and (min-width: 40.625em) {
+  /* line 225, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded > a::after {
+    content: '\25BE';
+  }
+}
+/* line 235, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded:focus > .menu, header .header__main-menu .menu-item--expanded:hover > .menu {
+  display: block;
+}
+/* line 242, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded .menu {
+  display: none;
+  padding-left: 0;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 242, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded .menu {
+    position: absolute;
+    top: 4em;
+  }
+}
+/* line 251, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded .menu li {
+  display: block;
+  padding-right: 0;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 251, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded .menu li {
+    line-height: 3.07692em;
+  }
+  /* line 258, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded .menu li:first-child > a {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+  }
+  /* line 263, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded .menu li:last-child > a {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding-bottom: .7em;
+  }
+}
+/* line 270, ../sass/components/_header.scss */
+header .header__main-menu .menu-item--expanded .menu li a {
+  background-color: #5e5e5e;
+  display: inline-block;
+  text-align: right;
+  width: 100%;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 270, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded .menu li a {
+    background-color: #666;
+    font-size: 1.1em;
+    padding-right: 0;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 60em) {
+  /* line 270, ../sass/components/_header.scss */
+  header .header__main-menu .menu-item--expanded .menu li a {
+    font-size: 1.25em;
+  }
+}
+/* line 292, ../sass/components/_header.scss */
 header .header__main-menu .menu--account {
   display: inline-block;
   float: left;
 }
 @media screen and (min-width: 28.125em) {
-  /* line 205, ../sass/components/_header.scss */
+  /* line 292, ../sass/components/_header.scss */
   header .header__main-menu .menu--account {
     display: none;
   }
 }
-/* line 213, ../sass/components/_header.scss */
+/* line 300, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu {
   margin: 0;
 }
-/* line 217, ../sass/components/_header.scss */
+/* line 304, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item {
   display: inline-block;
   margin-right: .5em;
   padding: .5em 0;
 }
-/* line 222, ../sass/components/_header.scss */
+/* line 309, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item a {
   color: #fff;
   font-size: .8em;

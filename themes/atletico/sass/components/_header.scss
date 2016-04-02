@@ -201,6 +201,93 @@ header {
       }
     }
 
+    // Menu link with submenu.
+    .menu-item--expanded {
+      overflow: visible !important;
+      padding-right: 0;
+
+      @include media($small) {
+        position: relative;
+
+        > ul > li:first-child a {
+          padding-top: 1em;
+        }
+      }
+
+      a {
+        padding-right: .8em;
+      }
+
+      > a {
+        padding-right: .6em;
+        position: relative;
+
+        &::after {
+          @include position(absolute, auto -.4em auto auto);
+          color: $navigation-color;
+
+          @include media($small) {
+            content: '\25BE';
+          }
+        }
+      }
+
+      &:focus > .menu,
+      &:hover > .menu {
+        display: block;
+      }
+
+      // The actual submenu.
+      // Such nesting.
+      .menu {
+        display: none;
+        padding-left: 0;
+
+        @include media($small) {
+          position: absolute;
+          top: 4em;
+        }
+
+        li {
+          display: block;
+          padding-right: 0;
+
+          @include media($small) {
+            line-height: $navigation-height / 1.3;
+
+            &:first-child > a {
+              border-top-left-radius: $base-border-radius;
+              border-top-right-radius: $base-border-radius;
+            }
+
+            &:last-child > a {
+              border-bottom-left-radius: $base-border-radius;
+              border-bottom-right-radius: $base-border-radius;
+              padding-bottom: .7em;
+            }
+          }
+
+          a {
+            background-color: darken($navigation-background, 3%);
+            display: inline-block;
+            text-align: right;
+            width: 100%;
+
+            @include media($small) {
+              background-color: $navigation-background;
+              font-size: 1.1em;
+              padding-right: 0;
+              text-align: center;
+            }
+
+            @include media($medium) {
+              font-size: 1.25em;
+            }
+          }
+        }
+      }
+    }
+
     // User menu - only on very small screens. ---------------------------------
     .menu--account {
       display: inline-block;

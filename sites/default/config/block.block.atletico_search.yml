@@ -9,7 +9,7 @@ dependencies:
 id: atletico_search
 theme: atletico
 region: header
-weight: -9
+weight: -21
 provider: null
 plugin: search_form_block
 settings:
