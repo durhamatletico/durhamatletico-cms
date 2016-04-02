@@ -30,21 +30,21 @@ function stripe_checkout_theme($existing, $type, $theme, $path) {
  */
 function theme_stripe_checkout_simple($variables) {
 
-  // Get global settings
+  // Get global settings.
   $config = \Drupal::config('stripe_checkout.settings');
   $name = $config->get('stripe_checkout_name');
   $key = $config->get('stripe_checkout_key_public');
   $icon = $config->get('stripe_checkout_icon');
 
-  // Render Stripe Checkout button
+  // Render Stripe Checkout button.
   if ($variables['amount'] > 0) {
 
-    // Enforce strict content security policy
+    // Enforce strict content security policy.
     if ($config->get('stripe_checkout_enforce_csp') == TRUE) {
       header("Content-Security-Policy: default-src 'self' https://checkout.stripe.com;");
     }
 
-    // Embed HTML button
+    // Embed HTML button.
     $output = '<form action="/charge/' . $variables['nid'] . '/' . $variables['currency'] . '" method="POST">
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
