@@ -214,13 +214,13 @@ header {
         }
       }
 
-      a {
-        padding-right: .8em;
-      }
-
+      // The actual link with the submenu.
       > a {
-        padding-right: .6em;
         position: relative;
+
+        @include media($small) {
+          padding-right: .5em;
+        }
 
         &::after {
           @include position(absolute, auto -.4em auto auto);
@@ -268,8 +268,8 @@ header {
           }
 
           a {
-            background-color: darken($navigation-background, 3%);
             display: inline-block;
+            padding-right: .5em;
             text-align: right;
             width: 100%;
 

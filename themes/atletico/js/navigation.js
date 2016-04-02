@@ -4,9 +4,9 @@
 
   menuToggle.on('click', function(e) {
     e.preventDefault();
-    $('#block-atletico-main-menu .menu').slideToggle(function(){
-      if($('#block-atletico-main-menu .menu').is(':hidden')) {
-        $('#block-atletico-main-menu .menu').removeAttr('style');
+    $('#block-mainnavigation .menu').slideToggle(function(){
+      if($('#block-mainnavigation .menu').is(':hidden')) {
+        $('#block-mainnavigation .menu').removeAttr('style');
       }
     });
   });
