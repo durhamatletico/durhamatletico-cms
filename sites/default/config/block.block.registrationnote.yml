@@ -1,32 +1,33 @@
-uuid: 4fa8c3df-62ed-4801-8232-506b4e341d81
+uuid: 520dc172-7e85-442c-a902-2f0c8239e9a9
 langcode: en
 status: true
 dependencies:
-  config:
-    - views.view.profile_my_teams
+  content:
+    - 'block_content:basic:ce898e57-d065-4f5e-a760-965c62c4a3be'
   module:
+    - block_content
     - system
     - user
-    - views
   theme:
     - atletico
-id: views_block__profile_my_teams_block_1
+id: registrationnote
 theme: atletico
 region: content
-weight: -18
+weight: -20
 provider: null
-plugin: 'views_block:profile_my_teams-block_1'
+plugin: 'block_content:ce898e57-d065-4f5e-a760-965c62c4a3be'
 settings:
-  id: 'views_block:profile_my_teams-block_1'
-  label: ''
-  provider: views
+  id: 'block_content:ce898e57-d065-4f5e-a760-965c62c4a3be'
+  label: 'Registration note'
+  provider: block_content
   label_display: visible
-  views_label: ''
-  items_per_page: none
+  status: true
+  info: ''
+  view_mode: full
 visibility:
   request_path:
     id: request_path
-    pages: "/user\r\n/user/*"
+    pages: "/node/add/registration\r\n/user"
     negate: false
     context_mapping: {  }
   user_role:
