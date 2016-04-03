@@ -12,7 +12,7 @@ dependencies:
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint
-    - tests/bin/behat -vv --colors -c tests/behat.yml
+    - tests/bin/behat -vvv --colors -c tests/behat.yml
 general:
   artifacts:
     - "tests/build/xml"
