@@ -9,3 +9,6 @@ is_admin: null
 permissions:
   - 'administer users'
   - 'access user profiles'
+  - 'edit any registration content'
+  - 'edit own registration content'
+  - 'view registration revisions'

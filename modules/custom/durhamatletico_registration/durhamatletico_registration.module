@@ -117,8 +117,9 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
       return;
     }
 
-    // TODO: Rework this. @debt.
+    $form['field_balance_due']['#access'] = FALSE;
     $form['field_registration_season']['#access'] = FALSE;
+    // TODO: Rework this. @debt.
     // Hardcoded value to nid 1283, which corresponds to the spring season.
     $form['field_registration_season']['widget'][0]['target_id']['#default_value'] = Node::load(1283);
     unset($form['field_admin_comments']);

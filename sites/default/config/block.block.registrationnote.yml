@@ -1,6 +1,6 @@
 uuid: 520dc172-7e85-442c-a902-2f0c8239e9a9
 langcode: en
-status: true
+status: false
 dependencies:
   content:
     - 'block_content:basic:ce898e57-d065-4f5e-a760-965c62c4a3be'
@@ -12,8 +12,8 @@ dependencies:
     - atletico
 id: registrationnote
 theme: atletico
-region: content
-weight: -20
+region: '-1'
+weight: -10
 provider: null
 plugin: 'block_content:ce898e57-d065-4f5e-a760-965c62c4a3be'
 settings:

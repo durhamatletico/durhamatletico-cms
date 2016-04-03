@@ -7,7 +7,7 @@ dependencies:
 id: winterfutsalleagueinjanuary2016
 theme: atletico
 region: '-1'
-weight: -12
+weight: -11
 provider: null
 plugin: 'block_content:cda87539-c65e-4ba4-8607-7c33e836dea8'
 settings:

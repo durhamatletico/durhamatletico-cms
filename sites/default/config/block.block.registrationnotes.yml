@@ -9,7 +9,7 @@ dependencies:
 id: registrationnotes
 theme: atletico
 region: '-1'
-weight: -16
+weight: -15
 provider: null
 plugin: 'block_content:727080e3-befd-4956-b600-acda6e014b47'
 settings:

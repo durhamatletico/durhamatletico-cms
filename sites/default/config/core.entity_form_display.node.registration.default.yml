@@ -26,12 +26,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_admin_comments:
-    weight: 26
+    weight: 14
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+  field_balance_due:
+    type: number
+    weight: 16
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_registration_comments:
     weight: 9
     settings:
@@ -40,7 +46,7 @@ content:
     third_party_settings: {  }
     type: string_textarea
   field_registration_season:
-    weight: 27
+    weight: 15
     settings:
       match_operator: CONTAINS
       size: 60
@@ -115,5 +121,4 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-hidden:
-  field_balance_due: true
+hidden: {  }
