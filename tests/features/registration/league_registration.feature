@@ -105,7 +105,6 @@ Feature: Allow registered users to sign up for a leauge
       And I should get a 200 HTTP response
       When I go to "/user"
       Then I should not see the text "Paid. Thank you"
-      And I should not see the link "Click here to register"
 
   Scenario: Users may pay for an individual registration
 
