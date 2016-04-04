@@ -112,9 +112,20 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
     \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
 
-    // Hide fields from non-privileged users.
-    if (\Drupal::currentUser()->hasPermission('administer content')) {
-      return;
+    // Registration admin roles.
+    $reg_admin_roles = [
+      'content_editor',
+      'league_administrator',
+      'administrator',
+    ];
+    $user_roles = \Drupal::currentUser()->getRoles(TRUE);
+    if (count($user_roles)) {
+      foreach ($user_roles as $role) {
+        if (in_array($role, $reg_admin_roles)) {
+          // Allow registration admins to view these fields.
+          return;
+        }
+      }
     }
 
     $form['field_balance_due']['#access'] = FALSE;
