@@ -269,7 +269,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/node/{{ nid }}">Registration for {{ field_registration_teams }}</a>'
+            text: "{% if field_registration_teams %}\n<a href=\"/node/{{ nid }}\">Registration for {{ field_registration_teams }}</a>\n{% else %}\n<a href=\"/node/{{ nid }}\">Registration as free agent</a>\n{% endif %}"
             make_link: false
             path: '/node/{{ nid }}'
             absolute: false
