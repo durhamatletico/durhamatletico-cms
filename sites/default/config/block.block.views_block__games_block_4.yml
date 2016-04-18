@@ -1,0 +1,32 @@
+uuid: 6632bbd1-4929-4559-bc07-7d6c979ea3e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.games
+  module:
+    - ctools
+    - views
+  theme:
+    - atletico
+id: views_block__games_block_4
+theme: atletico
+region: content
+weight: null
+provider: null
+plugin: 'views_block:games-block_4'
+settings:
+  id: 'views_block:games-block_4'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      team: team
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

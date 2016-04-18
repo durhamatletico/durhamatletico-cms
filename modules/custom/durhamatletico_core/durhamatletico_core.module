@@ -8,6 +8,8 @@
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Access\AccessResult;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\Sql;
 
 /**
  * Implements hook_help().
@@ -65,6 +67,16 @@ function durhamatletico_core_node_update(Drupal\Core\Entity\EntityInterface $ent
     if ($competition && $competition->get('field_competition_type')->getString() == 'league') {
       \Drupal::service('durhamatletico_core.standings')->updateStandings($entity);
     }
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function durhamatletico_core_views_query_alter(ViewExecutable $view, Drupal\views\Plugin\views\query\Sql $query) {
+  // Use the OR operator to show upcoming home/away games for a team node.
+  if ($view->getTitle() == 'Upcoming games' && $view->current_display == 'block_4') {
+    $query->where[0]['type'] = 'OR';
   }
 }
 
