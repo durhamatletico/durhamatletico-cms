@@ -118,6 +118,10 @@ class RegistrationService {
     if (\Drupal::currentUser()->hasPermission('administer content')) {
       return TRUE;
     }
+    if (in_array('league_administrator', \Drupal::currentUser()->getRoles(TRUE))) {
+      // Allow league admins to create/edit.
+      return TRUE;
+    }
     $nids = $this->getRegistrationNodeForUser($user);
     if (!count($nids)) {
       // No existing registrations, go right ahead.
