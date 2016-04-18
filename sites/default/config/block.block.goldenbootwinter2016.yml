@@ -10,7 +10,7 @@ dependencies:
 id: goldenbootwinter2016
 theme: atletico
 region: content_left
-weight: -18
+weight: -19
 provider: null
 plugin: golden_boot_winter2016
 settings:
@@ -21,6 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /futsal
+    pages: /futsal/winter-2016
     negate: false
     context_mapping: {  }

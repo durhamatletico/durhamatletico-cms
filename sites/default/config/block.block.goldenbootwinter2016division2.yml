@@ -21,6 +21,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /futsal
+    pages: /futsal/winter-2016
     negate: false
     context_mapping: {  }

@@ -6,6 +6,7 @@ echo "Creating backup"
 terminus site backups create --element=database --site=durham-atletico --env=live
 echo "Downloading backup"
 terminus site backups get --element=db --site=durham-atletico --env=live --to=database.sql.gz --latest
+rm database.sql
 echo "y" | gunzip database.sql.gz
 export VAGRANT_CWD=/home/kosta/src/drupal-vm
 echo "Importing backup"

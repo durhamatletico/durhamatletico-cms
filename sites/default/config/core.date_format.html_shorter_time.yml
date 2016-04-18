@@ -5,4 +5,4 @@ dependencies: {  }
 id: html_shorter_time
 label: 'HTML Shorter Time'
 locked: false
-pattern: 'g A'
+pattern: 'g:i A'
