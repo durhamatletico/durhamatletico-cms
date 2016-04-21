@@ -6,6 +6,7 @@ dependencies:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - field.storage.user.user_picture
+    - image.style.thumbnail
     - node.type.team
   module:
     - contact

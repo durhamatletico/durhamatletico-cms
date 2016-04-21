@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_sponsor_logo
     - field.storage.node.field_sponsor_website
+    - image.style.large
     - node.type.sponsor
   module:
     - image
