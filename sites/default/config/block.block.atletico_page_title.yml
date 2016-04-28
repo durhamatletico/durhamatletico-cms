@@ -7,7 +7,7 @@ dependencies:
 id: atletico_page_title
 theme: atletico
 region: content
-weight: -14
+weight: -18
 provider: null
 plugin: page_title_block
 settings:

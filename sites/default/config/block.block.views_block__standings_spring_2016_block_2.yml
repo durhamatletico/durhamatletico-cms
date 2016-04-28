@@ -1,22 +1,22 @@
-uuid: b1b5a300-d1d0-4ac5-a404-4cdbf3250f9a
+uuid: 9c119138-5a2d-497f-b453-86cd4234f5b6
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.games
+    - views.view.standings_spring_2016
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__games_block_3
+id: views_block__standings_spring_2016_block_2
 theme: atletico
 region: content
-weight: -12
+weight: -7
 provider: null
-plugin: 'views_block:games-block_3'
+plugin: 'views_block:standings_spring_2016-block_2'
 settings:
-  id: 'views_block:games-block_3'
+  id: 'views_block:standings_spring_2016-block_2'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /futsal/winter-2016
+    pages: /futsal
     negate: false
     context_mapping: {  }

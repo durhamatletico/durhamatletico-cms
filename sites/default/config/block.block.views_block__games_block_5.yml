@@ -1,4 +1,4 @@
-uuid: b1b5a300-d1d0-4ac5-a404-4cdbf3250f9a
+uuid: 92b6c8f9-47c0-4cf6-8d2c-45747493c69f
 langcode: en
 status: true
 dependencies:
@@ -9,14 +9,14 @@ dependencies:
     - views
   theme:
     - atletico
-id: views_block__games_block_3
+id: views_block__games_block_5
 theme: atletico
 region: content
-weight: -12
+weight: -11
 provider: null
-plugin: 'views_block:games-block_3'
+plugin: 'views_block:games-block_5'
 settings:
-  id: 'views_block:games-block_3'
+  id: 'views_block:games-block_5'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /futsal/winter-2016
+    pages: /futsal
     negate: false
     context_mapping: {  }
