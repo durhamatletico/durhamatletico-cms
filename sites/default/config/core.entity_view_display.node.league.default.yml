@@ -11,8 +11,6 @@ dependencies:
     - field.field.node.league.field_teams
     - node.type.league
   module:
-    - datetime
-    - options
     - text
     - user
 id: node.league.default
@@ -26,43 +24,14 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
-  field_competition_type:
-    weight: 106
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: list_default
-  field_leage:
-    weight: 103
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-  field_league_start_date:
-    weight: 102
-    label: above
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
-  field_sponsors:
-    weight: 104
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_teams:
-    weight: 105
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   links:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  field_competition_type: true
+  field_leage: true
+  field_league_start_date: true
+  field_sponsors: true
+  field_teams: true
   langcode: true

@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /futsal
+    pages: "/futsal\r\n/futsal/division-two"
     negate: false
     context_mapping: {  }
