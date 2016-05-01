@@ -40,6 +40,7 @@
 
 // Table rows.
 .view-id-games .game-list,
+.view-id-standings_spring_2016 .team-standings,
 .view-id-standings .team-standings {
   @extend %atletico-table;
 }
@@ -113,6 +114,7 @@
   }
 }
 
+.view-id-standings_spring_2016,
 .view-id-standings {
   // Team name.
   .views-field-field-abbreviation {
@@ -125,6 +127,7 @@
 // Style game views on front page.
 .region-content-left,
 .region-content-right {
+  .view-id-standings_spring_2016 .team-standings,
   .view-id-standings .team-standings,
   .view-id-games .game-list {
     font-size: 80%;
