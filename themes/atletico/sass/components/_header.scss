@@ -203,7 +203,9 @@ header {
 
     // Menu link with submenu.
     .menu-item--expanded {
+      // scss-lint:disable ImportantRule
       overflow: visible !important;
+      // scss-lint:enable ImportantRule
       padding-right: 0;
 
       @include media($small) {
