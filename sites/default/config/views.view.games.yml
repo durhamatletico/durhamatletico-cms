@@ -766,7 +766,7 @@ display:
       use_more_text: More
       link_url: futsal
       link_display: custom_url
-      use_ajax: true
+      use_ajax: false
       css_class: view-id-games--upcoming
     cache_metadata:
       max-age: 0
@@ -2872,7 +2872,7 @@ display:
         options:
           items_per_page: 8
           offset: 0
-          id: 0
+          id: 1
           total_pages: null
           tags:
             previous: '‹ Previous'
