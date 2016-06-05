@@ -4,7 +4,7 @@
  * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
  */
 /* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Fjalla+One);
+@import url(https://fonts.googleapis.com/css?family=Signika:600);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700);
 /* line 4, ../sass/lib/neat/grid/_box-sizing.scss */
 html {
@@ -3675,7 +3675,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Fjalla One", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Signika", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1em;
   line-height: 1.2;
   margin: 0 0 0.75em;
@@ -4145,7 +4145,7 @@ header .header__main-menu .navigation-menu-button {
   color: rgba(255, 255, 255, 0.8);
   display: block;
   float: right;
-  font-family: "Fjalla One", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Signika", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-weight: 400;
   line-height: 3em;
   margin: 0;
@@ -4245,7 +4245,7 @@ header .header__main-menu .menu--main li:last-child {
 /* line 176, ../sass/components/_header.scss */
 header .header__main-menu .menu--main li a {
   color: rgba(255, 255, 255, 0.8);
-  font-family: "Fjalla One", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-family: "Signika", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-weight: 400;
   text-decoration: none;
 }
@@ -4280,22 +4280,22 @@ header .header__main-menu .menu-item--expanded {
   header .header__main-menu .menu-item--expanded {
     position: relative;
   }
-  /* line 212, ../sass/components/_header.scss */
+  /* line 214, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded > ul > li:first-child a {
     padding-top: 1em;
   }
 }
-/* line 218, ../sass/components/_header.scss */
+/* line 220, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded > a {
   position: relative;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 218, ../sass/components/_header.scss */
+  /* line 220, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded > a {
     padding-right: .5em;
   }
 }
-/* line 225, ../sass/components/_header.scss */
+/* line 227, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded > a::after {
   position: absolute;
   top: auto;
@@ -4305,50 +4305,50 @@ header .header__main-menu .menu-item--expanded > a::after {
   color: rgba(255, 255, 255, 0.8);
 }
 @media screen and (min-width: 40.625em) {
-  /* line 225, ../sass/components/_header.scss */
+  /* line 227, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded > a::after {
     content: '\25BE';
   }
 }
-/* line 235, ../sass/components/_header.scss */
+/* line 237, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded:focus > .menu, header .header__main-menu .menu-item--expanded:hover > .menu {
   display: block;
 }
-/* line 242, ../sass/components/_header.scss */
+/* line 244, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu {
   display: none;
   padding-left: 0;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 242, ../sass/components/_header.scss */
+  /* line 244, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu {
     position: absolute;
     top: 4em;
   }
 }
-/* line 251, ../sass/components/_header.scss */
+/* line 253, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu li {
   display: block;
   padding-right: 0;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 251, ../sass/components/_header.scss */
+  /* line 253, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li {
     line-height: 3.07692em;
   }
-  /* line 258, ../sass/components/_header.scss */
+  /* line 260, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li:first-child > a {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
   }
-  /* line 263, ../sass/components/_header.scss */
+  /* line 265, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li:last-child > a {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     padding-bottom: .7em;
   }
 }
-/* line 270, ../sass/components/_header.scss */
+/* line 272, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu li a {
   display: inline-block;
   padding-right: .5em;
@@ -4356,7 +4356,7 @@ header .header__main-menu .menu-item--expanded .menu li a {
   width: 100%;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 270, ../sass/components/_header.scss */
+  /* line 272, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li a {
     background-color: #666;
     font-size: 1.1em;
@@ -4365,33 +4365,33 @@ header .header__main-menu .menu-item--expanded .menu li a {
   }
 }
 @media screen and (min-width: 60em) {
-  /* line 270, ../sass/components/_header.scss */
+  /* line 272, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li a {
     font-size: 1.25em;
   }
 }
-/* line 292, ../sass/components/_header.scss */
+/* line 294, ../sass/components/_header.scss */
 header .header__main-menu .menu--account {
   display: inline-block;
   float: left;
 }
 @media screen and (min-width: 28.125em) {
-  /* line 292, ../sass/components/_header.scss */
+  /* line 294, ../sass/components/_header.scss */
   header .header__main-menu .menu--account {
     display: none;
   }
 }
-/* line 300, ../sass/components/_header.scss */
+/* line 302, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu {
   margin: 0;
 }
-/* line 304, ../sass/components/_header.scss */
+/* line 306, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item {
   display: inline-block;
   margin-right: .5em;
   padding: .5em 0;
 }
-/* line 309, ../sass/components/_header.scss */
+/* line 311, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item a {
   color: #fff;
   font-size: .8em;
@@ -4871,29 +4871,33 @@ header .header__main-menu .menu--account .menu-item a {
  * Styles for node pages.
  */
 /* line 8, ../sass/components/_node.scss */
+.path-node p {
+  font-size: 1.3em;
+}
+/* line 12, ../sass/components/_node.scss */
 .path-node h1 {
   text-align: center;
 }
-/* line 13, ../sass/components/_node.scss */
+/* line 17, ../sass/components/_node.scss */
 .path-node .node__meta {
   margin-bottom: 1.5em;
   text-align: center;
 }
-/* line 21, ../sass/components/_node.scss */
+/* line 25, ../sass/components/_node.scss */
 .path-node .node__content .caption-img.align-left,
 .path-node .node__content .caption-img.align-right {
   max-width: 50%;
 }
-/* line 25, ../sass/components/_node.scss */
+/* line 29, ../sass/components/_node.scss */
 .path-node .node__content .caption-img.align-left img,
 .path-node .node__content .caption-img.align-right img {
   height: auto;
 }
-/* line 30, ../sass/components/_node.scss */
+/* line 34, ../sass/components/_node.scss */
 .path-node .node__content .field--name-body p:last-child {
   margin-bottom: 0;
 }
-/* line 34, ../sass/components/_node.scss */
+/* line 38, ../sass/components/_node.scss */
 .path-node .node__content .field--name-field-tags {
   border-bottom: solid 4px #ea3745;
   margin: 1.5em 0;
