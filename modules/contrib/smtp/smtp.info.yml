@@ -5,8 +5,8 @@ type: module
 # core: 8.x
 configure: smtp.config
 
-# Information added by Drupal.org packaging script on 2016-02-19
-version: '8.x-1.x-dev'
+# Information added by Drupal.org packaging script on 2016-04-27
+version: '8.x-1.0-alpha0'
 core: '8.x'
 project: 'smtp'
-datestamp: 1455882842
+datestamp: 1461755994

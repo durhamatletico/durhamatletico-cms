@@ -7,6 +7,7 @@
 
 namespace Drupal\smtp\Plugin\Mail;
 
+use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Mail\MailInterface;
 use Drupal\Core\Mail\MailFormatHelper;
 use Drupal\smtp\PHPMailer\PHPMailer;
@@ -353,7 +354,7 @@ class SMTPMailSystem implements MailInterface {
                 // Clean up the text.
                 $body_part2 = trim($this->_remove_headers(trim($body_part2)));
                 // Check whether the encoding is base64, and if so, decode it.
-                if (drupal_strtolower($body_part2_encoding) == 'base64') {
+                if (Unicode::strtolower($body_part2_encoding) == 'base64') {
                   // Include it as part of the mail object.
                   $mailer->Body = base64_decode($body_part2);
                   // Ensure the whole message is recoded in the base64 format.
@@ -408,10 +409,10 @@ class SMTPMailSystem implements MailInterface {
               // Clean up the text.
               $body_part = trim($this->_remove_headers(trim($body_part)));
 
-              if (drupal_strtolower($file_encoding) == 'base64') {
+              if (Unicode::strtolower($file_encoding) == 'base64') {
                 $attachment = base64_decode($body_part);
               }
-              elseif (drupal_strtolower($file_encoding) == 'quoted-printable') {
+              elseif (Unicode::strtolower($file_encoding) == 'quoted-printable') {
                 $attachment = quoted_printable_decode($body_part);
               }
               else {
@@ -621,7 +622,7 @@ class SMTPMailSystem implements MailInterface {
 
     // If the input is a valid email address in its entirety, then there is
     // nothing to do, just return that.
-    if (\Drupal::service('email.validator')->isValid($input)) {
+    if (\Drupal::service('email.validator')->isValid(trim($input))) {
       $components['email'] = trim($input);
       return $components;
     }
@@ -630,7 +631,7 @@ class SMTPMailSystem implements MailInterface {
     //  some name <address@example.com>
     //  "another name" <address@example.com>
     //  <address@example.com>
-    if (preg_match('/^"?([^"\t\n]*)"?\s*<([^>\t\n]*)>$/', $input, $matches)) {
+    if (preg_match('/^"?([^"\t\n]*)"?\s*<([^>\t\n]*)>$/', trim($input), $matches)) {
       $components['name'] = trim($matches[1]);
       $components['email'] = trim($matches[2]);
     }

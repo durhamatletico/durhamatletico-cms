@@ -37,20 +37,21 @@ class SMTPConfigForm extends ConfigFormBase {
     }
 
     $form['onoff'] = array(
-      '#type'  => 'fieldset',
+      '#type'  => 'details',
       '#title' => t('Install options'),
+      '#open' => TRUE,
     );
     $form['onoff']['smtp_on'] = array(
       '#type' => 'radios',
       '#title' => t('Turn this module on or off'),
-      '#default_value' => $config->get('smtp_on'),
-      '#options' => array(1 => t('On'), 0 => t('Off')),
+      '#default_value' => $config->get('smtp_on') ? 'on' : 'off',
+      '#options' => array('on' => t('On'), 'off' => t('Off')),
       '#description' => t('To uninstall this module you must turn it off here first.'),
     );
-
     $form['server'] = array(
-      '#type'  => 'fieldset',
+      '#type'  => 'details',
       '#title' => t('SMTP server settings'),
+      '#open' => TRUE,
     );
     $form['server']['smtp_host'] = array(
       '#type' => 'textfield',
@@ -65,7 +66,7 @@ class SMTPConfigForm extends ConfigFormBase {
       '#description' => t('The address of your outgoing SMTP backup server. If the primary server can\'t be found this one will be tried. This is optional.'),
     );
     $form['server']['smtp_port'] = array(
-      '#type' => 'textfield',
+      '#type' => 'number',
       '#title' => t('SMTP port'),
       '#size' => 6,
       '#maxlength' => 6,
@@ -96,9 +97,10 @@ class SMTPConfigForm extends ConfigFormBase {
     );
 
     $form['auth'] = array(
-      '#type' => 'fieldset',
+      '#type' => 'details',
       '#title' => t('SMTP Authentication'),
       '#description' => t('Leave blank if your SMTP server does not require authentication.'),
+      '#open' => TRUE,
     );
     $form['auth']['smtp_username'] = array(
       '#type' => 'textfield',
@@ -114,8 +116,9 @@ class SMTPConfigForm extends ConfigFormBase {
     );
 
     $form['email_options'] = array(
-      '#type'  => 'fieldset',
+      '#type'  => 'details',
       '#title' => t('E-mail options'),
+      '#open' => TRUE,
     );
     $form['email_options']['smtp_from'] = array(
       '#type' => 'textfield',
@@ -138,8 +141,9 @@ class SMTPConfigForm extends ConfigFormBase {
     );
 
     $form['email_test'] = array(
-      '#type' => 'fieldset',
+      '#type' => 'details',
       '#title' => t('Send test e-mail'),
+      '#open' => TRUE,
     );
     $form['email_test']['smtp_test_address'] = array(
       '#type' => 'textfield',
@@ -164,11 +168,11 @@ class SMTPConfigForm extends ConfigFormBase {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $values = $form_state->getValues();
 
-    if ($values['smtp_on'] == 1 && $values['smtp_host'] == '') {
+    if ($values['smtp_on'] == 'on' && $values['smtp_host'] == '') {
       $form_state->setErrorByName('smtp_host', $this->t('You must enter an SMTP server address.'));
     }
 
-    if ($values['smtp_on'] == 1 && $values['smtp_port'] == '') {
+    if ($values['smtp_on'] == 'on' && $values['smtp_port'] == '') {
       $form_state->setErrorByName('smtp_port', $this->t('You must enter an SMTP port number.'));
     }
 
@@ -198,13 +202,13 @@ class SMTPConfigForm extends ConfigFormBase {
     $values = $form_state->getValues();
     $config = $this->configFactory->getEditable('smtp.settings');
     $mail_config = $this->configFactory->getEditable('system.mail');
-    $mail_system = $mail_config->get('interface');
+    $mail_system = $mail_config->get('interface.default');
 
     // Updating config vars.
     if (isset($values['smtp_password'])) {
       $config->set('smtp_password', $values['smtp_password']);
     }
-    $config->set('smtp_on', $values['smtp_on'])
+    $config->set('smtp_on', $values['smtp_on'] == 'on')
       ->set('smtp_host', $values['smtp_host'])
       ->set('smtp_hostbackup', $values['smtp_hostbackup'])
       ->set('smtp_port', $values['smtp_port'])
@@ -216,6 +220,19 @@ class SMTPConfigForm extends ConfigFormBase {
       ->set('smtp_debugging', $values['smtp_debugging'])
       ->save();
 
+    // Set as default mail system if module is enabled.
+    if ($config->get('smtp_on')) {
+      if ($mail_system != 'SMTPMailSystem') {
+        $config->set('prev_mail_system', $mail_system);
+      }
+      $mail_system = 'SMTPMailSystem';
+      $mail_config->set('interface.default', $mail_system)->save();
+    }
+    else {
+      $mail_system = $config->get('prev_mail_system');
+      $mail_config->set('interface.default', $mail_system)->save();
+    }
+
     // If an address was given, send a test e-mail message.
     if ($test_address = $values['smtp_test_address']) {
       $params['subject'] = t('Drupal SMTP test e-mail');
@@ -224,8 +241,8 @@ class SMTPConfigForm extends ConfigFormBase {
       // If module is off, send the test message with SMTP by temporarily overriding.
       if (!$config->get('smtp_on')) {
         $original = $mail_config->get('interface');
-        $mail_system['default'] = 'SMTPMailSystem';
-        $mail_config->set('interface', $mail_system)->save();
+        $mail_system = 'SMTPMailSystem';
+        $mail_config->set('interface.default', $mail_system)->save();
       }
       \Drupal::service('plugin.manager.mail')->mail('smtp', 'smtp-test', $test_address, $account->getPreferredLangcode(), $params);
       if (!$config->get('smtp_on')) {
