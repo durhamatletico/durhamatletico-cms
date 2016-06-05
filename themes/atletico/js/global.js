@@ -30,8 +30,71 @@
     });
 
     // TODO: This should not be global.
-    // Winter 2016 brackets.
+    // Spring 2016 brackets.
     var data = {
+        teams: [
+          ["Real Durham", "Invisible Feet"],
+            ["Strongest", "America"],
+            ["Green Street", "Regulators"],
+            ["Bull City", "Hustle Flow"]
+        ],
+        results: [
+            [
+                [
+                    [],
+                    [],
+                    [],
+                    [],
+                ],
+                [
+                    [],
+                    []
+                ],
+                [
+                    [],
+                    [],
+                ]
+            ]
+        ]
+    };
+    $('#spring2016-division1').bracket({
+        init: data
+    });
+
+    data = {
+        teams: [
+            ["PLQS", "Thunder Cats"],
+            ["Grease Pigeons", "AU"],
+            ["LDE", "Monday"],
+            ["Stepside", "Red Wolves"]
+        ],
+        results: [
+            [
+                [
+                    [],
+                    [],
+                    [],
+                    [],
+                ],
+                [
+                    [],
+                    []
+                ],
+                [
+                    [],
+                    [],
+                ]
+            ]
+        ]
+    };
+    $('#spring2016-division2').bracket({
+        init: data
+    });
+
+
+    // TODO: This should not be global.
+    // Winter 2016 brackets.
+    data = {
         teams: [
             ["Pitbulls", "Green Street"],
             ["Real Durham", "Muchos Nachos"],
