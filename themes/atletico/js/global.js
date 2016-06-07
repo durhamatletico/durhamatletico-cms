@@ -34,9 +34,9 @@
     var data = {
         teams: [
           ["Real Durham", "Invisible Feet"],
-            ["Strongest", "America"],
-            ["Green Street", "Regulators"],
-            ["Bull City", "Hustle Flow"]
+          ["Bull City", "Hustle Flow"],
+          ["Strongest", "America"],
+          ["Green Street", "Regulators"]
         ],
         results: [
             [
@@ -63,10 +63,10 @@
 
     data = {
         teams: [
-            ["PLQS", "Thunder Cats"],
-            ["Grease Pigeons", "AU"],
-            ["LDE", "Monday"],
-            ["Stepside", "Red Wolves"]
+          ["PLQS", "Thunder Cats"],
+          ["Stepside", "Red Wolves"],
+          ["Grease Pigeons", "AU"],
+          ["LDE", "Monday"]
         ],
         results: [
             [
