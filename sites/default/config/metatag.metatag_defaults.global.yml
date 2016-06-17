@@ -7,12 +7,13 @@ _core:
 id: global
 label: Global
 tags:
-  keywords: 'futsal soccer futbol'
   image_src: 'https://www.durhamatletico.com/themes/atletico/images/logo.png'
+  keywords: 'futsal soccer futbol'
+  referrer: no-referrer
+  canonical_url: 'https://www.durhamatletico.com'
   title: '[current-page:title] | [site:name]'
-  canonical_url: 'http://www.durhamatletico.com'
   news_keywords: 'futsal soccer futbol'
-  og_site_name: 'Durham Atlético'
   og_email: info@durhamatletico.com
   og_country_name: 'United States'
   og_type: sports
+  og_site_name: 'Durham Atlético'

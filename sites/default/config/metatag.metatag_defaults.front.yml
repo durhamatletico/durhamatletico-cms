@@ -7,5 +7,7 @@ _core:
 id: front
 label: 'Front page'
 tags:
+  referrer: no-referrer
   canonical_url: '[site:url]'
+  title: 'Home | [site:name]'
   shortlink: '[site:url]'
