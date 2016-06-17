@@ -4875,34 +4875,38 @@ header .header__main-menu .menu--account .menu-item a {
  *
  * Styles for node pages.
  */
-/* line 8, ../sass/components/_node.scss */
-.path-node p {
-  font-size: 1.3em;
-}
-/* line 12, ../sass/components/_node.scss */
+/* line 9, ../sass/components/_node.scss */
 .path-node h1 {
   text-align: center;
 }
-/* line 17, ../sass/components/_node.scss */
+/* line 14, ../sass/components/_node.scss */
 .path-node .node__meta {
   margin-bottom: 1.5em;
   text-align: center;
 }
+/* line 21, ../sass/components/_node.scss */
+.path-node .node__content p {
+  font-size: 1.3em;
+}
 /* line 25, ../sass/components/_node.scss */
+.path-node .node__content li {
+  font-size: 1.3em;
+}
+/* line 30, ../sass/components/_node.scss */
 .path-node .node__content .caption-img.align-left,
 .path-node .node__content .caption-img.align-right {
   max-width: 50%;
 }
-/* line 29, ../sass/components/_node.scss */
+/* line 34, ../sass/components/_node.scss */
 .path-node .node__content .caption-img.align-left img,
 .path-node .node__content .caption-img.align-right img {
   height: auto;
 }
-/* line 34, ../sass/components/_node.scss */
+/* line 39, ../sass/components/_node.scss */
 .path-node .node__content .field--name-body p:last-child {
   margin-bottom: 0;
 }
-/* line 38, ../sass/components/_node.scss */
+/* line 43, ../sass/components/_node.scss */
 .path-node .node__content .field--name-field-tags {
   border-bottom: solid 4px #ea3745;
   margin: 1.5em 0;
