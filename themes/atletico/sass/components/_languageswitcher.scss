@@ -1,31 +1,35 @@
-#block-languageswitcher {
-    $large-screen: em(860) !default;
-    text-transform: uppercase;
-    float: right;
-    overflow: hidden;
-    ul {
-      padding-top: 1em;
-    }
-    li {
-        display: inline;
-        .is-active {
-            display: none;
-        }
-        a {
-            @extend #{$all-buttons};
-            background-color: $logo-red;
-            font-size: .8em;
-            margin-bottom: 1em;
+.block-language-blocklanguage-interface {
+  $large-screen: em(860) !default;
+  float: right;
+  overflow: hidden;
+  text-transform: uppercase;
 
-            @include media($large-screen) {
-                font-size: 0.9em;
-                margin-bottom: 0;
-            }
+  ul {
+    padding-top: 1em;
+  }
 
-            &:hover,
-            &:focus {
-                background-color: lighten($logo-red, 10%);
-            }
-        }
+  li {
+    display: inline;
+
+    .is-active {
+      display: none;
     }
+
+    a {
+      @extend #{$all-buttons};
+      background-color: $logo-red;
+      font-size: .8em;
+      margin-bottom: 1em;
+
+      @include media($large-screen) {
+        font-size: .9em;
+        margin-bottom: 0;
+      }
+
+      &:hover,
+      &:focus {
+        background-color: lighten($logo-red, 10%);
+      }
+    }
+  }
 }
