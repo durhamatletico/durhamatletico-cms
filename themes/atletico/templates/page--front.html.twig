@@ -63,16 +63,9 @@
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
-    <div class="call-to-action">
-      <div class="call-to-action__inner">
-        <div class="call-to-action__copy">
-          <h2>Spring futsal cup begins June 6!</h2>
-          <p>Congratulations to <strong>Real Durham</strong> and <strong>Invisible Feet</strong>, winners of the spring 2016 division 1 and division 2 leagues!</p>
-          <a class="call-to-action__button--right" href="/futsal">Schedule & results</a>
-        </div>
-      </div>
-    </div>
-
+    {% if page.content %}
+        {{ page.content }}
+    {% endif %}
     {% if page.content_left %}
         <aside class="layout-content-left" role="complementary">
             {{ page.content_left }}

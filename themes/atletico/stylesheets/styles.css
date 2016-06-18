@@ -4404,6 +4404,11 @@ header .header__main-menu .menu--account .menu-item a {
  * Styles for the call to action on the front page.
  */
 /* line 7, ../sass/components/_call-to-action.scss */
+.path-frontpage main {
+  padding: 1em 0 3em 0;
+}
+
+/* line 10, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action {
   background: url("../images/call-to-action.jpg"), -webkit-linear-gradient(-280deg, #264d85, #00bbf1), no-repeat #00bbf1 scroll;
   background: url("../images/call-to-action.jpg"), linear-gradient(10deg, #264d85, #00bbf1), no-repeat #00bbf1 scroll;
@@ -4414,7 +4419,7 @@ header .header__main-menu .menu--account .menu-item a {
   margin-bottom: 3em;
   padding-bottom: 3em;
 }
-/* line 23, ../sass/components/_call-to-action.scss */
+/* line 26, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner {
   max-width: 111.11111em;
   margin-left: auto;
@@ -4436,57 +4441,57 @@ header .header__main-menu .menu--account .menu-item a {
   display: table;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 23, ../sass/components/_call-to-action.scss */
+  /* line 26, ../sass/components/_call-to-action.scss */
   .path-frontpage .call-to-action .call-to-action__inner {
     padding: 7em 3.5em 3.5em;
   }
 }
-/* line 34, ../sass/components/_call-to-action.scss */
+/* line 37, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy {
   text-align: center;
 }
-/* line 37, ../sass/components/_call-to-action.scss */
+/* line 40, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy h2 {
   color: #fff;
   font-size: 1.5em;
   margin-bottom: .5em;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 37, ../sass/components/_call-to-action.scss */
+  /* line 40, ../sass/components/_call-to-action.scss */
   .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy h2 {
     font-size: 2.25em;
   }
 }
-/* line 47, ../sass/components/_call-to-action.scss */
-.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy p {
+/* line 50, ../sass/components/_call-to-action.scss */
+.path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy .field--name-field-call-to-action-descriptive {
   color: #fff;
   font-size: 1.3em;
 }
-/* line 52, ../sass/components/_call-to-action.scss */
+/* line 55, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a {
   background-color: #ea3745;
   font-size: .8em;
   margin-bottom: 1em;
 }
 @media screen and (min-width: 53.75em) {
-  /* line 52, ../sass/components/_call-to-action.scss */
+  /* line 55, ../sass/components/_call-to-action.scss */
   .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a {
     font-size: 1.1em;
     margin-bottom: 0;
   }
 }
-/* line 63, ../sass/components/_call-to-action.scss */
+/* line 66, ../sass/components/_call-to-action.scss */
 .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:hover, .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a:focus {
   background-color: #ef6570;
 }
 @media screen and (min-width: 25em) {
-  /* line 68, ../sass/components/_call-to-action.scss */
+  /* line 71, ../sass/components/_call-to-action.scss */
   .path-frontpage .call-to-action .call-to-action__inner .call-to-action__copy a.call-to-action__button--left {
     margin-right: .5em;
   }
 }
 
-/* line 78, ../sass/components/_call-to-action.scss */
+/* line 81, ../sass/components/_call-to-action.scss */
 .progress-bar-indication {
   background-color: #f2f2f2;
   border: 1px solid #ddd;
@@ -4495,7 +4500,7 @@ header .header__main-menu .menu--account .menu-item a {
   margin: 0 auto;
   width: 100%;
 }
-/* line 100, ../sass/components/_call-to-action.scss */
+/* line 103, ../sass/components/_call-to-action.scss */
 .progress-bar-indication > .meter {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -4511,7 +4516,7 @@ header .header__main-menu .menu--account .menu-item a {
   height: 100%;
   width: 60%;
 }
-/* line 114, ../sass/components/_call-to-action.scss */
+/* line 117, ../sass/components/_call-to-action.scss */
 .progress-bar-indication p {
   color: #fff;
   line-height: 1.5;

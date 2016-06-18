@@ -1,11 +1,11 @@
 uuid: 47f0305b-8afb-455c-b562-98e800e66886
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.featured_item.field_call_to_action_big_text
-    - field.field.node.featured_item.field_call_to_action_image
+    - field.field.node.featured_item.field_call_to_action_descriptive
     - field.field.node.featured_item.field_call_to_action_links
     - node.type.featured_item
   module:
@@ -19,6 +19,6 @@ content:
     weight: 100
 hidden:
   field_call_to_action_big_text: true
-  field_call_to_action_image: true
+  field_call_to_action_descriptive: true
   field_call_to_action_links: true
   langcode: true

@@ -1,0 +1,10 @@
+uuid: 3ee55b5d-c496-454d-9e9d-65491c3d9401
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.featured_item_homepage_display
+label: 'Featured Item Homepage Display'
+targetEntityType: node
+cache: true

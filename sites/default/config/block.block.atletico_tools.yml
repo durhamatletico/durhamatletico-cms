@@ -11,7 +11,7 @@ dependencies:
 id: atletico_tools
 theme: atletico
 region: '-1'
-weight: -13
+weight: -14
 provider: null
 plugin: 'system_menu_block:tools'
 settings:
