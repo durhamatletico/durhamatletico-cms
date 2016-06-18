@@ -1,0 +1,21 @@
+uuid: 77ea2985-2e07-49c6-84d6-2dd8d140e74b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_call_to_action_descriptive
+    - node.type.featured_item
+  module:
+    - text
+id: node.featured_item.field_call_to_action_descriptive
+field_name: field_call_to_action_descriptive
+entity_type: node
+bundle: featured_item
+label: 'Call to Action Descriptive Text'
+description: 'Descriptive text under the main headline.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

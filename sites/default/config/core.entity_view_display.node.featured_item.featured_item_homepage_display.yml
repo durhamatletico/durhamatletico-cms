@@ -1,0 +1,45 @@
+uuid: 8fa64285-c48a-41c2-956d-1a8a38e5d97a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.featured_item_homepage_display
+    - field.field.node.featured_item.field_call_to_action_big_text
+    - field.field.node.featured_item.field_call_to_action_descriptive
+    - field.field.node.featured_item.field_call_to_action_links
+    - node.type.featured_item
+  module:
+    - link
+    - text
+    - user
+id: node.featured_item.featured_item_homepage_display
+targetEntityType: node
+bundle: featured_item
+mode: featured_item_homepage_display
+content:
+  field_call_to_action_big_text:
+    type: basic_string
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_call_to_action_descriptive:
+    type: text_default
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_call_to_action_links:
+    type: link
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      rel: ''
+      target: ''
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  links: true

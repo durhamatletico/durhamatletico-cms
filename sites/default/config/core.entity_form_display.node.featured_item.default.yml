@@ -4,14 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.featured_item.field_call_to_action_big_text
-    - field.field.node.featured_item.field_call_to_action_image
+    - field.field.node.featured_item.field_call_to_action_descriptive
     - field.field.node.featured_item.field_call_to_action_links
-    - image.style.thumbnail
     - node.type.featured_item
   module:
-    - image
     - link
     - path
+    - text
 id: node.featured_item.default
 targetEntityType: node
 bundle: featured_item
@@ -29,13 +28,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-  field_call_to_action_image:
-    weight: 33
+  field_call_to_action_descriptive:
+    weight: 34
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
-    type: image_image
+    type: text_textarea
   field_call_to_action_links:
     weight: 32
     settings:
