@@ -5,8 +5,9 @@
  */
 
 .path-frontpage main {
-  padding: 1em 0 3em 0;
+  padding: 1em 0 3em;
 }
+
 .path-frontpage .call-to-action {
   $large-screen: em(860) !default;
   $call-to-action-background-top: $logo-blue;
