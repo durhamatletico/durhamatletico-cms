@@ -76,6 +76,10 @@ header {
           padding: .75em;
 
           @include media($small) {
+            font-size: .9em;
+          }
+
+          @include media(em(700)) {
             font-size: 1em;
           }
         }

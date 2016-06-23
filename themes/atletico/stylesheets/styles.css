@@ -4046,7 +4046,7 @@ header .header__top:last-child {
 header .header__top .header__logo {
   width: 100%;
 }
-@media screen and (min-width: 28.125em) {
+@media screen and (min-width: 40.625em) {
   /* line 21, ../sass/components/_header.scss */
   header .header__top .header__logo {
     display: inline-block;
@@ -4061,7 +4061,7 @@ header .header__top .header__logo .header__logo--large {
   max-height: 7em;
   padding: 1em 0;
 }
-@media screen and (min-width: 28.125em) {
+@media screen and (min-width: 40.625em) {
   /* line 30, ../sass/components/_header.scss */
   header .header__top .header__logo .header__logo--large {
     max-height: 4em;
@@ -4081,7 +4081,7 @@ header .header__top .header__logo .header__logo--large {
 header .header__top .menu--account {
   display: none;
 }
-@media screen and (min-width: 28.125em) {
+@media screen and (min-width: 40.625em) {
   /* line 51, ../sass/components/_header.scss */
   header .header__top .menu--account {
     display: inline-block;
@@ -4113,10 +4113,16 @@ header .header__top .menu--account .menu-item a {
 @media screen and (min-width: 40.625em) {
   /* line 73, ../sass/components/_header.scss */
   header .header__top .menu--account .menu-item a {
+    font-size: .9em;
+  }
+}
+@media screen and (min-width: 43.75em) {
+  /* line 73, ../sass/components/_header.scss */
+  header .header__top .menu--account .menu-item a {
     font-size: 1em;
   }
 }
-/* line 87, ../sass/components/_header.scss */
+/* line 91, ../sass/components/_header.scss */
 header .header__main-menu {
   background-color: #666;
   clear: both;
@@ -4128,7 +4134,7 @@ header .header__main-menu::after {
   content: "";
   display: table;
 }
-/* line 93, ../sass/components/_header.scss */
+/* line 97, ../sass/components/_header.scss */
 header .header__main-menu .header__main-menu__wrapper {
   float: left;
   display: block;
@@ -4140,7 +4146,7 @@ header .header__main-menu .header__main-menu__wrapper {
 header .header__main-menu .header__main-menu__wrapper:last-child {
   margin-right: 0;
 }
-/* line 99, ../sass/components/_header.scss */
+/* line 103, ../sass/components/_header.scss */
 header .header__main-menu .navigation-menu-button {
   color: rgba(255, 255, 255, 0.8);
   display: block;
@@ -4152,27 +4158,27 @@ header .header__main-menu .navigation-menu-button {
   text-transform: uppercase;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 99, ../sass/components/_header.scss */
+  /* line 103, ../sass/components/_header.scss */
   header .header__main-menu .navigation-menu-button {
     display: none;
   }
 }
-/* line 113, ../sass/components/_header.scss */
+/* line 117, ../sass/components/_header.scss */
 header .header__main-menu .navigation-menu-button:focus, header .header__main-menu .navigation-menu-button:hover {
   color: #fff;
 }
-/* line 121, ../sass/components/_header.scss */
+/* line 125, ../sass/components/_header.scss */
 header .header__main-menu .menu--main {
   float: none;
   z-index: 9999999;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 121, ../sass/components/_header.scss */
+  /* line 125, ../sass/components/_header.scss */
   header .header__main-menu .menu--main {
     min-height: 4em;
   }
 }
-/* line 129, ../sass/components/_header.scss */
+/* line 133, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul {
   clear: both;
   display: none;
@@ -4184,7 +4190,7 @@ header .header__main-menu .menu--main ul {
   z-index: 9999;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 129, ../sass/components/_header.scss */
+  /* line 133, ../sass/components/_header.scss */
   header .header__main-menu .menu--main ul {
     display: -webkit-box;
     display: -moz-box;
@@ -4206,11 +4212,11 @@ header .header__main-menu .menu--main ul {
     padding: 0;
   }
 }
-/* line 146, ../sass/components/_header.scss */
+/* line 150, ../sass/components/_header.scss */
 header .header__main-menu .menu--main ul.show {
   display: block;
 }
-/* line 153, ../sass/components/_header.scss */
+/* line 157, ../sass/components/_header.scss */
 header .header__main-menu .menu--main li {
   background: #666;
   border-bottom: solid 1px rgba(255, 255, 255, 0.5);
@@ -4222,7 +4228,7 @@ header .header__main-menu .menu--main li {
   z-index: 9999;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 153, ../sass/components/_header.scss */
+  /* line 157, ../sass/components/_header.scss */
   header .header__main-menu .menu--main li {
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
@@ -4238,11 +4244,11 @@ header .header__main-menu .menu--main li {
     width: auto;
   }
 }
-/* line 172, ../sass/components/_header.scss */
+/* line 176, ../sass/components/_header.scss */
 header .header__main-menu .menu--main li:last-child {
   border-bottom: 0;
 }
-/* line 176, ../sass/components/_header.scss */
+/* line 180, ../sass/components/_header.scss */
 header .header__main-menu .menu--main li a {
   color: rgba(255, 255, 255, 0.8);
   font-family: "Signika", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
@@ -4250,52 +4256,52 @@ header .header__main-menu .menu--main li a {
   text-decoration: none;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 176, ../sass/components/_header.scss */
+  /* line 180, ../sass/components/_header.scss */
   header .header__main-menu .menu--main li a {
     font-size: 1.25em;
   }
 }
-/* line 186, ../sass/components/_header.scss */
+/* line 190, ../sass/components/_header.scss */
 header .header__main-menu .menu--main li a:focus, header .header__main-menu .menu--main li a:hover {
   color: #fff;
 }
-/* line 195, ../sass/components/_header.scss */
+/* line 199, ../sass/components/_header.scss */
 header .header__main-menu .menu .is-active {
   color: #fff;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 195, ../sass/components/_header.scss */
+  /* line 199, ../sass/components/_header.scss */
   header .header__main-menu .menu .is-active {
     border-bottom: solid 1px #fff;
     padding-bottom: .25em;
   }
 }
-/* line 205, ../sass/components/_header.scss */
+/* line 209, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded {
   overflow: visible !important;
   padding-right: 0;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 205, ../sass/components/_header.scss */
+  /* line 209, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded {
     position: relative;
   }
-  /* line 214, ../sass/components/_header.scss */
+  /* line 218, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded > ul > li:first-child a {
     padding-top: 1em;
   }
 }
-/* line 220, ../sass/components/_header.scss */
+/* line 224, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded > a {
   position: relative;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 220, ../sass/components/_header.scss */
+  /* line 224, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded > a {
     padding-right: .5em;
   }
 }
-/* line 227, ../sass/components/_header.scss */
+/* line 231, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded > a::after {
   position: absolute;
   top: auto;
@@ -4305,50 +4311,50 @@ header .header__main-menu .menu-item--expanded > a::after {
   color: rgba(255, 255, 255, 0.8);
 }
 @media screen and (min-width: 40.625em) {
-  /* line 227, ../sass/components/_header.scss */
+  /* line 231, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded > a::after {
     content: '\25BE';
   }
 }
-/* line 237, ../sass/components/_header.scss */
+/* line 241, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded:focus > .menu, header .header__main-menu .menu-item--expanded:hover > .menu {
   display: block;
 }
-/* line 244, ../sass/components/_header.scss */
+/* line 248, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu {
   display: none;
   padding-left: 0;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 244, ../sass/components/_header.scss */
+  /* line 248, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu {
     position: absolute;
     top: 4em;
   }
 }
-/* line 253, ../sass/components/_header.scss */
+/* line 257, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu li {
   display: block;
   padding-right: 0;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 253, ../sass/components/_header.scss */
+  /* line 257, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li {
     line-height: 3.07692em;
   }
-  /* line 260, ../sass/components/_header.scss */
+  /* line 264, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li:first-child > a {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
   }
-  /* line 265, ../sass/components/_header.scss */
+  /* line 269, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li:last-child > a {
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
     padding-bottom: .7em;
   }
 }
-/* line 272, ../sass/components/_header.scss */
+/* line 276, ../sass/components/_header.scss */
 header .header__main-menu .menu-item--expanded .menu li a {
   display: inline-block;
   padding-right: .5em;
@@ -4356,7 +4362,7 @@ header .header__main-menu .menu-item--expanded .menu li a {
   width: 100%;
 }
 @media screen and (min-width: 40.625em) {
-  /* line 272, ../sass/components/_header.scss */
+  /* line 276, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li a {
     background-color: #666;
     font-size: 1.1em;
@@ -4365,33 +4371,33 @@ header .header__main-menu .menu-item--expanded .menu li a {
   }
 }
 @media screen and (min-width: 60em) {
-  /* line 272, ../sass/components/_header.scss */
+  /* line 276, ../sass/components/_header.scss */
   header .header__main-menu .menu-item--expanded .menu li a {
     font-size: 1.25em;
   }
 }
-/* line 294, ../sass/components/_header.scss */
+/* line 298, ../sass/components/_header.scss */
 header .header__main-menu .menu--account {
   display: inline-block;
   float: left;
 }
-@media screen and (min-width: 28.125em) {
-  /* line 294, ../sass/components/_header.scss */
+@media screen and (min-width: 40.625em) {
+  /* line 298, ../sass/components/_header.scss */
   header .header__main-menu .menu--account {
     display: none;
   }
 }
-/* line 302, ../sass/components/_header.scss */
+/* line 306, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu {
   margin: 0;
 }
-/* line 306, ../sass/components/_header.scss */
+/* line 310, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item {
   display: inline-block;
   margin-right: .5em;
   padding: .5em 0;
 }
-/* line 311, ../sass/components/_header.scss */
+/* line 315, ../sass/components/_header.scss */
 header .header__main-menu .menu--account .menu-item a {
   color: #fff;
   font-size: .8em;
@@ -5409,13 +5415,16 @@ header .header__main-menu .menu--account .menu-item a {
   overflow: hidden;
   text-transform: uppercase;
 }
-/* line 7, ../sass/components/_languageswitcher.scss */
-.block-language-blocklanguage-interface ul {
-  padding-top: 1em;
-}
-/* line 11, ../sass/components/_languageswitcher.scss */
+/* line 6, ../sass/components/_languageswitcher.scss */
 .block-language-blocklanguage-interface li {
   display: inline;
+  margin-right: .25em;
+}
+@media screen and (min-width: 40.625em) {
+  /* line 6, ../sass/components/_languageswitcher.scss */
+  .block-language-blocklanguage-interface li {
+    line-height: 8em;
+  }
 }
 /* line 14, ../sass/components/_languageswitcher.scss */
 .block-language-blocklanguage-interface li .is-active {
@@ -5426,15 +5435,22 @@ header .header__main-menu .menu--account .menu-item a {
   background-color: #ea3745;
   font-size: .8em;
   margin-bottom: 1em;
+  padding: .75em;
 }
-@media screen and (min-width: 53.75em) {
+@media screen and (min-width: 40.625em) {
   /* line 18, ../sass/components/_languageswitcher.scss */
   .block-language-blocklanguage-interface li a {
     font-size: .9em;
     margin-bottom: 0;
   }
 }
-/* line 29, ../sass/components/_languageswitcher.scss */
+@media screen and (min-width: 43.75em) {
+  /* line 18, ../sass/components/_languageswitcher.scss */
+  .block-language-blocklanguage-interface li a {
+    font-size: 1em;
+  }
+}
+/* line 34, ../sass/components/_languageswitcher.scss */
 .block-language-blocklanguage-interface li a:hover, .block-language-blocklanguage-interface li a:focus {
   background-color: #ef6570;
 }

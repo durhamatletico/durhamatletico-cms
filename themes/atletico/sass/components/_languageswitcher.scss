@@ -1,15 +1,15 @@
 .block-language-blocklanguage-interface {
-  $large-screen: em(860) !default;
   float: right;
   overflow: hidden;
   text-transform: uppercase;
 
-  ul {
-    padding-top: 1em;
-  }
-
   li {
     display: inline;
+    margin-right: .25em;
+
+    @include media($header-break) {
+      line-height: 8em;
+    }
 
     .is-active {
       display: none;
@@ -20,10 +20,15 @@
       background-color: $logo-red;
       font-size: .8em;
       margin-bottom: 1em;
+      padding: .75em;
 
-      @include media($large-screen) {
+      @include media($header-break) {
         font-size: .9em;
         margin-bottom: 0;
+      }
+
+      @include media(em(700)) {
+        font-size: 1em;
       }
 
       &:hover,
