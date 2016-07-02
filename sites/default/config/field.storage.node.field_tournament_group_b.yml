@@ -1,0 +1,19 @@
+uuid: 7d83b980-7d0b-4ccc-a7c5-6e0fb9dc72e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tournament_group_b
+field_name: field_tournament_group_b
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

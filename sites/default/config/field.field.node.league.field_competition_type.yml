@@ -12,7 +12,7 @@ field_name: field_competition_type
 entity_type: node
 bundle: league
 label: 'Competition Type'
-description: 'Specify if this competition is a League or Cup.'
+description: 'Specify if this competition is a League, Cup (end of regular league competition), or Tournament (group stage).'
 required: true
 translatable: false
 default_value:

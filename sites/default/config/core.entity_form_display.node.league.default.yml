@@ -5,10 +5,19 @@ dependencies:
   config:
     - field.field.node.league.body
     - field.field.node.league.field_competition_type
+    - field.field.node.league.field_is_active
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_sponsors
     - field.field.node.league.field_teams
+    - field.field.node.league.field_tournament_group_a
+    - field.field.node.league.field_tournament_group_b
+    - field.field.node.league.field_tournament_group_c
+    - field.field.node.league.field_tournament_group_d
+    - field.field.node.league.field_tournament_group_e
+    - field.field.node.league.field_tournament_group_f
+    - field.field.node.league.field_tournament_group_g
+    - field.field.node.league.field_tournament_group_h
     - node.type.league
   module:
     - datetime
@@ -37,6 +46,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_is_active:
+    weight: 45
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_leage:
     weight: 33
     settings: {  }
@@ -57,6 +72,70 @@ content:
     type: entity_reference_autocomplete
   field_teams:
     weight: 35
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_a:
+    weight: 37
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_b:
+    weight: 38
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_c:
+    weight: 39
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_d:
+    weight: 40
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_e:
+    weight: 41
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_f:
+    weight: 42
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_g:
+    weight: 43
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_tournament_group_h:
+    weight: 44
     settings:
       match_operator: CONTAINS
       size: 60

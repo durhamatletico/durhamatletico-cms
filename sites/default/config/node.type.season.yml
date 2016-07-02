@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Season
 type: season
-description: 'Use this to add seasons that contain divisions.'
+description: 'Use this to add seasons that contain competitions.'
 help: ''
 new_revision: false
 preview_mode: 1

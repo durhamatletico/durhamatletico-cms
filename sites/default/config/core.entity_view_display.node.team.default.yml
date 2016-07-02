@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.team.field_jersey_color_html_
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
+    - field.field.node.team.field_svg_logo
     - field.field.node.team.field_team_draws
     - field.field.node.team.field_team_games_played
     - field.field.node.team.field_team_goal_difference
@@ -68,6 +69,7 @@ hidden:
   field_captains: true
   field_jersey_color_html_: true
   field_players: true
+  field_svg_logo: true
   field_team_draws: true
   field_team_games_played: true
   field_team_goal_difference: true

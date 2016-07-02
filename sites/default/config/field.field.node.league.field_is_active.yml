@@ -1,0 +1,23 @@
+uuid: f36fa120-9d65-4d30-a25a-3a03aefea7ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_active
+    - node.type.league
+id: node.league.field_is_active
+field_name: field_is_active
+entity_type: node
+bundle: league
+label: 'Is Active'
+description: 'Set whether the competition is active/on-going.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,19 +1,19 @@
-uuid: e8d4613c-c494-43a8-bb00-e518cf7d2860
+uuid: 32d34782-9b62-461f-afed-996c35ca53a2
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_teams
+    - field.storage.node.field_tournament_group_h
     - node.type.league
     - node.type.team
-id: node.league.field_teams
-field_name: field_teams
+id: node.league.field_tournament_group_h
+field_name: field_tournament_group_h
 entity_type: node
 bundle: league
-label: Teams
-description: 'If this competition is a league, add teams here. If it is a group-stage cup, add them in the fields below.'
-required: true
-translatable: true
+label: 'Tournament Group H'
+description: ''
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

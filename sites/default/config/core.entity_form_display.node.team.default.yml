@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.team.field_jersey_color_html_
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
+    - field.field.node.team.field_svg_logo
     - field.field.node.team.field_team_draws
     - field.field.node.team.field_team_games_played
     - field.field.node.team.field_team_goal_difference
@@ -82,6 +83,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_svg_logo:
+    weight: 48
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
   field_team_draws:
     weight: 41
     settings:

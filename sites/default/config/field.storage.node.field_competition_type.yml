@@ -17,6 +17,9 @@ settings:
     -
       value: cup
       label: Cup
+    -
+      value: tournament
+      label: Tournament
   allowed_values_function: ''
 module: options
 locked: false

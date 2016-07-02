@@ -10,7 +10,7 @@ id: node.season.field_divisions
 field_name: field_divisions
 entity_type: node
 bundle: season
-label: Divisions
+label: Competitions
 description: ''
 required: false
 translatable: false
@@ -23,4 +23,6 @@ settings:
       league: league
     sort:
       field: _none
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference
