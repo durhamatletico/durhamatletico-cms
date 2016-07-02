@@ -13,13 +13,20 @@ use Drupal\contact\ContactFormInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 use Drupal\contact\Entity\ContactForm;
+use Drupal\views\Views;
 
 /**
  * Implements hook_form_FORM_ID_alter() for contact_form_form().
  */
 function contact_storage_form_contact_form_form_alter(&$form, FormStateInterface $form_state) {
   /** @var \Drupal\contact\ContactFormInterface $contact_form */
-  $contact_form = $form_state->getFormObject()->getEntity();
+
+  $form_object = $form_state->getFormObject();
+  if (!in_array($form_object->getOperation(), ['edit', 'add'], TRUE)) {
+    // Only alter the edit and add forms.
+    return;
+  }
+  $contact_form = $form_object->getEntity();
   $form['contact_storage_uri'] = [
     '#type' => 'textfield',
     '#title' => t('Redirect Page'),
@@ -139,6 +146,24 @@ function contact_storage_entity_operation_alter(array &$operations, EntityInterf
       'url' => $entity->urlInfo('canonical'),
     );
   }
+  if ($entity->getEntityTypeId() == 'contact_form' && $entity->access('update')) {
+    $operations['clone'] = array(
+      'title' => t('Clone'),
+      'weight' => 10,
+      'url' => $entity->urlInfo('clone-form'),
+    );
+
+    // Provide a link to view messages submitted form the form, if the view
+    // exists and if the user has access rights to it.
+    $view = Views::getView('contact_messages');
+    if ($view && $view->access('page_1')) {
+      $view->setDisplay('page_1');
+      $operations['view_messages'] = array(
+        'title' => t('View messages'),
+        'url' => $view->getUrl()->setOption('query', ['form' => $entity->id()]),
+      );
+    }
+  }
 }
 
 /**
@@ -157,11 +182,22 @@ function contact_storage_entity_type_alter(array &$entity_types) {
   // Add edit and delete forms.
   $entity_types['contact_message']->setFormClass('edit', '\Drupal\contact_storage\MessageEditForm');
   $entity_types['contact_message']->setFormClass('delete', '\Drupal\Core\Entity\ContentEntityDeleteForm');
+  // Add clone form for messages.
+  $entity_types['contact_form']->setFormClass('clone', '\Drupal\contact_storage\Form\ContactFormCloneForm');
   // Allow edit/delete links in list builder.
   $entity_types['contact_message']->setLinkTemplate('collection', '/admin/structure/contact/messages');
   $entity_types['contact_message']->setLinkTemplate('canonical', '/admin/structure/contact/messages/{contact_message}');
   $entity_types['contact_message']->setLinkTemplate('edit-form', '/admin/structure/contact/messages/{contact_message}/edit');
   $entity_types['contact_message']->setLinkTemplate('delete-form', '/admin/structure/contact/messages/{contact_message}/delete');
+  // Add clone link for forms.
+  $entity_types['contact_form']->setLinkTemplate('clone-form', '/admin/structure/contact/manage/{contact_form}/clone');
+
+  // Define the entity route provider.
+  $route_providers = $entity_types['contact_message']->getRouteProviderClasses();
+  $route_providers['html'] = '\Drupal\contact_storage\ContactRouteProvider';
+  $entity_types['contact_message']->setHandlerClass('route_provider', $route_providers);
+  $entity_types['contact_form']->setHandlerClass('route_provider', $route_providers);
+
   // @todo Replace with access control handler when not enough.
   $entity_types['contact_message']->set('admin_permission', 'administer contact forms');
   // Integrate with Views.
@@ -169,4 +205,78 @@ function contact_storage_entity_type_alter(array &$entity_types) {
   $entity_types['contact_message']->setListBuilderClass('\Drupal\Core\Entity\EntityListBuilder');
 
   $entity_types['contact_form']->setViewBuilderClass('\Drupal\contact_storage\ContactFormViewBuilder');
+
+  // If the body of the message should be sent as HTML.
+  if (\Drupal::config('contact_storage.settings')->get('send_html')) {
+    $entity_types['contact_message']->setViewBuilderClass('Drupal\contact_storage\ContactMessageViewBuilder');
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function contact_storage_entity_extra_field_info() {
+  $fields = array();
+  foreach (array_keys(\Drupal::service('entity_type.bundle.info')->getBundleInfo('contact_message')) as $bundle) {
+    $fields['contact_message'][$bundle]['form']['preview'] = array(
+      'label' => t('Preview'),
+      'description' => t('Rendered preview'),
+      'weight' => 50,
+    );
+  }
+  return $fields;
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function contact_storage_mail_alter(&$message) {
+  // Check that the message isn't a copy sent to the sender (page_copy).
+  if (($message['key'] == 'page_mail') && isset($message['params']['contact_message'])) {
+    $contact_message = $message['params']['contact_message'];
+    foreach ($contact_message->getFields() as $field) {
+      if ($field->getFieldDefinition()->getType() === 'contact_storage_options_email') {
+        // One of the Option email item fields. Add the recipient to the message.
+        foreach ($field as $delta => $item) {
+          $label = $item->value;
+          // Obtain the email to add to the message, using the label.
+          $email = $item->getFieldDefinition()->getSetting('allowed_values')[$label]['emails'];
+          $message['to'] .= ',' . $email;
+        }
+      }
+    }
+  }
+  // If enabled, ensure that contact mails are sent as plain text.
+  if ($message['module'] === 'contact' && isset($message['params']['contact_message']) && \Drupal::config('contact_storage.settings')->get('send_html')) {
+    // Enforce that we are sending mails as HTML, and tell Swiftmailer to
+    // generate a plain text version.
+    $message['headers']['Content-Type'] = 'text/html';
+    $message['params']['convert'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function contact_storage_theme() {
+  return array(
+    'swiftmailer__contact' => array(
+      'variables' => array(
+        'message' => array(),
+      ),
+    ),
+  );
+}
+
+/**
+ * Prepares variables for contact mail templates.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - message: An associative array containing the message array.
+ *   - body: The processed body.
+ */
+function template_preprocess_swiftmailer__contact(&$variables) {
+  $variables['subject'] = $variables['message']['subject'];
+  $variables['body'] = $variables['message']['body'];
 }
