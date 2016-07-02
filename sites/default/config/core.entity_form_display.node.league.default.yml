@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_sponsors
+    - field.field.node.league.field_sport
     - field.field.node.league.field_teams
     - field.field.node.league.field_tournament_group_a
     - field.field.node.league.field_tournament_group_b
@@ -70,6 +71,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_sport:
+    weight: 46
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
   field_teams:
     weight: 35
     settings:

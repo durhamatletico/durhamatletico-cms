@@ -1,0 +1,23 @@
+uuid: 7f46707d-b328-4477-b6b4-5ee20e9fa98a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sport
+    - node.type.league
+  module:
+    - options
+id: node.league.field_sport
+field_name: field_sport
+entity_type: node
+bundle: league
+label: Sport
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: futsal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_sponsors
+    - field.field.node.league.field_sport
     - field.field.node.league.field_teams
     - field.field.node.league.field_tournament_group_a
     - field.field.node.league.field_tournament_group_b
@@ -33,79 +34,24 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
-  field_is_active:
-    weight: 110
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-  field_tournament_group_a:
-    weight: 102
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_b:
-    weight: 103
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_c:
-    weight: 104
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_d:
-    weight: 105
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_e:
-    weight: 106
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_f:
-    weight: 107
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_g:
-    weight: 108
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-  field_tournament_group_h:
-    weight: 109
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
   links:
     weight: 100
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_competition_type: true
+  field_is_active: true
   field_leage: true
   field_league_start_date: true
   field_sponsors: true
+  field_sport: true
   field_teams: true
+  field_tournament_group_a: true
+  field_tournament_group_b: true
+  field_tournament_group_c: true
+  field_tournament_group_d: true
+  field_tournament_group_e: true
+  field_tournament_group_f: true
+  field_tournament_group_g: true
+  field_tournament_group_h: true
   langcode: true
