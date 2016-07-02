@@ -1,0 +1,5 @@
+services:
+  contact_storage.settings_form_save:
+    class: \Drupal\contact_storage\EventSubscriber\ContactStorageSettingsFormSave
+    tags:
+      - { name: event_subscriber }
