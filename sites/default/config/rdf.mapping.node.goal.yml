@@ -1,0 +1,14 @@
+uuid: 31adad64-dd12-44b2-a085-6d8fc11e5414
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.goal
+  module:
+    - node
+id: node.goal
+targetEntityType: node
+bundle: goal
+types:
+  - ''
+fieldMappings: {  }

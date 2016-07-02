@@ -12,5 +12,5 @@ third_party_settings:
 id: node.team
 target_entity_type_id: node
 target_bundle: team
-default_langcode: site_default
+default_langcode: zxx
 language_alterable: true
