@@ -1,32 +1,45 @@
 version: '2'
 services:
-  web:
-    dns: 8.8.8.8
-    hostname: local.durhamatletico.com
-    image: tbfisher/drupal-nginx:php-5.5.x
-    ports:
-      - '8000:80'
-      - '4438:443'
-    depends_on:
-      - db
-      - memcached
+  php:
+    container_name: durhamatletico_php
+    image: durhamatletico/durhamatletico-php-fpm:0.1
     volumes:
-      - .:/var/www/web
-  selenium:
-    image: selenium/standalone-chrome-debug:2.53.0
-  cli:
-    image: blinkreaction/drupal-cli:stable
-    depends_on:
-      - web
-      - db
+      - .docker/php-fpm/settings.php:/conf/settings.php
     volumes_from:
       - web:rw
-  memcached:
-    image: memcached:1.4.25
+    depends_on:
+      - web
+  web:
+    container_name: durhamatletico_httpd
+    hostname: local.durhamatletico.com
+    environment:
+      - GH_TOKEN
+      - IMGUR_API_KEY
+    image: durhamatletico/durhamatletico-apache:0.1
+    ports:
+      - '443:443'
+    depends_on:
+      - db
+    volumes:
+      - .:/var/www/html
+      - .docker/php-fpm/settings.php:/conf/settings.php
   db:
-    image: mysql:5.5.49
+    container_name: durhamatletico_db
+    image: mariadb:5.5.47
     volumes:
       - .mysql_data:/var/lib/mysql
+      - .docker/mysql:/etc/mysql/conf.d
     environment:
       MYSQL_DATABASE: 'durhamatletico_docker'
       MYSQL_ROOT_PASSWORD: 'root'
+  blackfire:
+    container_name: durhamatletico_blackfire
+    image: blackfire/blackfire
+    environment:
+        - BLACKFIRE_SERVER_ID
+        - BLACKFIRE_SERVER_TOKEN
+        - BLACKFIRE_CLIENT_ID
+        - BLACKFIRE_CLIENT_TOKEN
+  selenium:
+    container_name: durhamatletico_selenium
+    image: selenium/standalone-chrome-debug:2.53.0
