@@ -9,4 +9,4 @@ terminus site backups get --element=db --site=durham-atletico --env=live --to=da
 rm database.sql
 echo "y" | gunzip database.sql.gz
 echo "Importing backup"
-vagrant ssh -c "cd /var/www/durhamatletico; pv database.sql | $(drush sql-connect)"
+pv database.sql | docker exec -i durhamatletico_db mysql -uroot -proot durhamatletico_docker
