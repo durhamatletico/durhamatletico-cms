@@ -411,6 +411,9 @@ display:
         operator: AND
         groups:
           1: AND
+      menu:
+        enabled: true
+        expanded: false
     display_plugin: page
     display_title: Page
     id: page_1

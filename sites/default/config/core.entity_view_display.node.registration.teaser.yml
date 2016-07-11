@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.registration.field_admin_comments
     - field.field.node.registration.field_balance_due
     - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_season
     - field.field.node.registration.field_registration_shirt_number
     - field.field.node.registration.field_registration_shirt_size
     - field.field.node.registration.field_registration_shirt_type
@@ -22,8 +24,10 @@ content:
   links:
     weight: 100
 hidden:
+  field_admin_comments: true
   field_balance_due: true
   field_registration_comments: true
+  field_registration_season: true
   field_registration_shirt_number: true
   field_registration_shirt_size: true
   field_registration_shirt_type: true

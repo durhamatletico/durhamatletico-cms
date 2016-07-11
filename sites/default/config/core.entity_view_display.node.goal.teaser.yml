@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.goal.field_game
     - field.field.node.goal.field_is_own_goal
     - field.field.node.goal.field_player_who_scored
+    - field.field.node.goal.field_quantity
     - node.type.goal
   module:
     - user
@@ -21,4 +22,5 @@ hidden:
   field_game: true
   field_is_own_goal: true
   field_player_who_scored: true
+  field_quantity: true
   langcode: true

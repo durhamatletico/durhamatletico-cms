@@ -402,6 +402,8 @@ display:
         type: normal
         title: Posts
         menu_name: main
+        enabled: true
+        expanded: false
     cache_metadata:
       max-age: -1
       contexts:

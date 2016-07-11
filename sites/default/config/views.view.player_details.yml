@@ -592,6 +592,8 @@ display:
         type: normal
         title: 'Player Details'
         menu_name: admin
+        enabled: true
+        expanded: false
     cache_metadata:
       max-age: 0
       contexts:
