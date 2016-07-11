@@ -6,8 +6,9 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus: {  }
-    parent: ''
+    available_menus:
+      - main
+    parent: 'main:'
 name: Competition
 type: league
 description: 'Use this content type to add a <em>Competition</em> to the system. Competitions can be leagues or cups that are part of a particular season'

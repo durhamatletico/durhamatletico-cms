@@ -10,5 +10,5 @@ id: node.league
 targetEntityType: node
 bundle: league
 types:
-  - 'schema:SportsEvent'
+  - ''
 fieldMappings: {  }

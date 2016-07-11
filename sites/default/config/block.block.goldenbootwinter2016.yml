@@ -10,7 +10,7 @@ dependencies:
 id: goldenbootwinter2016
 theme: atletico
 region: content_left
-weight: -19
+weight: -22
 provider: null
 plugin: golden_boot_winter2016
 settings:

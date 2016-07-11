@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/futsal\r\n*node/1432"
+    pages: "/futsal/summer-2016\r\n/es/node/1655"
     negate: false
     context_mapping: {  }

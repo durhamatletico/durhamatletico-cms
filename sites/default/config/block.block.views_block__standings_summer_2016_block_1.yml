@@ -1,0 +1,32 @@
+uuid: 9b003e69-ddfb-4caf-8393-f00aa3d14508
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.standings_summer_2016
+  module:
+    - node
+    - views
+  theme:
+    - atletico
+id: views_block__standings_summer_2016_block_1
+theme: atletico
+region: content_left
+weight: -25
+provider: null
+plugin: 'views_block:standings_summer_2016-block_1'
+settings:
+  id: 'views_block:standings_summer_2016-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      league: league
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
