@@ -64,7 +64,7 @@ function durhamatletico_core_node_update(Drupal\Core\Entity\EntityInterface $ent
   if ($entity->getType() === 'game'
   && $entity->get('field_game_status')->getString() == 'Played') {
     $competition = Node::load($entity->get('field_division')->entity->id());
-    if ($competition && $competition->get('field_competition_type')->getString() == 'league') {
+    if ($competition && in_array($competition->get('field_competition_type')->getString(), ['league', 'tournament'])) {
       \Drupal::service('durhamatletico_core.standings')->updateStandings($entity);
     }
   }
