@@ -94,6 +94,13 @@
 
     // TODO: This should not be global.
     // Winter 2016 brackets.
+    $.getJSON('/api/tournaments/1210?_format=json', function (response) {
+      console.log(response);
+      $('#division1').bracket({
+        init: response
+      });
+    });
+
     data = {
         teams: [
             ["Pitbulls", "Green Street"],
@@ -120,9 +127,9 @@
             ]
         ]
     };
-    $('#division1').bracket({
-        init: data
-    });
+    // $('#division1').bracket({
+    //     init: data
+    // });
 
     data = {
         teams: [
