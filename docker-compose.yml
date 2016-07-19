@@ -45,7 +45,6 @@ services:
   selenium:
     container_name: durhamatletico_selenium
     image: selenium/standalone-chrome-debug:2.53.0
-
 volumes:
   mysql-data:
     driver: local
