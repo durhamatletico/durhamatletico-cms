@@ -67,7 +67,7 @@ class TournamentRestResource extends ResourceBase {
         // Load team.
         $home_team_node = Node::load($game_node->get('field_home_team')->entity->id());
         $away_team_node = Node::load($game_node->get('field_away_team')->entity->id());
-        $initial_teams[] = [
+        $initial_teams[(int) $game_node->field_bracket_grouping->value][] = [
           $game_node->get('field_home_team')->entity->field_abbreviation->value,
           $game_node->get('field_away_team')->entity->field_abbreviation->value,
         ];
@@ -102,7 +102,7 @@ class TournamentRestResource extends ResourceBase {
       // Now get the final and 3rd/4th consolation match games.
       $final_results = [];
 
-      $response['teams'] = $initial_teams;
+      $response['teams'] = array_merge($initial_teams[1], $initial_teams[2]);
       $response['results'] = [
         $round_one,
         $semi_final_results,
@@ -120,6 +120,7 @@ class TournamentRestResource extends ResourceBase {
     $semi_final_group = $semi_final_group_query->execute();
     foreach ($semi_final_group as $semi_final_group_result) {
       $node = Node::load($semi_final_group_result);
+      // Check if the match contains our winning teams from round one.
       if (!count(array_diff($round_one_winners[$group], [
         $node->get('field_home_team')->entity->id(),
         $node->get('field_away_team')->entity->id(),
