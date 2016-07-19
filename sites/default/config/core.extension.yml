@@ -16,6 +16,7 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
+  durhamatletico_api: 0
   durhamatletico_core: 0
   durhamatletico_registration: 0
   dynamic_page_cache: 0
@@ -40,9 +41,9 @@ module:
   path: 0
   quickedit: 0
   rdf: 0
-  rdfui: 0
   responsive_image: 0
   rest: 0
+  restui: 0
   search: 0
   serialization: 0
   shortcut: 0

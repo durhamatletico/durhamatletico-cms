@@ -21,3 +21,4 @@ permissions:
   - 'change own username'
   - 'access user profiles'
   - 'access user contact forms'
+  - 'restful get tournament_rest_resource'
