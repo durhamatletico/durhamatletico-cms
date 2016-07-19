@@ -1,0 +1,8 @@
+name: Durham Atletico API
+type: module
+description: Provides API functions for Durham Atletico
+core: 8.x
+package: Custom
+dependencies:
+  - rest
+  - serialization

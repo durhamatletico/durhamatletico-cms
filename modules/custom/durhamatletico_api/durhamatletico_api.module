@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains durhamatletico_api.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function durhamatletico_api_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the durhamatletico_api module.
+    case 'help.page.durhamatletico_api':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides API functions for Durham Atletico') . '</p>';
+      return $output;
+
+    default:
+  }
+}
