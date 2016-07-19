@@ -80,7 +80,11 @@ class TournamentRestResource extends ResourceBase {
             break;
 
           case 3:
-            $round_three[] = [$game_node->field_home_team_score->value, $game_node->field_away_team_score->value];
+            // TODO: Show 3rd/4th place match-up.
+            if ($game_node->field_bracket_grouping->value == 1) {
+              $round_three[] = [$game_node->field_home_team_score->value, $game_node->field_away_team_score->value];
+            }
+
             break;
         }
       }
