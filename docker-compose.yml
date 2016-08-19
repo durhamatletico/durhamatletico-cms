@@ -26,8 +26,10 @@ services:
   db:
     container_name: durhamatletico_db
     image: mariadb:5.5.47
+    ports:
+      - '3336:3306'
     volumes:
-      - .mysql_data:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
       - .docker/mysql:/etc/mysql/conf.d
     environment:
       MYSQL_DATABASE: 'durhamatletico_docker'
@@ -43,3 +45,7 @@ services:
   selenium:
     container_name: durhamatletico_selenium
     image: selenium/standalone-chrome-debug:2.53.0
+
+volumes:
+  mysql-data:
+    driver: local

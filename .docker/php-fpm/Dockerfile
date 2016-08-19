@@ -50,8 +50,9 @@ RUN php -r "readfile('http://files.drush.org/drush.phar');" > /tmp/drush \
     && chmod +x /tmp/drush \
     && mv /tmp/drush /usr/local/bin
 
-RUN drush dl registry_rebuild-7.x-2.3 \
-    && drush cc drush
+RUN curl https://drupalconsole.com/installer -L -o drupal.phar \
+    && chmod +x drupal.phar \
+    && mv drupal.phar /usr/local/bin/drupal
 
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
