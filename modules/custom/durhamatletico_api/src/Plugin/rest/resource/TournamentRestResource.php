@@ -71,14 +71,9 @@ class TournamentRestResource extends ResourceBase {
           $game_node->get('field_home_team')->entity->field_abbreviation->value,
           $game_node->get('field_away_team')->entity->field_abbreviation->value,
         ];
-        $initial_teams_ids[] = [
+        $initial_teams_ids[(int) $game_node->field_bracket_grouping->value][] = [
           $game_node->get('field_home_team')->entity->id(),
           $game_node->get('field_away_team')->entity->id(),
-        ];
-        // Round one results.
-        $round_one[] = [
-          (int) $game_node->field_home_team_score->value,
-          (int) $game_node->field_away_team_score->value,
         ];
         // Figure out the winners.
         if ($game_node->field_home_team_score->value > $game_node->field_away_team_score->value) {
@@ -87,10 +82,16 @@ class TournamentRestResource extends ResourceBase {
         else {
           $round_one_winners[$game_node->field_bracket_grouping->value][] = $away_team_node->id();
         }
-        $round_one_match_nodes[$game_node->field_bracket_grouping->value][] = $game_node;
       }
 
-      // Sort the winners to match the initial teams listing.
+      // die(print_r($round_one_winners));
+      $round_one = [];
+      // Get the results for each round one match up.
+      foreach ($initial_teams_ids as $groupings) {
+        foreach ($groupings as $team_ids) {
+          $round_one[] = $this->getResultsforMatchup($query, $team_ids, 1);
+        }
+      }
 
       // Now that we know the winners of round one, get the results for the semi
       // finals.
@@ -102,7 +103,11 @@ class TournamentRestResource extends ResourceBase {
       // Now get the final and 3rd/4th consolation match games.
       $final_results = [];
 
-      $response['teams'] = array_merge($initial_teams[1], $initial_teams[2]);
+      foreach ($initial_teams as $groupings) {
+        foreach ($groupings as $teams) {
+          $response['teams'][] = $teams;
+        }
+      }
       $response['results'] = [
         $round_one,
         $semi_final_results,
@@ -143,6 +148,31 @@ class TournamentRestResource extends ResourceBase {
         // Now sort the score. The score of the winner of match one in round one
         // comes first.
         return [(int) $team_one_score, (int) $team_two_score];
+      }
+    }
+  }
+
+  private function getResultsforMatchup($query, array $team_ids, $round) {
+    $matchup_query = clone $query;
+    $matchup_query->condition('field_cup_round', $round);
+    $results = $matchup_query->execute();
+    foreach ($results as $result) {
+      $node = Node::load($result);
+      if (!count(array_diff($team_ids, [
+              $node->get('field_home_team')->entity->id(),
+              $node->get('field_away_team')->entity->id(),
+            ]))) {
+        // We got a match.
+        $team_one_score = $team_two_score = 0;
+        if ($node->get('field_home_team')->entity->id() == $team_ids[0]) {
+          $team_one_score = (int) $node->field_home_team_score->value;
+          $team_two_score = (int) $node->field_away_team_score->value;
+        }
+        else {
+          $team_one_score = (int) $node->field_away_team_score->value;
+          $team_two_score = (int) $node->field_home_team_score->value;
+        }
+        return [$team_one_score, $team_two_score];
       }
     }
   }
