@@ -8,29 +8,17 @@ sudo curl https://github.com/pantheon-systems/cli/releases/download/0.11.1/termi
 # Log into terminus.
 terminus auth login $PANTHEON_EMAIL --password=$PANTHEON_PASSWORD
 
-# Get a dump from production
+echo "Creating backup"
 terminus site backups create --element=database --site=durham-atletico --env=live
+echo "Downloading backup"
 terminus site backups get --element=db --site=durham-atletico --env=live --to=database.sql.gz --latest
-
-# Import the DB
-gunzip database.sql.gz
-pv database.sql | mysql -u ubuntu circle_test
-
-# TODO: Get files?
-
-# Install Drush
-sudo curl https://github.com/drush-ops/drush/releases/download/8.0.5/drush.phar -L -o /usr/local/bin/drush && sudo chmod +x /usr/local/bin/drush
-
-# Overwrite settings.local.php
-sudo mv tests/scripts/settings.local.php sites/default/settings.local.php
+rm database.sql
+echo "y" | gunzip database.sql.gz
+echo "Importing backup"
+docker exec -i durhamatletico_db mysql -uroot -proot durhamatletico_docker < database.sql
 
 # Clear cache
-drush cr -yv
-drush config-import -yv
-
-drush runserver --server=builtin --strict=0 </dev/null &>$HOME/server.log &
-
-# Copy Behat local config.
-cp tests/scripts/behat.local.yml tests/behat.local.yml
+docker-compose exec php drush cr -yv
+docker-compose exec php drush config-import -yv
 
 echo "Ready for testing!"

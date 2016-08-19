@@ -1,25 +1,19 @@
 dependencies:
   post:
-    - cp tests/scripts/durhamatletico.conf /etc/apache2/sites-available
-    - a2ensite durhamatletico.conf
-    - sudo service apache2 restart
-    - composer config secure-http false
-    - composer install -d tests --prefer-dist --no-interaction
+    - docker-compose pull
+    - docker-compose up -d
+    - docker-compose exec php composer install -d tests --prefer-dist --no-interaction
+    - docker-compose exec php composer config secure-http false
     - cd themes/atletico; bundle install
     - tests/scripts/build.sh
-  pre:
-    - sudo apt-get update; sudo apt-get install pv
-    - composer config secure-http false
 test:
   override:
     - cd themes/atletico; bundle exec scss-lint
-    - tests/bin/behat -vvv --colors -c tests/behat.yml
+    - docker-compose exec -T php tests/bin/behat --no-colors -c tests/behat.yml -f progress
 general:
   artifacts:
     - "tests/build/xml"
     - "tests/build/html"
 machine:
-  php:
-    version: 5.5.21
   services:
-    - mysql
+    - docker
