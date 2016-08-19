@@ -1,10 +1,10 @@
 dependencies:
   override:
+    - docker-compose pull
+    - docker-compose up -d
     - docker-compose exec php composer config secure-http false
     - docker-compose exec php composer install -d tests --prefer-dist --no-interaction
   post:
-    - docker-compose pull
-    - docker-compose up -d
     - cd themes/atletico; bundle install
     - tests/scripts/build.sh
 test:
