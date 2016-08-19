@@ -73,10 +73,12 @@ class StandingsService implements StandingsServiceInterface {
       ->condition('field_game_status', 'Played')
       ->execute()
     );
-    // Now filter out only games that are part of the original entity's competition.
+    // Now filter out only games that are part of the original entity's competition and also filter out games where
+    // field_cup_round is set.
     $current_division = $this->entity->get('field_division')->entity->id();
     return array_filter($games, function($game) use ($current_division) {
-      if ($game->get('field_division')->entity->id() == $current_division) {
+      if (($game->get('field_division')->entity->id() == $current_division) &&
+          ($game->get('field_cup_round')->getValue() == NULL)) {
         return TRUE;
       }
       else {
