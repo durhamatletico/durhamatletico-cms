@@ -100,7 +100,7 @@ class TournamentRestResource extends ResourceBase {
         // Get the QF game scores from each match.
         $qf_results[] = [
           (int) $qf_node->field_home_team_score->value,
-          (int) $q_node->field_away_team_score->value,
+          (int) $qf_node->field_away_team_score->value,
         ];
       }
 
