@@ -5,9 +5,12 @@ dependencies:
   config:
     - field.field.node.league.body
     - field.field.node.league.field_competition_type
+    - field.field.node.league.field_final_game
     - field.field.node.league.field_is_active
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
+    - field.field.node.league.field_quarter_final_games
+    - field.field.node.league.field_semi_final_games
     - field.field.node.league.field_sponsors
     - field.field.node.league.field_sport
     - field.field.node.league.field_teams
@@ -47,6 +50,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+  field_final_game:
+    weight: 49
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_is_active:
     weight: 45
     settings:
@@ -63,6 +74,22 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+  field_quarter_final_games:
+    weight: 47
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+  field_semi_final_games:
+    weight: 48
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
   field_sponsors:
     weight: 34
     settings:

@@ -1,0 +1,29 @@
+uuid: 67ef9f4f-a39f-492a-9de4-8a1566f57949
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_final_game
+    - node.type.game
+    - node.type.league
+id: node.league.field_final_game
+field_name: field_final_game
+entity_type: node
+bundle: league
+label: 'Final Games'
+description: 'Enter the final games — 1st vs 2nd place comes first, then 3rd vs 4th place.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      game: game
+    sort:
+      field: created
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

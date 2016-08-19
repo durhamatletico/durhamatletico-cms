@@ -2,6 +2,7 @@ resources:
   tournament_rest_resource:
     GET:
       supported_formats:
+        - hal_json
         - json
       supported_auth:
         - cookie
