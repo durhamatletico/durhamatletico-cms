@@ -58,6 +58,10 @@ class TournamentRestResource extends ResourceBase {
         return new ResourceResponse([]);
       }
 
+      if (!count($qf_results)) {
+        $qf_results = [[], [], [], []];
+      }
+
       $semi_final_nodes = [];
       $sf_results = [];
       if (isset($node->field_semi_final_games->entity)) {
@@ -67,10 +71,12 @@ class TournamentRestResource extends ResourceBase {
         }
         // Get SF node scores.
         foreach ($semi_final_nodes as $sf_node) {
-          $sf_results[] = [
-            (int) $sf_node->field_home_team_score->value,
-            (int) $sf_node->field_away_team_score->value,
-          ];
+          if ($sf_node->get('field_game_status')->getString() == 'Played' && $sf_node->field_home_team_score->value && $sf_node->field_away_team_score->value) {
+            $sf_results[] = [
+              (int) $sf_node->field_home_team_score->value,
+              (int) $sf_node->field_away_team_score->value,
+            ];
+          }
         }
       }
 
@@ -82,10 +88,12 @@ class TournamentRestResource extends ResourceBase {
           $final_nodes[] = Node::load($final_node->entity->id());
         }
         foreach ($final_nodes as $f_node) {
-          $final_results[] = [
-            (int) $f_node->field_home_team_score->value,
-            (int) $f_node->field_away_team_score->value,
-          ];
+          if ($f_node->get('field_game_status')->getString() == 'Played' && $f_node->field_home_team_score->value && $f_node->field_away_team_score->value) {
+            $final_results[] = [
+              (int) $f_node->field_home_team_score->value,
+              (int) $f_node->field_away_team_score->value,
+            ];
+          }
         }
       }
 
@@ -104,14 +112,17 @@ class TournamentRestResource extends ResourceBase {
         ];
       }
 
-
       $response['teams'] = $team_names;
 
-      $response['results'] = [
-        $qf_results,
-        $sf_results,
-        $final_results,
-      ];
+      if (count($qf_results)) {
+        $response['results'][] = $qf_results;
+      }
+      if (count($sf_results)) {
+        $response['results'][] = $sf_results;
+      }
+      if (count($final_results)) {
+        $response['results'][] = $final_results;
+      }
       return new ResourceResponse($response);
     }
 
