@@ -46,16 +46,22 @@ xdebug.remote_host=\"10.254.254.254\"\n\
 xdebug.remote_connect_back=0\n\
 " >> /etc/php.d/15-xdebug.ini
 
+# Drush
 RUN php -r "readfile('http://files.drush.org/drush.phar');" > /tmp/drush \
     && chmod +x /tmp/drush \
     && mv /tmp/drush /usr/local/bin
 
+# Drupal Console
 RUN curl https://drupalconsole.com/installer -L -o drupal.phar \
     && chmod +x drupal.phar \
     && mv drupal.phar /usr/local/bin/drupal
 
+# Composer
 RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer
+
+# Terminus
+RUN curl https://github.com/pantheon-systems/cli/releases/download/0.11.1/terminus.phar -L -o /usr/local/bin/terminus && chmod +x /usr/local/bin/terminus
 
 ADD durhamatletico.aliases.drushrc.php /etc/drush/
 ADD settings.php /conf/dtdrupal_db.php

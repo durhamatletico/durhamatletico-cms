@@ -1,0 +1,32 @@
+language: ruby
+sudo: required
+dist: trusty
+
+env:
+  DOCKER_COMPOSE_VERSION: 1.8.0
+
+services:
+  - docker
+
+git:
+  depth: 5
+
+before_install:
+  - sudo service memcached stop
+  - docker version
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - docker-compose version
+
+install:
+  - docker-compose pull
+  - docker-compose up -d
+  - docker-compose exec php composer install -d tests --prefer-dist --no-interaction
+  - cd themes/atletico; bundle install
+  - tests/scripts/build.sh
+
+script:
+  - cd themes/atletico; bundle exec scss-lint
+  - docker-compose exec -T php tests/bin/behat --no-colors -c tests/behat.yml -f progress
+
