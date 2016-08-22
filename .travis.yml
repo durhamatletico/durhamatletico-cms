@@ -22,7 +22,7 @@ before_install:
 install:
   - docker-compose pull
   - docker-compose up -d
-  - docker-compose exec php composer install -d tests --prefer-dist --no-interaction
+  - docker-compose exec -T php composer install -d tests --prefer-dist --no-interaction
   - cd themes/atletico; bundle install
   - tests/scripts/build.sh
 
