@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/durhamatletico/durhamatletico-cms.svg?style=svg)](https://circleci.com/gh/durhamatletico/durhamatletico-cms)
+[![Build Status](https://travis-ci.org/durhamatletico/durhamatletico-cms.svg?branch=tournament-api-js)](https://travis-ci.org/durhamatletico/durhamatletico-cms)
 
 # Durham Atletico
 
@@ -14,9 +14,7 @@ Email is handled via Mailgun.
 
 ## Tests
 
-Automated testing is run through [CircleCi](https://circleci.com/gh/durhamatletico/durhamatletico-cms).
-
-To run tests locally, `tests/bin/behat -c tests/behat.yml`. You'll need to set up your own `behat.local.yml` first though.
+Automated testing is run through [Travis CI](https://travis-ci.org/durhamatletico/durhamatletico-cms).
 
 ## Contributing
 
