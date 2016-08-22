@@ -64,7 +64,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
 RUN curl https://github.com/pantheon-systems/cli/releases/download/0.11.1/terminus.phar -L -o /usr/local/bin/terminus && chmod +x /usr/local/bin/terminus
 
 ADD durhamatletico.aliases.drushrc.php /etc/drush/
-ADD settings.php /conf/dtdrupal_db.php
+ADD settings.php /conf/settings.php
 
 RUN useradd -u 48 -U --home /var/www -M --shell /sbin/nologin apache
 RUN sed -i '/^listen\ =\ 127.0.0.1/c\listen = 9000' $PHPCONF

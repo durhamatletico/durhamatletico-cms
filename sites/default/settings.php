@@ -25,6 +25,10 @@ if (file_exists($local_settings)) {
   include $local_settings;
 }
 
+if (file_exists('/conf/settings.php')) {
+  include '/conf/settings.php';
+}
+
 $settings['install_profile'] = 'standard';
 if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
 
