@@ -24,7 +24,7 @@ install:
   - docker-compose up -d
   - docker-compose exec -T php composer install -d tests --prefer-dist --no-interaction
   - cd themes/atletico; bundle install
-  - tests/scripts/build.sh
+  - cd ../..; tests/scripts/build.sh
 
 script:
   - cd themes/atletico; bundle exec scss-lint
