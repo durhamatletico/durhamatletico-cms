@@ -1,0 +1,29 @@
+uuid: bf4749f9-b07f-41e4-8da4-7192e691d6a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_semi_final_games
+    - node.type.game
+    - node.type.league
+id: node.league.field_semi_final_games
+field_name: field_semi_final_games
+entity_type: node
+bundle: league
+label: 'Semi-Final Games'
+description: 'Enter the semi-final games.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      game: game
+    sort:
+      field: created
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

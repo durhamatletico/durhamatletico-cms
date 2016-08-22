@@ -1,0 +1,14 @@
+{
+  "name": "drupal/durhamatletico_api",
+  "type": "drupal-module",
+  "description": "Provides API functions for Durham Atletico",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/durhamatletico_api",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/durhamatletico_api",
+    "source": "http://cgit.drupalcode.org/durhamatletico_api"
+  },
+  "require": { }
+}

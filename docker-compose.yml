@@ -3,15 +3,12 @@ services:
   php:
     container_name: durhamatletico_php
     image: durhamatletico/durhamatletico-php-fpm:0.1
-    volumes:
-      - .docker/php-fpm/settings.php:/conf/settings.php
     volumes_from:
       - web:rw
     depends_on:
       - web
   web:
-    container_name: durhamatletico_httpd
-    hostname: local.durhamatletico.com
+    container_name: local.durhamatletico.com
     environment:
       - GH_TOKEN
       - IMGUR_API_KEY
@@ -22,7 +19,6 @@ services:
       - db
     volumes:
       - .:/var/www/html
-      - .docker/php-fpm/settings.php:/conf/settings.php
   db:
     container_name: durhamatletico_db
     image: mariadb:5.5.47
@@ -44,8 +40,7 @@ services:
         - BLACKFIRE_CLIENT_TOKEN
   selenium:
     container_name: durhamatletico_selenium
-    image: selenium/standalone-chrome-debug:2.53.0
-
+    image: selenium/standalone-chrome:2.53.0
 volumes:
   mysql-data:
     driver: local

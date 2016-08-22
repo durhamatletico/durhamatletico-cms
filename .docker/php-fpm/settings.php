@@ -1,24 +1,23 @@
 <?php
 
-$databases['default']['default'] = [
+// Set your local database array.
+$databases['default']['default'] = array(
   'database' => 'durhamatletico_docker',
   'username' => 'root',
   'password' => 'root',
-  'host' => 'db',
-  'port' => '',
-  'driver' => 'mysql',
   'prefix' => '',
-];
+  'host' => 'db',
+  'port' => '3306',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'driver' => 'mysql',
+);
 
-// Docker specific.
-$conf['drupal_http_request_fails'] = FALSE;
+$settings['hash_salt'] = 'abcdefg';
 
-// Don't auto-run cron.
-$conf['cron_safe_threshold'] = 0;
+$settings['trusted_host_patterns'] = array(
+  '^localhost$',
+  '^0.0.0.0$',
+  '^local.durhamatletico.com$',
+);
 
-// File settings.
-$conf['file_temporary_path'] = '/tmp';
-$conf['file_private_path'] = 'sites/default/files/private';
-
-// Base URL for local dev.
 $base_url = 'https://local.durhamatletico.com';

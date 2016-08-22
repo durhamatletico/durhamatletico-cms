@@ -5,9 +5,12 @@ dependencies:
   config:
     - field.field.node.league.body
     - field.field.node.league.field_competition_type
+    - field.field.node.league.field_final_game
     - field.field.node.league.field_is_active
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
+    - field.field.node.league.field_quarter_final_games
+    - field.field.node.league.field_semi_final_games
     - field.field.node.league.field_sponsors
     - field.field.node.league.field_sport
     - field.field.node.league.field_teams
@@ -40,9 +43,12 @@ content:
     third_party_settings: {  }
 hidden:
   field_competition_type: true
+  field_final_game: true
   field_is_active: true
   field_leage: true
   field_league_start_date: true
+  field_quarter_final_games: true
+  field_semi_final_games: true
   field_sponsors: true
   field_sport: true
   field_teams: true

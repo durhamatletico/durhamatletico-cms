@@ -29,6 +29,22 @@
         $(this).css('background-color', $(this).attr('data-color'));
     });
 
+    // Summer 2016 brackets.
+  $.ajax({
+    url: "/api/tournaments/1655?_format=json",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    success: function(data, status, xhr) {
+      $('#summer-2016').bracket({
+        init: data
+      })
+    }
+  });
+
+
     // TODO: This should not be global.
     // Spring 2016 brackets.
     var data = {
@@ -94,35 +110,19 @@
 
     // TODO: This should not be global.
     // Winter 2016 brackets.
-    data = {
-        teams: [
-            ["Pitbulls", "Green Street"],
-            ["Real Durham", "Muchos Nachos"],
-            ["Hustle & Flow", "Regulators"],
-            ["MVFC", "Esemplastic Power"]
-        ],
-        results: [
-            [
-                [
-                    [7, 6],
-                    [17, 9],
-                    [10, 5],
-                    [3, 0],
-                ],
-                [
-                    [8, 10],
-                    [8, 10]
-                ],
-                [
-                    [12, 13],
-                    [5, 8],
-                ]
-            ]
-        ]
-    };
-    $('#division1').bracket({
+  $.ajax({
+    url: "/api/tournaments/1208?_format=json",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    success: function(data, status, xhr) {
+      $('#division1').bracket({
         init: data
-    });
+      })
+    }
+  });
 
     data = {
         teams: [

@@ -3,8 +3,6 @@ default:
     pretty: true
     junit:
       output_path: %paths.base%/build/xml
-    html:
-      output_path: %paths.base%/build/html
   suites:
     default:
       contexts:
@@ -14,18 +12,16 @@ default:
         - Drupal\DrupalExtension\Context\MessageContext
         - Drupal\DrupalExtension\Context\DrushContext
   extensions:
-    emuse\BehatHTMLFormatter\BehatHTMLFormatterExtension:
-      name: html
-      renderer: Twig
-      file_name: Index
-      print_args: true
-      print_outp: true
-      loop_break: true
     Behat\MinkExtension:
-      goutte: ~
-      selenium2: ~
+      goutte:
+        guzzle_parameters:
+          verify: false
+      selenium2:
+        browser: 'chrome'
+        wd_host: selenium:4444/wd/hub
+      base_url: 'https://local.durhamatletico.com'
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: 'drupal' 
-imports:
-  - behat.local.yml
+      drupal:
+        drupal_root: "/var/www/html"
