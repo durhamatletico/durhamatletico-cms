@@ -4,21 +4,22 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be5617b61e2a7d515cc9be9c5a402e5c",
-    "content-hash": "96332f6997c84bd257ae7ba586c1e9c4",
-    "packages": [
+    "hash": "8eb522161d0e0e579601938cca4590fb",
+    "content-hash": "44ca45ed591f164b8954540ec54637ec",
+    "packages": [],
+    "packages-dev": [
         {
             "name": "behat/behat",
-            "version": "dev-master",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "efbf9407a12a8fe097373bbc099172a54e74d88e"
+                "reference": "359d987b3064d78f2d3a6ba3a355277f3b09b47f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/efbf9407a12a8fe097373bbc099172a54e74d88e",
-                "reference": "efbf9407a12a8fe097373bbc099172a54e74d88e",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/359d987b3064d78f2d3a6ba3a355277f3b09b47f",
+                "reference": "359d987b3064d78f2d3a6ba3a355277f3b09b47f",
                 "shasum": ""
             },
             "require": {
@@ -26,16 +27,15 @@
                 "behat/transliterator": "~1.0",
                 "ext-mbstring": "*",
                 "php": ">=5.3.3",
-                "symfony/class-loader": "~2.1||~3.0",
-                "symfony/config": "~2.3||~3.0",
-                "symfony/console": "~2.1||~3.0",
-                "symfony/dependency-injection": "~2.1||~3.0",
-                "symfony/event-dispatcher": "~2.1||~3.0",
-                "symfony/translation": "~2.3||~3.0",
-                "symfony/yaml": "~2.1||~3.0"
+                "symfony/class-loader": "~2.1|~3.0",
+                "symfony/config": "~2.3|~3.0",
+                "symfony/console": "~2.1|~3.0",
+                "symfony/dependency-injection": "~2.1|~3.0",
+                "symfony/event-dispatcher": "~2.1|~3.0",
+                "symfony/translation": "~2.3|~3.0",
+                "symfony/yaml": "~2.1|~3.0"
             },
             "require-dev": {
-                "herrera-io/box": "~1.6.1",
                 "phpunit/phpunit": "~4.5",
                 "symfony/process": "~2.1|~3.0"
             },
@@ -86,7 +86,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2016-08-14 18:33:41"
+            "time": "2016-03-28 07:04:45"
         },
         {
             "name": "behat/gherkin",
@@ -594,46 +594,6 @@
             "time": "2016-06-30 21:12:18"
         },
         {
-            "name": "emuse/behat-html-formatter",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/dutchiexl/BehatHtmlFormatterPlugin.git",
-                "reference": "f4d4a3e23b747ddc7ed9825c18ffaf83821b7845"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/dutchiexl/BehatHtmlFormatterPlugin/zipball/f4d4a3e23b747ddc7ed9825c18ffaf83821b7845",
-                "reference": "f4d4a3e23b747ddc7ed9825c18ffaf83821b7845",
-                "shasum": ""
-            },
-            "require": {
-                "behat/behat": "~3.0",
-                "behat/gherkin": "~4.2",
-                "php": ">=5.3.0",
-                "twig/twig": "~1.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.1",
-                "symfony/process": ">2.3,<4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "emuse\\BehatHTMLFormatter\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Neal Vanmeert",
-                    "email": "neal@emuse.be"
-                }
-            ],
-            "description": "This will create a html formatter for Behat.",
-            "time": "2016-04-13 10:16:19"
-        },
-        {
             "name": "fabpot/goutte",
             "version": "v3.1.2",
             "source": {
@@ -684,16 +644,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "dev-master",
+            "version": "6.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "3b45e7675e8997ac96142b0265d158343958f708"
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3b45e7675e8997ac96142b0265d158343958f708",
-                "reference": "3b45e7675e8997ac96142b0265d158343958f708",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/3f808fba627f2c5b69e2501217bf31af349c1427",
+                "reference": "3f808fba627f2c5b69e2501217bf31af349c1427",
                 "shasum": ""
             },
             "require": {
@@ -742,7 +702,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-08-04 00:05:49"
+            "time": "2016-07-15 17:22:37"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1688,77 +1648,11 @@
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
             "time": "2016-07-17 14:02:08"
-        },
-        {
-            "name": "twig/twig",
-            "version": "v1.24.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/twigphp/Twig.git",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/3566d311a92aae4deec6e48682dc5a4528c4a512",
-                "reference": "3566d311a92aae4deec6e48682dc5a4528c4a512",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2.7"
-            },
-            "require-dev": {
-                "symfony/debug": "~2.7",
-                "symfony/phpunit-bridge": "~2.7"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.24-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Twig_": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-3-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com",
-                    "role": "Project Founder"
-                },
-                {
-                    "name": "Twig Team",
-                    "homepage": "http://twig.sensiolabs.org/contributors",
-                    "role": "Contributors"
-                }
-            ],
-            "description": "Twig, the flexible, fast, and secure template language for PHP",
-            "homepage": "http://twig.sensiolabs.org",
-            "keywords": [
-                "templating"
-            ],
-            "time": "2016-05-30 09:11:59"
         }
     ],
-    "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "behat/behat": 20,
-        "emuse/behat-html-formatter": 20,
-        "guzzlehttp/guzzle": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

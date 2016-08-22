@@ -20,12 +20,6 @@ default:
         browser: 'chrome'
         wd_host: selenium:4444/wd/hub
       base_url: 'https://local.durhamatletico.com'
-      sessions:
-        default:
-          goutte:
-            guzzle_parameters:
-              defaults:
-                verify: false
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: 'drupal' 
