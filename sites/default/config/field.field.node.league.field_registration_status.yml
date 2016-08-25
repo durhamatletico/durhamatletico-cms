@@ -1,0 +1,23 @@
+uuid: 4497824a-74af-489d-8f78-dc59575e54f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_status
+    - node.type.league
+id: node.league.field_registration_status
+field_name: field_registration_status
+entity_type: node
+bundle: league
+label: 'Registration Status'
+description: 'Whether registration is open or closed for this season.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Open
+  off_label: Closed
+field_type: boolean

@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_quarter_final_games
+    - field.field.node.league.field_registration_fee
+    - field.field.node.league.field_registration_status
     - field.field.node.league.field_semi_final_games
     - field.field.node.league.field_sponsors
     - field.field.node.league.field_sport
@@ -82,6 +84,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+  field_registration_fee:
+    weight: 50
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+  field_registration_status:
+    weight: 51
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_semi_final_games:
     weight: 48
     settings:

@@ -1,0 +1,23 @@
+uuid: aec2b114-630d-41e0-89a9-7fc77a9091e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_fee
+    - node.type.league
+id: node.league.field_registration_fee
+field_name: field_registration_fee
+entity_type: node
+bundle: league
+label: 'Registration Fee'
+description: 'Set the registration fee for new registrations. Note that the number should be multiplied by 100, so if the registration fee is $60 then the number entered here should be 6000.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

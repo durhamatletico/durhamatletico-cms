@@ -22,11 +22,11 @@ settings:
   provider: views
   label_display: visible
   views_label: ''
-  items_per_page: none
+  items_per_page: '20'
 visibility:
   request_path:
     id: request_path
-    pages: "/user\r\n/user/*"
+    pages: "/user\r\n/user/*\r\n/node/add/registration"
     negate: false
     context_mapping: {  }
   user_role:

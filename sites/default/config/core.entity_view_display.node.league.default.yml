@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.league.field_leage
     - field.field.node.league.field_league_start_date
     - field.field.node.league.field_quarter_final_games
+    - field.field.node.league.field_registration_fee
+    - field.field.node.league.field_registration_status
     - field.field.node.league.field_semi_final_games
     - field.field.node.league.field_sponsors
     - field.field.node.league.field_sport
@@ -48,6 +50,8 @@ hidden:
   field_leage: true
   field_league_start_date: true
   field_quarter_final_games: true
+  field_registration_fee: true
+  field_registration_status: true
   field_semi_final_games: true
   field_sponsors: true
   field_sport: true

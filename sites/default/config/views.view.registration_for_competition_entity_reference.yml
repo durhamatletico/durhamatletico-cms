@@ -1,14 +1,14 @@
-uuid: 3974a0a5-60fb-44cf-8e05-5bffffdea987
+uuid: 8aa4773f-1768-4878-a76f-2dbb97dc30ba
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.team
+    - node.type.league
   module:
     - node
     - user
-id: registration_select_teams
-label: 'Registration - Select teams'
+id: registration_for_competition_entity_reference
+label: 'Registration for Competition Entity Reference'
 module: views
 description: ''
 tag: ''
@@ -48,7 +48,7 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: mini
         options:
           items_per_page: 10
           offset: 0
@@ -63,11 +63,8 @@ display:
             offset: false
             offset_label: Offset
           tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
+            previous: ‹‹
+            next: ››
       style:
         type: default
         options:
@@ -146,12 +143,20 @@ display:
           id: type
           table: node_field_data
           field: type
+          value:
+            league: league
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        field_registration_status_value:
+          id: field_registration_status_value
+          table: node__field_registration_status
+          field: field_registration_status_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: in
-          value:
-            team: team
+          operator: '='
+          value: true
           group: 1
           exposed: false
           expose:
@@ -166,7 +171,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-            reduce: false
           is_grouped: false
           group_info:
             label: ''
@@ -179,54 +183,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: contains
-          value: 'Fall 2016'
-          group: 1
-          exposed: true
-          expose:
-            operator_id: title_op
-            label: Title
-            description: ''
-            use_operator: false
-            operator: title_op
-            identifier: title
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              player: '0'
-              team_captain: '0'
-              translator: '0'
-              content_editor: '0'
-              league_administrator: '0'
-              administrator: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          entity_type: node
-          entity_field: title
-          plugin_id: string
+          plugin_id: boolean
       sorts:
         created:
           id: created
@@ -254,7 +211,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -272,16 +228,14 @@ display:
           search_fields:
             title: title
       pager:
-        type: some
+        type: none
         options:
-          items_per_page: 30
           offset: 0
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
