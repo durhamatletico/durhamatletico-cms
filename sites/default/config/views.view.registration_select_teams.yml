@@ -182,36 +182,29 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        field_accepting_registrations_value:
+          id: field_accepting_registrations_value
+          table: node__field_accepting_registrations
+          field: field_accepting_registrations_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
-          value: 'Fall 2016'
+          operator: '='
+          value: true
           group: 1
-          exposed: true
+          exposed: false
           expose:
-            operator_id: title_op
-            label: Title
+            operator_id: ''
+            label: ''
             description: ''
             use_operator: false
-            operator: title_op
-            identifier: title
+            operator: ''
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              player: '0'
-              team_captain: '0'
-              translator: '0'
-              content_editor: '0'
-              league_administrator: '0'
-              administrator: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -224,9 +217,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: title
-          plugin_id: string
+          plugin_id: boolean
       sorts:
         created:
           id: created
@@ -254,7 +245,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.permissions
@@ -281,7 +271,6 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

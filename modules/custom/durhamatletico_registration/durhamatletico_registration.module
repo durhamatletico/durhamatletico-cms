@@ -9,6 +9,7 @@ use Drupal\Core\Routing\RouteMatchInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_user_login().
@@ -141,12 +142,45 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 }
 
 function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInterface $node) {
-  $x = 0;
-  $y = 1;
+  // Don't do anything if not a registration node.
+  if ($node->getType() !== 'registration') {
+    return;
+  }
   // Set the registration fee from the competition's field.
   $competition = $node->get('field_registration_for')->getValue();
-
-  // Set the registration title from the season that the competition belongs to.
+  if (!isset($competition[0]['target_id'])) {
+    // There was a problem.
+    // We should do something.
+    // TODO: But what?
+  }
+  $competition_node = Node::load($competition[0]['target_id']);
+  $node->set('field_balance_due', $competition_node->get('field_registration_fee')->getValue());
+  // Find season nodes that contain references to the competition NID, and set
+  // the entity reference field for the registration.
+  $season_nid = \Drupal::entityQuery('node')
+              ->condition('type', 'season')
+              ->condition('status', 1)
+              ->condition('field_divisions.target_id', $competition_node->id())
+              ->addMetaData('uid', 1)
+              ->execute();
+  $node->set('field_registration_season', $season_nid);
+  // Set the registration title. It should be along the lines of:
+  // [Sport e.g. futsal/soccer], [Season e.g. Fall 2016]: [First Name] [Last
+  // Name] - [Team Name or "Free agent" if none selected]
+  $uid = $node->get('uid')->getValue();
+  $user = User::load($uid[0]['target_id']);
+  $first_name = $user->field_first_name->value;
+  $last_name = $user->field_last_name->value;
+  $registration_teams = $node->get('field_registration_teams')->getValue();
+  if (!$registration_teams) {
+    $team_name = 'Free agent';
+  }
+  else {
+    $team_node = Node::load($registration_teams[0]['target_id']);
+    $team_name = $team_node->field_abbreviation->value;
+  }
+  $title = substr(sprintf('[%s] %s %s - %s', $competition_node->label(), $first_name, $last_name, $team_name), 0, 254);
+  $node->set('title', $title);
 }
 
 /**
