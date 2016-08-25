@@ -110,7 +110,8 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
   if ($form_id == 'node_registration_form' || $form_id == 'node_registration_edit_form') {
     // If the user already created a registration, direct them back to theirs.
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
+    // TODO: Filter out competitions the user has registered for, if they have registered for all open
+    // competitions then redirect to /user.
 
     // Registration admin roles.
     $reg_admin_roles = [
@@ -130,9 +131,6 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 
     $form['field_balance_due']['#access'] = FALSE;
     $form['field_registration_season']['#access'] = FALSE;
-    // TODO: Rework this. @debt.
-    // Hardcoded value to nid 1283, which corresponds to the spring season.
-    $form['field_registration_season']['widget'][0]['target_id']['#default_value'] = Node::load(1283);
     unset($form['field_admin_comments']);
     unset($form['revision_information']);
     unset($form['revision_log']);
@@ -140,6 +138,15 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
     // TODO: @debt.
     $form['title']['widget'][0]['value']['#default_value'] = \Drupal::currentUser()->getDisplayName() . ' - Spring 2016 registration';
   }
+}
+
+function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInterface $node) {
+  $x = 0;
+  $y = 1;
+  // Set the registration fee from the competition's field.
+  $competition = $node->get('field_registration_for')->getValue();
+
+  // Set the registration title from the season that the competition belongs to.
 }
 
 /**

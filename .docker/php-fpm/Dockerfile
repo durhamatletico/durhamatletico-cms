@@ -42,8 +42,9 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 RUN echo -e "\
 xdebug.remote_enable=1\n\
 xdebug.idekey=PHPSTORM\n\
-xdebug.remote_host=\"10.254.254.254\"\n\
-xdebug.remote_connect_back=0\n\
+xdebug.remote_host=\"127.0.0.1\"\n\
+xdebug.remote_connect_back=1\n\
+xdebug.remote_autostart=true\n\
 " >> /etc/php.d/15-xdebug.ini
 
 # Drush

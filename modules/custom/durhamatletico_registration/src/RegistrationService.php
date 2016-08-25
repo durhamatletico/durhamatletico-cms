@@ -69,7 +69,6 @@ class RegistrationService {
     // TODO: Rework this. @debt.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
-      ->condition('created', 1458176898, '>')
       ->condition('type', 'registration')
       ->condition('uid', $user->id());
     $nids = $query->execute();
