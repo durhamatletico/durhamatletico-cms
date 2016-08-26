@@ -113,7 +113,6 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
     // TODO: Filter out competitions the user has registered for, if they have registered for all open
     // competitions then redirect to /user.
-
     // Registration admin roles.
     $reg_admin_roles = [
       'content_editor',
@@ -137,6 +136,7 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
     unset($form['revision_information']);
     unset($form['revision_log']);
     $form['title']['#access'] = FALSE;
+    $form['title']['widget'][0]['value']['#default_value'] = 'New registration';
   }
 }
 
