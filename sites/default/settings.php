@@ -37,7 +37,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     $domain = 'dev.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
       '^dev\.durhamatletico\.com$',
-      'dev-durham-atletico\.pantheon\.io$',
+      'dev-durham-atletico\.pantheonsite\.io$',
     );
     if ($stripe_file = file_get_contents('sites/default/files/private/stripe.json')) {
       $stripe_config = json_decode($stripe_file, TRUE);
@@ -54,7 +54,7 @@ if (isset($_ENV['PANTHEON_ENVIRONMENT'])) {
     $domain = 'test.durhamatletico.com';
     $settings['trusted_host_patterns'] = array(
       '^test\.durhamatletico\.com$',
-      'test-durham-atletico\.pantheon\.io$',
+      'test-durham-atletico\.pantheonsite\.io$',
     );
     if ($stripe_file = file_get_contents('sites/default/files/private/stripe.json')) {
       $stripe_config = json_decode($stripe_file, TRUE);
