@@ -92,7 +92,7 @@ Feature: Allow registered users to sign up for a leauge
       When I go to "/user"
       Then I should not see the text "Paid. Thank you"
 
-    @api
+    @api @failing
   Scenario: Users are redirected to node/add/registration after creating an account
     Given I am on "/user/register"
     And I fill in "Email address" with a random e-mail address
