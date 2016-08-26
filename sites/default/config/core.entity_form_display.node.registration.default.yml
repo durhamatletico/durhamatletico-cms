@@ -50,7 +50,7 @@ content:
     weight: 9
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: options_select
   field_registration_season:
     weight: 16
     settings:

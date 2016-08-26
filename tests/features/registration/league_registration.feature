@@ -49,6 +49,7 @@ Feature: Allow registered users to sign up for a leauge
     Given I select "F" from "Shirt Type"
     And I select "M" from "Shirt Size"
     And I select "[Futsal] Free Agents" from "Team"
+    And I select "[Futsal] Fall 2016 - Division 2" from "Registration for"
     And for "Shirt Number" I enter "4"
     When I press "Save"
     Then I should see "has been created"
@@ -69,15 +70,10 @@ Feature: Allow registered users to sign up for a leauge
     And I select "M" from "Shirt Size"
     And for "Shirt Number" I enter "4"
     And I select "[Futsal] Free Agents" from "Team"
+    And I select "[Futsal] Fall 2016 - Division 1" from "Registration for"
     And I press "Save"
     Then I should see "Submitted by"
     And I should get a 200 HTTP response
-    # Given I am logged in as "testuser"
-    # When I go to "/testregistration"
-    # This currently doesn't work because the node author isn't properly
-    # set to `testuser` by DrupalExtension.
-    # Then I should get a 200 HTTP response
-    # And I should see "Submitted by testuser"
 
     @api
   Scenario: Users should see a link to register for the league
@@ -85,6 +81,7 @@ Feature: Allow registered users to sign up for a leauge
       When I go to "/user"
       Then I should see the link "click here to create a registration"
       When I follow "click here to create a registration"
+      And I select "[Futsal] Fall 2016 - Division 1" from "Registration for"
       Given I select "F" from "Shirt Type"
       And I select "M" from "Shirt Size"
       And for "Shirt Number" I enter "4"

@@ -10,7 +10,7 @@ use Drupal\node\Entity\Node;
 /**
  * Update free agent teams and fall 2016 seasons.
  */
-function durhamatletico_registration_post_update_enable_teams_reg(&$sandbox) {
+function durhamatletico_registration_post_update_enable_teams_competitions_reg(&$sandbox) {
 
   $team_nids = [1718, 1719];
   foreach ($team_nids as $nid) {
@@ -23,6 +23,7 @@ function durhamatletico_registration_post_update_enable_teams_reg(&$sandbox) {
   foreach ($competition_nids as $nid) {
     $node = Node::load($nid);
     $node->set('field_registration_status', TRUE);
+    $node->set('field_registration_fee', 6000);
     $node->save();
   }
   $result = t('Updated registration and team nodes.');
