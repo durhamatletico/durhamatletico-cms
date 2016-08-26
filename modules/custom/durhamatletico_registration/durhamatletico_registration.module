@@ -136,8 +136,6 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
     unset($form['revision_information']);
     unset($form['revision_log']);
     $form['title']['#access'] = FALSE;
-    // TODO: @debt.
-    $form['title']['widget'][0]['value']['#default_value'] = \Drupal::currentUser()->getDisplayName() . ' - Spring 2016 registration';
   }
 }
 
