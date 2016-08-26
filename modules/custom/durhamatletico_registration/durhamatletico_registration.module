@@ -132,6 +132,7 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 
     $form['field_balance_due']['#access'] = FALSE;
     $form['field_registration_season']['#access'] = FALSE;
+    $form['field_registration_for']['#access'] = FALSE;
     unset($form['field_admin_comments']);
     unset($form['revision_information']);
     unset($form['revision_log']);
