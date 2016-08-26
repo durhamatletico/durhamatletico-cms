@@ -44,8 +44,8 @@ content:
     weight: 7
     label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: html_date
     third_party_settings: {  }
     type: datetime_default
   field_facebook:
@@ -111,15 +111,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-  field_opt_in_social_media:
-    weight: 8
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
   field_opt_in_text_alerts:
     weight: 6
     label: above
@@ -176,3 +167,4 @@ content:
     label: hidden
 hidden:
   field_city: true
+  field_opt_in_social_media: true

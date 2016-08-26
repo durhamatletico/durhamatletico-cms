@@ -19,6 +19,6 @@ default_value:
     value: 1
 default_value_callback: ''
 settings:
-  on_label: Opt-in
+  on_label: 'Opt-in for text message alerts'
   off_label: Opt-out
 field_type: boolean
