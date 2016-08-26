@@ -131,7 +131,6 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 
     $form['field_balance_due']['#access'] = FALSE;
     $form['field_registration_season']['#access'] = FALSE;
-    $form['field_registration_for']['#access'] = FALSE;
     unset($form['field_admin_comments']);
     unset($form['revision_information']);
     unset($form['revision_log']);
@@ -174,7 +173,7 @@ function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInter
   $registration_teams = $node->get('field_registration_teams')->getValue();
   $team_node = Node::load($registration_teams[0]['target_id']);
   $team_name = $team_node->field_abbreviation->value;
-  $title = substr(sprintf('[%s] %s %s - %s', $competition_node->label(), $first_name, $last_name, $team_name), 0, 254);
+  $title = substr(sprintf('%s %s %s - %s', $competition_node->label(), $first_name, $last_name, $team_name), 0, 254);
   $node->set('title', $title);
 }
 
