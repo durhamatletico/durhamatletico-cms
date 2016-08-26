@@ -111,3 +111,21 @@ Feature: Allow registered users to sign up for a leauge
     And I press "Create new account"
     Then I should be on "/node/add/registration"
 
+    @api
+  Scenario: Users must enter an NC address
+    Given I am on "/user/register"
+    And I fill in "Email address" with a random e-mail address
+    And I fill in "Username" with a random string
+    And I fill in "Password" with "password"
+    And I fill in "Confirm password" with "password"
+    And I fill in "First Name" with "behat"
+    And I fill in "Last Name" with "tester"
+    And I fill in "Phone" with "919-123-4567"
+    And I select "English" from "Preferred Language"
+    And I fill in "Street address" with "123"
+    And I fill in "City" with "Durham"
+    And I select "California" from "State"
+    And I fill in "Zip code" with "90210"
+    And I wait 6 seconds
+    And I press "Create new account"
+    Then I should see "Please enter a valid NC address"
