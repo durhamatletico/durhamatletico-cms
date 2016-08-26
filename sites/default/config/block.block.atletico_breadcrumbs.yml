@@ -9,7 +9,7 @@ dependencies:
 id: atletico_breadcrumbs
 theme: atletico
 region: '-1'
-weight: -23
+weight: -25
 provider: null
 plugin: system_breadcrumb_block
 settings:
