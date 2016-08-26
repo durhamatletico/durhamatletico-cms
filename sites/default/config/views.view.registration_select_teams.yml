@@ -182,15 +182,15 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        field_accepting_registrations_value:
+          id: field_accepting_registrations_value
+          table: node__field_accepting_registrations
+          field: field_accepting_registrations_value
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
-          value: spring
+          operator: '='
+          value: true
           group: 1
           exposed: false
           expose:
@@ -217,9 +217,7 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          entity_type: node
-          entity_field: title
-          plugin_id: string
+          plugin_id: boolean
       sorts:
         created:
           id: created

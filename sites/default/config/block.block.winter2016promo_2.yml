@@ -12,7 +12,7 @@ dependencies:
 id: winter2016promo_2
 theme: atletico
 region: '-1'
-weight: -13
+weight: -14
 provider: null
 plugin: 'block_content:17395d6e-df61-49a2-b44d-77704df2fabf'
 settings:

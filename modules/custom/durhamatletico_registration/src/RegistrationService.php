@@ -66,10 +66,8 @@ class RegistrationService {
    * @return array
    */
   public function getRegistrationNodeForUser(\Drupal\user\UserInterface $user) {
-    // TODO: Rework this. @debt.
     $query = \Drupal::entityQuery('node')
       ->condition('status', 1)
-      ->condition('created', 1458176898, '>')
       ->condition('type', 'registration')
       ->condition('uid', $user->id());
     $nids = $query->execute();
@@ -109,8 +107,6 @@ class RegistrationService {
    * Users are only allowed to create one registration node. An exception is
    * granted to admins, but even they shouldn't abuse this rule!
    *
-   * TODO: This should be one reg node per season/division. @debt.
-   *
    * @return bool
    */
   public function canCreateNewRegistration(\Drupal\user\UserInterface $user) {
@@ -121,25 +117,6 @@ class RegistrationService {
     if (in_array('league_administrator', \Drupal::currentUser()->getRoles(TRUE))) {
       // Allow league admins to create/edit.
       return TRUE;
-    }
-    $nids = $this->getRegistrationNodeForUser($user);
-    if (!count($nids)) {
-      // No existing registrations, go right ahead.
-      return TRUE;
-    }
-
-    // TODO: More @debt.
-    // Current season = nid 1283.
-    foreach ($nids as $nid) {
-      // Check if the registration is for the current season.
-      $registration_node = \Drupal\node\Entity\Node::load($nid);
-      if ($registration_node->get('field_registration_season')->entity->id() == 1283) {
-        drupal_set_message(t('You have already created a registration in the system!'), 'error');
-        $response = new RedirectResponse('/user');
-        $response->send();
-        return FALSE;
-
-      }
     }
     return TRUE;
   }

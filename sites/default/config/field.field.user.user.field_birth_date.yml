@@ -15,7 +15,10 @@ label: 'Birth date'
 description: 'The futsal league is open to players ages 16 and up.'
 required: true
 translatable: true
-default_value: {  }
+default_value:
+  -
+    default_date_type: relative
+    default_date: '-16 years'
 default_value_callback: ''
 settings: {  }
 field_type: datetime

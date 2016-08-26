@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.registration.field_admin_comments
     - field.field.node.registration.field_balance_due
     - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_for
     - field.field.node.registration.field_registration_season
     - field.field.node.registration.field_registration_shirt_number
     - field.field.node.registration.field_registration_shirt_size
@@ -42,6 +43,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
+  field_registration_for:
+    weight: 9
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
   field_registration_season:
     weight: 8
     label: above

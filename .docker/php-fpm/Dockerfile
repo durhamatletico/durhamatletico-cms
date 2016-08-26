@@ -6,7 +6,7 @@ FROM centos:centos7
 MAINTAINER Kosta Harlan <kosta@durhamatletico.com>
 
 ENV REPO http://dl.iuscommunity.org/pub/ius/stable/CentOS/\$releasever/\$basearch/
-ENV PHP php56u-xdebug php56u-cli php56u-fpm php56u-gd php56u-ldap php56u-mbstring php56u-mysql php56u-pdo php56u-xml mysql git curl tar which nc
+ENV PHP php56u-xdebug php56u-cli php56u-fpm php56u-gd php56u-ldap php56u-mbstring php56u-mysql php56u-pdo php56u-xmlp php56u-bcmath mysql git curl tar which nc
 ENV PHPCONF /etc/php-fpm.d/www.conf
 
 RUN echo -e "\
@@ -42,8 +42,9 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 RUN echo -e "\
 xdebug.remote_enable=1\n\
 xdebug.idekey=PHPSTORM\n\
-xdebug.remote_host=\"10.254.254.254\"\n\
-xdebug.remote_connect_back=0\n\
+xdebug.remote_host=\"127.0.0.1\"\n\
+xdebug.remote_connect_back=1\n\
+xdebug.remote_autostart=true\n\
 " >> /etc/php.d/15-xdebug.ini
 
 # Drush

@@ -12,7 +12,7 @@ dependencies:
 id: registrationnotes_2
 theme: atletico
 region: '-1'
-weight: -16
+weight: -18
 provider: null
 plugin: 'block_content:ae2a2008-21be-46e0-a808-081d7526284f'
 settings:

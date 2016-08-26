@@ -1,0 +1,25 @@
+uuid: 3273ce11-1ee3-4646-8e28-2a4ae1e97b6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_for
+    - node.type.registration
+id: node.registration.field_registration_for
+field_name: field_registration_for
+entity_type: node
+bundle: registration
+label: 'Registration for'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: registration_for_competition_entity_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

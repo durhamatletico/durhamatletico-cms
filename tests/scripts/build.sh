@@ -15,5 +15,7 @@ docker exec -i durhamatletico_db mysql -uroot -proot durhamatletico_docker < dat
 # Clear cache
 docker-compose exec php drush cr -yv
 docker-compose exec php drush config-import -yv
+docker-compose exec php drush updb -yv
+docker-compose exec php drush cr -yv
 
 echo "Ready for testing!"

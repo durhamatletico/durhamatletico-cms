@@ -6,18 +6,18 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 
 /**
  * Implements hook_user_login().
  */
-function durhamatletico_registration_user_login($account) {
-  // Check if user hasn't created a registration node. If so, direct them to
-  // register.
-  $reg_node = \Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($account);
-  if (!count(reset($reg_node))) {
+function durhamatletico_registration_user_login(Drupal\user\Entity\User $account) {
+  // Redirect new users to node/add/registration.
+  if ($account->getLastLoginTime() == REQUEST_TIME) {
     $response = new RedirectResponse('/node/add/registration');
     $response->send();
   }
@@ -104,14 +104,31 @@ function durhamatletico_registration_help($route_name, RouteMatchInterface $rout
 }
 
 /**
+ * Custom validation for user registration form.
+ *
+ * Users who are not from NC are going to be flagged as spammers.
+ */
+function _durhamatletico_registration_user_registration_form_validate($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  if ($form_state->hasValue('field_address')) {
+    $address = $form_state->getValue('field_address');
+    if ($address[0]['administrative_area'] !== 'US-NC') {
+      $form_state->setErrorByName('field_address', t('Please enter a valid NC address.'));
+    }
+  }
+}
+
+/**
  * Implements hook_form_alter().
  */
 function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'user_register_form') {
+    $form['#validate'][] = '_durhamatletico_registration_user_registration_form_validate';
+  }
   if ($form_id == 'node_registration_form' || $form_id == 'node_registration_edit_form') {
     // If the user already created a registration, direct them back to theirs.
     $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    \Drupal::service('durhamatletico_registration.registration')->canCreateNewRegistration($user);
-
+    // TODO: Filter out competitions the user has registered for, if they have registered for all open
+    // competitions then redirect to /user.
     // Registration admin roles.
     $reg_admin_roles = [
       'content_editor',
@@ -130,16 +147,50 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 
     $form['field_balance_due']['#access'] = FALSE;
     $form['field_registration_season']['#access'] = FALSE;
-    // TODO: Rework this. @debt.
-    // Hardcoded value to nid 1283, which corresponds to the spring season.
-    $form['field_registration_season']['widget'][0]['target_id']['#default_value'] = Node::load(1283);
     unset($form['field_admin_comments']);
     unset($form['revision_information']);
     unset($form['revision_log']);
     $form['title']['#access'] = FALSE;
-    // TODO: @debt.
-    $form['title']['widget'][0]['value']['#default_value'] = \Drupal::currentUser()->getDisplayName() . ' - Spring 2016 registration';
+    $form['title']['widget'][0]['value']['#default_value'] = 'New registration';
   }
+}
+
+function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInterface $node) {
+  // Don't do anything if not a registration node.
+  if ($node->getType() !== 'registration') {
+    return;
+  }
+  // Set the registration fee from the competition's field.
+  $competition = $node->get('field_registration_for')->getValue();
+  if (!isset($competition[0]['target_id'])) {
+    // There was a problem.
+    // We should do something.
+    // TODO: But what?
+    return;
+  }
+  $competition_node = Node::load($competition[0]['target_id']);
+  $node->set('field_balance_due', $competition_node->get('field_registration_fee')->getValue());
+  // Find season nodes that contain references to the competition NID, and set
+  // the entity reference field for the registration.
+  $season_nid = \Drupal::entityQuery('node')
+              ->condition('type', 'season')
+              ->condition('status', 1)
+              ->condition('field_divisions.target_id', $competition_node->id())
+              ->addMetaData('uid', 1)
+              ->execute();
+  $node->set('field_registration_season', $season_nid);
+  // Set the registration title. It should be along the lines of:
+  // [Sport e.g. futsal/soccer], [Season e.g. Fall 2016]: [First Name] [Last
+  // Name] - [Team Name].
+  $uid = $node->get('uid')->getValue();
+  $user = User::load($uid[0]['target_id']);
+  $first_name = $user->field_first_name->value;
+  $last_name = $user->field_last_name->value;
+  $registration_teams = $node->get('field_registration_teams')->getValue();
+  $team_node = Node::load($registration_teams[0]['target_id']);
+  $team_name = $team_node->field_abbreviation->value;
+  $title = substr(sprintf('%s %s %s - %s', $competition_node->label(), $first_name, $last_name, $team_name), 0, 254);
+  $node->set('title', $title);
 }
 
 /**

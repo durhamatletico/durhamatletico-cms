@@ -1,0 +1,20 @@
+uuid: 50b8f779-8a04-4d51-9262-07129f63118f
+langcode: en
+status: true
+dependencies: {  }
+countryCode: BO
+format: "%recipient\n%organization\n%addressLine1\n%addressLine2\n%locality"
+requiredFields:
+  - recipient
+  - addressLine1
+  - locality
+uppercaseFields:
+  - addressLine1
+  - addressLine2
+  - locality
+administrativeAreaType: null
+localityType: city
+dependentLocalityType: null
+postalCodeType: null
+postalCodePattern: null
+postalCodePrefix: null

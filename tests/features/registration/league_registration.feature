@@ -48,6 +48,8 @@ Feature: Allow registered users to sign up for a leauge
     And I should not see "Revision information"
     Given I select "F" from "Shirt Type"
     And I select "M" from "Shirt Size"
+    And I select "[Futsal] Free Agents" from "Team"
+    And I select "[Futsal] Fall 2016 - Division 2" from "Registration for"
     And for "Shirt Number" I enter "4"
     When I press "Save"
     Then I should see "has been created"
@@ -67,29 +69,11 @@ Feature: Allow registered users to sign up for a leauge
     Given I select "F" from "Shirt Type"
     And I select "M" from "Shirt Size"
     And for "Shirt Number" I enter "4"
+    And I select "[Futsal] Free Agents" from "Team"
+    And I select "[Futsal] Fall 2016 - Division 1" from "Registration for"
     And I press "Save"
     Then I should see "Submitted by"
     And I should get a 200 HTTP response
-    Given I am logged in as "testuser"
-    When I go to "/testregistration"
-    # This currently doesn't work because the node author isn't properly
-    # set to `testuser` by DrupalExtension.
-    # Then I should get a 200 HTTP response
-    # And I should see "Submitted by testuser"
-
-  @api
-  Scenario: Users may only create one registration node per league
-    Given I am logged in as a user with the "authenticated user" role
-    When I go to "node/add/registration"
-    Given I select "F" from "Shirt Type"
-    And I select "M" from "Shirt Size"
-    And for "Shirt Number" I enter "4"
-    And I press "Save"
-    Then I should see "Submitted by"
-    And I should get a 200 HTTP response
-    When I go to "node/add/registration"
-    Then I should see "Member for"
-   
 
     @api
   Scenario: Users should see a link to register for the league
@@ -97,15 +81,51 @@ Feature: Allow registered users to sign up for a leauge
       When I go to "/user"
       Then I should see the link "click here to create a registration"
       When I follow "click here to create a registration"
+      And I select "[Futsal] Fall 2016 - Division 1" from "Registration for"
       Given I select "F" from "Shirt Type"
       And I select "M" from "Shirt Size"
       And for "Shirt Number" I enter "4"
+      And I select "[Soccer] Free Agents" from "Team"
       And I press "Save"
       Then I should see "Submitted by"
       And I should get a 200 HTTP response
       When I go to "/user"
       Then I should not see the text "Paid. Thank you"
 
-  Scenario: Users may pay for an individual registration
+    @api @failing
+  Scenario: Users are redirected to node/add/registration after creating an account
+    Given I am on "/user/register"
+    And I fill in "Email address" with a random e-mail address
+    And I fill in "Username" with a random string
+    And I fill in "Password" with "password"
+    And I fill in "Confirm password" with "password"
+    And I fill in "First Name" with "behat"
+    And I fill in "Last Name" with "tester"
+    And I fill in "Phone" with "919-123-4567"
+    And I select "English" from "Preferred Language"
+    And I fill in "Street address" with "123"
+    And I fill in "City" with "Durham"
+    And I select "North Carolina" from "State"
+    And I fill in "Zip code" with "27701"
+    And I wait 6 seconds
+    And I press "Create new account"
+    Then I should be on "/node/add/registration"
 
-  Scenario: Users may pay for a team registration
+    @api
+  Scenario: Users must enter an NC address
+    Given I am on "/user/register"
+    And I fill in "Email address" with a random e-mail address
+    And I fill in "Username" with a random string
+    And I fill in "Password" with "password"
+    And I fill in "Confirm password" with "password"
+    And I fill in "First Name" with "behat"
+    And I fill in "Last Name" with "tester"
+    And I fill in "Phone" with "919-123-4567"
+    And I select "English" from "Preferred Language"
+    And I fill in "Street address" with "123"
+    And I fill in "City" with "Durham"
+    And I select "California" from "State"
+    And I fill in "Zip code" with "90210"
+    And I wait 6 seconds
+    And I press "Create new account"
+    Then I should see "Please enter a valid NC address"

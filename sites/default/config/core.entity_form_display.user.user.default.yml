@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_address
     - field.field.user.user.field_birth_date
     - field.field.user.user.field_city
     - field.field.user.user.field_facebook
@@ -21,9 +22,11 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - address
     - datetime
     - image
     - link
+    - path
     - telephone
     - user
 id: user.user.default
@@ -39,20 +42,19 @@ content:
     weight: 3
     settings: {  }
     third_party_settings: {  }
+  field_address:
+    weight: 10
+    settings:
+      default_country: US
+    third_party_settings: {  }
+    type: address_default
   field_birth_date:
     weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-  field_city:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
   field_facebook:
-    weight: 13
+    weight: 15
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -66,7 +68,7 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_instagram:
-    weight: 14
+    weight: 16
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -80,26 +82,20 @@ content:
     third_party_settings: {  }
     type: string_textfield
   field_linkedin:
-    weight: 15
+    weight: 17
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
   field_opt_in_for_email_news:
-    weight: 11
-    settings:
-      display_label: false
-    third_party_settings: {  }
-    type: boolean_checkbox
-  field_opt_in_social_media:
-    weight: 12
+    weight: 13
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
   field_opt_in_text_alerts:
-    weight: 10
+    weight: 11
     settings:
       display_label: false
     third_party_settings: {  }
@@ -116,13 +112,13 @@ content:
     third_party_settings: {  }
     type: options_select
   field_terms_and_conditions:
-    weight: 17
+    weight: 19
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
   field_twitter:
-    weight: 16
+    weight: 18
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -132,10 +128,15 @@ content:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+  path:
+    type: path
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
   timezone:
     weight: 6
   translation:
-    weight: 10
+    weight: 12
     settings: {  }
     third_party_settings: {  }
   user_picture:
@@ -146,4 +147,6 @@ content:
     third_party_settings: {  }
     weight: 1
 hidden:
+  field_city: true
   field_league_registration: true
+  field_opt_in_social_media: true

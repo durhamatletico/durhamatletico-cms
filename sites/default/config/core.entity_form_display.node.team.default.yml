@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.team.body
     - field.field.node.team.field_abbreviation
+    - field.field.node.team.field_accepting_registrations
     - field.field.node.team.field_captains
     - field.field.node.team.field_jersey_color_html_
     - field.field.node.team.field_players
@@ -52,6 +53,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+  field_accepting_registrations:
+    weight: 49
+    settings:
+      display_label: false
+    third_party_settings: {  }
+    type: boolean_checkbox
   field_captains:
     weight: 33
     settings:

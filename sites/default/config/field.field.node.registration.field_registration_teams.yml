@@ -10,8 +10,8 @@ field_name: field_registration_teams
 entity_type: node
 bundle: registration
 label: Team
-description: 'If you are registering as part of a team, select it from the list. (If you don''t see your team listed here, let us know in the comments and we''ll add it.)'
-required: false
+description: 'If you are registering as part of an existing team team, select it from the list. (If you don''t see your team listed here, let us know in the comments and we''ll add it.)'
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
