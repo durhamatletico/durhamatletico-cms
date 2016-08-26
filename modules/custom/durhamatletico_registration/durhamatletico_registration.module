@@ -17,7 +17,7 @@ use Drupal\user\Entity\User;
  */
 function durhamatletico_registration_user_login(Drupal\user\Entity\User $account) {
   // Redirect new users to node/add/registration.
-  if ($account->getLastLoginTime() == REQUEST_TIME) {
+  if ($account->access->value == REQUEST_TIME) {
     $response = new RedirectResponse('/node/add/registration');
     $response->send();
   }
@@ -155,9 +155,16 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
   }
 }
 
+/**
+ * Set defaults on new registrations.
+ */
 function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInterface $node) {
   // Don't do anything if not a registration node.
   if ($node->getType() !== 'registration') {
+    return;
+  }
+  // If this is an existing node, don't make any changes.
+  if ($node->id() !== NULL) {
     return;
   }
   // Set the registration fee from the competition's field.
