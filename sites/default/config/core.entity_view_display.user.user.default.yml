@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_address
     - field.field.user.user.field_birth_date
     - field.field.user.user.field_city
     - field.field.user.user.field_facebook
@@ -21,6 +22,7 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - address
     - datetime
     - image
     - link
@@ -32,6 +34,12 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_address:
+    weight: 17
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
   field_birth_date:
     weight: 7
     label: above
@@ -40,13 +48,6 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-  field_city:
-    weight: 16
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
   field_facebook:
     weight: 9
     label: above
@@ -173,4 +174,5 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-hidden: {  }
+hidden:
+  field_city: true

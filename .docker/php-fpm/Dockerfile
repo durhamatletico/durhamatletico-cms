@@ -6,7 +6,7 @@ FROM centos:centos7
 MAINTAINER Kosta Harlan <kosta@durhamatletico.com>
 
 ENV REPO http://dl.iuscommunity.org/pub/ius/stable/CentOS/\$releasever/\$basearch/
-ENV PHP php56u-xdebug php56u-cli php56u-fpm php56u-gd php56u-ldap php56u-mbstring php56u-mysql php56u-pdo php56u-xml mysql git curl tar which nc
+ENV PHP php56u-xdebug php56u-cli php56u-fpm php56u-gd php56u-ldap php56u-mbstring php56u-mysql php56u-pdo php56u-xmlp php56u-bcmath mysql git curl tar which nc
 ENV PHPCONF /etc/php-fpm.d/www.conf
 
 RUN echo -e "\

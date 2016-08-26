@@ -1,0 +1,20 @@
+uuid: 44da4ed9-cec6-4848-98d6-5aecdf1a4028
+langcode: en
+status: true
+dependencies: {  }
+countryCode: RW
+format: "%recipient\n%organization\n%addressLine1\n%addressLine2\n%locality"
+requiredFields:
+  - recipient
+  - addressLine1
+  - locality
+uppercaseFields:
+  - addressLine1
+  - addressLine2
+  - locality
+administrativeAreaType: null
+localityType: city
+dependentLocalityType: null
+postalCodeType: null
+postalCodePattern: null
+postalCodePrefix: null

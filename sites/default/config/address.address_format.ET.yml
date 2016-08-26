@@ -1,0 +1,18 @@
+uuid: 90391193-4b14-4fa5-9c77-f1d05d6fe8f3
+langcode: en
+status: true
+dependencies: {  }
+countryCode: ET
+format: "%recipient\n%organization\n%addressLine1\n%addressLine2\n%postalCode %locality"
+requiredFields:
+  - recipient
+  - addressLine1
+  - locality
+uppercaseFields:
+  - locality
+administrativeAreaType: null
+localityType: city
+dependentLocalityType: null
+postalCodeType: postal
+postalCodePattern: '\d{4}'
+postalCodePrefix: null

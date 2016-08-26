@@ -1,0 +1,18 @@
+uuid: 4bda635b-fe5b-4506-b0c4-229633f5dcc7
+langcode: en
+status: true
+dependencies: {  }
+countryCode: NR
+format: "%recipient\n%organization\n%addressLine1\n%addressLine2\n%administrativeArea"
+requiredFields:
+  - recipient
+  - addressLine1
+  - administrativeArea
+uppercaseFields:
+  - locality
+administrativeAreaType: district
+localityType: null
+dependentLocalityType: null
+postalCodeType: null
+postalCodePattern: null
+postalCodePrefix: null
