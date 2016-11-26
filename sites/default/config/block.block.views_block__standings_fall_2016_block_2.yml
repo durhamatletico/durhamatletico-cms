@@ -1,22 +1,22 @@
-uuid: e37511bc-ecb3-4815-900d-13512bf57b63
+uuid: ef3f02cf-bccf-46a7-b52c-c0e4030c8fc0
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.standings
+    - views.view.standings_fall_2016
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__standings_block_2
+id: views_block__standings_fall_2016_block_2
 theme: atletico
 region: content
-weight: -10
+weight: -15
 provider: null
-plugin: 'views_block:standings-block_2'
+plugin: 'views_block:standings_fall_2016-block_2'
 settings:
-  id: 'views_block:standings-block_2'
+  id: 'views_block:standings_fall_2016-block_2'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /futsal/winter-2016
+    pages: "/node/1812\r\n/es/node/1812"
     negate: false
     context_mapping: {  }

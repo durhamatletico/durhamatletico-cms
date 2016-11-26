@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.team.body
     - field.field.node.team.field_abbreviation
+    - field.field.node.team.field_accepting_registrations
     - field.field.node.team.field_captains
     - field.field.node.team.field_jersey_color_html_
     - field.field.node.team.field_players
@@ -42,6 +43,7 @@ content:
     weight: 100
 hidden:
   field_abbreviation: true
+  field_accepting_registrations: true
   field_captains: true
   field_jersey_color_html_: true
   field_players: true
