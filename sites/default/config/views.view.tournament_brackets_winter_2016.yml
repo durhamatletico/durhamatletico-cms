@@ -13,6 +13,7 @@ dependencies:
   module:
     - node
     - rest
+    - serialization
     - user
 id: tournament_brackets_winter_2016
 label: 'Tournament Brackets Winter 2016'
@@ -595,7 +596,7 @@ display:
           plugin_id: field
       filters:
         status:
-          value: true
+          value: '1'
           table: node_field_data
           field: status
           plugin_id: boolean
@@ -756,6 +757,7 @@ display:
             field_bracket_grouping:
               alias: grouping
               raw_output: false
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -815,7 +817,7 @@ display:
               raw_output: false
       filters:
         status:
-          value: true
+          value: '1'
           table: node_field_data
           field: status
           plugin_id: boolean
@@ -881,6 +883,7 @@ display:
         operator: AND
         groups:
           1: AND
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:

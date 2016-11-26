@@ -8,3 +8,5 @@ recipients:
   - info@durhamatletico.com
 reply: 'Thanks for writing to us! We''ll be in touch soon.'
 weight: 0
+message: 'Your message has been sent.'
+redirect: ''
