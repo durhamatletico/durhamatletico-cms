@@ -12,7 +12,7 @@ dependencies:
 id: views_block__games_block_5
 theme: atletico
 region: content
-weight: -11
+weight: -12
 provider: null
 plugin: 'views_block:games-block_5'
 settings:
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/futsal\r\n*node/1432"
+    pages: '*node/1432'
     negate: false
     context_mapping: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: views_block__standings_spring_2016_block_2
 theme: atletico
 region: content
-weight: -7
+weight: -8
 provider: null
 plugin: 'views_block:standings_spring_2016-block_2'
 settings:
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/futsal\r\n/futsal/division-two\r\n*node/1432\r\n*node/1290"
+    pages: "/futsal/division-two\r\n*node/1432\r\n*node/1290"
     negate: false
     context_mapping: {  }
