@@ -29,6 +29,36 @@
         $(this).css('background-color', $(this).attr('data-color'));
     });
 
+  // Fall 2016 brackets.
+  $.ajax({
+      url: "/api/tournaments/1924?_format=json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      success: function(data, status, xhr) {
+        $('#fall-2016-division1').bracket({
+          init: data
+        })
+      }
+  });
+
+  $.ajax({
+    url: "/api/tournaments/1923?_format=json",
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+    },
+    success: function(data, status, xhr) {
+      $('#fall-2016-division2').bracket({
+        init: data
+      })
+    }
+  });
+
+
     // Summer 2016 brackets.
   $.ajax({
     url: "/api/tournaments/1655?_format=json",
