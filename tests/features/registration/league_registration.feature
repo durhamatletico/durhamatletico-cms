@@ -85,7 +85,7 @@ Feature: Allow registered users to sign up for a leauge
       Given I select "F" from "Shirt Type"
       And I select "M" from "Shirt Size"
       And for "Shirt Number" I enter "4"
-      And I select "[Soccer] Free Agents" from "Team"
+      And I select "I would like to be placed on a team" from "Team"
       And I press "Save"
       Then I should see "Submitted by"
       And I should get a 200 HTTP response
