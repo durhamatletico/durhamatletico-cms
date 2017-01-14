@@ -1,23 +1,10 @@
 language: ruby
-sudo: required
-dist: trusty
-
-env:
-  DOCKER_COMPOSE_VERSION: 1.8.0
 
 services:
   - docker
 
 git:
   depth: 5
-
-before_install:
-  - sudo service memcached stop
-  - docker version
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
-  - chmod +x docker-compose
-  - sudo mv docker-compose /usr/local/bin
-  - docker-compose version
 
 install:
   - docker-compose pull
