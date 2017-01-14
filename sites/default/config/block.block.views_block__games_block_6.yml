@@ -12,7 +12,7 @@ dependencies:
 id: views_block__games_block_6
 theme: atletico
 region: content
-weight: -14
+weight: -15
 provider: null
 plugin: 'views_block:games-block_6'
 settings:
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/1812\r\n/es/node/1812"
+    pages: "/node/2108\r\n/es/node/2108"
     negate: false
     context_mapping: {  }

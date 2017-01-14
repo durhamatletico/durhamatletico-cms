@@ -1,22 +1,22 @@
-uuid: c91ea01f-258c-4620-894d-777b0ff3501c
+uuid: be106b9e-1f96-4e59-a9ad-3d403788a685
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.games
+    - views.view.standings_winter_2017
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__games_block_2
+id: views_block__standings_winter_2017_block_2
 theme: atletico
 region: content
-weight: -18
+weight: 0
 provider: null
-plugin: 'views_block:games-block_2'
+plugin: 'views_block:standings_winter_2017-block_2'
 settings:
-  id: 'views_block:games-block_2'
+  id: 'views_block:standings_winter_2017-block_2'
   label: ''
   provider: views
   label_display: visible
