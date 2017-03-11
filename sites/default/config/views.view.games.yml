@@ -716,7 +716,7 @@ display:
           exposed: false
           expose:
             label: ''
-          granularity: hour
+          granularity: minute
           plugin_id: datetime
       title: 'Upcoming games'
       header: {  }
