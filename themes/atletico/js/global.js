@@ -29,6 +29,37 @@
         $(this).css('background-color', $(this).attr('data-color'));
     });
 
+  // Winter 2017 brackets.
+  if (document.getElementsByClassName('page-title')[0].innerHTML.indexOf('Winter 2017') > -1) {
+    $.ajax({
+      url: "/api/tournaments/2199?_format=json",
+      method: "get",
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      success: function(data, status, xhr) {
+        $('#winter-2017-division2').bracket({
+          init: data
+        })
+      }
+    });
+    $.ajax({
+      url: "/api/tournaments/2203?_format=json",
+      method: "get",
+      headers: {
+        "content-type": "application/json",
+        "accept": "application/json"
+      },
+      success: function(data, status, xhr) {
+        $('#winter-2017-division1').bracket({
+          init: data
+        })
+      }
+    });
+  }
+
+
   // Fall 2016 brackets.
   $.ajax({
       url: "/api/tournaments/1924?_format=json",
