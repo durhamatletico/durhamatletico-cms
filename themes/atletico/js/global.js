@@ -171,21 +171,22 @@
     });
 
 
-    // TODO: This should not be global.
     // Winter 2016 brackets.
-  $.ajax({
-    url: "/api/tournaments/1208?_format=json",
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept": "application/json"
-    },
-    success: function(data, status, xhr) {
-      $('#division1').bracket({
-        init: data
-      })
-    }
-  });
+  if (document.getElementsByClassName('page-title')[0].innerHTML.indexOf('Winter 2016') > -1) {
+    $.ajax({
+      url: "/api/tournaments/1208?_format=json",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      success: function(data, status, xhr) {
+        $('#division1').bracket({
+          init: data
+        })
+      }
+    });
+  }
 
     data = {
         teams: [
