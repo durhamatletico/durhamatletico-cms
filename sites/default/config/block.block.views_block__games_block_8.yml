@@ -1,4 +1,4 @@
-uuid: 6632bbd1-4929-4559-bc07-7d6c979ea3e0
+uuid: dccfb3c9-4be3-45ca-b56d-25f3225a413a
 langcode: en
 status: true
 dependencies:
@@ -9,14 +9,14 @@ dependencies:
     - views
   theme:
     - atletico
-id: views_block__games_block_4
+id: views_block__games_block_8
 theme: atletico
 region: content
-weight: -6
+weight: 0
 provider: null
-plugin: 'views_block:games-block_4'
+plugin: 'views_block:games-block_8'
 settings:
-  id: 'views_block:games-block_4'
+  id: 'views_block:games-block_8'
   label: ''
   provider: views
   label_display: visible
