@@ -24,6 +24,7 @@ content:
     weight: 101
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_sponsor_logo:
     weight: 103
     label: above
@@ -32,6 +33,7 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
   field_sponsor_website:
     weight: 104
     label: above
@@ -39,13 +41,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_tier:
     weight: 102
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
   langcode: true

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.registration.field_admin_comments
     - field.field.node.registration.field_balance_due
     - field.field.node.registration.field_registration_comments
+    - field.field.node.registration.field_registration_for
     - field.field.node.registration.field_registration_season
     - field.field.node.registration.field_registration_shirt_number
     - field.field.node.registration.field_registration_shirt_size
@@ -23,10 +24,12 @@ mode: teaser
 content:
   links:
     weight: 100
+    region: content
 hidden:
   field_admin_comments: true
   field_balance_due: true
   field_registration_comments: true
+  field_registration_for: true
   field_registration_season: true
   field_registration_shirt_number: true
   field_registration_shirt_size: true

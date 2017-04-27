@@ -11,7 +11,7 @@ dependencies:
     - atletico
 id: registrationnotes_2
 theme: atletico
-region: '-1'
+region: header
 weight: -18
 provider: null
 plugin: 'block_content:ae2a2008-21be-46e0-a808-081d7526284f'

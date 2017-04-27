@@ -38,21 +38,25 @@ content:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
   contact:
     weight: 3
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_address:
     weight: 10
     settings:
       default_country: US
     third_party_settings: {  }
     type: address_default
+    region: content
   field_birth_date:
     weight: 9
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_facebook:
     weight: 15
     settings:
@@ -60,6 +64,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_first_name:
     weight: 4
     settings:
@@ -67,6 +72,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_instagram:
     weight: 16
     settings:
@@ -74,6 +80,7 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_last_name:
     weight: 5
     settings:
@@ -81,6 +88,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_linkedin:
     weight: 17
     settings:
@@ -88,35 +96,41 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   field_opt_in_for_email_news:
     weight: 13
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_opt_in_text_alerts:
     weight: 11
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_phone:
     weight: 6
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: telephone_default
+    region: content
   field_preferred_language:
     weight: 8
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_terms_and_conditions:
     weight: 19
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_twitter:
     weight: 18
     settings:
@@ -124,21 +138,26 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
   language:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 20
     settings: {  }
     third_party_settings: {  }
+    region: content
   timezone:
     weight: 6
+    region: content
   translation:
     weight: 12
     settings: {  }
     third_party_settings: {  }
+    region: content
   user_picture:
     type: image_image
     settings:
@@ -146,7 +165,9 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     weight: 1
+    region: content
 hidden:
   field_city: true
   field_league_registration: true
   field_opt_in_social_media: true
+  langcode: true

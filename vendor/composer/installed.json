@@ -4449,39 +4449,6 @@
         ]
     },
     {
-        "name": "drupal/honeypot",
-        "version": "dev-8.x-1.x",
-        "version_normalized": "dev-8.x-1.x",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/honeypot.git",
-            "reference": "419477a486323fda17809c2d318ad38e9faa8a7a"
-        },
-        "time": "2015-09-03 20:21:58",
-        "type": "drupal-module",
-        "installation-source": "source",
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "authors": [
-            {
-                "name": "Jeff Geerling",
-                "email": "geerlingguy@mac.com"
-            }
-        ],
-        "description": "Mitigates spam form submissions using the honeypot method.",
-        "homepage": "https://www.drupal.org/project/honeypot",
-        "keywords": [
-            "Honeypot",
-            "deterrent",
-            "form",
-            "honeytrap",
-            "php",
-            "spam"
-        ]
-    },
-    {
         "name": "commerceguys/enum",
         "version": "v1.0",
         "version_normalized": "1.0.0.0",
@@ -4502,7 +4469,7 @@
         "require-dev": {
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2015-02-27 21:36:56",
+        "time": "2015-02-27T21:36:56+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -4554,7 +4521,7 @@
             "symfony/intl": "to use it as the source of country data",
             "symfony/validator": "to validate addresses"
         },
-        "time": "2016-08-04 16:29:10",
+        "time": "2016-08-04T16:29:10+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4612,7 +4579,7 @@
             "phpunit/phpunit": "~4.0",
             "symfony/intl": ">=2.3"
         },
-        "time": "2015-10-05 15:40:40",
+        "time": "2015-10-05T15:40:40+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4659,7 +4626,7 @@
             "mikey179/vfsstream": "1.*",
             "phpunit/phpunit": "~4.0"
         },
-        "time": "2016-04-07 12:40:00",
+        "time": "2016-04-07T12:40:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

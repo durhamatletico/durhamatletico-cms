@@ -40,6 +40,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: address_default
+    region: content
   field_birth_date:
     weight: 7
     label: above
@@ -48,6 +49,7 @@ content:
       format_type: html_date
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_facebook:
     weight: 9
     label: above
@@ -59,6 +61,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_first_name:
     weight: 3
     label: above
@@ -66,6 +69,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_instagram:
     weight: 10
     label: above
@@ -77,6 +81,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_last_name:
     weight: 4
     label: above
@@ -84,6 +89,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_league_registration:
     weight: 0
     label: above
@@ -91,6 +97,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_linkedin:
     weight: 11
     label: above
@@ -102,6 +109,7 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   field_opt_in_for_email_news:
     weight: 14
     label: above
@@ -111,6 +119,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_opt_in_text_alerts:
     weight: 6
     label: above
@@ -120,6 +129,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_phone:
     weight: 5
     label: above
@@ -127,12 +137,14 @@ content:
       title: ''
     third_party_settings: {  }
     type: telephone_link
+    region: content
   field_preferred_language:
     weight: 15
     label: above
     settings: {  }
     third_party_settings: {  }
     type: list_default
+    region: content
   field_terms_and_conditions:
     weight: 13
     label: above
@@ -142,6 +154,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_twitter:
     weight: 12
     label: above
@@ -153,10 +166,12 @@ content:
       target: ''
     third_party_settings: {  }
     type: link
+    region: content
   member_for:
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
   user_picture:
     type: image
     weight: 1
@@ -165,6 +180,8 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
+    region: content
 hidden:
   field_city: true
   field_opt_in_social_media: true
+  langcode: true

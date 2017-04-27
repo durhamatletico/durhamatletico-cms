@@ -8,7 +8,7 @@ dependencies:
     - bartik
 id: bartik_powered
 theme: bartik
-region: '-1'
+region: header
 weight: -7
 provider: null
 plugin: system_powered_by_block

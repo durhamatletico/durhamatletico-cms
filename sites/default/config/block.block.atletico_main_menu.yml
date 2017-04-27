@@ -10,7 +10,7 @@ dependencies:
     - atletico
 id: atletico_main_menu
 theme: atletico
-region: '-1'
+region: header
 weight: -23
 provider: null
 plugin: 'system_menu_block:main'

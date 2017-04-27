@@ -28,6 +28,7 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_away_team:
     weight: 32
     settings:
@@ -36,24 +37,28 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_away_team_score:
     weight: 39
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_bracket_grouping:
     weight: 41
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_cup_round:
     weight: 40
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_division:
     weight: 37
     settings:
@@ -62,16 +67,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_game_date:
     weight: 33
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_game_status:
     weight: 35
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_home_team:
     weight: 31
     settings:
@@ -80,12 +88,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_home_team_score:
     weight: 38
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_referee:
     weight: 36
     settings:
@@ -93,6 +103,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_venue:
     weight: 34
     settings:
@@ -101,28 +112,33 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 30
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 15
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 16
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: -5
@@ -130,6 +146,7 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -138,4 +155,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

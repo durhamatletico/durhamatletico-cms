@@ -42,16 +42,19 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_competition_type:
     weight: 36
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_final_game:
     weight: 49
     settings:
@@ -60,22 +63,26 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_is_active:
     weight: 45
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_leage:
     weight: 33
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_league_start_date:
     weight: 32
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
+    region: content
   field_quarter_final_games:
     weight: 47
     settings:
@@ -84,18 +91,21 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_registration_fee:
     weight: 50
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
   field_registration_status:
     weight: 51
     settings:
       display_label: false
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
   field_semi_final_games:
     weight: 48
     settings:
@@ -104,6 +114,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_sponsors:
     weight: 34
     settings:
@@ -112,11 +123,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_sport:
     weight: 46
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   field_teams:
     weight: 35
     settings:
@@ -125,6 +138,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_a:
     weight: 37
     settings:
@@ -133,6 +147,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_b:
     weight: 38
     settings:
@@ -141,6 +156,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_c:
     weight: 39
     settings:
@@ -149,6 +165,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_d:
     weight: 40
     settings:
@@ -157,6 +174,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_e:
     weight: 41
     settings:
@@ -165,6 +183,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_f:
     weight: 42
     settings:
@@ -173,6 +192,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_g:
     weight: 43
     settings:
@@ -181,6 +201,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   field_tournament_group_h:
     weight: 44
     settings:
@@ -189,28 +210,33 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
     weight: 2
     settings: {  }
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 30
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 15
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 16
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: -5
@@ -218,8 +244,10 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   translation:
     weight: 10
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 5
@@ -228,4 +256,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

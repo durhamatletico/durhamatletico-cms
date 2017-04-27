@@ -23,12 +23,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_call_to_action_descriptive:
     type: text_default
     weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_call_to_action_links:
     type: link
     weight: 1
@@ -40,6 +42,7 @@ content:
       url_only: false
       url_plain: false
     third_party_settings: {  }
+    region: content
 hidden:
   langcode: true
   links: true

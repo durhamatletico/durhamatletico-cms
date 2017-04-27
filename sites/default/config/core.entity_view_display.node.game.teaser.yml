@@ -25,6 +25,7 @@ mode: teaser
 content:
   links:
     weight: 100
+    region: content
 hidden:
   field_away_team: true
   field_away_team_score: true

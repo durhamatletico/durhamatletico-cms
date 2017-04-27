@@ -9,7 +9,7 @@ dependencies:
     - atletico
 id: registrationcapacityblock
 theme: atletico
-region: '-1'
+region: header
 weight: -20
 provider: null
 plugin: registration_capacity_block

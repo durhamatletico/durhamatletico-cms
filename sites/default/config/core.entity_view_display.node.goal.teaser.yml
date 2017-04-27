@@ -18,6 +18,7 @@ mode: teaser
 content:
   links:
     weight: 100
+    region: content
 hidden:
   field_game: true
   field_is_own_goal: true

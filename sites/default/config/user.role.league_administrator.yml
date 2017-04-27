@@ -7,8 +7,8 @@ label: 'League Administrator'
 weight: -4
 is_admin: null
 permissions:
-  - 'administer users'
   - 'access user profiles'
+  - 'administer users'
   - 'edit any registration content'
   - 'edit own registration content'
   - 'view registration revisions'

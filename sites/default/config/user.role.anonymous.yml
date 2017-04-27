@@ -7,10 +7,10 @@ label: 'Anonymous user'
 weight: -10
 is_admin: false
 permissions:
-  - 'access content'
-  - 'use text format restricted_html'
   - 'access comments'
+  - 'access content'
   - 'access site-wide contact form'
-  - 'search content'
   - 'access user profiles'
   - 'restful get tournament_rest_resource'
+  - 'search content'
+  - 'use text format restricted_html'

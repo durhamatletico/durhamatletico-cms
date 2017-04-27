@@ -8,7 +8,7 @@ dependencies:
     - atletico
 id: registrationnotes
 theme: atletico
-region: '-1'
+region: header
 weight: -17
 provider: null
 plugin: 'block_content:727080e3-befd-4956-b600-acda6e014b47'

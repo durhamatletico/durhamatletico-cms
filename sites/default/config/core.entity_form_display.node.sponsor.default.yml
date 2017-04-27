@@ -26,11 +26,13 @@ content:
       summary_rows: 3
       placeholder: ''
     third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 7
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_sponsor_logo:
     weight: 2
     settings:
@@ -38,6 +40,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
   field_sponsor_website:
     weight: 3
     settings:
@@ -45,33 +48,39 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
   field_tier:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
   langcode:
     type: language_select
     weight: 5
     settings: {  }
     third_party_settings: {  }
+    region: content
   path:
     type: path
     weight: 11
     settings: {  }
     third_party_settings: {  }
+    region: content
   promote:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 9
     third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
     weight: 10
     third_party_settings: {  }
+    region: content
   title:
     type: string_textfield
     weight: 0
@@ -79,10 +88,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
   translation:
     weight: 8
     settings: {  }
     third_party_settings: {  }
+    region: content
   uid:
     type: entity_reference_autocomplete
     weight: 6
@@ -91,4 +102,5 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    region: content
 hidden: {  }

@@ -22,6 +22,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_is_own_goal:
     weight: 103
     label: above
@@ -31,6 +32,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
   field_player_who_scored:
     weight: 101
     label: above
@@ -38,6 +40,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_quantity:
     weight: 104
     label: above
@@ -46,7 +49,9 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
   links:
     weight: 100
+    region: content
 hidden:
   langcode: true

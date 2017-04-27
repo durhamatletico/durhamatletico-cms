@@ -39,6 +39,7 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
+    region: content
   field_sponsors:
     weight: 3
     label: above
@@ -46,6 +47,7 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
   field_team_jersey_color:
     weight: 4
     label: inline
@@ -53,6 +55,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
+    region: content
   field_team_photo:
     weight: 2
     label: hidden
@@ -61,10 +64,12 @@ content:
       image_link: ''
     third_party_settings: {  }
     type: image
+    region: content
   links:
     weight: 0
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   field_abbreviation: true
   field_accepting_registrations: true

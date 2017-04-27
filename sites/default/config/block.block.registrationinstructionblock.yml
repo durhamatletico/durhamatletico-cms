@@ -10,7 +10,7 @@ dependencies:
     - atletico
 id: registrationinstructionblock
 theme: atletico
-region: '-1'
+region: header
 weight: -11
 provider: null
 plugin: registration_instruction_block

@@ -38,6 +38,7 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
+    region: content
 hidden:
   field_address: true
   field_birth_date: true
@@ -55,4 +56,5 @@ hidden:
   field_preferred_language: true
   field_terms_and_conditions: true
   field_twitter: true
+  langcode: true
   member_for: true
