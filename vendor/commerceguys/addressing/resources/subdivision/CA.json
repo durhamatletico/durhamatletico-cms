@@ -1,137 +1,84 @@
 {
 	"country_code": "CA",
-	"parent_id": null,
-	"locale": "en",
+	"locale": "fr",
 	"subdivisions": {
-		"CA-AB": {
-			"code": "AB",
+		"AB": {
+			"local_code": "AB",
+			"local_name": "Alberta",
 			"name": "Alberta",
-			"postal_code_pattern": "T",
-			"translations": {
-				"fr": {
-					"name": "Alberta"
-				}
-			}
+			"postal_code_pattern": "T"
 		},
-		"CA-BC": {
-			"code": "BC",
+		"BC": {
+			"local_code": "BC",
+			"local_name": "Colombie-Britannique",
 			"name": "British Columbia",
-			"postal_code_pattern": "V",
-			"translations": {
-				"fr": {
-					"name": "Colombie-Britannique"
-				}
-			}
+			"postal_code_pattern": "V"
 		},
-		"CA-MB": {
-			"code": "MB",
+		"MB": {
+			"local_code": "MB",
+			"local_name": "Manitoba",
 			"name": "Manitoba",
-			"postal_code_pattern": "R",
-			"translations": {
-				"fr": {
-					"name": "Manitoba"
-				}
-			}
+			"postal_code_pattern": "R"
 		},
-		"CA-NB": {
-			"code": "NB",
+		"NB": {
+			"local_code": "NB",
+			"local_name": "Nouveau-Brunswick",
 			"name": "New Brunswick",
-			"postal_code_pattern": "E",
-			"translations": {
-				"fr": {
-					"name": "Nouveau-Brunswick"
-				}
-			}
+			"postal_code_pattern": "E"
 		},
-		"CA-NL": {
-			"code": "NL",
+		"NL": {
+			"local_code": "NL",
+			"local_name": "Terre-Neuve-et-Labrador",
 			"name": "Newfoundland and Labrador",
-			"postal_code_pattern": "A",
-			"translations": {
-				"fr": {
-					"name": "Terre-Neuve-et-Labrador"
-				}
-			}
+			"postal_code_pattern": "A"
 		},
-		"CA-NT": {
-			"code": "NT",
+		"NT": {
+			"local_code": "NT",
+			"local_name": "Territoires du Nord-Ouest",
 			"name": "Northwest Territories",
-			"postal_code_pattern": "X0E|X0G|X1A",
-			"translations": {
-				"fr": {
-					"name": "Territoires du Nord-Ouest"
-				}
-			}
+			"postal_code_pattern": "X0E|X0G|X1A"
 		},
-		"CA-NS": {
-			"code": "NS",
+		"NS": {
+			"local_code": "NS",
+			"local_name": "Nouvelle-Écosse",
 			"name": "Nova Scotia",
-			"postal_code_pattern": "B",
-			"translations": {
-				"fr": {
-					"name": "Nouvelle-Ecosse"
-				}
-			}
+			"postal_code_pattern": "B"
 		},
-		"CA-NU": {
-			"code": "NU",
+		"NU": {
+			"local_code": "NU",
+			"local_name": "Nunavut",
 			"name": "Nunavut",
-			"postal_code_pattern": "X0A|X0B|X0C",
-			"translations": {
-				"fr": {
-					"name": "Nunavut"
-				}
-			}
+			"postal_code_pattern": "X0A|X0B|X0C"
 		},
-		"CA-ON": {
-			"code": "ON",
+		"ON": {
+			"local_code": "ON",
+			"local_name": "Ontario",
 			"name": "Ontario",
-			"postal_code_pattern": "K|L|M|N|P",
-			"translations": {
-				"fr": {
-					"name": "Ontario"
-				}
-			}
+			"postal_code_pattern": "K|L|M|N|P"
 		},
-		"CA-PE": {
-			"code": "PE",
+		"PE": {
+			"local_code": "PE",
+			"local_name": "Île-du-Prince-Édouard",
 			"name": "Prince Edward Island",
-			"postal_code_pattern": "C",
-			"translations": {
-				"fr": {
-					"name": "Ile-du-Prince-Edouard"
-				}
-			}
+			"postal_code_pattern": "C"
 		},
-		"CA-QC": {
-			"code": "QC",
+		"QC": {
+			"local_code": "QC",
+			"local_name": "Québec",
 			"name": "Quebec",
-			"postal_code_pattern": "G|H|J|K1A",
-			"translations": {
-				"fr": {
-					"name": "Québec"
-				}
-			}
+			"postal_code_pattern": "G|H|J|K1A"
 		},
-		"CA-SK": {
-			"code": "SK",
+		"SK": {
+			"local_code": "SK",
+			"local_name": "Saskatchewan",
 			"name": "Saskatchewan",
-			"postal_code_pattern": "S|R8A",
-			"translations": {
-				"fr": {
-					"name": "Saskatchewan"
-				}
-			}
+			"postal_code_pattern": "S|R8A"
 		},
-		"CA-YT": {
-			"code": "YT",
+		"YT": {
+			"local_code": "YT",
+			"local_name": "Yukon",
 			"name": "Yukon",
-			"postal_code_pattern": "Y",
-			"translations": {
-				"fr": {
-					"name": "Yukon"
-				}
-			}
+			"postal_code_pattern": "Y"
 		}
 	}
 }
