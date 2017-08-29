@@ -10,7 +10,7 @@ docker-compose exec php terminus site backups get --element=db --site=durham-atl
 rm database.sql
 echo "y" | gunzip database.sql.gz
 echo "Importing backup"
-docker exec -i durhamatletico_db mysql -uroot -proot durhamatletico_docker < database.sql
+docker exec -i durhamatletico_mariadb_1 mysql -uroot -proot durhamatletico_docker < database.sql
 
 # Clear cache
 docker-compose exec php drush cr -yv
