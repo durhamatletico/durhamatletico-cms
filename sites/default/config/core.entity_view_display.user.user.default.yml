@@ -27,7 +27,6 @@ dependencies:
     - image
     - link
     - options
-    - telephone
     - user
 id: user.user.default
 targetEntityType: user
@@ -134,9 +133,9 @@ content:
     weight: 5
     label: above
     settings:
-      title: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: telephone_link
+    type: string
     region: content
   field_preferred_language:
     weight: 15
@@ -169,9 +168,9 @@ content:
     region: content
   member_for:
     weight: 2
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
   user_picture:
     type: image
     weight: 1
