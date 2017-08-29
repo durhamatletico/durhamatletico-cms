@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -ex
 # Log into terminus.
 docker-compose exec php terminus auth login $PANTHEON_EMAIL --password=$PANTHEON_PASSWORD
 
