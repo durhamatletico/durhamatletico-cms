@@ -22,4 +22,4 @@ install:
 
 script:
   - cd themes/atletico; bundle exec scss-lint
-  - docker exec durhamatletico_php tests/bin/behat --no-colors -c tests/behat.yml -f progress --tags=~@failing
+  - docker exec durhamatletico_php_1 tests/bin/behat --no-colors -c tests/behat.yml -f progress --tags=~@failing
