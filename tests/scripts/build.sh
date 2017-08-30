@@ -12,6 +12,8 @@ docker-compose run --rm terminus backup:create durham-atletico.live -n --element
 echo "Downloading backup"
 mkdir -p tmp
 docker-compose run --rm terminus backup:get durham-atletico.live -n --element=db --to=tmp/database.sql.gz
+ls -la
+whoami
 echo "y" | gunzip tmp/database.sql.gz
 echo "Importing backup"
 docker-compose exec -T mariadb mysql -uroot -proot durhamatletico_docker < tmp/database.sql
