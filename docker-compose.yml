@@ -56,7 +56,7 @@ services:
       TERMINUS_CACHE_DIR: "/terminus/cache"
     volumes:
       - terminus-data:/terminus/cache
-      - ./:/app:cached
+      - ./:/app
 
   memcached:
    image: wodby/memcached:1.4-2.0.0
