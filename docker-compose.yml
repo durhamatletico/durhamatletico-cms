@@ -57,6 +57,7 @@ services:
     volumes:
       - terminus-data:/terminus/cache
       - ./:/app
+      - /tmp:/tmp
 
   memcached:
    image: wodby/memcached:1.4-2.0.0
