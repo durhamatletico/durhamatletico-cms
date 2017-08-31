@@ -10,15 +10,29 @@ docker-compose run --rm terminus site:info durham-atletico
 echo "Creating backup"
 docker-compose run --rm terminus backup:create durham-atletico.live -n --element=db --keep-for=1
 echo "Downloading backup"
-docker-compose run --rm terminus backup:get durham-atletico.live -n --element=db --to=/tmp/database.sql.gz
-echo "y" | gunzip /tmp/database.sql.gz
+docker-compose run --rm terminus backup:get durham-atletico.live -n --element=db --to=/terminus/cache/database.sql.gz
+docker-compose run --rm --entrypoint=gunzip terminus /terminus/cache/database.sql.gz
 echo "Importing backup"
-docker-compose exec -T mariadb mysql -uroot -proot durhamatletico_docker < /tmp/database.sql
+docker-compose up -d
 
-# Clear cache
-docker-compose exec php drush cr -yv
-docker-compose exec php drush config-import -yv
-docker-compose exec php drush updb -yv
-docker-compose exec php drush cr -yv
+echo "\033[33mWebsite will auto-open when its up. Checking status...\033[0m";
 
-echo "Ready for testing!"
+while true;
+do
+  status=`curl -s -k -o /dev/null -Ik -w "%{http_code}" https://local.durhamatletico.com`
+
+  if [ $status -eq "200" ]; then
+    echo "\033[32mYuhoo! Website is up!\033[0m"
+    docker-compose exec php drush cr -yv
+    docker-compose exec php drush config-import -yv
+    docker-compose exec php drush updb -yv
+    docker-compose exec php drush cr -yv
+
+    echo "Ready for testing!"
+
+    break;
+  else
+    printf ".";
+    sleep 4;
+  fi
+done

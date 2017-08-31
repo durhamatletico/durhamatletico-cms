@@ -9,6 +9,7 @@ services:
       MYSQL_PASSWORD: drupal
     volumes:
      - mysql-data:/var/lib/mysql
+     - terminus-data:/docker-entrypoint-initdb.d
 
   php:
     image: wodby/drupal-php:7.0-2.4.3
@@ -57,7 +58,6 @@ services:
     volumes:
       - terminus-data:/terminus/cache
       - ./:/app
-      - /tmp:/tmp
 
   memcached:
    image: wodby/memcached:1.4-2.0.0
