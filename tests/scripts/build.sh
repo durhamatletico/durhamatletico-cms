@@ -16,23 +16,8 @@ echo "Importing backup"
 docker-compose up -d
 
 echo "Waiting for database to import"
-
-while true;
-do
-  status=`curl -s -k -o /dev/null -Ik -w "%{http_code}" https://local.durhamatletico.com`
-
-  if [ $status -eq "200" ]; then
-    echo "\033[32mYuhoo! Website is up!\033[0m"
-    docker-compose exec php drush cr -yv
-    docker-compose exec php drush config-import -yv
-    docker-compose exec php drush updb -yv
-    docker-compose exec php drush cr -yv
-
-    echo "Ready for testing!"
-
-    break;
-  else
-    printf ".";
-    sleep 4;
-  fi
-done
+sleep 120
+docker-compose exec php drush cr -yv
+docker-compose exec php drush config-import -yv
+docker-compose exec php drush updb -yv
+docker-compose exec php drush cr -yv
