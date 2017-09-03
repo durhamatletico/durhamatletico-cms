@@ -25,4 +25,4 @@ install:
 
 script:
   - cd themes/atletico; bundle exec scss-lint
-  - docker-compose exec -T php tests/bin/behat --colors -c tests/behat.yml -f progress --tags=~@failing
+  - docker-compose exec -T --user 82 php tests/bin/behat -c tests/behat.yml --colors -vvv -f progress --strict --tags=~@failing

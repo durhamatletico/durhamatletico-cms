@@ -16,6 +16,7 @@ $settings['hash_salt'] = 'abcdefg';
 
 $settings['trusted_host_patterns'] = array(
   '^localhost$',
+  '^nginx$',
   '^0.0.0.0$',
   '^local.durhamatletico.com$',
 );

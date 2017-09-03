@@ -19,7 +19,7 @@ default:
       selenium2:
         browser: 'chrome'
         wd_host: selenium:4444/wd/hub
-      base_url: 'https://local.durhamatletico.com'
+      base_url: 'http://nginx'
     Drupal\DrupalExtension:
       blackbox: ~
       api_driver: 'drupal' 
