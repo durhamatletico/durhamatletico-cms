@@ -16,8 +16,20 @@ echo "Importing backup"
 docker-compose up -d
 
 echo "Waiting for database to import"
-sleep 120
-docker-compose exec php drush cr -yv
-docker-compose exec php drush config-import -yv
-docker-compose exec php drush updb -yv
-docker-compose exec php drush cr -yv
+while true;
+do
+  status=`curl -s -k -o /dev/null -Ik -w "%{http_code}" https://local.durhamatletico.com`
+
+  if [ $status -eq "200" ]; then
+    docker-compose exec -T php drush cr -yv
+    docker-compose exec -T php drush config-import -yv
+    docker-compose exec -T php drush updb -yv
+    docker-compose exec -T php drush cr -yv
+    echo "Ready for testing!"
+
+    break;
+  else
+    printf ".";
+    sleep 15;
+  fi
+done
