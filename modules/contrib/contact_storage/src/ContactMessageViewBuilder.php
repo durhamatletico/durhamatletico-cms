@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\contact_storage\ContactMessageViewBuilder.
- */
 
 namespace Drupal\contact_storage;
 

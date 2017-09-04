@@ -6,8 +6,8 @@ type: module
 dependencies:
   - admin_toolbar
 
-# Information added by Drupal.org packaging script on 2016-06-22
-version: '8.x-1.15+11-dev'
+# Information added by Drupal.org packaging script on 2017-04-06
+version: '8.x-1.19'
 core: '8.x'
 project: 'admin_toolbar'
-datestamp: 1466607430
+datestamp: 1491487686

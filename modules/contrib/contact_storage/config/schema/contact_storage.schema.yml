@@ -11,6 +11,15 @@ contact.form.*.third_party.contact_storage:
     show_preview:
       type: boolean
       label: 'Show preview button'
+    disabled_form_message:
+      type: string
+      label: 'Disabled contact form message'
+    maximum_submissions_user:
+      type: integer
+      label: 'Maximum submission limit per user'
+    page_autoreply_format:
+      type: string
+      label: 'Autoreply format'
 
 field.storage_settings.contact_storage_options_email:
   type: mapping
@@ -52,3 +61,7 @@ contact_storage.settings:
     send_html:
       type: boolean
       label: 'Whether the mail should be sent as HTML'
+
+action.configuration.message_delete_action:
+  type: action_configuration_default
+  label: 'Delete message configuration'

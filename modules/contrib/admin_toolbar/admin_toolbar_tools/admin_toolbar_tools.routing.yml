@@ -82,7 +82,7 @@ admin_toolbar.run.cron:
   path: '/run-cron'
   defaults:
     _controller: '\Drupal\admin_toolbar_tools\Controller\ToolbarController::runCron'
-    _title: 'Run CRON'
+    _title: 'Run cron'
   requirements:
     _permission: 'administer site configuration'
     _csrf_token: 'TRUE'

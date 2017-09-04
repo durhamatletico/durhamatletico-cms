@@ -15,12 +15,14 @@
  * This module uses array('default' => 'SMTPMailSystem').
  */
 
+use Drupal\Core\Routing\RouteMatchInterface;
+
 /**
  * Implements hook_help().
  */
-function smtp_help($path, $arg) {
-  switch ($path) {
-    case 'admin/help#smtp':
+function smtp_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.smtp':
       return t('Allow for site emails to be sent through an SMTP server of your choice.');
   }
 }
@@ -36,19 +38,6 @@ function smtp_menu() {
   );
   return $items;
 }
-
-/**
- * Implements hook_permission().
- */
-function smtp_permission() {
-  return array(
-    'administer smtp module' => array(
-      'title' => t('Administer SMTP Authentication Support module'),
-      'description' => t('Perform administration tasks for SMTP Authentication Support module.')
-    ),
-  );
-}
-
 
 /**
  * Implements hook_mail().
@@ -97,7 +86,7 @@ function _smtp_mailer_send($variables) {
 
   // Try to send e-mail. If it fails, set watchdog entry.
   if (!$mailer->Send()) {
-    $logger->error('Error sending e-mail from @from to @to : !error_message', array('@from' => $from, '@to' => $to, '!error_message' => $mailer->ErrorInfo));
+    $logger->error('Error sending e-mail from @from to @to: @error_message', array('@from' => $from, '@to' => $to, '@error_message' => $mailer->ErrorInfo));
     return FALSE;
   }
 

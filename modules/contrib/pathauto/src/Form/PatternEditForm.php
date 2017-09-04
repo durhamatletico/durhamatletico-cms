@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\pathauto\Form\PatternEditForm.
- */
-
 namespace Drupal\pathauto\Form;
 
 use Drupal\Core\Entity\EntityForm;
@@ -71,7 +66,7 @@ class PatternEditForm extends EntityForm {
     $this->manager = $manager;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
     $this->entityTypeManager = $entity_type_manager;
-    $this->languageManager= $language_manager;
+    $this->languageManager = $language_manager;
   }
 
   /**
@@ -80,7 +75,7 @@ class PatternEditForm extends EntityForm {
   public function buildForm(array $form, FormStateInterface $form_state) {
 
     $options = [];
-    foreach ($this->manager->getDefinitions() as $plugin_id => $plugin_definition) {
+    foreach ($this->manager->getVisibleDefinitions() as $plugin_id => $plugin_definition) {
       $options[$plugin_id] = $plugin_definition['label'];
     }
     $form['type'] = [
@@ -120,6 +115,7 @@ class PatternEditForm extends EntityForm {
         '#after_build' => array('token_element_validate'),
         '#token_types' => $alias_type->getTokenTypes(),
         '#min_tokens' => 1,
+        '#required' => TRUE,
       );
 
       // Show the token help relevant to this pattern type.
@@ -152,7 +148,7 @@ class PatternEditForm extends EntityForm {
             '#type' => 'checkboxes',
             '#options' => $bundle_options,
             '#default_value' => $default_bundles,
-            '#description' => t('Check to which types this pattern should be applied. Leave empty to allow any.'),
+            '#description' => $this->t('Check to which types this pattern should be applied. Leave empty to allow any.'),
           );
         }
 
@@ -166,7 +162,7 @@ class PatternEditForm extends EntityForm {
             '#type' => 'checkboxes',
             '#options' => $language_options,
             '#default_value' => $default_languages,
-            '#description' => t('Check to which languages this pattern should be applied. Leave empty to allow any.'),
+            '#description' => $this->t('Check to which languages this pattern should be applied. Leave empty to allow any.'),
           );
         }
       }
@@ -178,6 +174,7 @@ class PatternEditForm extends EntityForm {
       '#maxlength' => 255,
       '#default_value' => $this->entity->label(),
       '#required' => TRUE,
+      '#description' => $this->t('A short name to help you identify this pattern in the patterns list.'),
     );
 
     $form['id'] = array(
@@ -208,6 +205,7 @@ class PatternEditForm extends EntityForm {
     /** @var \Drupal\pathauto\PathautoPatternInterface $entity */
     $entity = parent::buildEntity($form, $form_state);
 
+    // Will only be used for new patterns.
     $default_weight = 0;
 
     $alias_type = $entity->getAliasType();
@@ -253,7 +251,9 @@ class PatternEditForm extends EntityForm {
 
     }
 
-    $entity->setWeight($default_weight);
+    if ($entity->isNew()) {
+      $entity->setWeight($default_weight);
+    }
 
     return $entity;
   }

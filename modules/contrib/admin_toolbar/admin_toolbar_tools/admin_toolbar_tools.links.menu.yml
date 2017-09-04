@@ -13,7 +13,7 @@ system.admin_index:
   weight: -100
 
 system.run_cron:
-  title: 'Run CRON'
+  title: 'Run cron'
   route_name: admin_toolbar.run.cron
   menu_name: admin
   parent: admin_toolbar_tools.help
