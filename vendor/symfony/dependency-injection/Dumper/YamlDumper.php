@@ -93,11 +93,11 @@ class YamlDumper extends Dumper
         }
 
         if ($definition->isSynthetic()) {
-            $code .= sprintf("        synthetic: true\n");
+            $code .= "        synthetic: true\n";
         }
 
         if ($definition->isSynchronized(false)) {
-            $code .= sprintf("        synchronized: true\n");
+            $code .= "        synchronized: true\n";
         }
 
         if ($definition->isDeprecated()) {
@@ -120,8 +120,12 @@ class YamlDumper extends Dumper
             $code .= sprintf("        factory_class: %s\n", $this->dumper->dump($definition->getFactoryClass(false)));
         }
 
+        if ($definition->isAbstract()) {
+            $code .= "        abstract: true\n";
+        }
+
         if ($definition->isLazy()) {
-            $code .= sprintf("        lazy: true\n");
+            $code .= "        lazy: true\n";
         }
 
         if ($definition->getFactoryMethod(false)) {

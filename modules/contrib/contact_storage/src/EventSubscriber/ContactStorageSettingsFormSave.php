@@ -7,14 +7,12 @@ use Drupal\Core\Config\ConfigEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * A subscriber invalidating the entity type definition cache when the settings
- * page is saved.
+ * Invalidates the entity type definition cache when the settings are changed.
  */
 class ContactStorageSettingsFormSave implements EventSubscriberInterface {
 
   /**
-   * Invalidate the entity type definition cache whenever the settings are
-   * modified.
+   * Invalidates the entity type definition cache whenever settings are changed.
    *
    * @param \Drupal\Core\Config\ConfigCrudEvent $event
    *   The Event to process.

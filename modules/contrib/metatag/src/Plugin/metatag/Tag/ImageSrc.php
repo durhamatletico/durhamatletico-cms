@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\metatag\Plugin\metatag\Tag\ImageSrc.
- */
 
 namespace Drupal\metatag\Plugin\metatag\Tag;
 
@@ -21,6 +17,6 @@ namespace Drupal\metatag\Plugin\metatag\Tag;
  *   multiple = FALSE
  * )
  */
-class ImageSrc extends MetaNameBase {
+class ImageSrc extends LinkRelBase {
   // Nothing here yet. Just a placeholder class for a plugin.
 }

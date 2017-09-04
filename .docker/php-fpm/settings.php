@@ -6,7 +6,7 @@ $databases['default']['default'] = array(
   'username' => 'root',
   'password' => 'root',
   'prefix' => '',
-  'host' => 'db',
+  'host' => 'mariadb',
   'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
@@ -16,6 +16,7 @@ $settings['hash_salt'] = 'abcdefg';
 
 $settings['trusted_host_patterns'] = array(
   '^localhost$',
+  '^nginx$',
   '^0.0.0.0$',
   '^local.durhamatletico.com$',
 );

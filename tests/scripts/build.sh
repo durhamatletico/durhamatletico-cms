@@ -1,21 +1,35 @@
 #!/bin/bash
 
+set -ex
 # Log into terminus.
-docker-compose exec php terminus auth login $PANTHEON_EMAIL --password=$PANTHEON_PASSWORD
+docker volume create --name=durhamatletico_terminus_data
+docker-compose run --rm --entrypoint="sh -c" terminus "mkdir -p /terminus/cache/tokens"
+docker-compose run --rm terminus auth:login --machine-token=$PANTHEON_TOKEN
+docker-compose run --rm terminus site:info durham-atletico
 
 echo "Creating backup"
-docker-compose exec php terminus site backups create --element=database --site=durham-atletico --env=live
+docker-compose run --rm terminus backup:create durham-atletico.live -n --element=db --keep-for=1
 echo "Downloading backup"
-docker-compose exec php terminus site backups get --element=db --site=durham-atletico --env=live --to=database.sql.gz --latest
-rm database.sql
-echo "y" | gunzip database.sql.gz
+docker-compose run --rm terminus backup:get durham-atletico.live -n --element=db --to=/terminus/cache/database.sql.gz
+docker-compose run --rm --entrypoint=gunzip terminus /terminus/cache/database.sql.gz
 echo "Importing backup"
-docker exec -i durhamatletico_db mysql -uroot -proot durhamatletico_docker < database.sql
+docker-compose up -d
 
-# Clear cache
-docker-compose exec php drush cr -yv
-docker-compose exec php drush config-import -yv
-docker-compose exec php drush updb -yv
-docker-compose exec php drush cr -yv
+echo "Waiting for database to import"
+while true;
+do
+  status=`curl -s -k -o /dev/null -Ik -w "%{http_code}" https://local.durhamatletico.com`
 
-echo "Ready for testing!"
+  if [ $status -eq "200" ]; then
+    docker-compose exec -T php drush cr -yv
+    docker-compose exec -T php drush config-import -yv
+    docker-compose exec -T php drush updb -yv
+    docker-compose exec -T php drush cr -yv
+    echo "Ready for testing!"
+
+    break;
+  else
+    printf ".";
+    sleep 15;
+  fi
+done

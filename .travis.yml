@@ -1,5 +1,9 @@
 language: ruby
 
+addons:
+  hosts:
+    - local.durhamatletico.com
+
 services:
   - docker
 
@@ -7,13 +11,18 @@ git:
   depth: 5
 
 install:
+  - sudo apt-get remove docker-engine
+  - sudo apt-get -y install   apt-transport-https   ca-certificates   curl
+  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  - sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) edge"
+  - sudo apt-get update
+  - sudo apt-get -y install docker-ce=17.05.0~ce-0~ubuntu-trusty
+  - docker --version
   - docker-compose pull
-  - docker-compose up -d
-  - docker-compose exec -T php composer install -d tests --prefer-dist --no-interaction
+  - docker-compose run --rm php composer install -d tests --prefer-dist --no-interaction
   - cd themes/atletico; bundle install
   - cd ../..; tests/scripts/build.sh
 
 script:
   - cd themes/atletico; bundle exec scss-lint
-  - docker exec durhamatletico_php tests/bin/behat --no-colors -c tests/behat.yml -f progress --tags=~@failing
-
+  - docker-compose exec -T --user 82 php tests/bin/behat -c tests/behat.yml --colors -vvv -f progress --strict --tags=~@failing

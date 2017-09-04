@@ -1,8 +1,4 @@
 <?php
-/**
- * @file
- * Contains \Drupal\contact_storage\Tests\ContactStorageTestBase.
- */
 
 namespace Drupal\contact_storage\Tests;
 
@@ -22,23 +18,28 @@ abstract class ContactStorageTestBase extends WebTestBase {
    *   The form label.
    * @param string $recipients
    *   The list of recipient email addresses.
-   * @param string $reply
-   *   The auto-reply text that is sent to a user upon completing the contact
-   *   form.
    * @param bool $selected
    *   A Boolean indicating whether the form should be selected by default.
    * @param array $third_party_settings
    *   Array of third party settings to be added to the posted form data.
+   * @param string $message
+   *   The message that will be displayed to a user upon completing the contact
+   *   form.
    */
-  public function addContactForm($id, $label, $recipients, $reply, $selected, $third_party_settings = []) {
+  public function addContactForm($id, $label, $recipients, $selected, $third_party_settings = [], $message = 'Your message has been sent.') {
+    $this->drupalGet('admin/structure/contact/add');
     $edit = [];
     $edit['label'] = $label;
     $edit['id'] = $id;
+    // 8.2.x added the message field, which is by default empty. Conditionally
+    // submit it if the field can be found.
+    if ($this->xpath($this->constructFieldXpath('name', 'message'))) {
+      $edit['message'] = $message;
+    }
     $edit['recipients'] = $recipients;
-    $edit['reply'] = $reply;
     $edit['selected'] = ($selected ? TRUE : FALSE);
     $edit += $third_party_settings;
-    $this->drupalPostForm('admin/structure/contact/add', $edit, t('Save'));
+    $this->drupalPostForm(NULL, $edit, t('Save'));
   }
 
   /**

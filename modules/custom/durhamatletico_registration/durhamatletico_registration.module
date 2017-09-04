@@ -111,7 +111,7 @@ function durhamatletico_registration_help($route_name, RouteMatchInterface $rout
 function _durhamatletico_registration_user_registration_form_validate($form, \Drupal\Core\Form\FormStateInterface $form_state) {
   if ($form_state->hasValue('field_address')) {
     $address = $form_state->getValue('field_address');
-    if ($address[0]['administrative_area'] !== 'US-NC') {
+    if ($address[0]['address']['administrative_area'] !== 'NC') {
       $form_state->setErrorByName('field_address', t('Please enter a valid NC address.'));
     }
   }
@@ -125,10 +125,6 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
     $form['#validate'][] = '_durhamatletico_registration_user_registration_form_validate';
   }
   if ($form_id == 'node_registration_form' || $form_id == 'node_registration_edit_form') {
-    // If the user already created a registration, direct them back to theirs.
-    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
-    // TODO: Filter out competitions the user has registered for, if they have registered for all open
-    // competitions then redirect to /user.
     // Registration admin roles.
     $reg_admin_roles = [
       'content_editor',

@@ -4,10 +4,10 @@ description: Provides support for Google's Plus meta tags.
 # core: 8.x
 package: SEO
 dependencies:
-  - metatag
+  - metatag:metatag
 
-# Information added by Drupal.org packaging script on 2016-06-02
-version: '8.x-1.0-beta9'
+# Information added by Drupal.org packaging script on 2017-08-01
+version: '8.x-1.2'
 core: '8.x'
 project: 'metatag'
-datestamp: 1464897844
+datestamp: 1501553854
