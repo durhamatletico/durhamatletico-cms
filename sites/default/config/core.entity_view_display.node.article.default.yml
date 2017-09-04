@@ -8,11 +8,10 @@ dependencies:
     - field.field.node.article.comment
     - field.field.node.article.field_image
     - field.field.node.article.field_tags
-    - image.style.large
     - node.type.article
   module:
+    - blazy
     - comment
-    - image
     - text
     - user
 id: node.article.default
@@ -37,11 +36,35 @@ content:
     third_party_settings: {  }
     region: content
   field_image:
-    type: image
+    type: blazy
     weight: -1
     settings:
       image_style: large
-      image_link: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
     third_party_settings: {  }
     label: hidden
     region: content
@@ -56,7 +79,7 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
-  field_image: true
-  field_tags: true
   langcode: true
