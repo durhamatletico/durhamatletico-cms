@@ -1,0 +1,15 @@
+.color_field {}
+.color_field__swatch {}
+.color_field__swatch--square {
+}
+.color_field__swatch--circle {
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.color_field__swatch--parallelogram {
+  -webkit-transform: skew(20deg);
+  -moz-transform: skew(20deg);
+  -o-transform: skew(20deg);
+}

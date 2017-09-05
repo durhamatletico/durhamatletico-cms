@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.team.field_accepting_registrations
     - field.field.node.team.field_captains
     - field.field.node.team.field_jersey_color_html_
+    - field.field.node.team.field_jersey_html_color
     - field.field.node.team.field_players
     - field.field.node.team.field_sponsors
     - field.field.node.team.field_svg_logo
@@ -25,6 +26,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.team
   module:
+    - color_field
     - image
     - path
     - text
@@ -79,6 +81,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_jersey_html_color:
+    weight: 50
+    settings:
+      default_colors: "\n#AC725E,#D06B64,#F83A22,#FA573C,#FF7537,#FFAD46\n#42D692,#16A765,#7BD148,#B3DC6C,#FBE983\n#92E1C0,#9FE1E7,#9FC6E7,#4986E7,#9A9CFF\n#B99AFF,#C2C2C2,#CABDBF,#CCA6AC,#F691B2\n#CD74E6,#A47AE2"
+    third_party_settings: {  }
+    type: color_field_widget_box
     region: content
   field_players:
     weight: 32
@@ -223,6 +232,8 @@ content:
   translation:
     weight: 10
     region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 5

@@ -1,0 +1,41 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a color box form wrapper.
+ *
+ * Available variables:
+ * - content: The form element to be output, usually a datelist, or datetime.
+ * - title: The title of the form element.
+ * - title_attributes: HTML attributes for the title wrapper.
+ * - description: Description text for the form element.
+ * - required: An indicator for whether the associated form element is required.
+ *
+ * @see template_preprocess()
+ * @see template_preprocess_color_field_widget_box()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+set title_classes = [
+required ? 'js-form-required',
+required ? 'form-required',
+]
+%}
+
+{% if title %}
+  <h4{{ title_attributes.addClass(title_classes) }}>{{ title }}</h4>
+{% endif %}
+
+<div class="container-inline">
+  {{ color }}
+  {{ opacity }}
+</div>
+
+{% if errors %}
+  <div>
+    {{ errors }}
+  </div>
+{% endif %}
+
+{{ description }}

@@ -1,0 +1,25 @@
+uuid: e0f6cb2a-0d75-4a49-a0bf-b5473162fad9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_jersey_html_color
+    - node.type.team
+  module:
+    - color_field
+id: node.team.field_jersey_html_color
+field_name: field_jersey_html_color
+entity_type: node
+bundle: team
+label: 'Jersey HTML Color'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    color: '#FFFFFF'
+    opacity: '1'
+default_value_callback: ''
+settings:
+  opacity: 0
+field_type: color_field_type

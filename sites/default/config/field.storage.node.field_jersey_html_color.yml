@@ -1,0 +1,20 @@
+uuid: ce1654ad-e9b8-4c46-a53e-91760556fb22
+langcode: en
+status: true
+dependencies:
+  module:
+    - color_field
+    - node
+id: node.field_jersey_html_color
+field_name: field_jersey_html_color
+entity_type: node
+type: color_field_type
+settings:
+  format: '#HEXHEX'
+module: color_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
