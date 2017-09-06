@@ -1850,10 +1850,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_jersey_color_html_:
-          id: field_jersey_color_html_
-          table: node__field_jersey_color_html_
-          field: field_jersey_color_html_
+        field_jersey_html_color:
+          id: field_jersey_html_color
+          table: node__field_jersey_html_color
+          field: field_jersey_html_color
           relationship: field_home_team
           group_type: group
           admin_label: ''
@@ -1861,7 +1861,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="jersey-color home-team" data-color="{{ field_jersey_color_html___value }}"></div>'
+            text: '<div class="jersey-color home-team" data-color="{{ field_jersey_html_color__color  }}"></div>'
             make_link: false
             path: ''
             absolute: false
@@ -1898,11 +1898,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: color
+          type: color_field_formatter_text
           settings:
-            link_to_entity: true
-          group_column: value
+            format: hex
+            opacity: '0'
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2088,10 +2089,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_jersey_color_html__1:
-          id: field_jersey_color_html__1
-          table: node__field_jersey_color_html_
-          field: field_jersey_color_html_
+        field_jersey_html_color_1:
+          id: field_jersey_html_color_1
+          table: node__field_jersey_html_color
+          field: field_jersey_html_color
           relationship: field_away_team
           group_type: group
           admin_label: ''
@@ -2099,7 +2100,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="jersey-color home-team" data-color="{{ field_jersey_color_html__1__value }} "></div>'
+            text: '<div class="jersey-color away-team" data-color="{{ field_jersey_html_color_1__color }} "></div>'
             make_link: false
             path: ''
             absolute: false
@@ -2136,11 +2137,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: color
+          type: color_field_formatter_text
           settings:
-            link_to_entity: false
-          group_column: value
+            format: hex
+            opacity: '0'
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2225,7 +2227,7 @@ display:
       tags:
         - 'config:field.storage.node.field_abbreviation'
         - 'config:field.storage.node.field_game_date'
-        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_jersey_html_color'
   block_3:
     display_plugin: block
     id: block_3

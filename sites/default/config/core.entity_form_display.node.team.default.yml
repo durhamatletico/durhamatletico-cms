@@ -76,10 +76,9 @@ content:
     region: content
   field_jersey_html_color:
     weight: 15
-    settings:
-      default_colors: '#FBB22F,#04A453,#5E6261,#C81626,#0263AE,#F5F6F8,#FFFFFF,#9A979A,#BC6327,#008CC1,#EF6626,#F1E951,#A9D375,#7CA9D8,#07A756,#C91626,#FBB230,#000000,#CCCCCC,#FFFF00,#EEEEEE,#99badd,#BD2031,#CF5300,#333399'
+    settings: {  }
     third_party_settings: {  }
-    type: color_field_widget_box
+    type: color_field_widget_html5
     region: content
   field_players:
     weight: 9
