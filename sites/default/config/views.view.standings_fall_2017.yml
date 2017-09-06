@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_abbreviation
-    - field.storage.node.field_jersey_color_html_
+    - field.storage.node.field_jersey_html_color
     - field.storage.node.field_team_draws
     - field.storage.node.field_team_games_played
     - field.storage.node.field_team_goal_difference
@@ -15,6 +15,7 @@ dependencies:
     - field.storage.node.field_team_wins
     - node.type.team
   module:
+    - color_field
     - node
     - user
 id: standings_fall_2017
@@ -159,14 +160,14 @@ display:
       row:
         type: fields
       fields:
-        field_jersey_color_html_:
-          id: field_jersey_color_html_
-          table: node__field_jersey_color_html_
-          field: field_jersey_color_html_
+        field_jersey_html_color:
+          id: field_jersey_html_color
+          table: node__field_jersey_html_color
+          field: field_jersey_html_color
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: 'Jersey HTML Color'
           exclude: true
           alter:
             alter_text: false
@@ -199,7 +200,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -207,11 +208,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: color
+          type: color_field_formatter_text
           settings:
-            link_to_entity: false
-          group_column: value
+            format: hex
+            opacity: '0'
+          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -233,7 +235,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<div class="jersey-color" data-color="{{ field_jersey_color_html_ }}">   </div> {{ field_abbreviation }}'
+            text: '<div class="jersey-color" data-color="{{ field_jersey_html_color }}">   </div> {{ field_abbreviation }}'
             make_link: false
             path: ''
             absolute: false
@@ -916,7 +918,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_abbreviation'
-        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_jersey_html_color'
         - 'config:field.storage.node.field_team_draws'
         - 'config:field.storage.node.field_team_games_played'
         - 'config:field.storage.node.field_team_goal_difference'
@@ -1013,7 +1015,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_abbreviation'
-        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_jersey_html_color'
         - 'config:field.storage.node.field_team_draws'
         - 'config:field.storage.node.field_team_games_played'
         - 'config:field.storage.node.field_team_goal_difference'
@@ -1112,7 +1114,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_abbreviation'
-        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_jersey_html_color'
         - 'config:field.storage.node.field_team_draws'
         - 'config:field.storage.node.field_team_games_played'
         - 'config:field.storage.node.field_team_goal_difference'
@@ -1211,7 +1213,7 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_abbreviation'
-        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_jersey_html_color'
         - 'config:field.storage.node.field_team_draws'
         - 'config:field.storage.node.field_team_games_played'
         - 'config:field.storage.node.field_team_goal_difference'

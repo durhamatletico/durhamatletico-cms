@@ -17,7 +17,9 @@
         "drupal/smtp": "^1.0@beta",
         "drupal/superfish": "^1.1",
         "drupal/token": "^1.0",
-        "drupal/blazy": "^1.0@RC"
+        "drupal/blazy": "^1.0@RC",
+        "drupal/color_field": "2.0.0-rc2",
+        "drupal/field_group": "^1.0@RC"
     },
     "replace": {
         "drupal/core": "~8.3"

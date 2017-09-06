@@ -1,0 +1,12 @@
+.simpleColorDisplay {
+  float: left;
+}
+
+.simpleColorContainer {
+  float: left;
+}
+
+.simpleColorChooser {
+  z-index: 1;
+}
+

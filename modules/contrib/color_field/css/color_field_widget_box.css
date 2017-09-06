@@ -1,0 +1,32 @@
+.color_field_widget_box {
+}
+
+.color_field_widget_box__square {
+  border: 1px solid #ffffff;
+  cursor: pointer;
+  font-family: monospace;
+  font-size: 1.2em;
+  margin: 0 3px;
+  padding: 1px 8px;
+}
+
+.color_field_widget_box__square.active,
+.color_field_widget_box__square:hover {
+  padding: 9px 16px;
+}
+
+.color_field_widget_box__square--transparent {
+  background-image: url("../images/transparent_box16.gif");
+  background-position: 0 3px;
+  background-repeat: no-repeat;
+  margin: 0 3px;
+  padding: 2px 8px;
+}
+
+.color_field_widget_box__square--transparent.active,
+.color_field_widget_box__square--transparent:hover {
+  background-image: url(../images/transparent_box32.gif);
+  background-position: 0 3px;
+  background-repeat: no-repeat;
+  padding: 10px 16px;
+}

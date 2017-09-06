@@ -1,0 +1,13 @@
+name: Color Field
+type: module
+description: 'Provides a color field type to store the color value and opacity'
+# core: 8.x
+package: Field types
+dependencies:
+  - field
+
+# Information added by Drupal.org packaging script on 2017-04-26
+version: '8.x-2.0-rc2'
+core: '8.x'
+project: 'color_field'
+datestamp: 1493227445

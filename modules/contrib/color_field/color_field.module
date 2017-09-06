@@ -1,0 +1,160 @@
+<?php
+/**
+ * @file
+ * A color field with a custom color picker using the Field Types API.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function color_field_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.color_field':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Color Field is simple field that use a hexadecimal notation (HEX) for the combination of Red, Green, and Blue color values (RGB). See the <a href="!field">Field module help</a> and the <a href="!field_ui">Field UI help</a> pages for general information on fields and how to create and manage them. For more information, see the <a href="!link_documentation">online documentation for the Link module</a>.', array('!field' => Url::fromRoute('help.page', array('name' => 'field')), '!field_ui' => Url::fromRoute('help.page', array('name' => 'field_ui')), '!link_documentation' => 'https://drupal.org/documentation/modules/link')) . '</p>';
+      $output .= '<h3>' . t('Uses') . '</h3>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Managing and displaying color fields') . '</dt>';
+      $output .= '<dd>' . t('The <em>settings</em> and the <em>display</em> of the link field can be configured separately. See the <a href="!field_ui">Field UI help</a> for more information on how to manage fields and their display.', array('!field_ui' => Url::fromRoute('help.page', array('name' => 'field_ui')))) . '</dd>';
+      $output .= '<dt>' . t('Adding link text') . '</dt>';
+      $output .= '<dd>' . t('In the field settings you can define additional link text to be <em>optional</em> or <em>required</em> in any link field.') . '</dd>';
+      $output .= '<dt>' . t('Displaying link text') . '</dt>';
+      $output .= '<dd>' . t('If link text has been submitted for a URL, then by default this link text is displayed as a link to the URL. If you want to display both the link text <em>and</em> the URL, choose the appropriate link format from the drop-down menu in the <em>Manage display</em> page. If you only want to display the URL even if link text has been submitted, choose <em>Link</em> as the format, and then change its <em>Format settings</em> to display <em>URL only</em>.') . '</dd>';
+      $output .= '<dt>' . t('Adding attributes to links') . '</dt>';
+      $output .= '<dd>' . t('You can add attributes to links, by changing the <em>Format settings</em> in the <em>Manage display</em> page. Adding <em>rel="nofollow"</em> notifies search engines that links should not be followed.') . '</dd>';
+      $output .= '<dt>' . t('Validating URLs') . '</dt>';
+      $output .= '<dd>' . t('All links are validated after a link field is filled in. They can include anchors or query strings.') . '</dd>';
+      $output .= '</dl>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function color_field_theme() {
+  $theme = [];
+
+  $theme['color_field_formatter_swatch'] = array(
+      'variables' => array(
+        'shape' => NULL,
+        'color' => NULL,
+        'width' => NULL,
+        'height' => NULL,
+      ),
+  );
+
+  $theme['color_field_widget_box'] = array(
+    'render element' => 'element',
+  );
+
+  $theme['color_field_widget_spectrum'] = array(
+    'render element' => 'element',
+  );
+
+  return $theme;
+}
+
+/**
+ * Prepares variables for the color_field formatter swatch template.
+ *
+ * This template outputs a color swatch.
+ *
+ * Default template: color-field-formatter-swatch.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *     - color: The color background.
+ *     - shape: The shape of the color swatch.
+ *     - width: The width of the color swatch.
+ *     - height: The height of the color swatch.
+ */
+function template_preprocess_color_field_formatter_swatch(&$variables) {
+}
+
+
+/**
+ * Prepares variables for color_field widget box wrapper template.
+ *
+ * Default template: color-field-widget-box.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #title, #children, #required, #attributes.
+ */
+function template_preprocess_color_field_widget_box(&$variables) {
+  $element = $variables['element'];
+
+  if (!empty($element['#title'])) {
+    $variables['title'] = $element['#title'];
+  }
+
+  if (!empty($element['#description'])) {
+    $variables['description'] = $element['#description'];
+  }
+
+  $variables['color'] = $element['color'];
+
+  if (!empty($element['opacity'])) {
+    $variables['opacity'] = $element['opacity'];
+  }
+
+  // Suppress error messages.
+  $variables['errors'] = NULL;
+
+  if (!empty($element['#description'])) {
+    $variables['description'] = $element['#description'];
+  }
+
+  $variables['required'] = FALSE;
+  if (!empty($element['#required'])) {
+    $variables['required'] = TRUE;
+  }
+
+}
+
+/**
+ * Prepares variables for color_field widget box wrapper template.
+ *
+ * Default template: color-field-widget-box.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - element: An associative array containing the properties of the element.
+ *     Properties used: #title, #children, #required, #attributes.
+ */
+function template_preprocess_color_field_widget_spectrum(&$variables) {
+  $element = $variables['element'];
+
+  if (!empty($element['#title'])) {
+    $variables['title'] = $element['#title'];
+  }
+
+  if (!empty($element['#description'])) {
+    $variables['description'] = $element['#description'];
+  }
+
+  $variables['color'] = $element['color'];
+
+  if (!empty($element['opacity'])) {
+    $variables['opacity'] = $element['opacity'];
+  }
+
+  // Suppress error messages.
+  $variables['errors'] = NULL;
+
+  if (!empty($element['#description'])) {
+    $variables['description'] = $element['#description'];
+  }
+
+  $variables['required'] = FALSE;
+  if (!empty($element['#required'])) {
+    $variables['required'] = TRUE;
+  }
+
+}
