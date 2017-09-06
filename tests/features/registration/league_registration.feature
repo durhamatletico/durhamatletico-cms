@@ -8,7 +8,6 @@ Feature: Allow registered users to sign up for a leauge
   Scenario: Anonymous users may not create a registration node
     Given I am an anonymous user
     When I go to "node/add/registration"
-    Then I should not see "Registration"
     And I should get a 403 HTTP response
 
     @api
