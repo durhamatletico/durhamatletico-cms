@@ -78,6 +78,10 @@ function durhamatletico_core_views_query_alter(ViewExecutable $view, Drupal\view
   if ($view->getTitle() == 'Upcoming games' && $view->current_display == 'block_4') {
     $query->where[0]['type'] = 'OR';
   }
+  // Use the OR operator to show previous home/away games for a team node.
+  if ($view->getTitle() == 'Previous games' && $view->current_display == 'block_8') {
+    $query->where[0]['type'] = 'OR';
+  }
 }
 
 /**

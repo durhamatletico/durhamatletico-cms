@@ -26,7 +26,6 @@ dependencies:
     - image.style.medium
     - node.type.team
   module:
-    - color_field
     - image
     - text
     - user
@@ -41,15 +40,6 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    region: content
-  field_jersey_html_color:
-    weight: 5
-    label: above
-    settings:
-      format: hex
-      opacity: '1'
-    third_party_settings: {  }
-    type: color_field_formatter_text
     region: content
   field_sponsors:
     weight: 3
@@ -78,14 +68,15 @@ content:
     region: content
   links:
     weight: 0
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_abbreviation: true
   field_accepting_registrations: true
   field_captains: true
   field_jersey_color_html_: true
+  field_jersey_html_color: true
   field_players: true
   field_svg_logo: true
   field_team_draws: true

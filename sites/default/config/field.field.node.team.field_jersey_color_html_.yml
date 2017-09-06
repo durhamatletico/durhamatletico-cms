@@ -9,7 +9,7 @@ id: node.team.field_jersey_color_html_
 field_name: field_jersey_color_html_
 entity_type: node
 bundle: team
-label: 'Jersey Color (HTML)'
+label: '[Deprecated] Jersey Color (HTML)'
 description: 'HTML color code of the jersey color.'
 required: false
 translatable: false
