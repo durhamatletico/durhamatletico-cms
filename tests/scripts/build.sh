@@ -1,12 +1,15 @@
 #!/bin/bash
 
 set -ex
+
+docker-compose exec -T php drush sql-drop -y
 # Log into terminus.
 docker volume create --name=durhamatletico_terminus_data
 docker-compose run --rm --entrypoint="sh -c" terminus "mkdir -p /terminus/cache/tokens"
 docker-compose run --rm terminus auth:login --machine-token=$PANTHEON_TOKEN
 docker-compose run --rm terminus site:info durham-atletico
-
+docker-compose run --rm --entrypoint=rm terminus '/terminus/cache/database.sql.gz' | true
+docker-compose run --rm --entrypoint=rm terminus '/terminus/cache/database.sql' | true
 echo "Creating backup"
 docker-compose run --rm terminus backup:create durham-atletico.live -n --element=db --keep-for=1
 echo "Downloading backup"
