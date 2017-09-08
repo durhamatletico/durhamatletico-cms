@@ -31,8 +31,7 @@ do
     docker-compose exec -T php drush updb -yv
     docker-compose exec -T php drush cr -yv
     echo "Ready for testing!"
-
-    break;
+    break
   else
     printf ".";
     sleep 15;
