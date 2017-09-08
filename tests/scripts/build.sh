@@ -2,8 +2,8 @@
 
 set -ex
 
-docker-compose exec -T php drush sql-drop -y
-# Log into terminus.
+docker-compose down | true
+docker volume rm durhamatletico_mysql-data
 docker volume create --name=durhamatletico_terminus_data
 docker-compose run --rm --entrypoint="sh -c" terminus "mkdir -p /terminus/cache/tokens"
 docker-compose run --rm terminus auth:login --machine-token=$PANTHEON_TOKEN
@@ -25,7 +25,9 @@ do
 
   if [ $status -eq "200" ]; then
     docker-compose exec -T php drush cr -yv
-    docker-compose exec -T php drush config-import -yv
+    if [ "$CI" = true ] ; then
+      docker-compose exec -T php drush config-import -yv
+    fi
     docker-compose exec -T php drush updb -yv
     docker-compose exec -T php drush cr -yv
     echo "Ready for testing!"

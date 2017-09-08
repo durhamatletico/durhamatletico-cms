@@ -4,6 +4,13 @@
 
 This is the Drupal 8 codebase for `https://www.durhamatletico.com`.
 
+## Running locally
+
+``` sh
+export PANTHEON_TOKEN=your_token
+./tests/scripts/build.sh
+```
+
 ## Hosting
 
 The site is hosted on Pantheon.
