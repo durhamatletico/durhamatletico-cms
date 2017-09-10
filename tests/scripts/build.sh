@@ -3,7 +3,7 @@
 set -ex
 
 docker-compose down | true
-docker volume rm durhamatletico_mysql-data
+docker volume rm durhamatletico_mysql-data | true
 docker volume create --name=durhamatletico_terminus_data
 docker-compose run --rm --entrypoint="sh -c" terminus "mkdir -p /terminus/cache/tokens"
 docker-compose run --rm terminus auth:login --machine-token=$PANTHEON_TOKEN
