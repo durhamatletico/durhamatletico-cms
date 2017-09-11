@@ -1,0 +1,10 @@
+minifyjs.config:
+  type: config_object
+  label: 'Minify JS settings'
+  mapping:
+    use_minified:
+      type: integer
+      label: 'Use Minified Files'
+    exclusion_list:
+      type: string
+      label: 'Exclusion List'

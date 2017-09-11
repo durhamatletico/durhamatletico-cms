@@ -1,0 +1,36 @@
+minifyjs.manage:
+  path: /admin/config/development/performance/js
+  defaults:
+    _form: \Drupal\minifyjs\Form\ManageFilesForm
+    _title: Manage Javascript Files
+  requirements:
+    _permission: administer minifyjs
+
+minifyjs.scan:
+  path: /admin/config/development/performance/js/scan
+  defaults:
+    _controller: \Drupal\minifyjs\Controller\FileManager::scan
+  requirements:
+    _permission: administer minifyjs
+
+minifyjs.minify:
+  path: /admin/config/development/performance/js/{file}/minify
+  defaults:
+    _controller: \Drupal\minifyjs\Controller\FileManager::minify
+  requirements:
+    _permission: administer minifyjs
+
+minifyjs.restore:
+  path: /admin/config/development/performance/js/{file}/restore
+  defaults:
+    _controller: \Drupal\minifyjs\Controller\FileManager::restore
+  requirements:
+    _permission: administer minifyjs
+
+minifyjs.config:
+  path: /admin/config/development/minifyjs
+  defaults:
+    _form: \Drupal\minifyjs\Form\SettingsForm
+    _title: MinifyJS Settings
+  requirements:
+    _permission: administer minifyjs

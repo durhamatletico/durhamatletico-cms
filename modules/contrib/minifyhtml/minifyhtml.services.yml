@@ -1,0 +1,5 @@
+services:
+  minifyhtml_exit:
+    class: Drupal\minifyhtml\EventSubscriber\MinifyHTMLExit
+    tags:
+      - {name: event_subscriber}

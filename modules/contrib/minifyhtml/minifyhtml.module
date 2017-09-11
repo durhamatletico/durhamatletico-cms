@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * Implements hook_FORM_ID_alter().
+ *
+ * @param array $form
+ * @param FormStateInterface $form_state
+ * @param int $form_id
+ */
+function minifyhtml_form_system_performance_settings_alter(&$form, &$form_state, $form_id) {
+  if (\Drupal::currentUser()->hasPermission('administer minifyhtml')) {
+    $form['bandwidth_optimization']['minifyhtml_minify'] = [
+      '#type'          => 'checkbox',
+      '#title'         => t('Minified Source HTML.'),
+      '#description'   => t('Toggle minified HTML on or off.'),
+      '#default_value' => \Drupal::config('system.performance')->get('minifyhtml.minify_html'),
+    ];
+
+    $form['#submit'][] = 'minifyhtml_system_performance_settings_submit';
+  }
+}
+
+/**
+ * Helper function to handle submit hook in form alter.
+ *
+ * @param array $form
+ * @param FormStateInterface $form_state
+ */
+function minifyhtml_system_performance_settings_submit(&$form, $form_state) {
+  \Drupal::service('config.factory')->getEditable('system.performance')
+    ->set('minifyhtml.minify_html', $form_state->getValue('minifyhtml_minify'))
+    ->save();
+}

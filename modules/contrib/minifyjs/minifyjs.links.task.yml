@@ -1,0 +1,10 @@
+minifyjs.performance:
+  title: Performance
+  base_route: system.admin_config_development
+  route_name: system.performance_settings
+  weight: 1
+minifyjs.manage:
+  title: Manage JavaScript Files
+  base_route: system.admin_config_development
+  route_name: minifyjs.manage
+  weight: 2

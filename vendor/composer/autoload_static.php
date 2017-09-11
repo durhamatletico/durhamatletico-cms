@@ -71,6 +71,7 @@ class ComposerStaticInitDrupal8
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
+            'Patchwork\\' => 10,
         ),
         'M' => 
         array (
@@ -251,6 +252,10 @@ class ComposerStaticInitDrupal8
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Patchwork\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/patchwork/jsqueeze/src',
         ),
         'Masterminds\\' => 
         array (
