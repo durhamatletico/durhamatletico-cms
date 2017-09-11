@@ -34,7 +34,7 @@ codesnippet:
   create: {  }
   before: ''
   after: ''
-translation_set: true
+translation_set: false
 cache: true
 debug: false
 _core:
