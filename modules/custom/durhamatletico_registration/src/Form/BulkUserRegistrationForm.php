@@ -2,9 +2,10 @@
 
 namespace Drupal\durhamatletico_registration\Form;
 
-use Drupal\Core\Form\FormBase;
+use Drupal\Core\Url;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\durhamatletico_registration\BulkImport;
 
 /**
  * Implements an example form.
@@ -32,7 +33,7 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelUrl() {
-    return new Url('durhamatletico_registration.bulk_user_registration.form');
+    return new Url('bulk_user_registration.form');
   }
 
   /**
@@ -68,20 +69,22 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
         'file_validate_extensions' => ['csv'],
       ],
     ];
-//    $form['actions']['#type'] = 'actions';
-    $form['actions']['submit'] = array(
-      '#type' => 'submit',
-      '#value' => $this->t('Import'),
-      '#button_type' => 'primary',
-    );
-    return $form;
+//    $form['actions']['submit'] = array(
+//      '#type' => 'submit',
+//      '#value' => $this->t('Import'),
+//      '#button_type' => 'primary',
+//    );
+    return parent::buildForm($form, $form_state);
   }
 
   /**
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    // TODO: Call registration import service.
+    $bulk_import = new BulkImport();
+    if (!$bulk_import->validateCsv()) {
+      drupal_set_message('errors');
+    }
     // TODO: Check if column names match expected and that all required columns
     // are populated.
   }
@@ -94,4 +97,5 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
 
     drupal_set_message($this->t('hi'));
   }
+
 }

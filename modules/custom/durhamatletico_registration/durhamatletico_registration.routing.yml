@@ -1,7 +1,7 @@
 bulk_user_registration.form:
-  path: '/admin/bulk-user-registration'
+  path: '/admin/content/bulk-user-registration'
   defaults:
     _title: 'Bulk user registration'
     _form: '\Drupal\durhamatletico_registration\Form\BulkUserRegistrationForm'
   requirements:
-    _permission: 'access content'
+    _permission: 'administer content'

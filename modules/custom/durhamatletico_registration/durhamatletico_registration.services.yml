@@ -3,3 +3,7 @@ services:
     class: Drupal\durhamatletico_registration\RegistrationService
     arguments: []
 
+  durhamatletico_registration.bulk_import:
+    class: Drupal\durhamatletico_registration\BulkImport
+    arguments: []
+
