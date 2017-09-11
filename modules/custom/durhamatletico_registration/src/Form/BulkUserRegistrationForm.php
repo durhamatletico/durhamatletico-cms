@@ -63,17 +63,13 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['csv'] = [
       '#type' => 'managed_file',
+      '#required' => TRUE,
       '#upload_location' => 'private://csv-registrations/',
       '#title' => $this->t('CSV'),
       '#upload_validators' => [
         'file_validate_extensions' => ['csv'],
       ],
     ];
-//    $form['actions']['submit'] = array(
-//      '#type' => 'submit',
-//      '#value' => $this->t('Import'),
-//      '#button_type' => 'primary',
-//    );
     return parent::buildForm($form, $form_state);
   }
 
@@ -82,11 +78,13 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $bulk_import = new BulkImport();
-    if (!$bulk_import->validateCsv()) {
-      drupal_set_message('errors');
+    $validators = ['file_validate_extensions' => ['csv']];
+    $file = file_save_upload('csv', $validators, FALSE, 0, FILE_EXISTS_REPLACE);
+    $file_uri = $file->getFileUri();
+    $data = file_get_contents($file_uri);
+    if (!$bulk_import->validateCsv($data)) {
+      $form_state->setErrorByName('csv', $this->t('CSV did not pass validation.'));
     }
-    // TODO: Check if column names match expected and that all required columns
-    // are populated.
   }
 
   /**

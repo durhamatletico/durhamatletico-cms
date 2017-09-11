@@ -8,5 +8,7 @@ namespace Drupal\durhamatletico_registration;
 interface BulkImportInterface {
 
 
-  public function validateCsv();
+  public function validateCsv($data);
+  public function checkIfCsv($data);
+  public function validateColumnHeaders($data);
 }
