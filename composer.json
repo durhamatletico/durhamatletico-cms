@@ -20,7 +20,8 @@
         "drupal/blazy": "^1.0@RC",
         "drupal/color_field": "2.0.0-rc2",
         "drupal/field_group": "^1.0@RC",
-        "drupal/pantheon_advanced_page_cache": "^1.0@alpha"
+        "drupal/pantheon_advanced_page_cache": "^1.0@alpha",
+        "drupal/google_analytics": "^2.1"
     },
     "replace": {
         "drupal/core": "~8.3"
