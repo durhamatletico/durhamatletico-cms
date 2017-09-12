@@ -16,10 +16,10 @@ class BulkImport implements BulkImportInterface {
 
   public function importUser($data) {
     // Look up existing user.
-    list($firstName, $lastName) = explode(' ', $data->name);
-    $firstName = $firstName . rand(0, 100000000000000);
+    $parts = explode(' ', $data->name);
+    $firstName = $parts[0];
+    $lastName = isset($parts[1]) ? $parts[1] : 'Unknown';
     $result = \Drupal::entityQuery('user')
-      ->condition('status', 1)
       ->condition('field_first_name', $firstName)
       ->condition('field_last_name', $lastName)
       ->execute();
@@ -41,13 +41,6 @@ class BulkImport implements BulkImportInterface {
     }
     else {
       $user = User::load(current($result));
-      $message = t('Loaded existing account @account for @name',
-        [
-          '@account' => $user->getAccountName(),
-          '@name' => $firstName . ' ' . $lastName,
-        ]);
-      \Drupal::logger('durhamatletico_registration')->info($message);
-      drupal_set_message($message);
     }
     // TODO: Logic to handle people with the same name. For now, I don't think
     // we have this condition.
@@ -74,11 +67,12 @@ class BulkImport implements BulkImportInterface {
     $seasonNid = $this->getSeasonNid($divisionNid);
     $result = \Drupal::entityQuery('node')
       ->condition('field_registration_teams', $teamNid)
-      ->condition('uuid', $registration->userUuid)
+      ->condition('type', 'registration')
+      ->condition('uid', $registration->uid)
       ->execute();
     if (count($result)) {
       // Already a reg, don't do anything.
-      $message = t('A registration already exists for @user on team @team', [
+      $message = t('A registration already exists for @user on team @team, skipping.', [
         '@user' => $registration->userName,
         '@team' => $registration->teamName,
       ]);
