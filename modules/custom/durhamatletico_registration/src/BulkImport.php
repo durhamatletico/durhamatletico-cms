@@ -93,14 +93,15 @@ class BulkImport implements BulkImportInterface {
       // Update balance due, if numeric and doesn't match existing reg.
       if (is_numeric($registration->balanceDue)) {
         $existingRegistration = Node::load(current($result));
-        if ((int) $existingRegistration->get('field_balance_due')
-            ->value !== (int) $registration->balanceDue) {
+        $existingBalanceDue = (int) $existingRegistration->get('field_balance_due')->value;
+        $newBalanceDue = (int) $registration->balanceDue * 100;
+        if ($existingBalanceDue !== $newBalanceDue) {
           // Update the balance due.
-          $existingRegistration->get('field_balance_due')
-            ->setValue($registration->balanceDue);
+          $existingRegistration->set('field_balance_due', $newBalanceDue);
+          $existingRegistration->save();
           $message = t('Updated balance due from @old to @new for @user',
-            ['@old' => $existingRegistration->get('field_balance_due')->value,
-              '@new' => $registration->balanceDue,
+            ['@old' => $existingBalanceDue,
+              '@new' => $newBalanceDue,
               '@user' => $user->getAccountName()
             ]);
           \Drupal::logger('durhamatletico_registration')->warning($message);
