@@ -5,6 +5,7 @@ namespace Drupal\durhamatletico_registration\Form;
 use Drupal\Core\Url;
 use Drupal\Core\Form\ConfirmFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\file\Entity\File;
 use Drupal\durhamatletico_registration\BulkImport;
 
 /**
@@ -77,12 +78,9 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
-    $bulk_import = new BulkImport();
-    $validators = ['file_validate_extensions' => ['csv']];
-    $file = file_save_upload('csv', $validators, FALSE, 0, FILE_EXISTS_REPLACE);
-    $file_uri = $file->getFileUri();
-    $data = file_get_contents($file_uri);
-    if (!$bulk_import->validateCsv($data)) {
+    $file = File::load($form_state->getValue('csv')[0]);
+    $bulk_import = new BulkImport($file);
+    if (!$bulk_import->validateCsv()) {
       $form_state->setErrorByName('csv', $this->t('CSV did not pass validation.'));
     }
   }
@@ -91,9 +89,15 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
-    // TODO: Call registration import service.
-
-    drupal_set_message($this->t('hi'));
+    $file = File::load($form_state->getValue('csv')[0]);
+    $bulk_import = new BulkImport($file);
+    try {
+      $bulk_import->import();
+      drupal_set_message('Success!');
+    }
+    catch (Exception $e) {
+      drupal_set_message('Error', 'error');
+    }
   }
 
 }
