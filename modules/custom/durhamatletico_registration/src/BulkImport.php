@@ -44,7 +44,6 @@ class BulkImport implements BulkImportInterface {
     }
     // TODO: Logic to handle people with the same name. For now, I don't think
     // we have this condition.
-    $data->userUuid = $user->uuid();
     $data->userName = $user->getAccountName();
     $data->uid = $user->id();
     $this->importRegistration($data);
@@ -63,6 +62,18 @@ class BulkImport implements BulkImportInterface {
     // Check to see if existing registrations exist for this person for
     // this team.
     $teamNid = $this->getTeamNid($registration->teamName, $registration->division);
+    // If the user is a captain, update the team node and set them as a
+    // a captain.
+    if ($registration->isCaptain) {
+      $teamNode = Node::load($teamNid);
+      $captain_nids = array_merge(
+        $teamNode->get('field_captains')->getValue(),
+        [['target_id' => $registration->uid]]
+      );
+      $captain_nids = array_map("unserialize", array_unique(array_map("serialize", $captain_nids)));
+      $teamNode->get('field_captains')->setValue($captain_nids);
+      $teamNode->save();
+    }
     $divisionNid = $this->getDivisionNid($registration->division);
     $seasonNid = $this->getSeasonNid($divisionNid);
     $result = \Drupal::entityQuery('node')
