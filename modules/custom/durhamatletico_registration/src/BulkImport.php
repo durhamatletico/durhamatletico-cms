@@ -159,8 +159,8 @@ class BulkImport implements BulkImportInterface {
    */
   public function getUserId($firstName, $lastName) {
     return \Drupal::entityQuery('user')
-      ->condition('field_first_name', $firstName)
-      ->condition('field_last_name', $lastName)
+      ->condition('field_first_name', $firstName, 'CONTAINS')
+      ->condition('field_last_name', $lastName, 'CONTAINS')
       ->execute();
   }
 
