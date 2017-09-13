@@ -6,7 +6,6 @@ dependencies:
     - views.view.rosters
   module:
     - node
-    - user
     - views
   theme:
     - atletico
@@ -23,14 +22,8 @@ settings:
   label_display: visible
   views_label: ''
   items_per_page: none
+  context_mapping: {  }
 visibility:
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
   node_type:
     id: node_type
     bundles:
