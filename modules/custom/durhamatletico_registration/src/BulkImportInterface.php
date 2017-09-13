@@ -20,7 +20,7 @@ interface BulkImportInterface {
   public function importUser($data);
   public function importRegistration($registration);
   public function getTeamNid($team_name, $division);
-  public function getUserId($name);
+  public function getUserId($firstName, $lastName);
   public function getDivisionNid($division);
   public function getSeasonNid($divisionNid);
 }

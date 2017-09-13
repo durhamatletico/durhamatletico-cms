@@ -17,12 +17,10 @@ class BulkImport implements BulkImportInterface {
   public function importUser($data) {
     // Look up existing user.
     $parts = explode(' ', $data->name);
-    $firstName = $parts[0];
-    $lastName = isset($parts[1]) ? $parts[1] : 'Unknown';
-    $result = \Drupal::entityQuery('user')
-      ->condition('field_first_name', $firstName)
-      ->condition('field_last_name', $lastName)
-      ->execute();
+    $lastName = count($parts) > 1 ? array_pop($parts) : 'Unknown';
+    $firstName = implode(' ', $parts);
+    $result = $this->getUserId($firstName, $lastName);
+
     if (!count($result)) {
       // Create a new user.
       $values = [
@@ -31,10 +29,23 @@ class BulkImport implements BulkImportInterface {
       ];
       $user = User::create($values);
       $user->setUsername($firstName . $lastName);
+      $violations = $user->validate();
+      if (count($violations)) {
+        if (in_array('name', $violations->getFieldNames())) {
+          $message = t('A user already exists for username %username. Try editing the existing user and setting their first and last name.',
+            [
+              '%username' => $firstName . $lastName,
+            ]);
+          drupal_set_message($message, 'error');
+          \Drupal::logger('durhamatletico_registration')->error($message);
+          return;
+        }
+      }
       $user->enforceIsNew(TRUE);
+      $user->activate();
       $user->save();
-      $message = t('Created a new user account for @name', [
-        '@name' => $firstName . ' ' . $lastName,
+      $message = t('Created a new user account for %name', [
+        '%name' => $firstName . ' ' . $lastName,
       ]);
       \Drupal::logger('durhamatletico_registration')->info($message);
       drupal_set_message($message);
@@ -49,6 +60,9 @@ class BulkImport implements BulkImportInterface {
     $this->importRegistration($data);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getSeasonNid($divisionNid) {
     $result = \Drupal::entityQuery('node')
       ->condition('type', 'season')
@@ -58,6 +72,9 @@ class BulkImport implements BulkImportInterface {
     return current($result);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function importRegistration($registration) {
     // Check to see if existing registrations exist for this person for
     // this team.
@@ -84,9 +101,9 @@ class BulkImport implements BulkImportInterface {
       ->execute();
     if (count($result)) {
       // Already a reg, don't do anything.
-      $message = t('A registration already exists for @user on team @team.', [
-        '@user' => $registration->userName,
-        '@team' => $registration->teamName,
+      $message = t('A registration already exists for %user on team %team.', [
+        '%user' => $registration->userName,
+        '%team' => $registration->teamName,
       ]);
       \Drupal::logger('durhamatletico_registration')->warning($message);
       drupal_set_message($message, 'warning');
@@ -99,11 +116,13 @@ class BulkImport implements BulkImportInterface {
           // Update the balance due.
           $existingRegistration->set('field_balance_due', $newBalanceDue);
           $existingRegistration->save();
-          $message = t('Updated balance due from @old to @new for @user',
-            ['@old' => $existingBalanceDue,
-              '@new' => $newBalanceDue,
-              '@user' => $user->getAccountName()
-            ]);
+          $message = t('Updated balance due from %old to %new for %user',
+            [
+              '%old' => $existingBalanceDue,
+              '%new' => $newBalanceDue,
+              '%user' => $user->getAccountName()
+            ]
+          );
           \Drupal::logger('durhamatletico_registration')->warning($message);
           drupal_set_message($message, 'warning');
         }
@@ -125,20 +144,29 @@ class BulkImport implements BulkImportInterface {
     $registrationNode->setOwner($user);
     $registrationNode->enforceIsNew();
     $registrationNode->save();
-    $message = t('Created a new registration for user @user on team @team!',
+    $message = t('Created a new registration for user %user on team %team',
       [
-        '@user' => $user->getAccountName(),
-        '@team' => $registration->teamName,
+        '%user' => $user->getAccountName(),
+        '%team' => $registration->teamName,
       ]
     );
     \Drupal::logger('durhamatletico_registration')->info($message);
     drupal_set_message($message);
   }
 
-  public function getUserId($name) {
-    // TODO: Implement getUserId() method.
+  /**
+   * {@inheritdoc}
+   */
+  public function getUserId($firstName, $lastName) {
+    return \Drupal::entityQuery('user')
+      ->condition('field_first_name', $firstName)
+      ->condition('field_last_name', $lastName)
+      ->execute();
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getDivisionNid($division) {
     $result = \Drupal::entityQuery('node')
       ->condition('type', 'league')
@@ -154,6 +182,9 @@ class BulkImport implements BulkImportInterface {
     $this->file = $file;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function validateCsv() {
 
     $data = $this->loadCsv();
@@ -169,11 +200,17 @@ class BulkImport implements BulkImportInterface {
     return TRUE;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function loadCsv() {
     $file_uri = $this->file->getFileUri();
     return file_get_contents($file_uri);
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function import() {
     $data = $this->loadCsv();
     $this->checkIfCsv($data);
@@ -182,16 +219,19 @@ class BulkImport implements BulkImportInterface {
     foreach ($this->parsedCsv as $row) {
       $rowData = str_getcsv($row);
       $data = new \stdClass();
-      $data->division = $rowData[0];
-      $data->teamName = $rowData[1];
-      $data->name = $rowData[2];
-      $data->shirtNumber = $rowData[3];
-      $data->balanceDue = $rowData[4];
-      $data->isCaptain = $rowData[5];
+      $data->division = trim($rowData[0]);
+      $data->teamName = trim($rowData[1]);
+      $data->name = trim($rowData[2]);
+      $data->shirtNumber = trim($rowData[3]);
+      $data->balanceDue = trim($rowData[4]);
+      $data->isCaptain = trim($rowData[5]);
       $this->importUser($data);
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getTeamNid($team_name, $division) {
     $divisionNid = $this->getDivisionNid($division);
     $divisionNode = Node::load($divisionNid);
@@ -205,6 +245,9 @@ class BulkImport implements BulkImportInterface {
     throw new \Exception('No team found.');
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function checkIfCsv($data) {
     $this->parsedCsv = str_getcsv($data, "\n");
     if (!is_array($this->parsedCsv)) {
@@ -212,6 +255,9 @@ class BulkImport implements BulkImportInterface {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function validateColumnHeaders() {
     $actualHeaders = current($this->parsedCsv);
     $expectedHeaders = 'Division,Team,Name,Shirt Number,Balance Due,Is Captain';
@@ -220,8 +266,11 @@ class BulkImport implements BulkImportInterface {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function checkRequiredFields() {
-    // TODO:
+    // TODO: Make sure every required cell is populated.
   }
 
 }

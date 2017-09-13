@@ -3,7 +3,7 @@
 namespace Drupal\durhamatletico_registration\Form;
 
 use Drupal\Core\Url;
-use Drupal\Core\Form\ConfirmFormBase;
+use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
 use Drupal\durhamatletico_registration\BulkImport;
@@ -11,7 +11,7 @@ use Drupal\durhamatletico_registration\BulkImport;
 /**
  * Implements an example form.
  */
-class BulkUserRegistrationForm extends ConfirmFormBase {
+class BulkUserRegistrationForm extends FormBase {
 
   protected $data;
   /**
@@ -19,43 +19,6 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
    */
   public function getFormId() {
     return 'bulk_user_registration_form';
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getQuestion() {
-    // TODO: Present a summary: number of users, number of registrations.
-    // TODO: Present detail, each row contains name, team and division.
-    return $this->t('Do you want to import the following data %id?', array('%id' => $this->data));
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCancelUrl() {
-    return new Url('bulk_user_registration.form');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getDescription() {
-    return $this->t('Running the importer is not reversible.');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getConfirmText() {
-    return $this->t('Proceed with import');
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getCancelText() {
-    return $this->t('Cancel');
   }
 
   /**
@@ -71,13 +34,21 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
         'file_validate_extensions' => ['csv'],
       ],
     ];
-    return parent::buildForm($form, $form_state);
+    $form['submit'] = [
+      '#type' => 'submit',
+      '#value' => 'Import',
+    ];
+    return $form;
   }
 
   /**
    * {@inheritdoc}
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
+    if (!count($form_state->getValue('csv'))) {
+      $form_state->setErrorByName('csv', $this->t('Please upload a CSV first.'));
+      return;
+    }
     $file = File::load($form_state->getValue('csv')[0]);
     $bulk_import = new BulkImport($file);
     if (!$bulk_import->validateCsv()) {
@@ -96,7 +67,7 @@ class BulkUserRegistrationForm extends ConfirmFormBase {
       drupal_set_message('Success!');
     }
     catch (Exception $e) {
-      drupal_set_message('Error', 'error');
+      drupal_set_message('Error, sorry.', 'error');
     }
   }
 
