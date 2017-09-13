@@ -4,4 +4,4 @@ bulk_user_registration.form:
     _title: 'Bulk user registration'
     _form: '\Drupal\durhamatletico_registration\Form\BulkUserRegistrationForm'
   requirements:
-    _permission: 'administer content'
+    _permission: 'administer nodes'
