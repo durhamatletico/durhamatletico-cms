@@ -7,10 +7,13 @@
 
 use Drupal\Core\Routing\RouteMatchInterface;
 use Drupal\Core\Url;
+use Drupal\durhamatletico_registration\BulkImport;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Access\AccessResult;
 use Drupal\node\Entity\Node;
 use Drupal\user\Entity\User;
+use Drupal\file\Entity\File;
 
 /**
  * Implements hook_user_login().
@@ -24,6 +27,81 @@ function durhamatletico_registration_user_login(Drupal\user\Entity\User $account
 }
 
 /**
+ * Batch process callback to import CSV.
+ */
+function durhamatletico_registration_import($fid, &$context) {
+  $bulk_import = new BulkImport();
+  $file = File::load($fid);
+  $data = $bulk_import->loadCsv($file);
+  $csv = $bulk_import->checkIfCsv($data);
+  // Iterate over all rows, except the header.
+  array_shift($csv);
+  if (empty($context['sandbox'])) {
+    $context['sandbox']['progress'] = 0;
+    $context['sandbox']['current_id'] = 0;
+    $context['sandbox']['max'] = count($csv);
+  }
+  $limit = 5;
+  $csvChunk = array_slice($csv, $context['sandbox']['progress'], $limit);
+
+  foreach ($csvChunk as $row) {
+    $rowData = str_getcsv($row);
+    $data = new \stdClass();
+    $data->division = trim($rowData[0]);
+    $data->teamName = trim($rowData[1]);
+    $data->name = trim($rowData[2]);
+    $data->shirtNumber = trim($rowData[3]);
+    $data->balanceDue = trim($rowData[4]);
+    $data->isCaptain = trim($rowData[5]);
+    $bulk_import->importUser($data);
+    $log = $bulk_import->getLog();
+    $uid = $log['uid'];
+    unset($log['uid']);
+    $context['results'][$uid] = $log;
+    $context['sandbox']['progress']++;
+    $context['sandbox']['current_id'] = Html::escape($data->name);
+    $context['message'] = Html::escape($data->name);
+  }
+  if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
+    $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
+  }
+}
+
+/**
+ * Batch process callback when CSV import is finished.
+ */
+function durhamatletico_registration_import_finished($success, $results, $operations) {
+  if ($success) {
+    // Order results by user ID.
+    $rows = [];
+    foreach ($results as $uid => $messages) {
+      $row = [];
+      $row[] = $messages['name'] . ' (' . $uid . ')';
+      $row[] = implode('; ', $messages['messages']);
+      $row[] = ($messages['success'] == TRUE) ? 'Success' : 'Error';
+      $rows[] = $row;
+    }
+    // Here we do something meaningful with the results.
+    $message = t("@count users were processed.", [
+      '@count' => count($results),
+    ]);
+
+    $_SESSION['bulk_import_results'] = $rows;
+    drupal_set_message($message);
+  }
+  else {
+    // An error occurred.
+    // $operations contains the operations that remained unprocessed.
+    $error_operation = reset($operations);
+    $message = t('An error occurred while processing %error_operation with arguments: @arguments', [
+      '%error_operation' => $error_operation[0],
+      '@arguments' => print_r($error_operation[1], TRUE)
+    ]);
+    drupal_set_message($message, 'error');
+  }
+}
+
+/**
  * {@inheritdoc}
  */
 function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
@@ -31,9 +109,18 @@ function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterf
     // If needed, make sure team node is updated with entity reference to player.
     \Drupal::service('durhamatletico_registration.registration')->assignPlayerToTeam($entity);
     // Send mail.
-    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()->getDefaultLanguage()->getId(), ['entity' => $entity]);
-    $author = \Drupal\user\Entity\User::load($entity->getOwnerId());
-    \Drupal::service('plugin.manager.mail')->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()->getDefaultLanguage()->getId(), ['entity' => $entity]);
+
+    if (isset($_ENV['PANTHEON_ENVIRONMENT']) && $_ENV['PANTHEON_ENVIRONMENT'] === 'live') {
+      \Drupal::service('plugin.manager.mail')
+        ->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()
+          ->getDefaultLanguage()
+          ->getId(), ['entity' => $entity]);
+      $author = \Drupal\user\Entity\User::load($entity->getOwnerId());
+      \Drupal::service('plugin.manager.mail')
+        ->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()
+          ->getDefaultLanguage()
+          ->getId(), ['entity' => $entity]);
+    }
   }
 }
 

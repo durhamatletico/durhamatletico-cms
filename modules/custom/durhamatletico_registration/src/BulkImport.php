@@ -2,7 +2,6 @@
 
 namespace Drupal\durhamatletico_registration;
 
-use Drupal\file\Entity\File;
 use Drupal\user\Entity\User;
 use Drupal\node\Entity\Node;
 
@@ -13,6 +12,7 @@ class BulkImport implements BulkImportInterface {
 
   private $file;
   private $parsedCsv;
+  private $log;
 
   public function importUser($data) {
     // Look up existing user.
@@ -32,26 +32,33 @@ class BulkImport implements BulkImportInterface {
       $violations = $user->validate();
       if (count($violations)) {
         if (in_array('name', $violations->getFieldNames())) {
-          $message = t('A user already exists for username %username. Try editing the existing user and setting their first and last name.',
+          $message = t('A user already exists for username @username. Try editing the existing user and setting their first and last name.',
             [
-              '%username' => $firstName . $lastName,
+              '@username' => $firstName . $lastName,
             ]);
-          drupal_set_message($message, 'error');
           \Drupal::logger('durhamatletico_registration')->error($message);
+          $this->log['messages']['duplicate_username'] = $message;
+          $this->log['success'] = FALSE;
+          $this->log['uid'] = $user->id();
+          $this->log['name'] = $firstName . ' ' . $lastName;
+
           return;
         }
       }
       $user->enforceIsNew(TRUE);
       $user->activate();
       $user->save();
-      $message = t('Created a new user account for %name', [
-        '%name' => $firstName . ' ' . $lastName,
+      $message = t('Created a new user account for @name', [
+        '@name' => $firstName . ' ' . $lastName,
       ]);
       \Drupal::logger('durhamatletico_registration')->info($message);
-      drupal_set_message($message);
+      $this->log['success'] = TRUE;
+      $this->log['messages']['new_user_created'] = $message;
     }
     else {
       $user = User::load(current($result));
+      $this->log['uid'] = $user->id();
+      $this->log['name'] = $firstName . ' ' . $lastName;
     }
     // TODO: Logic to handle people with the same name. For now, I don't think
     // we have this condition.
@@ -101,12 +108,13 @@ class BulkImport implements BulkImportInterface {
       ->execute();
     if (count($result)) {
       // Already a reg, don't do anything.
-      $message = t('A registration already exists for %user on team %team.', [
-        '%user' => $registration->userName,
-        '%team' => $registration->teamName,
+      $message = t('A registration already exists for @user on team @team.', [
+        '@user' => $registration->userName,
+        '@team' => $registration->teamName,
       ]);
       \Drupal::logger('durhamatletico_registration')->warning($message);
-      drupal_set_message($message, 'warning');
+      $this->log['messages']['registration_exists'] = $message;
+      $this->log['success'] = TRUE;
       // Update balance due, if numeric and doesn't match existing reg.
       if (is_numeric($registration->balanceDue)) {
         $existingRegistration = Node::load(current($result));
@@ -116,15 +124,15 @@ class BulkImport implements BulkImportInterface {
           // Update the balance due.
           $existingRegistration->set('field_balance_due', $newBalanceDue);
           $existingRegistration->save();
-          $message = t('Updated balance due from %old to %new for %user',
+          $message = t('Updated balance due from @old to @new for @user',
             [
-              '%old' => $existingBalanceDue,
-              '%new' => $newBalanceDue,
-              '%user' => $user->getAccountName()
+              '@old' => $existingBalanceDue,
+              '@new' => $newBalanceDue,
+              '@user' => $user->getAccountName()
             ]
           );
           \Drupal::logger('durhamatletico_registration')->warning($message);
-          drupal_set_message($message, 'warning');
+          $this->log['messages']['updated_balance'] = $message;
         }
       }
       return;
@@ -144,14 +152,14 @@ class BulkImport implements BulkImportInterface {
     $registrationNode->setOwner($user);
     $registrationNode->enforceIsNew();
     $registrationNode->save();
-    $message = t('Created a new registration for user %user on team %team',
+    $message = t('Created a new registration for user @user on team @team',
       [
-        '%user' => $user->getAccountName(),
-        '%team' => $registration->teamName,
+        '@user' => $user->getAccountName(),
+        '@team' => $registration->teamName,
       ]
     );
+    $this->log['messages']['new_registration'] = $message;
     \Drupal::logger('durhamatletico_registration')->info($message);
-    drupal_set_message($message);
   }
 
   /**
@@ -178,16 +186,8 @@ class BulkImport implements BulkImportInterface {
   /**
    * {@inheritdoc}
    */
-  public function __construct(File $file) {
-    $this->file = $file;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateCsv() {
-
-    $data = $this->loadCsv();
+  public function validateCsv($file) {
+    $data = $this->loadCsv($file);
     try {
       $this->checkIfCsv($data);
       $this->validateColumnHeaders();
@@ -203,30 +203,22 @@ class BulkImport implements BulkImportInterface {
   /**
    * {@inheritdoc}
    */
-  public function loadCsv() {
-    $file_uri = $this->file->getFileUri();
+  public function loadCsv($file) {
+    $file_uri = $file->getFileUri();
     return file_get_contents($file_uri);
   }
 
   /**
    * {@inheritdoc}
    */
-  public function import() {
-    $data = $this->loadCsv();
-    $this->checkIfCsv($data);
-    // Iterate over all rows, except the header.
-    array_shift($this->parsedCsv);
-    foreach ($this->parsedCsv as $row) {
-      $rowData = str_getcsv($row);
-      $data = new \stdClass();
-      $data->division = trim($rowData[0]);
-      $data->teamName = trim($rowData[1]);
-      $data->name = trim($rowData[2]);
-      $data->shirtNumber = trim($rowData[3]);
-      $data->balanceDue = trim($rowData[4]);
-      $data->isCaptain = trim($rowData[5]);
-      $this->importUser($data);
-    }
+  public function import($file, &$context) {
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getLog() {
+    return $this->log;
   }
 
   /**
@@ -253,6 +245,7 @@ class BulkImport implements BulkImportInterface {
     if (!is_array($this->parsedCsv)) {
       throw new \Exception('Does not appear that data is in CSV format.');
     }
+    return $this->parsedCsv;
   }
 
   /**

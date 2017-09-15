@@ -9,14 +9,12 @@ use Drupal\file\Entity\File;
 interface BulkImportInterface {
 
 
-  public function __construct(File $file);
-  public function validateCsv();
+  public function validateCsv($file);
   public function checkIfCsv($data);
-  public function loadCsv();
+  public function loadCsv($file);
+  public function getLog();
   public function validateColumnHeaders();
   public function checkRequiredFields();
-
-  public function import();
   public function importUser($data);
   public function importRegistration($registration);
   public function getTeamNid($team_name, $division);
