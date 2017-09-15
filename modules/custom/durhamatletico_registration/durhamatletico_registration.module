@@ -60,7 +60,7 @@ function durhamatletico_registration_import($fid, &$context) {
     $context['results'][$uid] = $log;
     $context['sandbox']['progress']++;
     $context['sandbox']['current_id'] = Html::escape($data->name);
-    $context['message'] = Html::escape($data->name);
+    $context['message'] = sprintf('Processing %d out of %d', $context['sandbox']['progress'], $context['sandbox']['max']);
   }
   if ($context['sandbox']['progress'] != $context['sandbox']['max']) {
     $context['finished'] = $context['sandbox']['progress'] / $context['sandbox']['max'];
@@ -77,7 +77,7 @@ function durhamatletico_registration_import_finished($success, $results, $operat
     foreach ($results as $uid => $messages) {
       $row = [];
       $row[] = $messages['name'] . ' (' . $uid . ')';
-      $row[] = implode('; ', $messages['messages']);
+      $row[] = implode('. ', $messages['messages']);
       $row[] = ($messages['success'] == TRUE) ? 'Success' : 'Error';
       $rows[] = $row;
     }

@@ -10,11 +10,12 @@ use Drupal\node\Entity\Node;
  */
 class BulkImport implements BulkImportInterface {
 
-  private $file;
   private $parsedCsv;
   private $log;
 
   public function importUser($data) {
+    // Clear log.
+    $this->log = [];
     // Look up existing user.
     $parts = explode(' ', $data->name);
     $lastName = count($parts) > 1 ? array_pop($parts) : 'Unknown';
@@ -39,9 +40,8 @@ class BulkImport implements BulkImportInterface {
           \Drupal::logger('durhamatletico_registration')->error($message);
           $this->log['messages']['duplicate_username'] = $message;
           $this->log['success'] = FALSE;
-          $this->log['uid'] = $user->id();
-          $this->log['name'] = $firstName . ' ' . $lastName;
-
+          $this->log['uid'] = ' (Duplicate)';
+          $this->log['name'] = $firstName . $lastName;
           return;
         }
       }
@@ -54,6 +54,8 @@ class BulkImport implements BulkImportInterface {
       \Drupal::logger('durhamatletico_registration')->info($message);
       $this->log['success'] = TRUE;
       $this->log['messages']['new_user_created'] = $message;
+      $this->log['name'] = $firstName . $lastName;
+      $this->log['uid'] = $user->id();
     }
     else {
       $user = User::load(current($result));
