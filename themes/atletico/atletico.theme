@@ -1,0 +1,28 @@
+<?php
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+
+/**
+* Implements hook_preprocess_HOOK() for node.html.twig.
+*/
+function atletico_preprocess_node(&$variables) {
+
+  if (isset($variables['node'])) {
+    /** @var \Drupal\node\Entity\Node $node */
+    $node = $variables['node'];
+    if ($node->getType() == 'game') {
+      /** @var \Drupal\node\Entity\Node $home_team */
+      $home_team = $node->field_home_team->entity;
+      $variables['home_team_name'] = $home_team->field_abbreviation->value;
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $home_team->id()]);
+      $link = Link::fromTextAndUrl($home_team->field_abbreviation->value, $url);
+      $variables['home_team_link'] = $link;
+      /** @var \Drupal\node\Entity\Node $away_team */
+      $away_team = $node->field_away_team->entity;
+      $url = Url::fromRoute('entity.node.canonical', ['node' => $away_team->id()]);
+      $link = Link::fromTextAndUrl($away_team->field_abbreviation->value, $url);
+      $variables['away_team_link'] = $link;
+    }
+  }
+}
