@@ -11,3 +11,12 @@ services:
     class: Drupal\durhamatletico_core\GoldenBoot
     arguments: []
 
+  durhamatletico_core.route_subscriber:
+    class: Drupal\durhamatletico_core\Routing\AutocompleteRouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  durhamatletico_core.autocomplete_matcher:
+    class: Drupal\durhamatletico_core\EntityAutocompleteMatcher
+    arguments: ['@plugin.manager.entity_reference_selection']
+
