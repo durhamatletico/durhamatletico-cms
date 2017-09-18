@@ -50,7 +50,7 @@ function durhamatletico_registration_import($fid, &$context) {
     $data->division = trim($rowData[0]);
     $data->teamName = trim($rowData[1]);
     $data->name = trim($rowData[2]);
-    $data->shirtNumber = trim($rowData[3]);
+    $data->shirtNumber = !empty($rowData[3]) ? trim($rowData[3]) : 99;
     $data->balanceDue = trim($rowData[4]);
     $data->isCaptain = trim($rowData[5]);
     $bulk_import->importUser($data);
