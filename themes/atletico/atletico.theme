@@ -26,3 +26,20 @@ function atletico_preprocess_node(&$variables) {
     }
   }
 }
+
+/**
+ * Set page title.
+ */
+function atletico_preprocess_page_title(&$variables) {
+  // Load the node entity from current route
+  if ($node = \Drupal::request()->attributes->get('node')) {
+    // Load the label of the bundle
+    $bundle_label = \Drupal::entityTypeManager()
+      ->getStorage('node_type')
+      ->load($node->bundle())
+      ->label();
+    if ($bundle_label == 'Team') {
+      $variables['title'] = $node->field_abbreviation->value;
+    }
+  }
+}

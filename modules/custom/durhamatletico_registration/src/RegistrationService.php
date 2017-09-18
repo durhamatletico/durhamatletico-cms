@@ -75,6 +75,19 @@ class RegistrationService {
   }
 
   /**
+   * Get registration for a team.
+   */
+  public function getRegistrationNodeForUserOnTeam($uid, $team_nid) {
+    $result = \Drupal::entityQuery('node')
+      ->condition('status', 1)
+      ->condition('type', 'registration')
+      ->condition('field_registration_teams', $team_nid)
+      ->condition('uid', $uid)
+      ->execute();
+    return current($result);
+  }
+
+  /**
    * Assign a player to a team.
    *
    * Incoming entity will be a registration node with a reference
