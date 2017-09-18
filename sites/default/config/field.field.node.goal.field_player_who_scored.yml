@@ -16,13 +16,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:user'
+  handler: views
   handler_settings:
-    include_anonymous: true
-    filter:
-      type: _none
-    target_bundles: null
-    sort:
-      field: field_last_name
-      direction: ASC
+    view:
+      view_name: lookup_player_by_name
+      display_name: entity_reference_1
+      arguments: {  }
 field_type: entity_reference

@@ -35,10 +35,6 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
           $entity = \Drupal::entityManager()->getTranslationFromContext($entity);
 
           $type = !empty($entity->type->entity) ? $entity->type->entity->label() : $entity->bundle();
-          $status = '';
-          if ($entity->getEntityType()->id() == 'node') {
-            $status = ($entity->isPublished()) ? ", Published" : ", Unpublished";
-          }
 
           if ($entity->getEntityType()->id() == 'user' && $entity->id() > 0) {
             if ($entity->field_first_name->value && $entity->field_last_name->value) {
@@ -56,8 +52,8 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
                   ->getStorage('node')
                   ->load($reg_nid);
                 $team = $node->field_registration_teams->entity;
-                if (method_exists($entity, 'getTitle')) {
-                  $teams[] = $team->field_registration_teams->entity->getTitle();
+                if (method_exists($team, 'getTitle')) {
+                  $teams[] = $team->getTitle();
                 }
               }
               if (count($teams)) {
@@ -72,7 +68,7 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
           $key = preg_replace('/\s\s+/', ' ', str_replace("\n", '', trim(Html::decodeEntities(strip_tags($key)))));
           // Names containing commas or quotes must be wrapped in quotes.
           $key = Tags::encode($key);
-          $label = $label . ' (' . $entity_id . ') [' . $type . $status . ']';
+          $label = $label . ' (' . $entity_id . ')';
           $matches[] = ['value' => $key, 'label' => $label];
         }
       }
