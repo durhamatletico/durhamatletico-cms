@@ -13,7 +13,6 @@ permissions:
   - 'access shortcuts'
   - 'access site-wide contact form'
   - 'access user contact forms'
-  - 'access user profiles'
   - 'change own username'
   - 'create registration content'
   - 'edit own comments'

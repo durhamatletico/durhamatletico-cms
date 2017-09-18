@@ -10,7 +10,6 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
-  - 'access user profiles'
   - 'restful get tournament_rest_resource'
   - 'search content'
   - 'use text format restricted_html'
