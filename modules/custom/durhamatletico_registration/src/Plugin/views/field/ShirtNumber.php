@@ -2,6 +2,7 @@
 
 namespace Drupal\durhamatletico_registration\Plugin\views\field;
 
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\durhamatletico_registration\RegistrationService;
 use Drupal\views\Plugin\views\field\FieldPluginBase;
 use Drupal\views\ResultRow;
@@ -18,6 +19,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class ShirtNumber extends FieldPluginBase implements ContainerFactoryPluginInterface {
 
   protected $registration_service;
+  protected $entity_type_manager;
 
   /**
    * @{inheritdoc}
@@ -32,25 +34,40 @@ class ShirtNumber extends FieldPluginBase implements ContainerFactoryPluginInter
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('durhamatletico_registration.registration')
+      $container->get('durhamatletico_registration.registration'),
+      $container->get('entity_type.manager')
     );
   }
 
   /**
    * @{inheritdoc}
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, RegistrationService $registration_service) {
-    $this->registration_service= $registration_service;
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, RegistrationService $registration_service, EntityTypeManagerInterface $entity_type_manager) {
+    $this->registration_service = $registration_service;
+    $this->entity_type_manager = $entity_type_manager;
   }
 
   /**
    * @{inheritdoc}
    */
   public function render(ResultRow $values) {
-    $uid = $values->users_field_data_node__field_players_uid;
-    $registration_nid = $this->registration_service->getRegistrationNodeForUserOnTeam($uid, $values->nid);
-    $registration_node = \Drupal::entityTypeManager()->getStorage('node')->load($registration_nid);
-    return $registration_node->field_registration_shirt_number->value;
+    return $this->getShirtNumber($values->users_field_data_node__field_players_uid, $values->nid);
+  }
+
+  /**
+   * Get the shirt number by user ID and team node.
+   */
+  public function getShirtNumber($uid, $team_nid) {
+    $registration_node = $this->getRegistrationNode($uid, $team_nid);
+    return $registration_node->get('field_registration_shirt_number')->getString();
+  }
+
+  /**
+   * Look up the registration node for a user on a team.
+   */
+  public function getRegistrationNode($uid, $team_nid) {
+    $registration_nid = $this->registration_service->getRegistrationNodeForUserOnTeam($uid, $team_nid);
+    return $this->entity_type_manager->getStorage('node')->load($registration_nid);
   }
 
 }
