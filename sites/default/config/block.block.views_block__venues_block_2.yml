@@ -1,0 +1,30 @@
+uuid: 5803b909-084c-485b-96a8-3edeb4efc009
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.venues
+  module:
+    - system
+    - views
+  theme:
+    - atletico
+id: views_block__venues_block_2
+theme: atletico
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:venues-block_2'
+settings:
+  id: 'views_block:venues-block_2'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/2938\r\n/es/node/2938"
+    negate: false
+    context_mapping: {  }

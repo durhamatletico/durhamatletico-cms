@@ -1,0 +1,23 @@
+uuid: cfc123a9-4cf4-4870-9dc3-c0c2a32663be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sport
+    - node.type.venue
+  module:
+    - options
+id: node.venue.field_sport
+field_name: field_sport
+entity_type: node
+bundle: venue
+label: Sport
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: futsal
+default_value_callback: ''
+settings: {  }
+field_type: list_string
