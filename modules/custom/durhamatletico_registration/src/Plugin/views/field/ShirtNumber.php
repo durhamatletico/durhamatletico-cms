@@ -10,7 +10,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
- * Field handler to flag the node type.
+ * Field handler to get registration shirt number.
  *
  * @ingroup views_field_handlers
  *
@@ -59,7 +59,10 @@ class ShirtNumber extends FieldPluginBase implements ContainerFactoryPluginInter
    */
   public function getShirtNumber($uid, $team_nid) {
     $registration_node = $this->getRegistrationNode($uid, $team_nid);
-    return $registration_node->get('field_registration_shirt_number')->getString();
+    if (is_object($registration_node) && method_exists($registration_node, 'get')) {
+      return $registration_node->get('field_registration_shirt_number')->getString();
+    }
+    return '99';
   }
 
   /**

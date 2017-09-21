@@ -35,6 +35,15 @@ class ShirtNumberTest extends UnitTestCase {
       ->method('getRegistrationNode')->willReturn($node->reveal());
     $render = $shirt_number->render($result_row);
     $this->assertTrue($render == '55');
+    // Check if registration node is not found.
+     $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
+      ->setMethods(['getRegistrationNode'])
+      ->setConstructorArgs([[], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal()])
+      ->getMock();
+    $shirt_number->expects($this->once())
+      ->method('getRegistrationNode')->willReturn(NULL);
+    $render = $shirt_number->render($result_row);
+    $this->assertTrue($render == '99');
   }
 }
 
