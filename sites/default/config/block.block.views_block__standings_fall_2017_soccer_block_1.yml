@@ -12,7 +12,7 @@ dependencies:
 id: views_block__standings_fall_2017_soccer_block_1
 theme: atletico
 region: content
-weight: 0
+weight: -6
 provider: null
 plugin: 'views_block:standings_fall_2017_soccer-block_1'
 settings:

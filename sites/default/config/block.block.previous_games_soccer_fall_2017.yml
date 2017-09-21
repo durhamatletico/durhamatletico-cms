@@ -1,22 +1,22 @@
-uuid: b42f3637-fd93-4865-b48e-ef2249f4bfb8
+uuid: a8e6cda1-c419-4428-8ab7-dd159ecf14c1
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.standings_spring_2017
+    - views.view.games
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__standings_spring_2017_block_2
+id: previous_games_soccer_fall_2017
 theme: atletico
 region: content
-weight: -2
+weight: -4
 provider: null
-plugin: 'views_block:standings_spring_2017-block_2'
+plugin: 'views_block:games-block_12'
 settings:
-  id: 'views_block:standings_spring_2017-block_2'
+  id: 'views_block:games-block_12'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/2680\r\n/es/node/2680"
+    pages: "/node/1653\r\n/es/node/1653"
     negate: false
     context_mapping: {  }

@@ -12,7 +12,7 @@ dependencies:
 id: views_block__standings_fall_2016_block_2
 theme: atletico
 region: content
-weight: -16
+weight: -22
 provider: null
 plugin: 'views_block:standings_fall_2016-block_2'
 settings:
