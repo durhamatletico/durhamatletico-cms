@@ -18,6 +18,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class ShirtNumber extends FieldPluginBase implements ContainerFactoryPluginInterface {
 
+  const DEFAULT_SHIRT_NUMBER = 99;
+
   protected $registration_service;
   protected $entity_type_manager;
 
@@ -62,7 +64,7 @@ class ShirtNumber extends FieldPluginBase implements ContainerFactoryPluginInter
     if (is_object($registration_node) && method_exists($registration_node, 'get')) {
       return $registration_node->get('field_registration_shirt_number')->getString();
     }
-    return '99';
+    return self::DEFAULT_SHIRT_NUMBER;
   }
 
   /**
