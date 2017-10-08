@@ -23,10 +23,11 @@
         "drupal/pantheon_advanced_page_cache": "^1.0@alpha",
         "drupal/google_analytics": "^2.1",
         "drupal/minifyjs": "^1.5",
-        "drupal/minifyhtml": "^1.1"
+        "drupal/minifyhtml": "^1.1",
+        "drupal/console": "~1.0"
     },
     "replace": {
-        "drupal/core": "~8.3"
+        "drupal/core": "^8.4"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
