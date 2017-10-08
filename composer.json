@@ -27,7 +27,7 @@
         "drupal/console": "~1.0"
     },
     "replace": {
-        "drupal/core": "~8.3"
+        "drupal/core": "^8.4"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
