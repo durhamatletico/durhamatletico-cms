@@ -4,8 +4,8 @@ package: Performance and scalability
 type: module
 # core: 8.x
 
-# Information added by Drupal.org packaging script on 2017-07-19
-version: '8.x-1.0-alpha1'
+# Information added by Drupal.org packaging script on 2017-09-14
+version: '8.x-1.0-alpha2'
 core: '8.x'
 project: 'pantheon_advanced_page_cache'
-datestamp: 1500476644
+datestamp: 1505400545
