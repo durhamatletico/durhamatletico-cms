@@ -1,4 +1,0 @@
-administer minifyjs:
-  title: Administer Minify JS Module
-  description: Perform administration tasks for Minify JS module.
-  restrict access: true

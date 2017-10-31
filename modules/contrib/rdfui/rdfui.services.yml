@@ -1,6 +1,0 @@
-services:
-  rdfui.subscriber:
-    class: Drupal\rdfui\Routing\RouteSubscriber
-    arguments: ['@entity.manager']
-    tags:
-     - { name: event_subscriber }

@@ -1,0 +1,8 @@
+name: Stripe Checkout
+type: module
+description: "Customized: Defines a custom field formatter for  Stripe's Simple checkout."
+package: Field types
+dependencies:
+  - field
+  - options
+core: '8.x'

@@ -1,3 +1,0 @@
-rdfui.local_tasks:
-    class: \Drupal\Core\Menu\LocalTaskDefault
-    deriver: \Drupal\rdfui\Plugin\Derivative\RdfUiLocalTask
