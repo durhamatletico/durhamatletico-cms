@@ -5,5 +5,5 @@ features:
   favicon: 1
 favicon:
   use_default: 0
-  path: themes/atletico/favicon.png
+  path: themes/custom/atletico/favicon.png
   mimetype: image/png
