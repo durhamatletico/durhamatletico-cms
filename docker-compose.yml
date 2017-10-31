@@ -36,7 +36,7 @@ services:
       NGINX_STATIC_CONTENT_OPEN_FILE_CACHE: "off"
       NGINX_ERROR_LOG_LEVEL: debug
       NGINX_BACKEND_HOST: php
-      NGINX_SERVER_ROOT: /var/www/html
+      NGINX_SERVER_ROOT: /var/www/html/web
     volumes:
       - .:/var/www/html:cached
     labels:
@@ -81,7 +81,7 @@ services:
       - '443:443'
       - '8080:8080' # Dashboard
     volumes:
-      - ./certs:/certs/
+      - ./.docker/certs:/certs/
       - /var/run/docker.sock:/var/run/docker.sock
 
 volumes:
