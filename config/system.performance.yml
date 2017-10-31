@@ -14,7 +14,5 @@ js:
   preprocess: true
   gzip: false
 stale_file_threshold: 2592000
-response:
-  gzip: false
 minifyhtml:
   minify_html: 1

@@ -38,7 +38,7 @@ display:
           label: 'Fecha de modificación'
         count:
           label: 'Usado en'
-          format_plural_string: "1 lugar\x03@count lugares"
+          format_plural_string: !!binary MSBsdWdhcgNAY291bnQgbHVnYXJlcw==
       filters:
         filename:
           expose:
@@ -79,7 +79,7 @@ display:
           label: 'Registrando módulo'
         count:
           label: 'Conteo de usos'
-          format_plural_string: "1\x03@count"
+          format_plural_string: !!binary MQNAY291bnQ=
       title: 'Usos del archivo'
       arguments:
         fid:

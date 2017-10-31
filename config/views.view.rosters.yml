@@ -7,7 +7,6 @@ dependencies:
     - field.storage.user.field_last_name
     - node.type.team
   module:
-    - durhamatletico_registration
     - node
     - user
 id: rosters

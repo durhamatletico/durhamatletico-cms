@@ -54,7 +54,6 @@ module:
   restui: 0
   serialization: 0
   shortcut: 0
-  simplesitemap: 0
   smtp: 0
   stripe_checkout: 0
   superfish: 0
@@ -77,7 +76,6 @@ theme:
   classy: 0
   bartik: 0
   seven: 0
-  bartletico: 0
   atletico: 0
   stable: 0
 profile: standard
