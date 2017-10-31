@@ -26,3 +26,5 @@ Automated testing is run through [Travis CI](https://travis-ci.org/durhamatletic
 ## Contributing
 
 Contributions are very welcome! Please post issues or pull requests.
+
+test
