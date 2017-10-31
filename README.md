@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/durhamatletico/durhamatletico-cms.svg?branch=tournament-api-js)](https://travis-ci.org/durhamatletico/durhamatletico-cms)
+[![CircleCI](https://circleci.com/gh/durhamatletico/durhamatletico-cms.svg?style=svg)](https://circleci.com/gh/durhamatletico/durhamatletico-cms)
 
 # Durham Atletico
 
@@ -21,7 +21,7 @@ Email is handled via Mailgun.
 
 ## Tests
 
-Automated testing is run through [Travis CI](https://travis-ci.org/durhamatletico/durhamatletico-cms).
+Automated testing is run through CircleCI.
 
 ## Contributing
 
