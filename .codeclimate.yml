@@ -1,7 +1,18 @@
-languages:
-   JavaScript: true
-   PHP: true
+---
+engines:
+  phpmd:
+    enabled: true
+    config:
+      file_extensions: "php,inc,module,install"
+      rulesets: ".phpmd.xml"
+  phpcodesniffer:
+    enabled: true
+    config:
+      file_extensions: "php,inc,module,install"
+      encoding: utf-8
+      standard: "Drupal"
+      ignore_warnings: true
 exclude_paths:
-- "vendor/*"
-- "test/*"
-- "core/*"
+- "**/test/**/*"
+- web/core/*
+
