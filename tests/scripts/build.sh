@@ -19,21 +19,11 @@ docker-compose run --rm --entrypoint=gunzip terminus /terminus/cache/database.sq
 docker-compose up -d
 docker-compose exec --user 82 php composer install -n --prefer-dist
 echo "Waiting for database to import"
-while true;
-do
-  status=`curl -s -k -o /dev/null -Ik -w "%{http_code}" https://local.durhamatletico.com`
-
-  if [ $status -eq "200" ]; then
-    $DRUSH cr
-    $DRUSH updb -yv
-    if [ "$CI" = true ] ; then
-      $DRUSH cim -yv
-    fi
-    $DRUSH cr
-    echo "Ready for testing!"
-    break
-  else
-    printf ".";
-    sleep 15;
-  fi
-done
+sleep 120
+$DRUSH cr
+$DRUSH updb -yv
+if [ "$CI" = true ] ; then
+    $DRUSH cim -yv
+fi
+$DRUSH cr
+$DRUSH uli
