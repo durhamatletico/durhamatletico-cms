@@ -2,6 +2,7 @@
 
 set -ex
 
+DRUSH="docker-compose exec --user 82 -T php web/vendor/bin/drush -r /var/www/html/web"
 docker-compose down | true
 docker volume rm durhamatletico_mysql-data | true
 docker volume create --name=durhamatletico_terminus_data
@@ -15,21 +16,20 @@ docker-compose run --rm terminus backup:create durham-atletico.live -n --element
 echo "Downloading backup"
 docker-compose run --rm terminus backup:get durham-atletico.live -n --element=db --to=/terminus/cache/database.sql.gz
 docker-compose run --rm --entrypoint=gunzip terminus /terminus/cache/database.sql.gz
-echo "Importing backup"
 docker-compose up -d
-
+docker-compose exec --user 82 php composer install -n --prefer-dist
 echo "Waiting for database to import"
 while true;
 do
   status=`curl -s -k -o /dev/null -Ik -w "%{http_code}" https://local.durhamatletico.com`
 
   if [ $status -eq "200" ]; then
-    docker-compose exec -T php drush cr -yv
+    $DRUSH cr
+    $DRUSH updb -yv
     if [ "$CI" = true ] ; then
-      docker-compose exec -T php drush config-import -yv
+      $DRUSH cim -yv
     fi
-    docker-compose exec -T php drush updb -yv
-    docker-compose exec -T php drush cr -yv
+    $DRUSH cr
     echo "Ready for testing!"
     break
   else

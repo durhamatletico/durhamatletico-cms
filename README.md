@@ -6,10 +6,14 @@ This is the Drupal 8 codebase for `https://www.durhamatletico.com`.
 
 ## Running locally
 
+Use Docker. Set `127.0.0.1 local.durhamatletico.com` in your `/etc/hosts` file.
+
 ``` sh
 export PANTHEON_TOKEN=your_token
 ./tests/scripts/build.sh
 ```
+
+You should be able to view the site at https://local.durhamatletico.com.
 
 ## Hosting
 
