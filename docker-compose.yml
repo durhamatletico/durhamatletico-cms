@@ -73,7 +73,7 @@ services:
       - 'traefik.frontend.rule=Host:portainer.drupal.docker.localhost'
 
   traefik:
-    image: traefik
+    image: traefik:1.3.8
     command: -c /dev/null --web --docker --logLevel=DEBUG --defaultEntryPoints='https' --entryPoints="Name:https Address::443 TLS:/certs/crt.txt,/certs/key.txt" --entryPoints="Name:http Address::80"
     ports:
       - '8000:80'
