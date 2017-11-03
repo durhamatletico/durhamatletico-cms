@@ -7,6 +7,10 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
+    },
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
     }
   ],
   "require": {
@@ -35,6 +39,8 @@
     "drupal/superfish": "^1.1",
     "drupal/token": "^1.0",
     "drush/drush": "~8",
+    "npm-asset/blazy": "^1.8",
+    "oomphinc/composer-installers-extender": "^1.1",
     "rvtraveller/qs-composer-installer": "^1.1",
     "webflo/drupal-core-strict": "^8"
   },
@@ -85,9 +91,17 @@
     ]
   },
   "extra": {
+    "installer-types": [
+      "npm-asset",
+      "bower-asset"
+    ],
     "installer-paths": {
       "web/core": ["type:drupal-core"],
-      "web/libraries/{$name}": ["type:drupal-library"],
+      "web/libraries/{$name}": [
+        "type:drupal-library",
+        "vendor:npm-asset",
+        "vendor:bower-asset"
+      ],
       "web/modules/contrib/{$name}": ["type:drupal-module"],
       "web/profiles/contrib/{$name}": ["type:drupal-profile"],
       "web/themes/contrib/{$name}": ["type:drupal-theme"],
