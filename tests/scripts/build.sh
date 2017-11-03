@@ -2,7 +2,7 @@
 
 set -ex
 
-DRUSH="docker-compose exec --user 82 -T php web/vendor/bin/drush -r /var/www/html/web"
+DRUSH="docker-compose exec --user 82 -T php vendor/bin/drush -r /var/www/html/web"
 docker-compose down | true
 docker volume rm durhamatletico_mysql-data | true
 docker volume create --name=durhamatletico_terminus_data
