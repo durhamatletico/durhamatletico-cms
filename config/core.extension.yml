@@ -53,6 +53,7 @@ module:
   restui: 0
   serialization: 0
   shortcut: 0
+  simple_sitemap: 0
   smtp: 0
   stripe_checkout: 0
   superfish: 0

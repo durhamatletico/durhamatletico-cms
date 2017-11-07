@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/durhamatletico/durhamatletico-cms.svg?style=svg)](https://circleci.com/gh/durhamatletico/durhamatletico-cms)
+[![CircleCI](https://circleci.com/gh/durhamatletico/durhamatletico-cms.svg?style=svg)](https://circleci.com/gh/durhamatletico/durhamatletico-cms) [![Maintainability](https://api.codeclimate.com/v1/badges/5048ed1b6c858832c1a7/maintainability)](https://codeclimate.com/github/durhamatletico/durhamatletico-cms/maintainability)
 
 # Durham Atletico
 
