@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_core\StandingsService.
- */
-
 namespace Drupal\durhamatletico_core;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\Entity\Node;
 
 /**
@@ -34,12 +30,12 @@ class StandingsService implements StandingsServiceInterface {
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
    */
-  public function updateStandings(\Drupal\Core\Entity\EntityInterface $entity) {
+  public function updateStandings(EntityInterface $entity) {
     $this->entity = $entity;
     // Update standings for both teams.
     $home_team = $entity->get('field_home_team')->getValue();
     $away_team = $entity->get('field_away_team')->getValue();
-    $teams = array($home_team, $away_team);
+    $teams = [$home_team, $away_team];
     foreach ($teams as $team) {
       $team_nid = $team[0]['target_id'];
       // Get all the games this team has played.
@@ -60,6 +56,9 @@ class StandingsService implements StandingsServiceInterface {
     }
   }
 
+  /**
+   *
+   */
   protected function getGamesForTeam($team_nid) {
     $team_node = Node::load($team_nid);
     $query = \Drupal::entityQuery('node');
@@ -68,15 +67,15 @@ class StandingsService implements StandingsServiceInterface {
       ->condition('field_away_team', $team_node->id());
     $games = Node::loadMultiple(
       $query->condition('status', 1)
-      ->condition('type', 'game')
-      ->condition($group)
-      ->condition('field_game_status', 'Played')
-      ->execute()
+        ->condition('type', 'game')
+        ->condition($group)
+        ->condition('field_game_status', 'Played')
+        ->execute()
     );
     // Now filter out only games that are part of the original entity's competition and also filter out games where
     // field_cup_round is set.
     $current_division = $this->entity->get('field_division')->entity->id();
-    return array_filter($games, function($game) use ($current_division) {
+    return array_filter($games, function ($game) use ($current_division) {
       if (($game->get('field_division')->entity->id() == $current_division) &&
           ($game->get('field_cup_round')->getValue() == NULL)) {
         return TRUE;
@@ -87,6 +86,9 @@ class StandingsService implements StandingsServiceInterface {
     });
   }
 
+  /**
+   *
+   */
   protected function getGoalsForTeam($team_nid) {
     // We're not querying 'goal' nodes for now.
     $goals_for_count = 0;
@@ -124,6 +126,9 @@ class StandingsService implements StandingsServiceInterface {
     ];
   }
 
+  /**
+   *
+   */
   protected function analyzeGames($team_nid, array $games) {
     $wins = 0;
     $losses = 0;
@@ -167,10 +172,13 @@ class StandingsService implements StandingsServiceInterface {
     return [
       $wins,
       $draws,
-      $losses
+      $losses,
     ];
   }
 
+  /**
+   *
+   */
   protected function updateTeamStats($team_nid, array $stats) {
     list($wins, $draws, $losses, $games_played, $goals_for, $goals_against) = $stats;
     $team_node = Node::load($team_nid);

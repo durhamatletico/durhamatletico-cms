@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\stripe_checkout\StripeCallback.
- */
-
 namespace Drupal\stripe_checkout;
 
 use Drupal\Core\Controller\ControllerBase;
@@ -14,12 +9,17 @@ use Stripe\Stripe;
 use Stripe\Error\Card;
 
 require_once __DIR__ . '/../vendor/autoload.php';
-
+/**
+ *
+ */
 class StripeCallback extends ControllerBase {
 
+  /**
+   *
+   */
   public function charge($id, $currency) {
 
-    // Load the API key
+    // Load the API key.
     $config = \Drupal::config('stripe_checkout.settings');
     $skey = $config->get('stripe_checkout_key_secret');
     Stripe::setApiKey($skey);
@@ -47,13 +47,13 @@ class StripeCallback extends ControllerBase {
 
     // Process the charge.
     try {
-      $charge = Charge::create(array(
+      $charge = Charge::create([
         "amount" => $node->$clicked->value,
         "currency" => $currency,
         "source" => $token,
         "description" => $node->title->value,
-        "metadata" => array("registration_nid" => $id),
-      ));
+        "metadata" => ["registration_nid" => $id],
+      ]);
       drupal_set_message(t("Thank you. Payment has been processed."));
       // Update the node to mark as paid.
       $node->$clicked->value = 0;
@@ -69,6 +69,7 @@ class StripeCallback extends ControllerBase {
 
     // Go back to the node.
     // TODO: Redirect to user page.
-    return $this->redirect('entity.node.canonical', array('node' => $id));
+    return $this->redirect('entity.node.canonical', ['node' => $id]);
   }
+
 }

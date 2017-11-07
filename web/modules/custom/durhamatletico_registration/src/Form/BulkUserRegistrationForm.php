@@ -2,7 +2,6 @@
 
 namespace Drupal\durhamatletico_registration\Form;
 
-use Drupal\Core\Url;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\file\Entity\File;
@@ -14,6 +13,7 @@ use Drupal\durhamatletico_registration\BulkImport;
 class BulkUserRegistrationForm extends FormBase {
 
   protected $data;
+
   /**
    * {@inheritdoc}
    */
@@ -77,7 +77,7 @@ class BulkUserRegistrationForm extends FormBase {
         [
           ['durhamatletico_registration_import', [$file->id()]],
         ],
-      'finished' => 'durhamatletico_registration_import_finished'
+      'finished' => 'durhamatletico_registration_import_finished',
     ];
     batch_set($batch);
   }

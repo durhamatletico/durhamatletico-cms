@@ -6,23 +6,21 @@
  * button.
  */
 
-use Drupal\field\Entity\FieldInstanceConfig;
-
 /**
  * Implements hook_theme().
  */
 function stripe_checkout_theme($existing, $type, $theme, $path) {
-  return array(
-    'stripe_checkout_simple' => array(
+  return [
+    'stripe_checkout_simple' => [
       'function' => 'theme_stripe_checkout_simple',
-      'variables' => array(
+      'variables' => [
         'description' => NULL,
         'amount' => NULL,
         'currency' => NULL,
         'nid' => NULL,
-      ),
-    ),
-  );
+      ],
+    ],
+  ];
 }
 
 /**

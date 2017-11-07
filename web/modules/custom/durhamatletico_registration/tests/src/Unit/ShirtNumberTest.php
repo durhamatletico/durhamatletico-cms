@@ -11,12 +11,15 @@ use Drupal\views\ResultRow;
  */
 class ShirtNumberTest extends UnitTestCase {
 
+  /**
+   *
+   */
   public function testShirtNumberRetrieval() {
     $entity_type_manager = $this->prophesize('Drupal\Core\Entity\EntityTypeManager');
     $result_row = new ResultRow(
       [
         'users_field_data_node__field_players_uid' => 2,
-        'nid' => 234
+        'nid' => 234,
       ]
     );
     $registration_service = $this->prophesize(
@@ -36,7 +39,7 @@ class ShirtNumberTest extends UnitTestCase {
     $render = $shirt_number->render($result_row);
     $this->assertTrue($render == '55');
     // Check if registration node is not found.
-     $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
+    $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
       ->setMethods(['getRegistrationNode'])
       ->setConstructorArgs([[], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal()])
       ->getMock();
@@ -45,6 +48,5 @@ class ShirtNumberTest extends UnitTestCase {
     $render = $shirt_number->render($result_row);
     $this->assertTrue($render == '99');
   }
+
 }
-
-

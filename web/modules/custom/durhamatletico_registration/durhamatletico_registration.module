@@ -5,8 +5,13 @@
  * Contains durhamatletico_registration.module..
  */
 
+use Drupal\node\NodeInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Url;
 use Drupal\durhamatletico_registration\BulkImport;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\Component\Utility\Html;
@@ -18,7 +23,7 @@ use Drupal\file\Entity\File;
 /**
  * Implements hook_user_login().
  */
-function durhamatletico_registration_user_login(Drupal\user\Entity\User $account) {
+function durhamatletico_registration_user_login(User $account) {
   // Redirect new users to node/add/registration.
   if ($account->access->value == REQUEST_TIME) {
     $response = new RedirectResponse('/node/add/registration');
@@ -95,7 +100,7 @@ function durhamatletico_registration_import_finished($success, $results, $operat
     $error_operation = reset($operations);
     $message = t('An error occurred while processing %error_operation with arguments: @arguments', [
       '%error_operation' => $error_operation[0],
-      '@arguments' => print_r($error_operation[1], TRUE)
+      '@arguments' => print_r($error_operation[1], TRUE),
     ]);
     drupal_set_message($message, 'error');
   }
@@ -104,7 +109,7 @@ function durhamatletico_registration_import_finished($success, $results, $operat
 /**
  * {@inheritdoc}
  */
-function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterface $entity) {
+function durhamatletico_registration_node_insert(EntityInterface $entity) {
   if ($entity->getType() === 'registration') {
     // If needed, make sure team node is updated with entity reference to player.
     \Drupal::service('durhamatletico_registration.registration')->assignPlayerToTeam($entity);
@@ -120,7 +125,7 @@ function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterf
         ->mail('durhamatletico_registration', 'new_registration_admin', 'info@durhamatletico.com', \Drupal::languageManager()
           ->getDefaultLanguage()
           ->getId(), ['entity' => $entity]);
-      $author = \Drupal\user\Entity\User::load($entity->getOwnerId());
+      $author = User::load($entity->getOwnerId());
       \Drupal::service('plugin.manager.mail')
         ->mail('durhamatletico_registration', 'new_registration_user', $author->getEmail(), \Drupal::languageManager()
           ->getDefaultLanguage()
@@ -132,7 +137,7 @@ function durhamatletico_registration_node_insert(Drupal\Core\Entity\EntityInterf
 /**
  * {@inheritdoc}
  */
-function durhamatletico_registration_node_update(Drupal\Core\Entity\EntityInterface $entity) {
+function durhamatletico_registration_node_update(EntityInterface $entity) {
   // If needed, make sure team node is updated with entity reference to player.
   if ($entity->getType() === 'registration') {
     \Drupal::service('durhamatletico_registration.registration')->assignPlayerToTeam($entity);
@@ -142,7 +147,7 @@ function durhamatletico_registration_node_update(Drupal\Core\Entity\EntityInterf
 /**
  * Implements hook_entity_field_access().
  */
-function durhamatletico_registration_entity_field_access($operation, \Drupal\Core\Field\FieldDefinitionInterface $field_definition, \Drupal\Core\Session\AccountInterface $account, \Drupal\Core\Field\FieldItemListInterface $items = NULL) {
+function durhamatletico_registration_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
   // Restrict access to some fields on registration.
   $admin_fields = [
     'field_admin_comments',
@@ -170,7 +175,7 @@ function durhamatletico_registration_mail($key, &$message, $params) {
 
     case 'new_registration_user':
       $message['subject'] = 'Thank you for registering!';
-      $author = \Drupal\user\Entity\User::load($params['entity']->getOwnerId());
+      $author = User::load($params['entity']->getOwnerId());
       $markup = 'Dear ' . $author->getDisplayName() . ',' . "\n\n";
       $markup .= 'Thank you for registering for our futsal league! We are excited to have you join us. We will be in touch soon with more information as teams are formed and we put the schedule together. In the meantime, feel free to contact us at info@durhamatletico.com with any questions!' . "\n\n";
       $markup .= 'David & Kosta for Durham Atletico';
@@ -200,7 +205,7 @@ function durhamatletico_registration_help($route_name, RouteMatchInterface $rout
  *
  * Users who are not from NC are going to be flagged as spammers.
  */
-function _durhamatletico_registration_user_registration_form_validate($form, \Drupal\Core\Form\FormStateInterface $form_state) {
+function _durhamatletico_registration_user_registration_form_validate($form, FormStateInterface $form_state) {
   if ($form_state->hasValue('field_address')) {
     $address = $form_state->getValue('field_address');
     if ($address[0]['address']['administrative_area'] !== 'NC') {
@@ -212,7 +217,7 @@ function _durhamatletico_registration_user_registration_form_validate($form, \Dr
 /**
  * Implements hook_form_alter().
  */
-function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function durhamatletico_registration_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   if ($form_id == 'user_register_form') {
     $form['#validate'][] = '_durhamatletico_registration_user_registration_form_validate';
   }
@@ -246,7 +251,7 @@ function durhamatletico_registration_form_alter(&$form, \Drupal\Core\Form\FormSt
 /**
  * Set defaults on new registrations.
  */
-function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInterface $node) {
+function durhamatletico_registration_node_presave(EntityInterface $node) {
   // Don't do anything if not a registration node.
   if ($node->getType() !== 'registration') {
     return;
@@ -268,11 +273,11 @@ function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInter
   // Find season nodes that contain references to the competition NID, and set
   // the entity reference field for the registration.
   $season_nid = \Drupal::entityQuery('node')
-              ->condition('type', 'season')
-              ->condition('status', 1)
-              ->condition('field_divisions.target_id', $competition_node->id())
-              ->addMetaData('uid', 1)
-              ->execute();
+    ->condition('type', 'season')
+    ->condition('status', 1)
+    ->condition('field_divisions.target_id', $competition_node->id())
+    ->addMetaData('uid', 1)
+    ->execute();
   $node->set('field_registration_season', $season_nid);
   // Set the registration title. It should be along the lines of:
   // [Sport e.g. futsal/soccer], [Season e.g. Fall 2016]: [First Name] [Last
@@ -291,12 +296,12 @@ function durhamatletico_registration_node_presave(Drupal\Core\Entity\EntityInter
 /**
  * Implements hook_node_access().
  */
-function durhamatletico_registration_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
+function durhamatletico_registration_node_access(NodeInterface $node, $op, AccountInterface $account) {
   $type = $node->bundle();
   if ($type == 'registration') {
     return \Drupal::service('durhamatletico_registration.registration')->nodeAccessRegistration($node, $op, $account);
   }
-  return \Drupal\Core\Access\AccessResult::neutral();
+  return AccessResult::neutral();
 }
 
 /**

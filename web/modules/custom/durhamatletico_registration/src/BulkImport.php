@@ -13,6 +13,9 @@ class BulkImport implements BulkImportInterface {
   private $parsedCsv;
   private $log;
 
+  /**
+   *
+   */
   public function importUser($data) {
     // Clear log.
     $this->log = [];
@@ -130,7 +133,7 @@ class BulkImport implements BulkImportInterface {
             [
               '@old' => $existingBalanceDue,
               '@new' => $newBalanceDue,
-              '@user' => $user->getAccountName()
+              '@user' => $user->getAccountName(),
             ]
           );
           \Drupal::logger('durhamatletico_registration')->warning($message);

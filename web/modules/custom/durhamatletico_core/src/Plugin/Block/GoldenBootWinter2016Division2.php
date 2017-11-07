@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_core\Plugin\Block\GoldenBootWinter2016Division2.
- */
-
 namespace Drupal\durhamatletico_core\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
@@ -18,7 +13,6 @@ use Drupal\Core\Block\BlockBase;
  * )
  */
 class GoldenBootWinter2016Division2 extends BlockBase {
-
 
   /**
    * {@inheritdoc}

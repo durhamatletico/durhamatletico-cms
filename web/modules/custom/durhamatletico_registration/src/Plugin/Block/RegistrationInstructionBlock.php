@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_registration\Plugin\Block\RegistrationInstructionBlock.
- */
-
 namespace Drupal\durhamatletico_registration\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
@@ -18,7 +13,6 @@ use Drupal\Core\Block\BlockBase;
  * )
  */
 class RegistrationInstructionBlock extends BlockBase {
-
 
   /**
    * {@inheritdoc}

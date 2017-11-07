@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_core\ContentEntryInterface.
- */
-
 namespace Drupal\durhamatletico_core;
 
 /**

@@ -1,12 +1,9 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_registration\Plugin\Block\RegistrationNodeBlock.
- */
-
 namespace Drupal\durhamatletico_registration\Plugin\Block;
 
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Url;
 
@@ -39,23 +36,23 @@ class RegistrationNodeBlock extends BlockBase {
     if ($uid !== \Drupal::currentUser()->id()) {
       return [];
     }
-    $user = \Drupal\user\Entity\User::load((int) $uid);
+    $user = User::load((int) $uid);
     $registration_node = \Drupal::service('durhamatletico_registration.registration')->getRegistrationNodeForUser($user);
     $build = [];
     if (!count($registration_node)) {
       // TODO: Rework this. @debt.
       $url = Url::fromRoute('node.add', ['node_type' => 'registration']);
-      $build['registration_node_block']['#markup'] = t('@clickhere for the spring 2016 futsal league.', array('@clickhere' => \Drupal::l(t('Click here to register'), $url)));
+      $build['registration_node_block']['#markup'] = t('@clickhere for the spring 2016 futsal league.', ['@clickhere' => \Drupal::l(t('Click here to register'), $url)]);
       $build['registration_node_block']['#prefix'] = '<div class="messages messages--status">';
       $build['registration_node_block']['#suffix'] = '</div>';
     }
     else {
-      $node = \Drupal\node\Entity\Node::load(array_shift($registration_node));
+      $node = Node::load(array_shift($registration_node));
       $balance_due = $node->get('field_balance_due')->getValue();
       if ($balance_due[0]['value'] > 0) {
         // Registration is unpaid.
         drupal_set_message(t('Your registration is not complete! You have a balance of $@amount due on your registration. Please visit @node to pay.',
-          array('@amount' => $balance_due[0]['value'] / 100, '@node' => \Drupal::l('this link', Url::fromRoute('entity.node.canonical', ['node' => $node->id()])))), 'warning');
+          ['@amount' => $balance_due[0]['value'] / 100, '@node' => \Drupal::l('this link', Url::fromRoute('entity.node.canonical', ['node' => $node->id()]))]), 'warning');
       }
     }
     return $build;

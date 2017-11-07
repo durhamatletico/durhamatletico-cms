@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_core\Plugin\Block\GoldenBootWinter2016.
- */
-
 namespace Drupal\durhamatletico_core\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
