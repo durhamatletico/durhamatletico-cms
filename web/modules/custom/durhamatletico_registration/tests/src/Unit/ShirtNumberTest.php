@@ -12,7 +12,7 @@ use Drupal\views\ResultRow;
 class ShirtNumberTest extends UnitTestCase {
 
   /**
-   *
+   * Test shirt number retrieval.
    */
   public function testShirtNumberRetrieval() {
     $entity_type_manager = $this->prophesize('Drupal\Core\Entity\EntityTypeManager');
@@ -27,7 +27,9 @@ class ShirtNumberTest extends UnitTestCase {
     );
     $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
       ->setMethods(['getRegistrationNode'])
-      ->setConstructorArgs([[], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal()])
+      ->setConstructorArgs([
+          [], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal(),
+      ])
       ->getMock();
     $field = $this->prophesize('Drupal\Core\Field\FieldItemListInterface');
     $field->getString()->willReturn('55');
@@ -41,7 +43,9 @@ class ShirtNumberTest extends UnitTestCase {
     // Check if registration node is not found.
     $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
       ->setMethods(['getRegistrationNode'])
-      ->setConstructorArgs([[], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal()])
+      ->setConstructorArgs([
+          [], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal(),
+      ])
       ->getMock();
     $shirt_number->expects($this->once())
       ->method('getRegistrationNode')->willReturn(NULL);
