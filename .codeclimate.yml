@@ -1,5 +1,11 @@
 ---
 engines:
+  sonar-php:
+    enabled: true
+    config:
+      tests_patterns:
+        - "**/src/test/**"
+        - "**/tests/**"
   phpmd:
     enabled: true
     config:
@@ -12,7 +18,30 @@ engines:
       encoding: utf-8
       standard: "Drupal"
       ignore_warnings: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.inc"
+  - "**.js"
+  - "**.jsx"
+  - "**.module"
+  - "**.php"
 exclude_paths:
-- "**/test/**/*"
-- web/core/*
+- "web/core/"
+- "web/autoload.php"
+- "web/index.php"
+- "web/update.php"
+- "web/libraries/"
+- "web/private/"
+- "web/modules/contrib/"
+- "web/sites/"
+- "**/vendor/**"
+- "vendor/"
+- "**/tests/**"
+- "config/"
+- "console/"
+- "drush/"
+- "scripts/"
+- "sites/"
+- ".docker/"
 
