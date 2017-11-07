@@ -70,6 +70,7 @@
   },
   "scripts": {
     "build-assets": [
+      "cd web/themes/custom/atletico && bundle install"
       "@prepare-for-pantheon",
       "composer install --optimize-autoloader"
     ],
