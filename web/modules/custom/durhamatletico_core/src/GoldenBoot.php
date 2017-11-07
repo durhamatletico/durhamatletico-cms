@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_core\GoldenBoot.
- */
-
 namespace Drupal\durhamatletico_core;
 
 use Drupal\node\Entity\Node;
@@ -51,12 +46,12 @@ class GoldenBoot implements GoldenBootInterface {
       }
     }
     $headers = [
-        'player' => 'Player',
-        'goals' => 'Goals',
-        'team' => 'Team',
+      'player' => 'Player',
+      'goals' => 'Goals',
+      'team' => 'Team',
     ];
 
-    usort($rows, function($a, $b) {
+    usort($rows, function ($a, $b) {
       return $b['goals'] - $a['goals'];
     });
 
@@ -70,17 +65,23 @@ class GoldenBoot implements GoldenBootInterface {
     ];
   }
 
+  /**
+   *
+   */
   private function getPlayerUid($goal) {
     return $goal->get('field_player_who_scored')->getString();
   }
 
+  /**
+   *
+   */
   private function getPlayerDisplayName($goal) {
     $player_uid = $goal->get('field_player_who_scored')->getString();
-      $player = User::load($player_uid);
-      if ($player_uid == 0) {
-        // Anonymous, keep going.
-        return FALSE;
-      }
+    $player = User::load($player_uid);
+    if ($player_uid == 0) {
+      // Anonymous, keep going.
+      return FALSE;
+    }
     $jersey_number = $this->getPlayerJerseyNumber($player_uid);
     if (!$jersey_number) {
       return FALSE;
@@ -92,14 +93,17 @@ class GoldenBoot implements GoldenBootInterface {
     );
   }
 
+  /**
+   *
+   */
   private function getPlayerJerseyNumber($player_uid) {
     // Get the player's jersey number.
     $reg_nid = \Drupal::entityQuery('node')
-        ->condition('type', 'registration')
-        ->condition('status', 1)
-        ->condition('uid', $player_uid)
-        ->addMetaData('uid', 1)
-        ->execute();
+      ->condition('type', 'registration')
+      ->condition('status', 1)
+      ->condition('uid', $player_uid)
+      ->addMetaData('uid', 1)
+      ->execute();
     if (!$reg_nid) {
       return FALSE;
     }
@@ -113,13 +117,16 @@ class GoldenBoot implements GoldenBootInterface {
     }
   }
 
+  /**
+   *
+   */
   private function getGoalsForDivision($division_nid) {
     $this->goals_for_division = [];
     $goal_nids = \Drupal::entityQuery('node')
-        ->condition('status', 1)
-        ->condition('type', 'goal')
-        ->addMetaData('uid', 1)
-        ->execute();
+      ->condition('status', 1)
+      ->condition('type', 'goal')
+      ->addMetaData('uid', 1)
+      ->execute();
     $goal_nodes = Node::loadMultiple($goal_nids);
     foreach ($goal_nodes as $goal) {
       // Load the game.
@@ -131,14 +138,17 @@ class GoldenBoot implements GoldenBootInterface {
     }
   }
 
+  /**
+   *
+   */
   private function getPlayerTeam($player_uid) {
     // Get the player's team.
     $team_nid = \Drupal::entityQuery('node')
-        ->condition('type', 'team')
-        ->condition('status', 1)
-        ->condition('field_players.target_id', $player_uid)
-        ->addMetaData('uid', 1)
-        ->execute();
+      ->condition('type', 'team')
+      ->condition('status', 1)
+      ->condition('field_players.target_id', $player_uid)
+      ->addMetaData('uid', 1)
+      ->execute();
     if (!$team_nid) {
       // TODO: Logging.
       return FALSE;
@@ -146,4 +156,5 @@ class GoldenBoot implements GoldenBootInterface {
     $team_node = Node::load(current($team_nid));
     return $team_node->get('field_abbreviation')->getString();
   }
+
 }

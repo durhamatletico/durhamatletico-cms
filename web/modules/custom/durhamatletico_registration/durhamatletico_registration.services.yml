@@ -6,4 +6,3 @@ services:
   durhamatletico_registration.bulk_import:
     class: Drupal\durhamatletico_registration\BulkImport
     arguments: []
-

@@ -11,12 +11,15 @@ use Drupal\views\ResultRow;
  */
 class ShirtNumberTest extends UnitTestCase {
 
+  /**
+   * Test shirt number retrieval.
+   */
   public function testShirtNumberRetrieval() {
     $entity_type_manager = $this->prophesize('Drupal\Core\Entity\EntityTypeManager');
     $result_row = new ResultRow(
       [
         'users_field_data_node__field_players_uid' => 2,
-        'nid' => 234
+        'nid' => 234,
       ]
     );
     $registration_service = $this->prophesize(
@@ -24,11 +27,13 @@ class ShirtNumberTest extends UnitTestCase {
     );
     $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
       ->setMethods(['getRegistrationNode'])
-      ->setConstructorArgs([[], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal()])
+      ->setConstructorArgs([
+          [], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal(),
+      ])
       ->getMock();
     $field = $this->prophesize('Drupal\Core\Field\FieldItemListInterface');
     $field->getString()->willReturn('55');
-    $node = $this->prophesize('Drupal\node\Entity\node');
+    $node = $this->prophesize('Drupal\Core\Entity\ContentEntityBase');
 
     $node->get('field_registration_shirt_number')->willReturn($field->reveal());
     $shirt_number->expects($this->once())
@@ -36,15 +41,16 @@ class ShirtNumberTest extends UnitTestCase {
     $render = $shirt_number->render($result_row);
     $this->assertTrue($render == '55');
     // Check if registration node is not found.
-     $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
+    $shirt_number = $this->getMockBuilder('Drupal\durhamatletico_registration\Plugin\views\field\ShirtNumber')
       ->setMethods(['getRegistrationNode'])
-      ->setConstructorArgs([[], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal()])
+      ->setConstructorArgs([
+          [], 'shirt_number', [], $registration_service->reveal(), $entity_type_manager->reveal(),
+      ])
       ->getMock();
     $shirt_number->expects($this->once())
       ->method('getRegistrationNode')->willReturn(NULL);
     $render = $shirt_number->render($result_row);
     $this->assertTrue($render == '99');
   }
+
 }
-
-

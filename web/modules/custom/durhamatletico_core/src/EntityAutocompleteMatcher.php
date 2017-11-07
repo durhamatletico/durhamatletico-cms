@@ -2,10 +2,14 @@
 
 namespace Drupal\durhamatletico_core;
 
+use Drupal\Core\Entity\EntityAutocompleteMatcher;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Tags;
 
-class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMatcher {
+/**
+ *
+ */
+class EntityAutocompleteMatcher extends EntityAutocompleteMatcher {
 
   /**
    * Gets matched labels based on a given search string.
@@ -39,7 +43,7 @@ class EntityAutocompleteMatcher extends \Drupal\Core\Entity\EntityAutocompleteMa
           if ($entity->getEntityType()->id() == 'user' && $entity->id() > 0) {
             if ($entity->field_first_name->value && $entity->field_last_name->value) {
               $teams = [];
-              $label .=  ' (' . Html::escape($entity->field_first_name->value) . ' ' . Html::escape($entity->field_last_name->value) . ')';
+              $label .= ' (' . Html::escape($entity->field_first_name->value) . ' ' . Html::escape($entity->field_last_name->value) . ')';
               $registrations = \Drupal::entityQuery('node')
                 ->condition('type', 'registration')
                 ->condition('uid', $entity->id())

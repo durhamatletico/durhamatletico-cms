@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_registration\Plugin\Block\RegistrationCapacityBlock.
- */
-
 namespace Drupal\durhamatletico_registration\Plugin\Block;
 
+use Drupal\node\Entity\Node;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Form\FormStateInterface;
 
@@ -24,12 +20,12 @@ class RegistrationCapacityBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function blockForm($form, FormStateInterface $form_state) {
-    $form['capacity'] = array(
+    $form['capacity'] = [
       '#type' => 'number',
       '#title' => $this->t('Capacity'),
       '#description' => $this->t('Number of registrations available'),
       '#default_value' => isset($this->configuration['capacity']) ? $this->configuration['capacity'] : '120',
-    );
+    ];
 
     return $form;
   }
@@ -56,26 +52,26 @@ class RegistrationCapacityBlock extends BlockBase {
       ->execute();
     $rows = [];
     foreach ($team_nodes as $team_nid) {
-      $team_node = \Drupal\node\Entity\Node::load($team_nid);
+      $team_node = Node::load($team_nid);
       $string = str_replace('- Winter 2016', '', $team_node->getTitle());
       if ($team_node->get('field_team_jersey_color')->value) {
         $string .= '(' . $team_node->get('field_team_jersey_color')->value . ')';
       }
-      $rows[] = array($string);
+      $rows[] = [$string];
     }
 
     asort($rows);
 
-    $team_markup = array(
-      'header' => array('Team'),
+    $team_markup = [
+      'header' => ['Team'],
       'rows' => $rows,
-    );
+    ];
     $markup = '<br /><p>There are <strong>' . count($team_nodes) . '</strong> teams signed up, and ';
     $markup .= '<strong>' . ((int) $this->configuration['capacity'] - $registration_node_count) . '</strong> registrations are still available for the winter league.';
     $markup .= ' Please don\'t delay <a href="/user/register">in registering</a> -- we will exceed capacity and don\'t want you to be left out!</p>';
     $markup .= \Drupal::theme()->render('table', $team_markup);
     $build['registration_capacity_block_capacity']['#markup'] = $markup;
-    $build['#allowed_attributes']['exact'] = array('div' => array('exact' => 'style'));
+    $build['#allowed_attributes']['exact'] = ['div' => ['exact' => 'style']];
     return $build;
   }
 

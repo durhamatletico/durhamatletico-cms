@@ -2,11 +2,15 @@
 
 namespace Drupal\durhamatletico_core\Controller;
 
+use Drupal\system\Controller\EntityAutocompleteController;
 use Drupal\Core\KeyValueStore\KeyValueStoreInterface;
 use Drupal\durhamatletico_core\EntityAutocompleteMatcher;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class EntityAutocompleteController extends \Drupal\system\Controller\EntityAutocompleteController {
+/**
+ *
+ */
+class EntityAutocompleteController extends EntityAutocompleteController {
 
   /**
    * The autocomplete matcher for entity references.

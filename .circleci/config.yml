@@ -36,6 +36,9 @@ defaults: &defaults
     BUILD_TOOLS_VERSION: dev-master
     TERM: dumb
 
+    # Code coverage for CodeClimate
+    CC_TEST_REPORTER_ID: 17336f665cd3863c988a52622e258b95d62836b043cc58d16e11339d7af85633
+
 version: 2
 jobs:
     # @todo: common initialization: 'composer install' for the site-under-test
@@ -79,7 +82,7 @@ jobs:
 
             - run:
                 name: run unit tests
-                command: composer -n unit-test
+                command: pecl install xdebug && docker-php-ext-enable xdebug && curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter && chmod +x ./cc-test-reporter && mkdir -p $CIRCLE_TEST_REPORTS/phpunit && ./cc-test-reporter before-build && composer -n unit-test && ./cc-test-reporter after-build -t clover --exit-code $?
 
     build_deploy_and_test:
         <<: *defaults
@@ -99,7 +102,7 @@ jobs:
 
             - run:
                 name: install dev dependencies, build assets, etc.
-                command: ./.circleci/scripts/pantheon/01-prepare
+                command: ./.circleci/scripts/pantheon/01-prepare && apt-get update && apt-get install ruby-dev ruby gem -y && gem install bundler && cd web/themes/custom/atletico && bundle install && bundle exec compass compile
 
             - run:
                 name: build assets
@@ -125,10 +128,6 @@ jobs:
             - run:
                 name: remove transient test fixtures
                 command: ./.circleci/scripts/pantheon/09-cleanup-fixtures
-
-    # TODO:
-    # 04-merge-master
-    # 09-cleanup-fixtures
 
 workflows:
   version: 2

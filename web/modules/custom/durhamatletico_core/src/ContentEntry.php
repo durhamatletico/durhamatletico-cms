@@ -1,12 +1,8 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\durhamatletico_core\ContentEntry.
- */
-
 namespace Drupal\durhamatletico_core;
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\node\Entity\Node;
 use Drupal\user\Entity\User;
 
@@ -16,6 +12,7 @@ use Drupal\user\Entity\User;
  * @package Drupal\durhamatletico_core
  */
 class ContentEntry implements ContentEntryInterface {
+
   /**
    * Constructor.
    */
@@ -27,7 +24,7 @@ class ContentEntry implements ContentEntryInterface {
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
    */
-  public function addGoals(\Drupal\Core\Entity\EntityInterface $entity) {
+  public function addGoals(EntityInterface $entity) {
     // If quantity is 1, do nothing.
     $quantity = (int) $entity->get('field_quantity')->getString();
     if ($quantity == 1) {
@@ -51,7 +48,7 @@ class ContentEntry implements ContentEntryInterface {
    *
    * @param \Drupal\Core\Entity\EntityInterface $entity
    */
-  public function setTitle(\Drupal\Core\Entity\EntityInterface $entity) {
+  public function setTitle(EntityInterface $entity) {
     if ($entity->getType() === 'game') {
       $home_team = $entity->get('field_home_team')->getValue();
       $away_team = $entity->get('field_away_team')->getValue();

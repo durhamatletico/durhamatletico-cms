@@ -1,5 +1,7 @@
 ---
 engines:
+  scss-lint:
+    enabled: true
   sonar-php:
     enabled: true
     config:
@@ -20,6 +22,7 @@ engines:
       ignore_warnings: true
 ratings:
   paths:
+  - "**.scss"
   - "**.css"
   - "**.inc"
   - "**.js"
@@ -38,6 +41,7 @@ exclude_paths:
 - "**/vendor/**"
 - "vendor/"
 - "**/tests/**"
+- "**/spec/**"
 - "config/"
 - "console/"
 - "drush/"
