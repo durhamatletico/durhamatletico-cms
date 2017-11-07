@@ -70,13 +70,13 @@
   },
   "scripts": {
     "build-assets": [
-      "cd web/themes/custom/atletico && bundle install"
+      "cd web/themes/custom/atletico && bundle install",
       "@prepare-for-pantheon",
       "composer install --optimize-autoloader"
     ],
     "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
     "code-sniff": "echo 'No code sniff step defined.'",
-    "unit-test": "echo 'No unit test step defined.'",
+    "unit-test": "vendor/bin/phpunit -c web/core/phpunit.xml.dist --testsuite=unit --coverage-clover clover.xml web/modules/custom/",
     "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
     "prepare-for-pantheon": "DrupalProject\\composer\\ScriptHandler::prepareForPantheon",
     "post-install-cmd": [
