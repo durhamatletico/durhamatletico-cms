@@ -23,6 +23,7 @@ exclude_paths:
 - web/libraries
 - web/modules/contrib
 - web/sites
+- "**/vendor/**"
 - vendor
 - tests
 - config
