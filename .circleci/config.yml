@@ -102,7 +102,7 @@ jobs:
 
             - run:
                 name: install dev dependencies, build assets, etc.
-                command: ./.circleci/scripts/pantheon/01-prepare && apt-get update && apt-get install ruby-dev gem -y
+                command: ./.circleci/scripts/pantheon/01-prepare && apt-get update && apt-get install ruby-dev gem -y && gem install bundler
 
             - run:
                 name: build assets
