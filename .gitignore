@@ -105,3 +105,6 @@ Thumbs.db
 
 # Tests
 clover.xml
+
+# Theme
+web/custom/atletico/sylesheets/styles.css
