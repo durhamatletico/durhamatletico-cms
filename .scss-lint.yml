@@ -1,8 +1,8 @@
-scss_files: 'sass/*'
+scss_files: 'web/themes/custom/atletico/sass/*'
 
 exclude:
-  - 'stylesheets/styles.css'
-  - 'sass/lib/*'
+  - 'web/themes/custom/atletico/stylesheets/styles.css'
+  - 'web/themes/custom/atletico/sass/lib/*'
 
 linters:
   Comment:
@@ -13,7 +13,5 @@ linters:
     enabled: false
   VendorPrefix:
     enabled: false
-#  PlaceholderInExtend:
-#    enabled: false
   SelectorFormat:
     enabled: false
