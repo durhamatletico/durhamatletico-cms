@@ -82,7 +82,7 @@ jobs:
 
             - run:
                 name: run unit tests
-                command: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter && chmod +x ./cc-test-reporter && mkdir -p $CIRCLE_TEST_REPORTS/phpunit && ./cc-test-reporter before-build && composer -n unit-test && ./cc-test-reporter after-build -t clover --exit-code $?
+                command: pecl install xdebug && docker-php-ext-enable xdebug && curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter && chmod +x ./cc-test-reporter && mkdir -p $CIRCLE_TEST_REPORTS/phpunit && ./cc-test-reporter before-build && composer -n unit-test && ./cc-test-reporter after-build -t clover --exit-code $?
 
     build_deploy_and_test:
         <<: *defaults

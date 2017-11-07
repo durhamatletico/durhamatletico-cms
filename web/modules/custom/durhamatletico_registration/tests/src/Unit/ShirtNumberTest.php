@@ -31,7 +31,7 @@ class ShirtNumberTest extends UnitTestCase {
       ->getMock();
     $field = $this->prophesize('Drupal\Core\Field\FieldItemListInterface');
     $field->getString()->willReturn('55');
-    $node = $this->prophesize('Drupal\node\Entity\node');
+    $node = $this->prophesize('Drupal\Core\Entity\ContentEntityBase');
 
     $node->get('field_registration_shirt_number')->willReturn($field->reveal());
     $shirt_number->expects($this->once())
