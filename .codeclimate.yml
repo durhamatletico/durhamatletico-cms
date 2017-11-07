@@ -1,5 +1,11 @@
 ---
 engines:
+  sonar-php:
+    enabled: true
+    config:
+      tests_patterns:
+        - "**/src/test/**"
+        - "**/tests/**"
   phpmd:
     enabled: true
     config:
@@ -13,6 +19,8 @@ engines:
       standard: "Drupal"
       ignore_warnings: true
 exclude_paths:
-- "**/test/**/*"
-- web/core/*
+- web/core
+- web/libraries
+- web/modules/contrib
+- web/sites
 
