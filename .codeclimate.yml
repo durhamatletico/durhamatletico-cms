@@ -8,6 +8,10 @@ engines:
       tests_patterns:
         - "**/src/test/**"
         - "**/tests/**"
+  phan:
+    enabled: true
+    config:
+      file_extensions: "php,module,inc,install"
   phpmd:
     enabled: true
     config:
@@ -30,14 +34,9 @@ ratings:
   - "**.module"
   - "**.php"
 exclude_paths:
-- "web/core/"
-- "web/autoload.php"
-- "web/index.php"
-- "web/update.php"
-- "web/libraries/"
-- "web/private/"
-- "web/modules/contrib/"
-- "web/sites/"
+- "web"
+- "!web/modules/custom"
+- "!/web/themes/custom"
 - "**/vendor/**"
 - "vendor/"
 - "**/tests/**"
@@ -48,4 +47,3 @@ exclude_paths:
 - "scripts/"
 - "sites/"
 - ".docker/"
-
