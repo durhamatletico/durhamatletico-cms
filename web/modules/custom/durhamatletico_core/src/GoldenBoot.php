@@ -202,24 +202,22 @@ class GoldenBoot implements GoldenBootInterface {
       ->condition('field_players.target_id', $player_uid)
       ->addMetaData('uid', 1)
       ->execute();
-    if (!$team_nid) {
-      // TODO: Logging.
-      return FALSE;
-    }
-    // Check if the team nid is in the division nid handed to us.
-    $team_node = FALSE;
-    $division_node = Node::load($division_nid);
-    foreach ($team_nid as $nid) {
-      $teams = array_column($division_node->field_teams->getValue(), 'target_id');
-      if (in_array($nid, $teams)) {
-        $team_node = Node::load($nid);
-        break;
+    if ($team_nid) {
+      // Check if the team nid is in the division nid handed to us.
+      $team_node = FALSE;
+      $division_node = Node::load($division_nid);
+      foreach ($team_nid as $nid) {
+        $teams = array_column($division_node->field_teams->getValue(), 'target_id');
+        if (in_array($nid, $teams)) {
+          $team_node = Node::load($nid);
+          break;
+        }
+      }
+      if ($team_node) {
+        return $team_node->get('field_abbreviation')->getString();
       }
     }
-    if (!$team_node) {
-      return FALSE;
-    }
-    return $team_node->get('field_abbreviation')->getString();
+    return FALSE;
   }
 
 }
