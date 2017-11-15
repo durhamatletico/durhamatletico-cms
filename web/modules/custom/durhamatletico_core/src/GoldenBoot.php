@@ -28,6 +28,9 @@ class GoldenBoot {
 
   /**
    * Constructor.
+   *
+   * @param \Drupal\Core\Entity\EntityTypeManager $entityTypeManager
+   *   The entity type manager service.
    */
   public function __construct(EntityTypeManager $entityTypeManager) {
     $this->entityTypeManager = $entityTypeManager;
@@ -36,29 +39,29 @@ class GoldenBoot {
   /**
    * Get an HTML table for a division.
    *
-   * @param int $division_nid
+   * @param int $divisionNid
    *   The division to get golden boot stats for.
    *
    * @return array
    *   An array of data to render as an HTML table.
    */
-  public function getGoldenBootForDivision(int $division_nid) :array {
-    $goals_for_division = $this->getGoalsForDivision($division_nid);
+  public function getGoldenBootForDivision(int $divisionNid) :array {
+    $goalsForDivision = $this->getGoalsForDivision($divisionNid);
     $rows = [];
-    foreach ($goals_for_division as $goal) {
-      $player_display_name = $this->getPlayerDisplayName($goal);
-      $player_uid = $this->getPlayerUid($goal);
-      if (!$player_display_name) {
+    foreach ($goalsForDivision as $goal) {
+      $playerDisplayName = $this->getPlayerDisplayName($goal);
+      $playerUid = $this->getPlayerUid($goal);
+      if (!$playerDisplayName) {
         continue;
       }
-      if (isset($rows[$player_uid])) {
-        $rows[$player_uid]['goals'] = $rows[$player_uid]['goals'] + 1;
+      if (isset($rows[$playerUid])) {
+        $rows[$playerUid]['goals'] = $rows[$playerUid]['goals'] + 1;
         continue;
       }
-      $rows[$player_uid] = [
-        'player' => $player_display_name,
+      $rows[$playerUid] = [
+        'player' => $playerDisplayName,
         'goals' => 1,
-        'team' => $this->getPlayerTeam($player_uid, $division_nid),
+        'team' => $this->getPlayerTeam($playerUid, $divisionNid),
       ];
     }
     $headers = [
@@ -105,19 +108,19 @@ class GoldenBoot {
    *   registration, a string with the display name otherwise.
    */
   public function getPlayerDisplayName(Node $goal) {
-    $player_uid = (int) $goal->get('field_player_who_scored')->getString();
+    $playerUid = (int) $goal->get('field_player_who_scored')->getString();
     /** @var \Drupal\user\Entity\User $player */
-    $player = $this->entityTypeManager->getStorage('user')->load($player_uid);
-    if ($player_uid == 0) {
+    $player = $this->entityTypeManager->getStorage('user')->load($playerUid);
+    if ($playerUid == 0) {
       // Anonymous, keep going.
       return FALSE;
     }
-    $jersey_number = $this->getPlayerJerseyNumber($player_uid, $goal);
-    if (!$jersey_number) {
+    $jerseyNumber = $this->getPlayerJerseyNumber($playerUid, $goal);
+    if (!$jerseyNumber) {
       return FALSE;
     }
     return sprintf('#%d %s %s.',
-      $jersey_number,
+      $jerseyNumber,
       ucwords($player->get('field_first_name')->getString()),
       substr(ucwords($player->get('field_last_name')->getString()), 0, 1)
     );
@@ -126,7 +129,7 @@ class GoldenBoot {
   /**
    * Get the jersey number for a player.
    *
-   * @param int $player_uid
+   * @param int $playerUid
    *   The uid to use in the lookup.
    * @param \Drupal\node\Entity\Node $goal
    *   The goal node.
@@ -134,28 +137,28 @@ class GoldenBoot {
    * @return bool|int
    *   Return the player jersey number.
    */
-  public function getPlayerJerseyNumber(int $player_uid, Node $goal) {
+  public function getPlayerJerseyNumber(int $playerUid, Node $goal) {
     // Get the teams from the goal node.
     /** @var \Drupal\node\Entity\Node $game */
     $game = $goal->field_game->entity;
-    $home_team_nid = $game->field_home_team->entity->id();
-    $away_team_nid = $game->field_away_team->entity->id();
+    $homeTeamNid = $game->field_home_team->entity->id();
+    $awayTeamNid = $game->field_away_team->entity->id();
     $query = $this->entityTypeManager->getStorage('node')->getQuery();
     $group = $query->orConditionGroup()
-      ->condition('field_registration_teams.target_id', $home_team_nid)
-      ->condition('field_registration_teams.target_id', $away_team_nid);
-    $reg_nid = $query->condition('type', 'registration')
+      ->condition('field_registration_teams.target_id', $homeTeamNid)
+      ->condition('field_registration_teams.target_id', $awayTeamNid);
+    $regNid = $query->condition('type', 'registration')
       ->condition('status', 1)
       ->condition($group)
-      ->condition('uid', $player_uid)
+      ->condition('uid', $playerUid)
       ->addMetaData('uid', 1)
       ->execute();
-    if (!$reg_nid) {
+    if (!$regNid) {
       return FALSE;
     }
-    /** @var \Drupal\node\Entity\Node $reg_node */
-    $reg_node = $this->entityTypeManager->getStorage('node')->load(current($reg_nid));
-    return ($reg_node) ? (int) $reg_node->get('field_registration_shirt_number')->getString() : FALSE;
+    /** @var \Drupal\node\Entity\Node $regNode */
+    $regNode = $this->entityTypeManager->getStorage('node')->load(current($regNid));
+    return ($regNode) ? (int) $regNode->get('field_registration_shirt_number')->getString() : FALSE;
   }
 
   /**
@@ -187,37 +190,31 @@ class GoldenBoot {
   /**
    * Get the abbreviation of the player's team.
    *
-   * @param int $player_uid
+   * @param int $playerUid
    *   The player user ID.
-   * @param int $division_nid
+   * @param int $divisionNid
    *   The division node ID.
    *
    * @return bool|string
    *   Return FALSE if not found, or the abbreviated team name otherwise.
    */
-  public function getPlayerTeam(int $player_uid, int $division_nid) {
+  public function getPlayerTeam(int $playerUid, int $divisionNid) {
     // Get the player's team.
     $query = $this->entityTypeManager->getStorage('node')->getQuery();
-    $team_nid = $query
+    $teamNid = $query
       ->condition('type', 'team')
       ->condition('status', 1)
-      ->condition('field_teams.target_id', $division_nid)
-      ->condition('field_players.target_id', $player_uid)
+      ->condition('field_players.target_id', $playerUid)
       ->addMetaData('uid', 1)
       ->execute();
-    if ($team_nid) {
+    if ($teamNid) {
       // Check if the team nid is in the division nid handed to us.
-      $team_node = FALSE;
-      $division_node = $this->entityTypeManager->getStorage('node')->load($division_nid);
-      foreach ($team_nid as $nid) {
-        $teams = array_column($division_node->field_teams->getValue(), 'target_id');
+      $divisionNode = $this->entityTypeManager->getStorage('node')->load($divisionNid);
+      foreach ($teamNid as $nid) {
+        $teams = array_column($divisionNode->field_teams->getValue(), 'target_id');
         if (in_array($nid, $teams)) {
-          $team_node = $this->entityTypeManager->getStorage('node')->load($nid);
-          break;
+          return $this->entityTypeManager->getStorage('node')->load($nid)->get('field_abbreviation')->getString();
         }
-      }
-      if ($team_node) {
-        return $team_node->get('field_abbreviation')->getString();
       }
     }
     return FALSE;
