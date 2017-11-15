@@ -104,7 +104,7 @@ class GoldenBoot implements GoldenBootInterface {
       // Anonymous, keep going.
       return FALSE;
     }
-    $jersey_number = $this->getPlayerJerseyNumber($player_uid);
+    $jersey_number = $this->getPlayerJerseyNumber($player_uid, $goal);
     if (!$jersey_number) {
       return FALSE;
     }
@@ -129,17 +129,17 @@ class GoldenBoot implements GoldenBootInterface {
   private function getPlayerJerseyNumber(int $player_uid, Node $goal) {
     // Get the teams from the goal node.
     /** @var \Drupal\node\Entity\Node $game */
-    $game = $goal->field_game->getEntity();
-    $home_team_nid = $game->field_home_team->getEntity()->id();
-    $away_team_nid = $game->field_away_team->getEntity()->id();
+    $game = $goal->field_game->entity;
+    $home_team_nid = $game->field_home_team->entity->id();
+    $away_team_nid = $game->field_away_team->entity->id();
     $query = \Drupal::entityQuery('node');
     $group = $query->orConditionGroup()
-      ->condition('field_registration_for', $home_team_nid)
-      ->condition('field_registration_for', $away_team_nid);
+      ->condition('field_registration_teams.target_id', $home_team_nid)
+      ->condition('field_registration_teams.target_id', $away_team_nid);
     $reg_nid = $query->condition('type', 'registration')
       ->condition('status', 1)
-      ->condition('uid', $player_uid)
       ->condition($group)
+      ->condition('uid', $player_uid)
       ->addMetaData('uid', 1)
       ->execute();
     if (!$reg_nid) {
