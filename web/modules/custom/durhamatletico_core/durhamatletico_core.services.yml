@@ -9,7 +9,7 @@ services:
 
   durhamatletico_core.goldenboot:
     class: Drupal\durhamatletico_core\GoldenBoot
-    arguments: []
+    arguments: ['@entity_type.manager']
 
   durhamatletico_core.route_subscriber:
     class: Drupal\durhamatletico_core\Routing\AutocompleteRouteSubscriber
