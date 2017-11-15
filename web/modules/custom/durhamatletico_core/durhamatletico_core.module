@@ -65,7 +65,8 @@ function durhamatletico_core_node_presave(EntityInterface $entity) {
  * Implements hook_node_update().
  */
 function durhamatletico_core_node_update(EntityInterface $entity) {
-  // Only update standings if the game has been played & is part of a league competition.
+  // Only update standings if the game has been played & is part of a league
+  // competition.
   if ($entity->getType() === 'game'
   && $entity->get('field_game_status')->getString() == 'Played') {
     $competition = Node::load($entity->get('field_division')->entity->id());
@@ -124,15 +125,5 @@ function durhamatletico_core_entity_field_access($operation, FieldDefinitionInte
       return AccessResult::forbidden();
     }
   }
-
   return AccessResult::neutral();
-}
-
-/**
- * Implements hook_theme().
- */
-function durhamatletico_core_theme() {
-  $theme = [];
-
-  return $theme;
 }
