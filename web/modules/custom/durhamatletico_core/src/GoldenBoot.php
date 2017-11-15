@@ -109,12 +109,13 @@ class GoldenBoot {
    */
   public function getPlayerDisplayName(Node $goal) {
     $playerUid = (int) $goal->get('field_player_who_scored')->getString();
-    /** @var \Drupal\user\Entity\User $player */
-    $player = $this->entityTypeManager->getStorage('user')->load($playerUid);
     if ($playerUid == 0) {
       // Anonymous, keep going.
       return FALSE;
     }
+    /** @var \Drupal\user\Entity\User $player */
+    $player = $this->entityTypeManager->getStorage('user')->load($playerUid);
+
     $jerseyNumber = $this->getPlayerJerseyNumber($playerUid, $goal);
     if (!$jerseyNumber) {
       return FALSE;
