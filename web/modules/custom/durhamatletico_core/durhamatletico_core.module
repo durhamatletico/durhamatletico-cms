@@ -62,7 +62,7 @@ function durhamatletico_core_node_presave(EntityInterface $entity) {
 }
 
 /**
- * {@inheritdoc}.
+ * Implements hook_node_update().
  */
 function durhamatletico_core_node_update(EntityInterface $entity) {
   // Only update standings if the game has been played & is part of a league competition.
