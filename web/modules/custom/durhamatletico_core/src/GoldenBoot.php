@@ -202,18 +202,10 @@ class GoldenBoot {
    *   Return FALSE if not found, or the abbreviated team name otherwise.
    */
   public function getPlayerTeam(int $playerUid, int $divisionNid) {
-    // Get the player's team.
-    $query = $this->entityTypeManager->getStorage('node')->getQuery();
-    $teamNid = $query
-      ->condition('type', 'team')
-      ->condition('status', 1)
-      ->condition('field_players.target_id', $playerUid)
-      ->addMetaData('uid', 1)
-      ->execute();
-    if ($teamNid) {
+    if ($teamNids = $this->getTeamsForPlayer($playerUid)) {
       // Check if the team nid is in the division nid handed to us.
       $divisionNode = $this->entityTypeManager->getStorage('node')->load($divisionNid);
-      foreach ($teamNid as $nid) {
+      foreach ($teamNids as $nid) {
         $teams = array_column($divisionNode->field_teams->getValue(), 'target_id');
         if (in_array($nid, $teams)) {
           return $this->entityTypeManager->getStorage('node')->load($nid)->get('field_abbreviation')->getString();
@@ -221,6 +213,24 @@ class GoldenBoot {
       }
     }
     return FALSE;
+  }
+
+  /**
+   * Get team node IDs for a player user ID.
+   *
+   * @param int $playerUid
+   *   The user ID.
+   *
+   * @return mixed
+   *   An array of team node IDs if found, FALSE otherwise.
+   */
+  private function getTeamsForPlayer(int $playerUid) {
+    return $this->entityTypeManager->getStorage('node')->getQuery()
+      ->condition('type', 'team')
+      ->condition('status', 1)
+      ->condition('field_players.target_id', $playerUid)
+      ->addMetaData('uid', 1)
+      ->execute();
   }
 
 }
