@@ -19,6 +19,8 @@ use Drupal\node\Entity\Node;
  */
 class GoldenBoot {
 
+  const GOALS = 'goals';
+
   /**
    * The entity type manager.
    *
@@ -55,23 +57,23 @@ class GoldenBoot {
         continue;
       }
       if (isset($rows[$playerUid])) {
-        $rows[$playerUid]['goals'] = $rows[$playerUid]['goals'] + 1;
+        $rows[$playerUid][self::GOALS] = $rows[$playerUid][self::GOALS] + 1;
         continue;
       }
       $rows[$playerUid] = [
         'player' => $playerDisplayName,
-        'goals' => 1,
+        self::GOALS => 1,
         'team' => $this->getPlayerTeam($playerUid, $divisionNid),
       ];
     }
     $headers = [
       'player' => 'Player',
-      'goals' => 'Goals',
+      self::GOALS => self::GOALS,
       'team' => 'Team',
     ];
 
     usort($rows, function ($first, $second) {
-      return $second['goals'] - $first['goals'];
+      return $second[self::GOALS] - $first[self::GOALS];
     });
 
     return [
