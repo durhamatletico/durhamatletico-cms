@@ -42,7 +42,8 @@
     "npm-asset/blazy": "^1.8",
     "oomphinc/composer-installers-extender": "^1.1",
     "rvtraveller/qs-composer-installer": "^1.1",
-    "webflo/drupal-core-strict": "^8"
+    "webflo/drupal-core-strict": "^8",
+    "wikimedia/composer-merge-plugin": "^1.4"
   },
   "require-dev": {
     "mikey179/vfsstream": "^1.2",
@@ -92,6 +93,11 @@
     ]
   },
   "extra": {
+    "merge-plugin": {
+      "require": [
+        "web/modules/custom/stripe_checkout/composer.json"
+      ]
+    },
     "installer-types": [
       "npm-asset",
       "bower-asset"

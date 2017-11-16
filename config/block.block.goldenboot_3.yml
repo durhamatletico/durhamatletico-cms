@@ -1,0 +1,27 @@
+uuid: c137d906-0007-4dbf-b010-b313fa04dd1d
+langcode: en
+status: true
+dependencies:
+  module:
+    - durhamatletico_core
+    - system
+  theme:
+    - atletico
+id: goldenboot_3
+theme: atletico
+region: content_left
+weight: 0
+provider: null
+plugin: golden_boot
+settings:
+  id: golden_boot
+  label: 'Golden Boot Division 3'
+  provider: durhamatletico_core
+  label_display: visible
+  competition_reference: '2487'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/2257\r\n/es/node/2257"
+    negate: false
+    context_mapping: {  }
