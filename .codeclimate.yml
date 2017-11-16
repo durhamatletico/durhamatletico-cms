@@ -1,5 +1,10 @@
 ---
 engines:
+  phan:
+    enabled: true
+    config:
+      file_extensions: "php"
+      ignore-undeclared: true
   scss-lint:
     enabled: true
   sonar-php:

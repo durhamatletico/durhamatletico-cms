@@ -2,14 +2,14 @@
 
 namespace Drupal\durhamatletico_core;
 
-use Drupal\Core\Entity\EntityAutocompleteMatcher;
+use Drupal\Core\Entity\EntityAutocompleteMatcher as CoreEntityAutocompleteMatcher;
 use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\Tags;
 
 /**
  *
  */
-class EntityAutocompleteMatcher extends EntityAutocompleteMatcher {
+class EntityAutocompleteMatcher extends CoreEntityAutocompleteMatcher {
 
   /**
    * Gets matched labels based on a given search string.
