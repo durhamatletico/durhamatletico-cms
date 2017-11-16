@@ -204,12 +204,31 @@ class GoldenBoot {
   public function getPlayerTeam(int $playerUid, int $divisionNid) {
     if ($teamNids = $this->getTeamsForPlayer($playerUid)) {
       // Check if the team nid is in the division nid handed to us.
-      $divisionNode = $this->entityTypeManager->getStorage('node')->load($divisionNid);
-      foreach ($teamNids as $nid) {
-        $teams = array_column($divisionNode->field_teams->getValue(), 'target_id');
-        if (in_array($nid, $teams)) {
-          return $this->entityTypeManager->getStorage('node')->load($nid)->get('field_abbreviation')->getString();
-        }
+      return $this->getTeamNameOfTeamInDivision($divisionNid, $teamNids);
+    }
+    return FALSE;
+  }
+
+  /**
+   * Get the team name that a player is on.
+   *
+   * Given a set of team node IDs for teams that a player is on, iterate
+   * over each one and find the team that is in the division we are looking at.
+   *
+   * @param int $divisionNid
+   *   The division node ID.
+   * @param array $teamNids
+   *   An array of team node IDs.
+   *
+   * @return string|bool
+   *   The team name abbreviation or FALSE if not found.
+   */
+  private function getTeamNameOfTeamInDivision(int $divisionNid, array $teamNids) {
+    $divisionNode = $this->entityTypeManager->getStorage('node')->load($divisionNid);
+    foreach ($teamNids as $nid) {
+      $teams = array_column($divisionNode->field_teams->getValue(), 'target_id');
+      if (in_array($nid, $teams)) {
+        return $this->entityTypeManager->getStorage('node')->load($nid)->get('field_abbreviation')->getString();
       }
     }
     return FALSE;

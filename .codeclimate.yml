@@ -7,7 +7,12 @@ engines:
     config:
       tests_patterns:
         - "**/src/test/**"
-        - "**/tests/**"
+        - "**/tests/src/**"
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - php:
   phpmd:
     enabled: true
     config:
