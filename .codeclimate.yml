@@ -5,7 +5,6 @@ engines:
     config:
       file_extensions: "php"
       ignore-undeclared: true
-      dead-code-detection: true
   scss-lint:
     enabled: true
   sonar-php:
