@@ -12,7 +12,7 @@ dependencies:
 id: views_block__standings_fall_2017_block_3
 theme: atletico
 region: content
-weight: -9
+weight: -14
 provider: null
 plugin: 'views_block:standings_fall_2017-block_3'
 settings:
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/2257\r\n/es/node/2257"
+    pages: "/node/3910\r\n/es/node/3910"
     negate: false
     context_mapping: {  }

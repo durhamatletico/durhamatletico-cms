@@ -12,7 +12,7 @@ dependencies:
 id: views_block__venues_block_2
 theme: atletico
 region: content
-weight: 0
+weight: -3
 provider: null
 plugin: 'views_block:venues-block_2'
 settings:
