@@ -12,7 +12,7 @@ dependencies:
 id: views_block__games_block_6
 theme: atletico
 region: content
-weight: -21
+weight: -26
 provider: null
 plugin: 'views_block:games-block_6'
 settings:

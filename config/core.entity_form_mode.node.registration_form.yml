@@ -1,0 +1,10 @@
+uuid: 0aab6278-9e54-4a60-9edc-054945bdee4b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.registration_form
+label: 'Registration form'
+targetEntityType: node
+cache: true

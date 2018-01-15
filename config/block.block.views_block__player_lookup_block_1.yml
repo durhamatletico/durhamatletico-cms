@@ -1,6 +1,6 @@
 uuid: a379709b-d01e-4456-b506-6aaf21c6a2f3
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.player_lookup

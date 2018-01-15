@@ -1,22 +1,22 @@
-uuid: 28177660-d6ac-446d-b726-a9d04732ca62
+uuid: 52f8e5df-e620-444e-ac59-a6c4db9e878c
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.standings_fall_2017
+    - views.view.games
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__standings_fall_2017_block_1
+id: views_block__games_block_13
 theme: atletico
 region: content
-weight: -16
+weight: 2
 provider: null
-plugin: 'views_block:standings_fall_2017-block_1'
+plugin: 'views_block:games-block_13'
 settings:
-  id: 'views_block:standings_fall_2017-block_1'
+  id: 'views_block:games-block_13'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/3910\r\n/es/node/3910"
+    pages: "/node/2257\r\n/es/node/2257"
     negate: false
     context_mapping: {  }
