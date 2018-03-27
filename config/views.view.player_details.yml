@@ -672,7 +672,7 @@ display:
           group_type: group
           admin_label: ''
           operator: contains
-          value: 'Winter 2017'
+          value: 'Winter 2018'
           group: 1
           exposed: false
           expose:
@@ -687,6 +687,7 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -734,7 +735,7 @@ display:
       arguments: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -762,7 +763,7 @@ display:
         enabled: true
         expanded: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'

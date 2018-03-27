@@ -902,7 +902,7 @@ display:
         groups:
           1: AND
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -971,7 +971,7 @@ display:
           entity_field: nid
           plugin_id: node_nid
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1050,7 +1050,7 @@ display:
           entity_field: nid
           plugin_id: node_nid
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1131,7 +1131,7 @@ display:
           plugin_id: node_nid
       title: 'Group C'
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
