@@ -99,11 +99,6 @@
         "web/modules/custom/stripe_checkout/composer.json"
       ]
     },
-    "patches": {
-      "drupal/core": {
-        "Fix schema update problem": "https://www.drupal.org/files/issues/2018-03-13/2951242-26.patch"
-      }
-    },
     "installer-types": [
       "npm-asset",
       "bower-asset"
