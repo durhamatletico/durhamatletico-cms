@@ -1,0 +1,6 @@
+name: durham-atletico
+recipe: pantheon
+config:
+  framework: drupal8
+  site: durham-atletico
+  id: b81bc254-b5bd-4298-876d-0b257760b572
