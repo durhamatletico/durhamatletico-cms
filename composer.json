@@ -33,6 +33,7 @@
     "drupal/minifyjs": "^1.5",
     "drupal/pantheon_advanced_page_cache": "^1.0@alpha",
     "drupal/pathauto": "^1.0",
+    "drupal/raven": "^2.4",
     "drupal/restui": "^1.15",
     "drupal/simple_sitemap": "^2.10",
     "drupal/smtp": "^1.0@beta",

@@ -47,6 +47,7 @@ module:
   pantheon_advanced_page_cache: 0
   path: 0
   quickedit: 0
+  raven: 0
   rdf: 0
   responsive_image: 0
   rest: 0

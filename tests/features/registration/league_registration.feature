@@ -28,7 +28,7 @@ Feature: Allow registered users to sign up for a leauge
     And I select "M" from "Shirt Size"
     And for "Shirt Number" I enter "4"
     And I select "I would like to be placed on a team" from "Team"
-    And I select "[Futsal] Fall 2017 - Division 1" from "Registration for"
+    And I select "[Futsal] First Division - Spring 2018" from "Registration for"
     And I press "Save"
     Then I should see "Submitted by"
     And I should get a 200 HTTP response
