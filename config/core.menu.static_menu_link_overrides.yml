@@ -6,11 +6,11 @@ definitions:
     weight: 0
     expanded: false
   standard__front_page:
+    enabled: false
     menu_name: main
     parent: ''
-    weight: -50
     expanded: true
-    enabled: true
+    weight: -50
   comment__admin:
     weight: -68
     menu_name: admin
