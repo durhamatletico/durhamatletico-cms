@@ -1,12 +1,13 @@
 (function ($) {
-  var menuToggle = $('#js-mobile-menu').unbind();
-  $('#js-navigation-menu').removeClass("show");
+  const menuToggle = $('#js-mobile-menu-button').unbind();
+  const $mainNav = $('#js-mobile-menu');
+  $mainNav.removeClass('show');
 
   menuToggle.on('click', function(e) {
     e.preventDefault();
-    $('#block-mainnavigation .menu').slideToggle(function(){
-      if($('#block-mainnavigation .menu').is(':hidden')) {
-        $('#block-mainnavigation .menu').removeAttr('style');
+    $mainNav.slideToggle(function(){
+      if($mainNav.is(':hidden')) {
+        $mainNav.removeAttr('style');
       }
     });
   });

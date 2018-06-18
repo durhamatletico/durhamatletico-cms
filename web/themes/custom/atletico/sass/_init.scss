@@ -3,20 +3,20 @@
 @import 'lib/neat/neat-helpers';
 
 // Turn on Neat's visual grid for development.
-$visual-grid:       false;
+$visual-grid: false;
 $visual-grid-color: #eee;
 
 // Set to false if you'd like to remove the responsiveness.
-$responsive:    true;
+$responsive: true;
 
 // Set total number of columns in the grid.
-$grid-columns:  12;
+$grid-columns: 12;
 
 // Set the max width of the page using the px to em function in Bourbon.
 // The first value is the pixel value of the width and the second is the base font size of your theme.
-$font-size:     18px;
-$max-width-px:  2000px;
-$max-width:     em($max-width-px, $font-size);
+$font-size: 18px;
+$max-width-px: 1400px;
+$max-width: em($max-width-px, $font-size);
 
 // Define breakpoints.
 // The last argument is the number of columns the grid will have for that screen size.

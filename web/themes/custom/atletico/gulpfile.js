@@ -6,29 +6,29 @@
 /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
 // Include node packages.
-var autoprefixer = require('autoprefixer');
-var beeper = require('beeper');
-var cleancss = require('gulp-clean-css');
-var colors = require('ansi-colors');
-var gulp  = require('gulp');
-var notify = require('gulp-notify');
-var postcss = require('gulp-postcss');
-var plumber = require('gulp-plumber');
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
+const autoprefixer = require('autoprefixer');
+const beeper = require('beeper');
+const cleancss = require('gulp-clean-css');
+const colors = require('ansi-colors');
+const gulp  = require('gulp');
+const notify = require('gulp-notify');
+const postcss = require('gulp-postcss');
+const plumber = require('gulp-plumber');
+const sass = require('gulp-sass');
+const sourcemaps = require('gulp-sourcemaps');
 
 // Define other variables.
-var outputPath = 'stylesheets';
-var scssRoot = 'sass/styles.scss';
-var scssWild = 'sass/**/*.scss';
+const outputPath = 'stylesheets';
+const scssRoot = 'sass/styles.scss';
+const scssWild = 'sass/**/*.scss';
 
 /**
  * Error notifications.
  *
  * See https://github.com/mikaelbr/gulp-notify/issues/81#issuecomment-100422179.
  */
-var reportError = function (error) {
-  var lineNumber = (error.lineNumber) ? 'LINE ' + error.lineNumber + ' -- ' : '';
+const reportError = function (error) {
+  const lineNumber = (error.lineNumber) ? 'LINE ' + error.lineNumber + ' -- ' : '';
 
   notify({
     title: 'Task Failed [' + error.plugin + ']',
@@ -40,8 +40,8 @@ var reportError = function (error) {
   beeper();
 
   // Pretty error reporting.
-  var report = '';
-  var chalk = colors.white.bgRed;
+  let report = '';
+  const chalk = colors.white.bgRed;
 
   report += chalk('TASK:') + ' [' + error.plugin + ']\n';
   report += chalk('PROB:') + ' ' + error.message + '\n';

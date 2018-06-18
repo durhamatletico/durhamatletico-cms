@@ -1,0 +1,26 @@
+//
+// Styles for the MENU link in the header on small screens.
+//
+
+.navigation-menu-button {
+  color: $navigation-color;
+  display: block;
+  float: right;
+  font-family: $heading-font-family;
+  font-weight: bold;
+  line-height: $navigation-height-mobile;
+  margin: 0;
+  padding-right: 1em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @include media ($horizontal-bar-mode) {
+    display: none;
+    line-height: $navigation-height;
+  }
+
+  &:focus,
+  &:hover {
+    color: $navigation-color-hover;
+  }
+}

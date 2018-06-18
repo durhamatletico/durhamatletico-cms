@@ -1,46 +1,43 @@
-/**
- * @file
- *
- * Custom variables, mixins, and abstract classes.
- */
+//
+// Custom variables, mixins, and abstract classes.
+//
 
 // Typography
-// Signika (Headings)
-@import url(https://fonts.googleapis.com/css?family=Signika:600);
-
-// Source Sans Pro (Copytext)
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700);
+// Montserrat (Headings) + Roboto (Copytext)
+@import url(https://fonts.googleapis.com/css?family=Montserrat:700|Roboto:400,400i,700|Poppins:400,700,800|Rubik:400,400i,700);
 
 // Font Awesome (icons)
 @import '../lib/font-awesome/font-awesome';
 
-$heading-font-family: 'Signika', $helvetica;
-$base-font-family: 'Source Sans Pro', $helvetica;
+$heading-font-family: 'Poppins', $helvetica;
+$base-font-family: 'Rubik', $helvetica;
 
 // Other Sizes
 $general-spacing: 1em;
 $footer-height: 4em;
 
 // Colors
-$base-font-color: #666; // Dark gray.
 $action-color: #477dca; // Medium blue.
-$logo-blue: #00bbf1;
-$logo-red: #ea3745;
+$logo-blue: #56bcee;
+$logo-red: #db4b49;
+$light-grey: #eff5f9;
+$dark-grey: #454b4f;
+$base-font-color: $dark-grey;
 
 // Background Colors
 $base-background-color: #fff; // White.
 
 // Navigation refill variables
-$navigation-background: $base-font-color;
-$navigation-color: transparentize($base-background-color, .2);
-$navigation-color-hover: $base-background-color;
-$header-height: 8em;
-$header-break: em(650);
-$navigation-height: 4em;
-$navigation-active-link-color: $base-background-color;
-$navigation-padding: 1.5em;
+$navigation-background: $light-grey;
+$navigation-color: $dark-grey;
+$navigation-color-hover: $action-color;
+$navigation-height: 110px;
+$navigation-height-mobile: 80px;
+$navigation-active-link-color: $logo-red;
+$navigation-padding: 1em;
 $navigation-submenu-padding: 1em;
-$navigation-submenu-width: 8em;
+$navigation-submenu-width: 10em;
+$horizontal-bar-mode: $medium;
 
 // Footer refill variables
 $footer-background: $base-font-color;

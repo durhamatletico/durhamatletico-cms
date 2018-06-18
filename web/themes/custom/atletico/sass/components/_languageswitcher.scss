@@ -1,39 +1,32 @@
 .block-language-blocklanguage-interface {
   float: right;
   overflow: hidden;
-  text-transform: uppercase;
 
   li {
     display: inline;
-    margin-right: .25em;
+    line-height: $navigation-height-mobile;
+    padding-right: 1em;
 
-    @include media($header-break) {
-      line-height: 8em;
+    @include media($horizontal-bar-mode) {
+      line-height: $navigation-height;
+      padding-right: 1.75em;
     }
 
-    .is-active {
+    &.is-active {
       display: none;
     }
 
     a {
       @extend #{$all-buttons};
-      background-color: $logo-red;
-      font-size: .8em;
-      margin-bottom: 1em;
-      padding: .75em;
-
-      @include media($header-break) {
-        font-size: .9em;
-        margin-bottom: 0;
-      }
-
-      @include media(em(700)) {
-        font-size: 1em;
-      }
+      background-color: $action-color;
+      font-weight: normal;
+      margin-bottom: 0;
+      padding: .5em .75em;
+      text-transform: uppercase;
 
       &:hover,
       &:focus {
-        background-color: lighten($logo-red, 10%);
+        background-color: $logo-red;
       }
     }
   }
