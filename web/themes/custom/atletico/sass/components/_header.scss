@@ -8,36 +8,18 @@ header {
 
   .navigation-wrapper {
     @include clearfix;
+
+    display: flex;
     position: relative;
   }
 
-  // Show mobile logo on small screens.
-  .logo--small {
-    float: left;
+  .logo {
+    display: block;
+    flex-shrink: 0;
+    margin-right: auto;
     max-height: $navigation-height-mobile;
     padding-left: $navigation-padding;
     padding-right: 2em;
-
-    @include media ($small) {
-      display: none;
-    }
-
-    img {
-      max-height: $navigation-height-mobile;
-      padding: .75em 0;
-    }
-  }
-
-  // Full logo on larger screens.
-  .logo {
-    display: none;
-
-    @include media ($small) {
-      display: inline;
-      max-height: $navigation-height-mobile;
-      padding-left: $navigation-padding;
-      padding-right: 2em;
-    }
 
     @include media ($horizontal-bar-mode) {
       max-height: $navigation-height;
@@ -56,21 +38,21 @@ header {
 
   // The div containing the main and account menus.
   .navigation-menus {
-    clear: both;
     display: none;
     margin: 0 auto;
     overflow: visible;
     padding: 0;
+    position: absolute;
+    top: $navigation-height-mobile;
     width: 100%;
+    z-index: 2;
 
     @include media ($horizontal-bar-mode) {
-      display: inline;
+      display: flex;
       margin: 0;
       padding: 0;
-    }
-
-    &.show {
-      display: block;
+      position: static;
+      z-index: 1;
     }
   }
 }

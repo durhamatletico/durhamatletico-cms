@@ -1,6 +1,10 @@
 .block-language-blocklanguage-interface {
-  float: right;
+  flex-shrink: 0;
   overflow: hidden;
+
+  @include media($horizontal-bar-mode) {
+    order: 3;
+  }
 
   li {
     display: inline;
@@ -22,7 +26,6 @@
       font-weight: normal;
       margin-bottom: 0;
       padding: .5em .75em;
-      text-transform: uppercase;
 
       &:hover,
       &:focus {

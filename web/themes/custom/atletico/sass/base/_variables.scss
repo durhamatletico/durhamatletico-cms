@@ -4,6 +4,7 @@
 
 // Typography
 // Montserrat (Headings) + Roboto (Copytext)
+// TODO: remove unused fonts.
 @import url(https://fonts.googleapis.com/css?family=Montserrat:700|Roboto:400,400i,700|Poppins:400,700,800|Rubik:400,400i,700);
 
 // Font Awesome (icons)
@@ -37,7 +38,7 @@ $navigation-active-link-color: $logo-red;
 $navigation-padding: 1em;
 $navigation-submenu-padding: 1em;
 $navigation-submenu-width: 10em;
-$horizontal-bar-mode: $medium;
+$horizontal-bar-mode: $large;
 
 // Footer refill variables
 $footer-background: $base-font-color;

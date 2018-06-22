@@ -26,13 +26,12 @@
   <a href="/{{ front_page }}" title="{{ 'Home'|t }}" rel="home" class="logo">
     <img class="header__logo--large" src="/themes/custom/atletico/images/logo.png" alt="Durham Atletico logo">
   </a>
-  <a href="/{{ front_page }}" title="{{ 'Home'|t }}" rel="home" class="logo--small">
-    <img class="header__logo--small" src="/themes/custom/atletico/images/logo-mobile.png" alt="Durham Atletico logo">
+  <a href="#js-mobile-menu" class="navigation-menu-button" id="js-mobile-menu-button" aria-expanded="false">
+    <span class="visually-hidden">MENU</span>
   </a>
-    {{ elements.languageswitcher }}
-  <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu-button">MENU</a>
   <div class="navigation-menus" id="js-mobile-menu">
-      {{ elements.atletico_account_menu }}
+      {{ elements.languageswitcher }}
       {{ elements.mainnavigation }}
+      {{ elements.atletico_account_menu }}
   </div>
 </div>

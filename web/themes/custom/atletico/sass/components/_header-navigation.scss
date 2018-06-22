@@ -5,14 +5,11 @@
 // column list that's shown and hidden by the MENU link on small screens.
 //
 
-.navigation-wrapper {
+.navigation-menus {
 
   // <nav> elements (main navigation and account menu).
   nav {
-    float: none;
-
     @include media ($horizontal-bar-mode) {
-      float: right;
       min-height: $navigation-height;
     }
 
@@ -24,21 +21,9 @@
     // scss-lint:enable QualifyingElement
   }
 
-  // Add border-top to expanded menu on small screens.
-  .menu--account {
-    border-top: solid 2px $dark-grey;
-
-    @include media($horizontal-bar-mode) {
-      border-top: 0;
-    }
-  }
-
-  // Add border-bottom to expanded menu on small screens.
   .menu--main {
-    border-bottom: solid 2px $dark-grey;
-
-    @include media($horizontal-bar-mode) {
-      border-bottom: 0;
+    @include media ($horizontal-bar-mode) {
+      margin-right: auto;
     }
   }
 
@@ -65,10 +50,11 @@
       background-color: $light-grey;
       color: $navigation-color;
       display: block;
-      font-family: $heading-font-family;
+      font-family: $base-font-family;
       font-weight: bold;
       padding: .25em 0 .25em .75em;
       text-decoration: none;
+      text-transform: uppercase;
 
       @include media ($horizontal-bar-mode) {
         background-color: transparent;
@@ -79,6 +65,15 @@
       &:focus,
       &:hover {
         color: $navigation-color-hover;
+      }
+    }
+  }
+
+  .menu--account {
+    .menu-item a {
+      @include media($horizontal-bar-mode) {
+        font-weight: normal;
+        text-transform: none;
       }
     }
   }
@@ -137,6 +132,7 @@
     // The submenu.
     // Sorry about the nesting.
     .menu {
+      background-color: $base-background-color;
       display: flex;
       flex-wrap: wrap;
       padding-left: 0;
@@ -176,6 +172,8 @@
         a {
           background-color: $base-background-color;
           display: inline-block;
+          font-weight: normal;
+          text-transform: none;
           width: 100%;
 
           @include media($horizontal-bar-mode) {
