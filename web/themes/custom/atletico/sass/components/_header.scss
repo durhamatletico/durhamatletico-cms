@@ -11,6 +11,10 @@ header {
 
     display: flex;
     position: relative;
+
+    @include media($horizontal-bar-mode) {
+      padding-top: $navigation-padding * 1.5;
+    }
   }
 
   .logo {
@@ -38,6 +42,8 @@ header {
 
   // The div containing the main and account menus.
   .navigation-menus {
+    background-color: $navigation-background;
+    box-shadow: 0 4px 6px transparentize($dark-grey, .5);
     display: none;
     margin: 0 auto;
     overflow: visible;
@@ -47,12 +53,28 @@ header {
     width: 100%;
     z-index: 2;
 
+    @include media($horizontal-bar-mode) {
+      background-color: transparent;
+      box-shadow: none;
+      top: $navigation-height;
+    }
+
     @include media ($horizontal-bar-mode) {
       display: flex;
+      justify-content: space-between;
       margin: 0;
       padding: 0;
       position: static;
       z-index: 1;
     }
+  }
+
+  nav {
+    // Override Drupal CSS. Don't indent top level menus.
+    // scss-lint:disable QualifyingElement
+    > ul.menu {
+      margin-left: 0;
+    }
+    // scss-lint:enable QualifyingElement
   }
 }

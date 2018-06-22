@@ -403,7 +403,10 @@ display:
         title: Posts
         menu_name: main
         enabled: true
-        expanded: false
+        expanded: true
+        description: ''
+        parent: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:

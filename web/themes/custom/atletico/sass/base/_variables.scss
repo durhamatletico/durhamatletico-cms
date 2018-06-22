@@ -38,7 +38,7 @@ $navigation-active-link-color: $logo-red;
 $navigation-padding: 1em;
 $navigation-submenu-padding: 1em;
 $navigation-submenu-width: 10em;
-$horizontal-bar-mode: $large;
+$horizontal-bar-mode: $medium;
 
 // Footer refill variables
 $footer-background: $base-font-color;
@@ -48,6 +48,7 @@ $footer-link-color: $base-background-color;
 // Table colors (e.g. /futsal)
 $table-background: #f7f7f7;
 $table-background-hover: #f0f0f0;
+$table-border: #ddd;
 
 // Custom mixins and abstract classes
 %block {
@@ -95,3 +96,32 @@ $table-background-hover: #f0f0f0;
     padding-left: .5em;
   }
 }
+
+@mixin menu-link() {
+  color: $navigation-color;
+  font-family: $base-font-family;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:focus,
+  &:hover {
+    color: $navigation-color-hover;
+  }
+}
+
+@mixin menu-link-small() {
+  background-color: $navigation-background;
+  display: block;
+  padding: 1em 0 1em 1em;
+}
+
+@mixin menu-link-large() {
+  @include media ($horizontal-bar-mode) {
+    background-color: transparent;
+    display: inline-block;
+    padding: 0 1em 0 0;
+  }
+}
+
+

@@ -3,8 +3,10 @@
 //
 
 .navigation-menu-button {
-  display: block;
-  font-size: 1.6em;
+  align-items: center;
+  color: $navigation-color;
+  display: flex;
+  font-weight: bold;
   line-height: $navigation-height-mobile;
   margin: 0;
   padding-left: 1em;
@@ -16,18 +18,27 @@
     line-height: $navigation-height;
   }
 
-  &::after {
-    color: $navigation-color;
-    content: '\f0c9';
-    font-family: FontAwesome;
-  }
-
-  &.open::after {
-    content: '\f00d';
-  }
-
   &:focus,
   &:hover {
     color: $navigation-color-hover;
+  }
+
+  .fa-close {
+    display: none;
+  }
+
+  &.open {
+    .fa-close {
+      display: inline-block;
+    }
+
+    .fa-bars {
+      display: none;
+    }
+  }
+
+  .fa {
+    min-width: 1.4em;
+    padding-left: .5em;
   }
 }

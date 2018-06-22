@@ -1,19 +1,22 @@
 .block-language-blocklanguage-interface {
+  background-color: $navigation-background;
   flex-shrink: 0;
   overflow: hidden;
 
   @include media($horizontal-bar-mode) {
+    background-color: transparent;
     order: 3;
+    padding-right: $navigation-padding;
   }
 
   li {
-    display: inline;
-    line-height: $navigation-height-mobile;
-    padding-right: 1em;
+    border-bottom: solid 1px $table-border;
 
     @include media($horizontal-bar-mode) {
+      border: 0;
+      display: inline;
       line-height: $navigation-height;
-      padding-right: 1.75em;
+      padding-left: 1em;
     }
 
     &.is-active {
@@ -22,14 +25,24 @@
 
     a {
       @extend #{$all-buttons};
-      background-color: $action-color;
-      font-weight: normal;
-      margin-bottom: 0;
-      padding: .5em .75em;
+
+      @include menu-link();
+      @include menu-link-small();
+
+      @include media($horizontal-bar-mode) {
+        background-color: $action-color;
+        color: $base-background-color;
+        display: inline-block;
+        font-weight: normal;
+        margin-bottom: 0;
+        padding: .5em .75em;
+        text-transform: none;
+      }
 
       &:hover,
       &:focus {
         background-color: $logo-red;
+        color: $base-background-color;
       }
     }
   }
