@@ -1,0 +1,36 @@
+//
+// Styles for the latest post view in a 2-column layout.
+//
+
+.view-display-id-block_3 {
+  .node__submitted {
+    font-style: italic;
+    margin-bottom: .5em;
+  }
+
+  figure {
+    margin: 0 0 1em;
+  }
+
+  figcaption {
+    margin-top: .5em;
+  }
+
+  img {
+    height: auto;
+    width: 100%;
+  }
+
+  .node__links {
+    margin-top: 1em;
+
+    li {
+      display: block;
+      padding: 0;
+    }
+
+    .comment-add {
+      margin-top: 1em;
+    }
+  }
+}

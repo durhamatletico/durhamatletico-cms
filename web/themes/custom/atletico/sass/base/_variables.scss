@@ -52,12 +52,6 @@ $table-background-hover: #f0f0f0;
 $table-border: #ddd;
 
 // Custom mixins and abstract classes
-%block {
-  border: solid 1px $light-gray;
-  border-radius: $base-border-radius * 2;
-  padding: $general-spacing;
-}
-
 %underline {
   border-bottom: solid 4px $logo-red;
   padding-bottom: .5em;

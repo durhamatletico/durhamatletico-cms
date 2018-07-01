@@ -6,3 +6,15 @@
     background-color: $logo-blue;
   }
 }
+
+.more-link,
+.node-readmore {
+  display: block;
+
+  a {
+    @extend #{$all-buttons};
+
+    text-align: center;
+    width: 100%;
+  }
+}

@@ -14,15 +14,19 @@ main {
 // Two-column layout.
 .layout-content-left,
 .layout-content-right {
-  @extend %block;
+  margin-top: $general-spacing * 3;
+  padding: 0 $general-spacing;
 
-  @include media($medium) {
+  @include media($small) {
     @include span-columns(6 of 12);
-    padding: $general-spacing * 2;
   }
 
   li {
     margin: 0 0 .5em;
+  }
+
+  h2 a {
+    color: $dark-grey;
   }
 }
 
@@ -33,12 +37,20 @@ main {
     margin-bottom: 0;
   }
 
+  @include media($medium) {
+    padding: 0 $general-spacing * 2 0 $general-spacing;
+  }
+
   .field--name-body h2 {
     margin-top: 1.5em;
   }
 }
 
 .layout-content-right {
+  @include media($medium) {
+    padding: 0 $general-spacing 0 $general-spacing * 2;
+  }
+
   .menu--tools h2 {
     margin-top: 1.5em;
   }
