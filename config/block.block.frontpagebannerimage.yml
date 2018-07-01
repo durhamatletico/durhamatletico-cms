@@ -1,0 +1,31 @@
+uuid: 43d89fd4-a0f6-49b8-b430-9e4380fc572a
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:banner_image:1bcb0614-dfe3-4089-a088-cfb0147c82b1'
+  module:
+    - block_content
+    - system
+  theme:
+    - atletico
+id: frontpagebannerimage
+theme: atletico
+region: highlighted
+weight: 0
+provider: null
+plugin: 'block_content:1bcb0614-dfe3-4089-a088-cfb0147c82b1'
+settings:
+  id: 'block_content:1bcb0614-dfe3-4089-a088-cfb0147c82b1'
+  label: 'Front page banner image'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

@@ -5,7 +5,7 @@
 // Typography
 // Montserrat (Headings) + Roboto (Copytext)
 // TODO: remove unused fonts.
-@import url(https://fonts.googleapis.com/css?family=Montserrat:700|Roboto:400,400i,700|Poppins:400,700,800|Rubik:400,400i,700);
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,600|Rubik:400,400i,700);
 
 // Font Awesome (icons)
 @import '../lib/font-awesome/font-awesome';
@@ -30,6 +30,7 @@ $base-background-color: #fff; // White.
 
 // Navigation refill variables
 $navigation-background: $light-grey;
+$navigation-background-hover: darken($navigation-background, 10%);
 $navigation-color: $dark-grey;
 $navigation-color-hover: $action-color;
 $navigation-height: 110px;

@@ -1,0 +1,22 @@
+uuid: 5f45061d-2cd0-49e7-aaa0-9998c70115f1
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_style_quality
+name: banner_image_medium_1x
+label: 'Banner image medium 1x'
+effects:
+  0b4e5443-d21e-4c35-9f2a-25536cad1645:
+    uuid: 0b4e5443-d21e-4c35-9f2a-25536cad1645
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 480
+  d888c906-27e8-46ed-b763-e7192926b9df:
+    uuid: d888c906-27e8-46ed-b763-e7192926b9df
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 75

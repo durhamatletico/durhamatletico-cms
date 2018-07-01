@@ -15,7 +15,7 @@
 @import 'layouts/layout-posts';
 
 // Component rules (called 'modules' in SMACSS).
-@import 'components/call-to-action';
+@import 'components/featured-item';
 @import 'components/footer';
 @import 'components/forms';
 @import 'components/game-nodes';
@@ -31,4 +31,6 @@
 @import 'components/node';
 @import 'components/posts';
 @import 'components/post-cards';
+@import 'components/progress-bar';
 @import 'components/sidebar';
+@import 'components/tags';

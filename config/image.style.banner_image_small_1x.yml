@@ -1,0 +1,22 @@
+uuid: be118231-2d29-4af7-826e-8c1adfaa7dfc
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_style_quality
+name: banner_image_small_1x
+label: 'Banner image small 1x'
+effects:
+  aaf049e8-72c8-46c5-b02a-5e7e07a81cda:
+    uuid: aaf049e8-72c8-46c5-b02a-5e7e07a81cda
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 650
+      height: 325
+  ba46ecc9-8b92-4a98-9761-79494449f2ab:
+    uuid: ba46ecc9-8b92-4a98-9761-79494449f2ab
+    id: image_style_quality
+    weight: 2
+    data:
+      quality: 75

@@ -1,0 +1,35 @@
+uuid: 7edda426-e1f8-4233-b481-aed4596a35d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.banner_image_large_1x
+    - image.style.banner_image_medium_1x
+    - image.style.banner_image_small_1x
+  theme:
+    - atletico
+id: banner_image
+label: 'Banner image'
+image_style_mappings:
+  -
+    breakpoint_id: atletico.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_image_small_1x
+  -
+    breakpoint_id: atletico.small
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_image_medium_1x
+  -
+    breakpoint_id: atletico.large
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_image_large_1x
+  -
+    breakpoint_id: atletico.medium
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_image_large_1x
+breakpoint_group: atletico
+fallback_image_style: banner_image_small_1x

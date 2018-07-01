@@ -41,8 +41,12 @@
 
       &:hover,
       &:focus {
-        background-color: $logo-red;
-        color: $base-background-color;
+        background-color: $navigation-background;
+
+        @include media($horizontal-bar-mode) {
+          background-color: $logo-blue;
+          color: $base-background-color;
+        }
       }
     }
   }

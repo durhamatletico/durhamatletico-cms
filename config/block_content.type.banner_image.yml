@@ -1,0 +1,8 @@
+uuid: 2c00f9ec-58f8-418b-9df9-d4f9ed78d095
+langcode: en
+status: true
+dependencies: {  }
+id: banner_image
+label: 'Banner image'
+revision: 0
+description: 'A banner image with a text overlay and CTA button, similar to the Featured Item content type but with control over the image.'

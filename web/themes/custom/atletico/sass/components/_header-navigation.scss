@@ -140,7 +140,7 @@
         &:hover,
         &:focus {
           a {
-            background-color: darken($navigation-background, 10%);
+            background-color: $navigation-background-hover;
           }
         }
 

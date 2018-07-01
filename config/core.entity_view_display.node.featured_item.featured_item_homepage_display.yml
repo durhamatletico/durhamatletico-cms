@@ -7,9 +7,12 @@ dependencies:
     - field.field.node.featured_item.field_call_to_action_big_text
     - field.field.node.featured_item.field_call_to_action_descriptive
     - field.field.node.featured_item.field_call_to_action_links
+    - field.field.node.featured_item.field_featured_item_image
     - node.type.featured_item
+    - responsive_image.styles.banner_image
   module:
     - link
+    - responsive_image
     - text
     - user
 id: node.featured_item.featured_item_homepage_display
@@ -19,7 +22,7 @@ mode: featured_item_homepage_display
 content:
   field_call_to_action_big_text:
     type: basic_string
-    weight: 2
+    weight: 1
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -27,13 +30,13 @@ content:
   field_call_to_action_descriptive:
     type: text_default
     weight: 3
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    region: content
   field_call_to_action_links:
     type: link
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       trim_length: 80
@@ -43,6 +46,15 @@ content:
       url_plain: false
     third_party_settings: {  }
     region: content
+  field_featured_item_image:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: banner_image
+      image_link: ''
+    third_party_settings: {  }
 hidden:
   langcode: true
   links: true

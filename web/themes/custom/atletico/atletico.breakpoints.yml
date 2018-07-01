@@ -1,18 +1,24 @@
 atletico.mobile:
   label: mobile
   mediaQuery: '(min-width: 0px)'
-  weight: 2
+  weight: 0
   multipliers:
     - 1x
-atletico.narrow:
-  label: narrow
-  mediaQuery: 'all and (min-width: 560px) and (max-width: 850px)'
+atletico.small:
+  label: small
+  mediaQuery: 'all and (min-width: 650px) and (max-width: 959px)'
   weight: 1
   multipliers:
     - 1x
-atletico.wide:
-  label: wide
-  mediaQuery: 'all and (min-width: 851px)'
-  weight: 0
+atletico.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 960px) and (max-width: 1119px)'
+  weight: 2
+  multipliers:
+    - 1x
+atletico.large:
+  label: large
+  mediaQuery: 'all and (min-width: 1120px)'
+  weight: 3
   multipliers:
     - 1x

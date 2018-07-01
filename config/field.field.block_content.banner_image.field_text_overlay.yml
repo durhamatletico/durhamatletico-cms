@@ -1,0 +1,19 @@
+uuid: 2a85cd9c-64df-400d-be7b-bdea478a655a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_image
+    - field.storage.block_content.field_text_overlay
+id: block_content.banner_image.field_text_overlay
+field_name: field_text_overlay
+entity_type: block_content
+bundle: banner_image
+label: 'Text overlay'
+description: 'The text that will be displayed over the image'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

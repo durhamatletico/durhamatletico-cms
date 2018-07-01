@@ -1,0 +1,30 @@
+uuid: 50af2189-a69b-40ff-b5de-40971a0494c7
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - file
+    - image
+id: block_content.field_banner_image
+field_name: field_banner_image
+entity_type: block_content
+type: image
+settings:
+  uri_scheme: public
+  default_image:
+    uuid: bdacd6aa-38e3-426d-a06c-84e7e0d3311a
+    alt: 'People playing Futsal'
+    title: ''
+    width: 1118
+    height: 370
+  target_type: file
+  display_field: false
+  display_default: false
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
