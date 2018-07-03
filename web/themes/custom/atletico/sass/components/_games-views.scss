@@ -27,9 +27,18 @@
 }
 
 .view-id-games,
-.view-id-standings {
+.view-id-standings,
+div[class^="block-views-blockstandings-"],
+div[class*="block-views-blockstandings-"] {
+  // Ensure space between tables.
+  margin-bottom: $general-spacing * 3;
+
   .views-table {
-    margin: 0 0 2em;
+    margin: 0 0 $general-spacing * 2;
+  }
+
+  h2 {
+    margin: 1em 0 0;
   }
 
   // Game date.
@@ -124,8 +133,13 @@
   }
 }
 
+// Standings views.
 .view-id-standings_spring_2016,
 .view-id-standings {
+  .jersey-color {
+    margin-right: .5em;
+  }
+
   // Team name.
   .views-field-field-abbreviation {
     overflow: hidden;

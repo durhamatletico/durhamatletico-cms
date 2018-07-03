@@ -6,12 +6,9 @@
 .path-node {
 
   // Tabs viewable by admins.
-  // scss-lint:disable IdSelector
-  #block-atletico-local-tasks {
-    margin-bottom: 1.5em;
-    text-align: center;
+  .block-local-tasks-block {
+    margin: 1.5em 0;
   }
-  // scss-lint:enable IdSelector
 
   section {
     margin-top: $general-spacing * 1.5;
@@ -65,8 +62,7 @@
 
   // Basic pages.
   &.node--type-page {
-
-    main {
+    .layout-content {
       @include media($medium) {
         @include span-columns(8 of 12);
         @include shift(2);

@@ -1,0 +1,30 @@
+//
+// Styles for page titles.
+//
+
+.block-page-title-block {
+  background-color: $table-background;
+  overflow: auto;
+
+  // The h1 element.
+  .page-title {
+    margin-bottom: 0;
+    padding: .5em calc(1em/2.441) .25em;
+
+    @include media($medium) {
+      @include span-columns(8 of 12);
+      @include shift(2);
+    }
+
+    &::after {
+      border-bottom: 5px solid transparent;
+      border-left: 120px solid $logo-blue;
+      border-top: 5px solid transparent;
+      content: '';
+      display: block;
+      height: 0;
+      margin: .25em 0;
+      width: 0;
+    }
+  }
+}

@@ -11,6 +11,10 @@ main {
   padding: 0 0 $general-spacing * 3;
 }
 
+.layout-content {
+  padding: 0 $general-spacing;
+}
+
 // Two-column layout.
 .layout-content-left,
 .layout-content-right {
