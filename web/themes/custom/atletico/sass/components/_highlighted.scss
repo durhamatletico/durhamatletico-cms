@@ -3,6 +3,9 @@
 //
 
 .region-highlighted {
+  margin-bottom: $general-spacing;
+  overflow: auto;
+
   .messages {
     @include span-columns(10);
     @include shift(1);

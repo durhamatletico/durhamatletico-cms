@@ -34,6 +34,7 @@ main {
   }
 }
 
+// Left column.
 .layout-content-left {
   margin-bottom: $general-spacing * 3;
 
@@ -50,6 +51,7 @@ main {
   }
 }
 
+// Right column.
 .layout-content-right {
   @include media($medium) {
     padding: 0 $general-spacing 0 $general-spacing * 2;

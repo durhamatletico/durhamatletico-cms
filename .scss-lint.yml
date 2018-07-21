@@ -13,3 +13,5 @@ linters:
     enabled: false
   SelectorFormat:
     enabled: false
+  QualifyingElement:
+    enabled: false

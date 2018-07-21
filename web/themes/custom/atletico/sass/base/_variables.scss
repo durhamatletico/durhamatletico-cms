@@ -14,11 +14,13 @@ $base-font-family: 'Rubik', $helvetica;
 
 // Other Sizes
 $general-spacing: 1em;
+$block-margin: $general-spacing * 3;
+$inter-block-margin: $general-spacing * 2;
 $footer-height: 4em;
 
 // Colors
 $action-color: #477dca; // Medium blue.
-$logo-blue: #3dc9F7;
+$logo-blue: #3dc9f7;
 $logo-red: #d95251;
 $light-grey: #eff5f9;
 $dark-grey: #454b4f;
@@ -86,8 +88,14 @@ $table-border: #ddd;
     border-top: solid 2px $action-color;
   }
 
-  td:first-child {
-    padding-left: .5em;
+  td {
+    &:first-child {
+      padding-left: .5em;
+    }
+
+    &:last-child {
+      padding-right: .5em;
+    }
   }
 }
 

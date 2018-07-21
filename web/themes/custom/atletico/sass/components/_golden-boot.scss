@@ -2,13 +2,17 @@
 // Styles for golden boot blocks.
 //
 
-// Table rows.
-.block-golden-boot-winter2016,
-.block-golden-boot-winter2016division2 {
-  @extend %atletico-table;
+div[class^="block-golden-boot"],
+div[class*="block-golden-boot"] {
   font-size: 80%;
+  margin-bottom: $inter-block-margin;
 
   @include media($medium) {
     font-size: 100%;
+  }
+
+  // Table rows.
+  tbody tr {
+    @extend %atletico-table;
   }
 }

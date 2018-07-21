@@ -22,7 +22,7 @@ header {
     margin-right: auto;
     max-height: $navigation-height-mobile;
     padding-left: $navigation-padding;
-    padding-right: 2em;
+    padding-right: $navigation-padding;
 
     @include media ($horizontal-bar-mode) {
       max-height: $navigation-height;
