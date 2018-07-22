@@ -26,6 +26,7 @@ header {
 
     @include media ($horizontal-bar-mode) {
       max-height: $navigation-height;
+      padding-right: $navigation-padding * 2;
     }
 
     img {
