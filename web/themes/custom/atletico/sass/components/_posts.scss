@@ -1,27 +1,6 @@
 //
-// Styles for /posts, plus global post styles.
+// Styles for /posts.
 //
-
-// Global styles for post nodes viewed anywhere on the site.
-.node__submitted {
-  font-style: italic;
-}
-
-figure {
-  margin: 0 0 $block-margin / 2;
-
-  &.align-left {
-    margin-right: $block-margin / 2;
-  }
-
-  &.align-right {
-    margin-left: $block-margin / 2;
-  }
-}
-
-.caption > figcaption {
-  margin-top: .5em;
-}
 
 // Styles for both views on the posts page.
 .path-posts {

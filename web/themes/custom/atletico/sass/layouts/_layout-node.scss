@@ -2,7 +2,6 @@
 // Layout styles for node pages.
 //
 
-// All node pages.
 .path-node,
 .path-contact {
   .layout-content {
@@ -23,43 +22,5 @@
 
   article {
     margin-bottom: $general-spacing * 3;
-  }
-}
-
-// Articles.
-.node--type-article {
-  .node__links {
-    .comment-forbidden {
-      padding: 0;
-    }
-  }
-
-  // Two column layout on larger screens.
-  .layout-content {
-    @include media($medium) {
-      @include span-columns(6.75 of 10);
-    }
-  }
-
-  .layout-sidebar {
-    margin-top: $general-spacing * 3;
-
-    @include media($medium) {
-      @include span-columns(3 of 10);
-      @include shift(.25);
-      margin-top: 0;
-    }
-
-    .block {
-      margin-bottom: $general-spacing * 3;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    .item-list li {
-      margin-left: 0;
-    }
   }
 }
