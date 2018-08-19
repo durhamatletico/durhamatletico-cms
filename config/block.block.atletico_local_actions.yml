@@ -7,7 +7,7 @@ dependencies:
 id: atletico_local_actions
 theme: atletico
 region: content
-weight: -33
+weight: -34
 provider: null
 plugin: local_actions_block
 settings:

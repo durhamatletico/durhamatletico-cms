@@ -1,30 +1,30 @@
-uuid: f8edc6fd-1043-4937-b921-58cfd94e3012
+uuid: 2687320d-a21b-446d-9031-df2f04cb8da9
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.standings_spring_2017
+    - views.view.posts
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__standings_spring_2017_block_1
+id: views_block__posts_block_4
 theme: atletico
 region: content
-weight: -9
+weight: -31
 provider: null
-plugin: 'views_block:standings_spring_2017-block_1'
+plugin: 'views_block:posts-block_4'
 settings:
-  id: 'views_block:standings_spring_2017-block_1'
+  id: 'views_block:posts-block_4'
   label: ''
   provider: views
-  label_display: visible
+  label_display: '0'
   views_label: ''
   items_per_page: none
 visibility:
   request_path:
     id: request_path
-    pages: "/node/2680\r\n/es/node/2680"
+    pages: /posts
     negate: false
     context_mapping: {  }
