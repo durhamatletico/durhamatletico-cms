@@ -3,9 +3,9 @@
 //
 
 .field--name-field-tags {
-  border-bottom: solid 4px $logo-red;
-  margin: 1.5em 0;
-  padding-bottom: 1.5em;
+  border-bottom: solid 1px $table-border;
+  margin: $block-margin 0;
+  padding-bottom: $block-margin / 2;
 
   .field__label {
     display: inline-block;

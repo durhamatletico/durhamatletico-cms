@@ -68,6 +68,11 @@ $table-border: #ddd;
   &:first-child {
     margin-right: .5em;
   }
+
+  &:hover,
+  &:focus {
+    background-color: $base-background-color;
+  }
 }
 
 %atletico-table {

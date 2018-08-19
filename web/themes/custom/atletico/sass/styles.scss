@@ -10,7 +10,6 @@
 
 // Layout rules.
 @import 'layouts/layout-base';
-@import 'layouts/layout-front';
 @import 'layouts/layout-node';
 @import 'layouts/layout-posts';
 
@@ -31,8 +30,8 @@
 @import 'components/mobile-menu-link';
 @import 'components/node';
 @import 'components/page-title';
+@import 'components/post--individual';
 @import 'components/posts';
-@import 'components/post-cards';
 @import 'components/progress-bar';
 @import 'components/sidebar';
 @import 'components/tags';

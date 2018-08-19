@@ -8,7 +8,11 @@ body {
 
 main {
   @include clearfix;
-  padding: 0 0 $general-spacing * 3;
+  padding: 0 0 $block-margin;
+}
+
+.block-system-main-block {
+  margin-top: $block-margin / 2;
 }
 
 .layout-content {
@@ -18,7 +22,7 @@ main {
 // Two-column layout.
 .layout-content-left,
 .layout-content-right {
-  margin-top: $general-spacing * 3;
+  margin-top: $block-margin;
   padding: 0 $general-spacing;
 
   @include media($small) {
@@ -36,7 +40,7 @@ main {
 
 // Left column.
 .layout-content-left {
-  margin-bottom: $general-spacing * 3;
+  margin-bottom: $block-margin;
 
   @include media($small) {
     margin-bottom: 0;

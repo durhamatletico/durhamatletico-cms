@@ -7,14 +7,17 @@
   }
 }
 
-.more-link,
-.node-readmore {
-  display: block;
+.layout-content-left,
+.layout-content-right {
+  .more-link,
+  .node-readmore {
+    display: block;
 
-  a {
-    @extend #{$all-buttons};
+    a {
+      @extend #{$all-buttons};
 
-    text-align: center;
-    width: 100%;
+      text-align: center;
+      width: 100%;
+    }
   }
 }
