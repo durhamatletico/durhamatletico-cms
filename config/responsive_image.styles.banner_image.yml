@@ -12,16 +12,6 @@ id: banner_image
 label: 'Banner image'
 image_style_mappings:
   -
-    breakpoint_id: atletico.mobile
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: banner_image_small_1x
-  -
-    breakpoint_id: atletico.small
-    multiplier: 1x
-    image_mapping_type: image_style
-    image_mapping: banner_image_medium_1x
-  -
     breakpoint_id: atletico.large
     multiplier: 1x
     image_mapping_type: image_style
@@ -31,5 +21,15 @@ image_style_mappings:
     multiplier: 1x
     image_mapping_type: image_style
     image_mapping: banner_image_large_1x
+  -
+    breakpoint_id: atletico.small
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_image_medium_1x
+  -
+    breakpoint_id: atletico.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: banner_image_small_1x
 breakpoint_group: atletico
 fallback_image_style: banner_image_small_1x
