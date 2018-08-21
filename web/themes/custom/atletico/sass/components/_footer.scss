@@ -4,43 +4,67 @@
 
 // Actual footer.
 .footer__wrapper {
-  $footer-background: $base-font-color;
-  $footer-color: $base-background-color;
-  $footer-link-color: $footer-color;
-  $footer-break: 740px;
-
   background: $footer-background;
   border-top: solid 1em $logo-red;
   clear: both;
   padding: ($base-spacing * 2) $gutter;
   width: 100%;
 
-  .footer-links {
+  ul,
+  div {
+    padding: 0;
+
     @include media($footer-break) {
-      @include display(flex);
-      @include justify-content(center);
-      @include flex-wrap(wrap);
+      flex-basis: 13em;
+      flex-shrink: 0;
     }
   }
 
+  li {
+    color: $base-background-color;
+    line-height: 1.5em;
+    list-style: none;
+
+    a {
+      color: $footer-link-color;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        color: $logo-blue;
+      }
+    }
+  }
+
+  p {
+    color: $footer-color;
+    line-height: 1.5em;
+    margin: auto;
+    max-width: 35em;
+  }
+
   .footer-logo {
-    margin-bottom: 2em;
     text-align: center;
 
     img {
       display: inline;
-      height: 3em;
     }
   }
 
-  ul,
-  div {
-    margin-bottom: $general-spacing;
-    padding: 0;
+  .footer-links {
+    @include media($footer-break) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-links > div,
+  .footer__address {
+    margin-bottom: 1.5em;
 
     @include media($footer-break) {
-      @include flex-basis(13em);
-      @include flex-shrink(0);
+      margin-bottom: 0;
     }
   }
 
@@ -59,57 +83,19 @@
   }
   // scss-lint:enable QualifyingElement
 
-  li {
-    color: $base-background-color;
-    line-height: 1.5em;
-    list-style: none;
-    text-align: center;
-
-    a {
-      color: $footer-link-color;
-      text-decoration: none;
-
-      &:focus,
-      &:hover {
-        color: $logo-blue;
-      }
-    }
-
-    h3 {
-      color: $footer-color;
-      font-size: 1em;
-      margin-bottom: .4em;
-    }
-  }
-
-  hr {
-    border: 1px solid transparentize($footer-color, .3);
-    margin: $general-spacing * 2 auto;
-    width: 12em;
-  }
-
-  p {
-    color: $footer-color;
-    line-height: 1.5em;
-    margin: auto;
-    max-width: 35em;
-    text-align: center;
-  }
-
-  .footer__social-media__links {
-    @include display(flex);
-    @include justify-content(center);
-
-    .footer__icon {
-      padding: 1.5em .5em .5em;
-    }
-  }
-
   .footer__menu {
     display: none;
 
     @include media($footer-break) {
       display: block;
+    }
+
+    @include media($medium) {
+      padding-left: 3em;
+    }
+
+    .menu-item {
+      line-height: 2em;
     }
   }
 
@@ -119,5 +105,44 @@
     @include media($footer-break) {
       display: none;
     }
+
+    .menu-item {
+      line-height: 1.5em;
+      text-align: center;
+    }
+  }
+
+  .footer__address {
+    li {
+      text-align: center;
+    }
+  }
+
+  .footer__address__name {
+    font-family: $heading-font-family;
+    font-size: $base-font-size * 1.563;
+    margin-bottom: 1.25em;
+  }
+
+  .footer__social-media__links {
+    display: flex;
+    justify-content: center;
+
+    @include media($footer-break) {
+      justify-content: flex-end;
+    }
+
+    @include media($medium) {
+      padding-right: 3em;
+    }
+
+    .footer__icon {
+      padding: 0 .5em;
+    }
+  }
+
+  .footer__copyright {
+    margin-top: 2em;
+    text-align: center;
   }
 }

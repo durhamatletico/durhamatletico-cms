@@ -31,27 +31,40 @@ set classes = [
           {{ elements.atletico_footer }}
         </div>
         <ul class="footer__address">
-          <li><h4>Durham Atlético</h4></li>
+          <li class="footer__address__name">Durham Atlético</li>
           <li>201 W. Main St.</li>
           <li>Durham, NC 27701</li>
         </ul>
         <div class="footer__menu--mobile">
-          <hr>
           {{ elements.atletico_footer }}
-          <hr>
         </div>
         <div class="footer__social-media">
           <ul class="footer__social-media__links">
-            <li class="footer__icon"><a href="https://www.facebook.com/durhamatletico/"><i class="fa fa-facebook-square fa-lg fa-3x"></i></a></li>
-            <li class="footer__icon"><a href="https://twitter.com/DurhamAtletico"><i class="fa fa-twitter-square fa-lg fa-3x"></i></a></li>
-            <li class="footer__icon"><a href="https://www.instagram.com/durhamatletico/"><i class="fa fa-instagram fa-lg fa-3x"></i></a></li>
+            <li class="footer__icon">
+              <a href="https://www.facebook.com/durhamatletico/">
+                <i class="fa fa-facebook-square fa-3x">
+                  <span class="visually-hidden">Facebook</span>
+                </i>
+              </a>
+            </li>
+            <li class="footer__icon">
+              <a href="https://twitter.com/DurhamAtletico">
+                <i class="fa fa-twitter-square fa-3x">
+                  <span class="visually-hidden">Twitter</span>
+                </i>
+              </a>
+            </li>
+            <li class="footer__icon">
+              <a href="https://www.instagram.com/durhamatletico/">
+                <i class="fa fa-instagram fa-3x">
+                  <span class="visually-hidden">Instagram</span>
+                </i>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
-
-      <hr>
-
-      <p>© 2015 — Present, Durham Atlético</p>
+      <p class="footer__copyright">© 2015 — Present, Durham Atlético</p>
     </div>
   </div>
 {% endif %}

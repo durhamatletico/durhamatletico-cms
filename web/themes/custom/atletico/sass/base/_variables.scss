@@ -23,7 +23,7 @@ $action-color: #477dca; // Medium blue.
 $logo-blue: #3dc9f7;
 $logo-red: #d95251;
 $light-grey: #eff5f9;
-$dark-grey: #454b4f;
+$dark-grey: #45545c;
 $base-font-color: $dark-grey;
 
 // Background Colors
@@ -45,7 +45,8 @@ $horizontal-bar-mode: $medium;
 // Footer refill variables
 $footer-background: $base-font-color;
 $footer-color: $base-background-color;
-$footer-link-color: $base-background-color;
+$footer-link-color: $footer-color;
+$footer-break: 750px;
 
 // Table colors (e.g. /futsal)
 $table-background: #f7f7f7;
