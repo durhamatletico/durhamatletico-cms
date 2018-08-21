@@ -12,7 +12,7 @@ field_name: field_featured_item_image
 entity_type: node
 bundle: featured_item
 label: 'Featured item image'
-description: 'An image for the background of the featured item region. Recommended aspect ratio 3:1. Min-width 1120px.'
+description: 'An image for the background of the featured item region. Recommended aspect ratio 3:1. Min-width 1248px.'
 required: false
 translatable: false
 default_value: {  }
@@ -28,7 +28,7 @@ settings:
   title_field: false
   title_field_required: false
   default_image:
-    uuid: 441a14fd-085c-4502-8d6d-f8ba1d89e52b
+    uuid: 05055411-0b8a-4b91-9cd5-ac81c775517e
     alt: 'People playing Futsal'
     title: ''
     width: 1118

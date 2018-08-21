@@ -11,9 +11,8 @@
 
   // Score section.
   .game__score {
-    @include display(flex);
-    @include justify-content(center);
-
+    display: flex;
+    justify-content: center;
     margin-top: $general-spacing * 3;
     text-align: center;
 

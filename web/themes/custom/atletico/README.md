@@ -14,10 +14,11 @@ Commit the compiled CSS file.
 
 ## Coding standards
 
-Use codeclimate to run scss-lint and eslint.
+Use Code Climate to run scss-lint and eslint.
 
 Configuration for scss-lint and ESLint is located in `.scss-lint.yml` and
-`.eslintrc.js`, respectively, in the root of the `omega` repository.
+`.eslintrc.js`, respectively, in the root of the `durhamatletico-cms`
+repository.
 
 ### Ignoring scss-lint rules
 
