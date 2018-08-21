@@ -34,6 +34,20 @@ a {
   }
 }
 
+// Inline links.
+p a,
+article ul a,
+article ol a,
+.link--inline {
+  border-bottom: .1em solid transparentize($action-color, .8);
+  transition: all 150ms ease;
+
+  &:hover,
+  &:focus {
+    border-bottom: .1em solid $logo-blue;
+  }
+}
+
 blockquote,
 %blockquote {
   border-left: 4px solid $light-gray;
