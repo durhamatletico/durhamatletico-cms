@@ -1,57 +1,68 @@
 //
-// Styles for node pages.
+// Styles for node pages and some global styles for nodes display in views.
 //
 
-.path-node {
-  .node__content {
-    p {
-      font-size: $base-font-size * 1.3;
+// Node typography styles.
+.path-node .node__content {
+  p {
+    font-size: $base-font-size * 1.3;
+  }
+
+  li {
+    font-size: $base-font-size * 1.3;
+  }
+
+  img {
+    height: auto;
+  }
+}
+
+// "Submitted by" string.
+.node__submitted {
+  font-style: italic;
+  margin-bottom: 1em;
+}
+
+// Read/comment links.
+.node__links {
+  .comment-forbidden {
+    padding: 0;
+  }
+}
+
+// Handle floated images within posts.
+figure,
+.caption-img {
+  margin: 0 0 $block-margin / 2;
+
+  &.align-left,
+  &.align-right {
+    @include media($small) {
+      max-width: 50%;
     }
 
-    li {
-      font-size: $base-font-size * 1.3;
-    }
-
-    // Handle floated images within posts.
-    figure,
-    .caption-img {
-      margin: 0 0 $block-margin / 2;
-
-      &.align-left,
-      &.align-right {
-        max-width: 50%;
-
-        img {
-          height: auto;
-        }
-      }
-
-      &.align-left {
-        margin-right: $block-margin / 2;
-      }
-
-      &.align-right {
-        margin-left: $block-margin / 2;
-      }
-    }
-
-    .caption > figcaption {
-      margin-top: .5em;
-    }
-
-    .field--name-body p:last-child {
-      margin-bottom: 0;
+    img {
+      height: auto;
     }
   }
 
-  .node__submitted {
-    font-style: italic;
-    margin-bottom: 1em;
-  }
-
-  .node__links {
-    .comment-forbidden {
-      padding: 0;
+  &.align-left {
+    @include media($small) {
+      margin-right: $block-margin / 2;
     }
   }
+
+  &.align-right {
+    @include media($small) {
+      margin-left: $block-margin / 2;
+    }
+  }
+}
+
+.caption > figcaption {
+  margin-top: .5em;
+}
+
+.field--name-body p:last-child {
+  margin-bottom: 0;
 }

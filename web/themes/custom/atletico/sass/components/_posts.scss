@@ -1,11 +1,27 @@
 //
 // Styles for /posts.
 //
+// These styles also happen to apply to taxonomy term pages, since we only have
+// a single vocabulary and it's tags for posts.
+//
 
 // Styles for both views on the posts page.
-.path-posts {
+.path-posts,
+.path-taxonomy {
+  .layout-content {
+    padding: 0;
+  }
+
+  .block-system-main-block {
+    clear: both;
+  }
+
   .node__submitted {
     margin-bottom: .5em;
+  }
+
+  img {
+    height: auto;
   }
 
   .field--type-image {
@@ -15,69 +31,8 @@
   .pager {
     margin-top: $block-margin;
   }
-}
 
-// Latest post view on the posts page.
-.view-posts.view-display-id-block_4 {
-  margin-bottom: $block-margin;
-  overflow: auto;
-
-  .block-page-title-block {
-    display: block;
-    margin-bottom: $block-margin / 2;
-
-    a {
-      color: $dark-grey;
-    }
-  }
-
-  .node__submitted {
-    display: block;
-  }
-
-  // Links.
-  .views-field-nothing {
-    clear: both;
-    margin-top: .5em;
-  }
-
-  // Read more button.
-  .latest-post__read-more {
-    @extend #{$all-buttons};
-
-    margin-right: $block-margin / 2;
-  }
-}
-
-// Recent posts view (minus latest post).
-// Latest post view on the posts page.
-.view-posts.view-display-id-page_1 {
-  .views-row {
-    background-color: $table-background;
-    padding: 2em 1em;
-
-    &:nth-child(2n) {
-      background-color: $base-background-color;
-    }
-
-    h2 {
-      font-size: 1.5em;
-
-      a {
-        color: $dark-grey;
-      }
-    }
-  }
-
-  .node__links {
-    margin-top: .5em;
-
-    li {
-      margin-top: $general-spacing;
-    }
-  }
-
-  .node-readmore a {
-    @extend %button--light;
+  .feed-icons {
+    padding: 1em 1em 0;
   }
 }

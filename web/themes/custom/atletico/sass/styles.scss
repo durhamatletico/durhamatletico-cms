@@ -11,7 +11,6 @@
 // Layout rules.
 @import 'layouts/layout-base';
 @import 'layouts/layout-node';
-@import 'layouts/layout-posts';
 
 // Component rules (called 'modules' in SMACSS).
 @import 'components/featured-item';
@@ -29,8 +28,8 @@
 @import 'components/mobile-menu-link';
 @import 'components/node';
 @import 'components/page-title';
-@import 'components/post--individual';
 @import 'components/post--latest';
 @import 'components/posts';
+@import 'components/posts-list';
 @import 'components/progress-bar';
 @import 'components/tags';

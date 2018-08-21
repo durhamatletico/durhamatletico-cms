@@ -1,9 +1,11 @@
 //
-// Styles for the latest post view in a 2-column layout, e.g. on front page.
+// Styles for the latest post view displays.
 //
-// Note that the latest post view on the /posts page is styled in _posts.scss.
+// There's a version on the front page and a version on /posts.
 //
 
+// Front page version, using normal teaser display mode, to be included in a
+// 2-column layout.
 .view-display-id-block_3 {
   .node__submitted {
     font-style: italic;
@@ -34,5 +36,53 @@
     .comment-add {
       margin-top: 1em;
     }
+  }
+}
+
+// Posts page version, using fields to mimic an extended teaser display mode.
+.view-posts.view-display-id-block_4 {
+  margin-bottom: $block-margin;
+  overflow: auto;
+
+  // Limit all fields but the page title to 8 columns on large screens.
+  .views-field-nothing-2,
+  .views-field-field-image,
+  .views-field-body,
+  .views-field-nothing,
+  .views-field-nothing-1 {
+    @include media($medium) {
+      @include span-columns(8 of 12);
+      @include shift(2);
+
+      float: none;
+      padding: 0 1em;
+    }
+  }
+
+  .block-page-title-block {
+    background-color: transparent;
+    display: block;
+    margin-bottom: $block-margin / 2;
+
+    a {
+      color: $dark-grey;
+    }
+  }
+
+  .node__submitted {
+    display: block;
+  }
+
+  // Links.
+  .views-field-nothing {
+    clear: both;
+    margin-top: .5em;
+  }
+
+  // Read more button.
+  .latest-post__read-more {
+    @extend #{$all-buttons};
+
+    margin-right: $block-margin / 2;
   }
 }
