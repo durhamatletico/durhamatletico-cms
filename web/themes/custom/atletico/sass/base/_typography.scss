@@ -61,7 +61,7 @@ blockquote,
 }
 
 // Typography styles for nodes.
-.path-node article {
+.path-node:not(.node--type-game) article {
   h2,
   h3,
   h4,

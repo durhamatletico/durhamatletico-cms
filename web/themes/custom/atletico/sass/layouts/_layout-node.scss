@@ -3,7 +3,8 @@
 //
 
 .path-node,
-.path-contact {
+.path-contact,
+.path-user {
   .layout-content {
     @include media($medium) {
       @include span-columns(8 of 12);

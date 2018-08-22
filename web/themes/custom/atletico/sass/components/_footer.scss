@@ -91,7 +91,7 @@
     }
 
     @include media($medium) {
-      padding-left: 3em;
+      padding-left: $block-margin;
     }
 
     .menu-item {
@@ -133,7 +133,7 @@
     }
 
     @include media($medium) {
-      padding-right: 3em;
+      padding-right: $block-margin;
     }
 
     .footer__icon {

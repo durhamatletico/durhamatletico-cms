@@ -16,19 +16,19 @@
     margin-top: $general-spacing * 3;
     text-align: center;
 
-    article h2 {
-      font-size: 1em;
-      line-height: 1.5em;
-      margin-top: 0;
-
-      @include media($small) {
-        font-size: 2em;
-      }
-    }
-
-    .field--name-field-home-team,
-    .field--name-field-away-team {
+    article {
+      margin-bottom: 0;
       width: 41%;
+
+      h2 {
+        font-size: 1em;
+        line-height: 1.5em;
+        margin-top: 0;
+
+        @include media($small) {
+          font-size: 2em;
+        }
+      }
     }
 
     .field--name-field-home-team {

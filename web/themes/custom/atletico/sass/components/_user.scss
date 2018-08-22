@@ -1,0 +1,23 @@
+//
+// Styles for the user profile.
+//
+// Note that some layout styles can be found in _layout-node.scss.
+//
+
+.path-user.user-logged-in {
+  .block-durhamatletico-registration,
+  .block-views-blockprofile-my-teams-block-1,
+  .block-views-blockuser-profile-registrations-block-1 {
+    margin-top: $block-margin;
+  }
+
+  .block-local-tasks-block {
+    border-top: solid 1px $table-border;
+    margin-top: $block-margin;
+    padding-top: $block-margin;
+  }
+
+  .profile .field {
+    margin-bottom: 1em;
+  }
+}
