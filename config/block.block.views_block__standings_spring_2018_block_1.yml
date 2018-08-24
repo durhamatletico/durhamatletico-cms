@@ -1,22 +1,22 @@
-uuid: 03014f6f-b267-4ad1-aea1-03fdc997c0f6
+uuid: e998d7cf-b476-4649-8f9d-3e157dd2bfd7
 langcode: en
-status: false
+status: true
 dependencies:
   config:
-    - views.view.standings_fall_2017_soccer
+    - views.view.standings_spring_2018
   module:
     - system
     - views
   theme:
     - atletico
-id: views_block__standings_fall_2017_soccer_block_1
+id: views_block__standings_spring_2018_block_1
 theme: atletico
 region: content
-weight: -11
+weight: 0
 provider: null
-plugin: 'views_block:standings_fall_2017_soccer-block_1'
+plugin: 'views_block:standings_spring_2018-block_1'
 settings:
-  id: 'views_block:standings_fall_2017_soccer-block_1'
+  id: 'views_block:standings_spring_2018-block_1'
   label: ''
   provider: views
   label_display: visible
@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: "/node/1653\r\n/es/node/1653"
+    pages: "/node/2257\r\n/es/node/2257"
     negate: false
     context_mapping: {  }
