@@ -404,6 +404,7 @@ display:
         menu_name: main
         enabled: true
         expanded: false
+        weight: -44
     cache_metadata:
       max-age: -1
       contexts:
