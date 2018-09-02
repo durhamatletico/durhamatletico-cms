@@ -1,29 +1,29 @@
-uuid: bb834fd1-d33f-4782-af00-aea2c4e115b6
+uuid: 545f31b3-7be7-4f81-90ad-e2b27f6b4641
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_registration_shirt_number
-    - field.storage.node.field_registration_shirt_size
-    - field.storage.node.field_registration_shirt_type
-    - field.storage.node.field_registration_teams
-    - field.storage.user.field_first_name
-    - field.storage.user.field_last_name
-    - node.type.registration
-    - system.menu.admin
-    - user.role.administrator
-    - user.role.league_administrator
+    - field.storage.node.field_abbreviation
+    - field.storage.node.field_jersey_color_html_
+    - field.storage.node.field_team_draws
+    - field.storage.node.field_team_games_played
+    - field.storage.node.field_team_goal_difference
+    - field.storage.node.field_team_goals_against
+    - field.storage.node.field_team_goals_for
+    - field.storage.node.field_team_losses
+    - field.storage.node.field_team_points
+    - field.storage.node.field_team_wins
+    - node.type.team
   module:
     - node
-    - options
     - user
-id: player_details
-label: 'Player Details'
+id: standings_spring_2018_soccer
+label: 'Standings - Spring 2018 - Soccer'
 module: views
 description: ''
 tag: ''
-base_table: users_field_data
-base_field: uid
+base_table: node_field_data
+base_field: nid
 core: 8.x
 display:
   default:
@@ -33,11 +33,9 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            league_administrator: league_administrator
-            administrator: administrator
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -60,120 +58,159 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 200
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          quantity: 9
       style:
         type: table
         options:
           grouping: {  }
-          row_class: ''
+          row_class: team-standings
           default_row_class: true
           override: true
-          sticky: true
+          sticky: false
           caption: ''
           summary: ''
           description: ''
           columns:
-            name: name
-            field_first_name: field_first_name
-            field_last_name: field_last_name
-            field_registration_shirt_number: field_registration_shirt_number
-            field_registration_teams: field_registration_teams
+            field_jersey_color_html_: field_jersey_color_html_
+            field_abbreviation: field_abbreviation
+            field_team_games_played: field_team_games_played
+            field_team_wins: field_team_wins
+            field_team_draws: field_team_draws
+            field_team_losses: field_team_losses
+            field_team_goals_for: field_team_goals_for
+            field_team_goals_against: field_team_goals_against
+            field_team_goal_difference: field_team_goal_difference
+            field_team_points: field_team_points
           info:
-            name:
-              sortable: true
+            field_jersey_color_html_:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_first_name:
-              sortable: true
+            field_abbreviation:
+              sortable: false
               default_sort_order: asc
-              align: ''
+              align: views-align-left
               separator: ''
               empty_column: false
               responsive: ''
-            field_last_name:
-              sortable: true
+            field_team_games_played:
+              sortable: false
               default_sort_order: asc
-              align: ''
+              align: views-align-center
               separator: ''
               empty_column: false
               responsive: ''
-            field_registration_shirt_number:
-              sortable: true
+            field_team_wins:
+              sortable: false
               default_sort_order: asc
-              align: ''
+              align: views-align-center
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_team_draws:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_team_losses:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_team_goals_for:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_team_goals_against:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-center
+              separator: ''
+              empty_column: false
+              responsive: priority-low
+            field_team_goal_difference:
+              sortable: false
+              default_sort_order: asc
+              align: views-align-center
               separator: ''
               empty_column: false
               responsive: ''
-            field_registration_teams:
-              sortable: true
+            field_team_points:
+              sortable: false
               default_sort_order: asc
-              align: ''
+              align: views-align-center
               separator: ''
               empty_column: false
               responsive: ''
-          default: field_last_name
+          default: '-1'
           empty_table: false
       row:
         type: fields
       fields:
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          entity_type: user
-          entity_field: name
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
-          plugin_id: field
+        field_jersey_color_html_:
+          id: field_jersey_color_html_
+          table: node__field_jersey_color_html_
+          field: field_jersey_color_html_
           relationship: none
           group_type: group
           admin_label: ''
-          label: Name
-          exclude: false
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: user_name
-          settings: {  }
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -184,18 +221,19 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_first_name:
-          id: field_first_name
-          table: user__field_first_name
-          field: field_first_name
+          plugin_id: field
+        field_abbreviation:
+          id: field_abbreviation
+          table: node__field_abbreviation
+          field: field_abbreviation
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'First Name'
+          label: Team
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<div class="jersey-color" data-color="{{ field_jersey_color_html_ }}">   </div> {{ field_abbreviation }}'
             make_link: false
             path: ''
             absolute: false
@@ -235,7 +273,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: false
+            link_to_entity: true
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -247,14 +285,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_last_name:
-          id: field_last_name
-          table: user__field_last_name
-          field: field_last_name
+        field_team_games_played:
+          id: field_team_games_played
+          table: node__field_team_games_played
+          field: field_team_games_played
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Last Name'
+          label: GP
           exclude: false
           alter:
             alter_text: false
@@ -291,70 +329,7 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_registration_shirt_number:
-          id: field_registration_shirt_number
-          table: node__field_registration_shirt_number
-          field: field_registration_shirt_number
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: 'Shirt Number'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
+          empty: '0'
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
@@ -374,14 +349,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_registration_shirt_type:
-          id: field_registration_shirt_type
-          table: node__field_registration_shirt_type
-          field: field_registration_shirt_type
-          relationship: uid
+        field_team_wins:
+          id: field_team_wins
+          table: node__field_team_wins
+          field: field_team_wins
+          relationship: none
           group_type: group
           admin_label: ''
-          label: 'Shirt Type'
+          label: W
           exclude: false
           alter:
             alter_text: false
@@ -418,139 +393,16 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: '0'
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_registration_shirt_size:
-          id: field_registration_shirt_size
-          table: node__field_registration_shirt_size
-          field: field_registration_shirt_size
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: 'Shirt Size'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_registration_teams:
-          id: field_registration_teams
-          table: node__field_registration_teams
-          field: field_registration_teams
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: Team
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          type: number_integer
           settings:
-            link: true
-          group_column: target_id
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -561,14 +413,14 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        edit_node:
-          id: edit_node
-          table: node
-          field: edit_node
-          relationship: uid
+        field_team_draws:
+          id: field_team_draws
+          table: node__field_team_draws
+          field: field_team_draws
+          relationship: none
           group_type: group
           admin_label: ''
-          label: 'Edit Registration'
+          label: D
           exclude: false
           alter:
             alter_text: false
@@ -605,20 +457,353 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: '0'
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: Edit
-          entity_type: node
-          plugin_id: entity_link_edit
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_team_losses:
+          id: field_team_losses
+          table: node__field_team_losses
+          field: field_team_losses
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: L
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '0'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_team_goals_for:
+          id: field_team_goals_for
+          table: node__field_team_goals_for
+          field: field_team_goals_for
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: F
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '0'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_team_goals_against:
+          id: field_team_goals_against
+          table: node__field_team_goals_against
+          field: field_team_goals_against
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: A
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '0'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_team_goal_difference:
+          id: field_team_goal_difference
+          table: node__field_team_goal_difference
+          field: field_team_goal_difference
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: GD
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '0'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_team_points:
+          id: field_team_points
+          table: node__field_team_points
+          field: field_team_points
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Pts
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '0'
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
-          table: users_field_data
+          table: node_field_data
           field: status
           plugin_id: boolean
-          entity_type: user
+          entity_type: node
           entity_field: status
           id: status
           expose:
@@ -628,51 +813,24 @@ display:
           id: type
           table: node_field_data
           field: type
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          operator: in
           value:
-            registration: registration
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
+            team: team
           entity_type: node
           entity_field: type
           plugin_id: bundle
-        title:
-          id: title
+          group: 1
+        nid:
+          id: nid
           table: node_field_data
-          field: title
-          relationship: uid
+          field: nid
+          relationship: reverse__node__field_teams
           group_type: group
           admin_label: ''
-          operator: contains
-          value: 'Spring 2018'
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '1943'
           group: 1
           exposed: false
           expose:
@@ -688,6 +846,8 @@ display:
             remember_roles:
               authenticated: authenticated
             placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -701,78 +861,178 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           entity_type: node
-          entity_field: title
-          plugin_id: string
+          entity_field: nid
+          plugin_id: numeric
       sorts:
-        field_last_name_value:
-          id: field_last_name_value
-          table: user__field_last_name
-          field: field_last_name_value
+        field_team_points_value:
+          id: field_team_points_value
+          table: node__field_team_points
+          field: field_team_points_value
           relationship: none
           group_type: group
           admin_label: ''
-          order: ASC
+          order: DESC
           exposed: false
           expose:
             label: ''
           plugin_id: standard
-      title: 'Player Details'
+        field_team_goal_difference_value:
+          id: field_team_goal_difference_value
+          table: node__field_team_goal_difference
+          field: field_team_goal_difference_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
+      title: Standings
       header: {  }
       footer: {  }
       empty: {  }
       relationships:
-        uid:
-          id: uid
-          table: users_field_data
-          field: uid
+        reverse__node__field_teams:
+          id: reverse__node__field_teams
+          table: node_field_data
+          field: reverse__node__field_teams
           relationship: none
           group_type: group
-          admin_label: nodes
+          admin_label: field_teams
           required: true
-          entity_type: user
-          entity_field: uid
-          plugin_id: standard
+          entity_type: node
+          plugin_id: entity_reverse
       arguments: {  }
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      css_class: 'view-id-standings team-standings'
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
-        - user.roles
+        - 'user.node_grants:view'
+        - user.permissions
       tags:
-        - 'config:field.storage.node.field_registration_shirt_number'
-        - 'config:field.storage.node.field_registration_shirt_size'
-        - 'config:field.storage.node.field_registration_shirt_type'
-        - 'config:field.storage.node.field_registration_teams'
-        - 'config:field.storage.user.field_first_name'
-        - 'config:field.storage.user.field_last_name'
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+        - 'config:field.storage.node.field_abbreviation'
+        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_team_draws'
+        - 'config:field.storage.node.field_team_games_played'
+        - 'config:field.storage.node.field_team_goal_difference'
+        - 'config:field.storage.node.field_team_goals_against'
+        - 'config:field.storage.node.field_team_goals_for'
+        - 'config:field.storage.node.field_team_losses'
+        - 'config:field.storage.node.field_team_points'
+        - 'config:field.storage.node.field_team_wins'
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: 'Standings - Spring 2018 - Soccer'
     position: 1
     display_options:
       display_extenders: {  }
-      path: admin/content/player-details
-      menu:
-        type: normal
-        title: 'Player Details'
-        menu_name: admin
-        enabled: true
-        expanded: false
+      block_description: 'Spring 2018 Standings'
+      display_description: ''
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            team: team
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
+          relationship: reverse__node__field_teams
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '3995'
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nid_op
+            label: ID
+            description: ''
+            use_operator: false
+            operator: nid_op
+            identifier: nid
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              player: '0'
+              team_captain: '0'
+              translator: '0'
+              content_editor: '0'
+              league_administrator: '0'
+              administrator: '0'
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: nid
+          plugin_id: numeric
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
-        - user.roles
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
       tags:
-        - 'config:field.storage.node.field_registration_shirt_number'
-        - 'config:field.storage.node.field_registration_shirt_size'
-        - 'config:field.storage.node.field_registration_shirt_type'
-        - 'config:field.storage.node.field_registration_teams'
-        - 'config:field.storage.user.field_first_name'
-        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.node.field_abbreviation'
+        - 'config:field.storage.node.field_jersey_color_html_'
+        - 'config:field.storage.node.field_team_draws'
+        - 'config:field.storage.node.field_team_games_played'
+        - 'config:field.storage.node.field_team_goal_difference'
+        - 'config:field.storage.node.field_team_goals_against'
+        - 'config:field.storage.node.field_team_goals_for'
+        - 'config:field.storage.node.field_team_losses'
+        - 'config:field.storage.node.field_team_points'
+        - 'config:field.storage.node.field_team_wins'

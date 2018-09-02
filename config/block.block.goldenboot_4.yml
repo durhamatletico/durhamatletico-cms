@@ -1,6 +1,6 @@
 uuid: 15da0451-829a-4f93-a45b-8e0abe278e36
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - durhamatletico_core

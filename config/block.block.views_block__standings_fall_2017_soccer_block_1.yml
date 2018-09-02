@@ -1,6 +1,6 @@
 uuid: 03014f6f-b267-4ad1-aea1-03fdc997c0f6
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.standings_fall_2017_soccer

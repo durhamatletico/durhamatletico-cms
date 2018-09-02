@@ -993,13 +993,8 @@ display:
         title: Posts
         menu_name: main
         enabled: true
-        expanded: true
-        description: ''
-        parent: ''
-        weight: 0
-      header: {  }
-      defaults:
-        header: false
+        expanded: false
+        weight: -44
     cache_metadata:
       max-age: -1
       contexts:
