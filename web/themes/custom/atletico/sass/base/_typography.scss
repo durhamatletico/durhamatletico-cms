@@ -1,31 +1,29 @@
-/**
- * @file
- *
- * Custom typography styles.
- */
+//
+// Custom typography styles.
+//
 
 h1 {
-  font-size: $base-font-size * 2;
+  font-size: $base-font-size * 2.441;
 }
 
 h2 {
-  font-size: $base-font-size * 1.5;
+  font-size: $base-font-size * 1.953;
 }
 
 h3 {
-  font-size: $base-font-size * 1.4;
+  font-size: $base-font-size * 1.563;
 }
 
 h4 {
-  font-size: $base-font-size * 1.3;
+  font-size: $base-font-size * 1.25;
 }
 
 h5 {
-  font-size: $base-font-size * 1.2;
+  font-size: $base-font-size * 1.125;
 }
 
 h6 {
-  font-size: $base-font-size * 1.1;
+  font-size: $base-font-size;
 }
 
 a {
@@ -33,6 +31,20 @@ a {
   &:focus,
   &:hover {
     color: $logo-blue;
+  }
+}
+
+// Inline links.
+p a,
+article ul a,
+article ol a,
+.link--inline {
+  border-bottom: .1em solid transparentize($action-color, .8);
+  transition: all 150ms ease;
+
+  &:hover,
+  &:focus {
+    border-bottom: .1em solid $logo-blue;
   }
 }
 
@@ -49,11 +61,24 @@ blockquote,
 }
 
 // Typography styles for nodes.
-.path-node article {
+.path-node:not(.node--type-game) article {
   h2,
   h3,
   h4,
   h5 { margin-top: 1.5em; }
+
+  h2 {
+    &::after {
+      border-bottom: 3px solid transparent;
+      border-left: 80px solid $logo-red;
+      border-top: 3px solid transparent;
+      content: '';
+      display: block;
+      height: 0;
+      margin: .25em 0;
+      width: 0;
+    }
+  }
 
   ul {
     @extend %default-ul;

@@ -6,8 +6,11 @@ dependencies:
     - field.field.node.featured_item.field_call_to_action_big_text
     - field.field.node.featured_item.field_call_to_action_descriptive
     - field.field.node.featured_item.field_call_to_action_links
+    - field.field.node.featured_item.field_featured_item_image
+    - image.style.thumbnail
     - node.type.featured_item
   module:
+    - image
     - link
     - path
     - text
@@ -45,6 +48,14 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
+    region: content
+  field_featured_item_image:
+    weight: 122
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   langcode:
     type: language_select

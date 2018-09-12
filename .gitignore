@@ -32,6 +32,9 @@ web/sites/example.sites.php
 web/update.php
 web/web.config
 
+# Ignore theme files.
+node_modules/
+
 # Add directories containing build assets below.
 # Keep all additions above the "cut" line.
 

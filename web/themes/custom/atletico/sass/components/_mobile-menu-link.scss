@@ -1,0 +1,45 @@
+//
+// Styles for the menu link in the header on small screens.
+//
+
+.navigation-menu-button {
+  align-items: center;
+  color: $navigation-color;
+  display: flex;
+  font-weight: bold;
+  line-height: $navigation-height-mobile;
+  margin: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-decoration: none;
+
+  @include media ($horizontal-bar-mode) {
+    display: none;
+    line-height: $navigation-height;
+  }
+
+  &:focus,
+  &:hover {
+    color: $navigation-color-hover;
+  }
+
+  .fa-close {
+    display: none;
+  }
+
+  &.open {
+    .fa-close {
+      display: inline-block;
+    }
+
+    .fa-bars {
+      display: none;
+    }
+  }
+
+  .fa {
+    font-size: 1.5em;
+    min-width: 1.4em;
+    padding-left: .5em;
+  }
+}

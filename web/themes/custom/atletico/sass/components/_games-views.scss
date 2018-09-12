@@ -1,25 +1,19 @@
-/**
- * @file
- * Styles for game landing page (/futsal).
- */
+//
+// Styles for games and standings views.
+//
 
-.node--type-page {
-  .block-views-blockgames-block-2,
-  .block-views-blockgames-block-3,
-  .block-views-blockstandings-block-1,
-  .block-views-blockstandings-block-2 {
-    h2 {
-      margin-top: $general-spacing * 2;
-    }
-  }
+// Jersey color circles.
+td[class^="views-field-field-jersey"],
+td[class*="views-field-field-jersey"] {
+  text-align: center;
 }
 
 .jersey-color {
   background-color: $base-background-color;
+  border: solid 1px $table-border;
   border-radius: 50%;
   display: inline-block;
   height: .75em;
-  margin-right: .75em;
   width: .75em;
 
   @include media($small) {
@@ -28,27 +22,36 @@
   }
 }
 
+// General styles for games and standings views.
 .view-id-games,
-.view-id-standings {
-  // Game date.
+.view-id-standings,
+div[class^="block-views-blockstandings-"],
+div[class*="block-views-blockstandings-"] {
+  margin-bottom: $block-margin;
+
+  .views-table {
+    margin: 0 0 $inter-block-margin;
+  }
+
+  h2 {
+    margin: $general-spacing 0 0;
+  }
+
+  // Game date above table.
   caption {
     font-weight: bold;
-    padding-bottom: 1em;
+    padding-bottom: $general-spacing / 2;
     text-align: left;
   }
 }
 
 // Table rows.
-.view-id-games .game-list,
-.block-views-blockstandings-summer-2016-block-1,
-.block-views-blockstandings-summer-2016-block-2,
-.block-views-blockstandings-summer-2016-block-3,
-.view-id-standings_spring_2016 .team-standings,
-.view-id-standings .team-standings {
+.view .game-list,
+.view .team-standings {
   @extend %atletico-table;
 }
 
-// Set widths for games table cells on small screens.
+// Set widths for games table cells.
 .view-id-games {
   // Time field.
   td:first-child {
@@ -56,32 +59,43 @@
   }
 
   // Jersey color fields.
-  .views-field-field-jersey-color-html-,
-  .views-field-field-jersey-color-html__1 {
+  .views-field-field-jersey-html-color,
+  .views-field-field-jersey-html-color-1 {
+    width: 3em;
+  }
+
+  // "v" field.
+  .views-field-nothing {
     width: 1.5em;
-  }
-
-  .views-field-field-jersey-color-html__1 {
-    padding-left: .25em;
-  }
-
-  td:first-child,
-  .views-field-field-jersey-color-html-,
-  .views-field-field-jersey-color-html__1 {
-    @include media($small) {
-      width: auto;
-    }
   }
 
   // Team names.
   .views-field-field-abbreviation-1,
   .views-field-field-abbreviation {
     overflow: hidden;
-    white-space: nowrap;
   }
 }
 
-// Set widths for upcoming games table cells on small screens.
+// Style game views on front page.
+.path-frontpage .view-id-games {
+  .game-list {
+    font-size: 80%;
+
+    @media all and (min-width: 500px) {
+      font-size: 100%;
+    }
+
+    @include media($small) {
+      font-size: 80%;
+    }
+
+    @include media($medium) {
+      font-size: 100%;
+    }
+  }
+}
+
+// Set widths for upcoming games table cells.
 .view-id-games--upcoming {
   // "v" field.
   .views-field-nothing {
@@ -94,82 +108,43 @@
     padding-right: .5em;
     text-align: right;
     white-space: nowrap;
-    width: 15%;
   }
 
-  .views-field-nothing,
-  .views-field-field-abbreviation-2 {
-    @include media($small) {
-      width: auto;
-    }
+  .more-link {
+    margin-top: $inter-block-margin;
   }
 }
 
-// Set widths for past games table cells on small screens.
+// Set widths for past games table cells.
 .view-id-games--previous {
+  // Jersey color fields.
+  .views-field-field-jersey-color-html-,
+  .views-field-field-jersey-color-html__1 {
+    width: 3em;
+  }
+
   // Score field.
   .views-field-nothing {
-    width: 4em;
+    width: 3.5em;
 
     @include media($small) {
-      width: auto;
+      width: 5em;
     }
   }
 }
 
-.view-id-standings_spring_2016,
-.view-id-standings {
+// Standings views.
+.view-id-standings,
+div[class^="view-standings-"],
+div[class*="view-standings-"] {
+  .jersey-color {
+    margin-right: .5em;
+  }
+
   // Team name.
   .views-field-field-abbreviation {
     overflow: hidden;
     white-space: nowrap;
     width: 40%;
-  }
-}
-
-// Style game views on front page.
-.region-content-left,
-.region-content-right {
-  .block-views-blockstandings-summer-2016-block-1,
-  .block-views-blockstandings-summer-2016-block-2,
-  .block-views-blockstandings-summer-2016-block-3,
-  .block-views-blockstandings-spring-2017-block-1,
-  .block-views-blockstandings-spring-2017-block-2,
-  .block-views-blockstandings-spring-2017-block-3,
-  .view-id-standings_spring_2016 .team-standings,
-  .view-id-standings .team-standings,
-  .view-id-games .game-list {
-    font-size: 80%;
-
-    @include media($medium) {
-      font-size: 100%;
-    }
-  }
-
-  // Game views.
-  .view-id-games {
-    // Time field.
-    td:first-child {
-      width: 4em;
-    }
-
-    // Jersey color fields.
-    .views-field-field-jersey-color-html-,
-    .views-field-field-jersey-color-html__1 {
-      width: 1.5em;
-    }
-
-    // "v" field.
-    .views-field-nothing {
-      width: 1.5em;
-    }
-
-    .views-field-field-jersey-color-html-,
-    .views-field-field-jersey-color-html__1,
-    .views-field-nothing {
-      @include media($medium) {
-        width: 3em;
-      }
-    }
   }
 }

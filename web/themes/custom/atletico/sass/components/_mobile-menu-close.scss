@@ -1,0 +1,24 @@
+//
+// Styles for the "Close" button at the bottom of the mobile menu.
+
+.mobile-menu-close {
+  background-color: $table-border;
+  color: $navigation-color;
+  display: block;
+  font-family: $base-font-family;
+  font-weight: bold;
+  padding: .5em 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+
+  @include media($horizontal-bar-mode) {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $table-border;
+    color: $action-color;
+  }
+}

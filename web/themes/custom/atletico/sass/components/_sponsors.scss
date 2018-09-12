@@ -1,0 +1,64 @@
+//
+// Styles for the sponsor logos near the footer.
+//
+
+.footer__sponsors {
+  //margin-top: $general-spacing * 3;
+
+  .view-content {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1.5em 0;
+
+    @include media($small) {
+      flex-wrap: nowrap;
+    }
+
+    @include media($medium) {
+      padding: 3em 0;
+    }
+  }
+
+  .views-row {
+    padding: 1em;
+  }
+
+  h2 {
+    background-color: $table-background;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    padding: .5em;
+    text-align: center;
+
+    @include media($small) {
+      font-size: 1.953em;
+    }
+  }
+
+  img {
+    display: block;
+    height: auto;
+  }
+
+  // Tier 3.
+  .block-views-blocksponsors-block-1 {
+    .views-row {
+      max-width: 375px;
+    }
+  }
+
+  // Tier 5.
+  .block-views-blocksponsors-block-3 {
+    .views-row {
+      flex-basis: 50%;
+      max-width: 200px;
+
+      @include media ($small) {
+        flex-basis: auto;
+      }
+    }
+  }
+}
+

@@ -2,12 +2,14 @@ uuid: 4c712211-7e2c-45d0-9800-d3595160d9fd
 langcode: en
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - atletico
 id: atletico_page_title
 theme: atletico
 region: content
-weight: -34
+weight: -35
 provider: null
 plugin: page_title_block
 settings:
@@ -15,4 +17,9 @@ settings:
   label: 'Page title'
   provider: core
   label_display: '0'
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/posts\r\n<front>"
+    negate: true
+    context_mapping: {  }

@@ -6,17 +6,47 @@ dependencies:
     - field.field.node.featured_item.field_call_to_action_big_text
     - field.field.node.featured_item.field_call_to_action_descriptive
     - field.field.node.featured_item.field_call_to_action_links
+    - field.field.node.featured_item.field_featured_item_image
     - node.type.featured_item
+    - responsive_image.styles.banner_image
   module:
+    - link
+    - responsive_image
     - user
 id: node.featured_item.default
 targetEntityType: node
 bundle: featured_item
 mode: default
-content: {  }
+content:
+  field_call_to_action_big_text:
+    type: basic_string
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_call_to_action_links:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_featured_item_image:
+    type: responsive_image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      responsive_image_style: banner_image
+      image_link: ''
+    third_party_settings: {  }
 hidden:
-  field_call_to_action_big_text: true
   field_call_to_action_descriptive: true
-  field_call_to_action_links: true
   langcode: true
   links: true

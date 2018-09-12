@@ -1,0 +1,22 @@
+//
+// Styles for tags on node pages.
+//
+
+.field--name-field-tags {
+  border-bottom: solid 1px $table-border;
+  margin: $block-margin 0;
+  padding-bottom: $block-margin / 2;
+
+  .field__label {
+    display: inline-block;
+  }
+
+  .field__items {
+    display: inline-block;
+
+    .field__item {
+      display: inline-block;
+      margin-left: .5em;
+    }
+  }
+}

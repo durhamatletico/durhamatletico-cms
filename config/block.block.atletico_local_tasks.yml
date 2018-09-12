@@ -7,7 +7,7 @@ dependencies:
 id: atletico_local_tasks
 theme: atletico
 region: content
-weight: -32
+weight: -33
 provider: null
 plugin: local_tasks_block
 settings:

@@ -1,13 +1,27 @@
 (function ($) {
-  var menuToggle = $('#js-mobile-menu').unbind();
-  $('#js-navigation-menu').removeClass("show");
+  const $menuToggle = $('#js-mobile-menu-button').unbind();
+  const $menuClose = $('#js-mobile-menu-close').unbind();
+  const $mainNav = $('#js-mobile-menu');
+  $mainNav.removeClass('show');
 
-  menuToggle.on('click', function(e) {
+  $menuToggle.on('click', function (e) {
+    toggleMenu(e);
+  });
+
+  $menuClose.on('click', function (e) {
+    toggleMenu(e);
+  });
+
+  // Slide the main menu open or closed.
+  function toggleMenu(e) {
     e.preventDefault();
-    $('#block-mainnavigation .menu').slideToggle(function(){
-      if($('#block-mainnavigation .menu').is(':hidden')) {
-        $('#block-mainnavigation .menu').removeAttr('style');
+    $mainNav.slideToggle(function (){
+      if ($mainNav.is(':hidden')) {
+        $mainNav.removeAttr('style');
       }
     });
-  });
+    $menuToggle.toggleClass('open');
+  }
+
+
 })(jQuery);

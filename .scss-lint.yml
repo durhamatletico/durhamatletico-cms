@@ -5,8 +5,6 @@ exclude:
   - 'web/themes/custom/atletico/sass/lib/*'
 
 linters:
-  Comment:
-    enabled: false
   SelectorDepth:
     enabled: false
   NestingDepth:
@@ -14,4 +12,6 @@ linters:
   VendorPrefix:
     enabled: false
   SelectorFormat:
+    enabled: false
+  QualifyingElement:
     enabled: false

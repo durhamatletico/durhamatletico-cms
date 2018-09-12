@@ -1,7 +1,23 @@
 #{$all-buttons} {
+  border-radius: 0;
 
   &:hover,
   &:focus {
     background-color: $logo-blue;
+  }
+}
+
+.layout-content-left,
+.layout-content-right {
+  .more-link,
+  .node-readmore {
+    display: block;
+
+    a {
+      @extend #{$all-buttons};
+
+      text-align: center;
+      width: 100%;
+    }
   }
 }

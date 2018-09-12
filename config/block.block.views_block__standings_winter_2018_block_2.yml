@@ -12,7 +12,7 @@ dependencies:
 id: views_block__standings_winter_2018_block_2
 theme: atletico
 region: content
-weight: 0
+weight: -1
 provider: null
 plugin: 'views_block:standings_winter_2018-block_2'
 settings:

@@ -1,0 +1,71 @@
+//
+// Styles for lists of posts, found on /posts and taxonomy term pages.
+//
+
+// Layout for list of posts excluding latest post.
+.view-taxonomy-term,
+.view-posts.view-display-id-page_1 {
+  .views-row > article,
+  .view-header {
+    @include media($medium) {
+      @include span-columns(8 of 12);
+      @include shift(2);
+
+      float: none;
+    }
+  }
+
+  .views-row {
+    background-color: $table-background;
+    padding: 2em 1em;
+
+    &:nth-child(2n) {
+      background-color: $base-background-color;
+    }
+
+    h2 {
+      font-size: 1.5em;
+
+      a {
+        color: $dark-grey;
+      }
+    }
+  }
+
+  .node__links {
+    margin-top: 1em;
+
+    li {
+      display: block;
+      text-align: center;
+
+      @include media($small) {
+        display: inline;
+        margin-top: $general-spacing;
+        text-align: left;
+      }
+    }
+  }
+
+  .node-readmore a {
+    @extend %button--light;
+
+    margin-bottom: .5em;
+    text-align: center;
+    width: 100%;
+
+    @include media($small) {
+      margin-bottom: 0;
+      width: auto;
+    }
+  }
+}
+
+// On taxonomy term pages we want the striping to be reversed.
+.view-taxonomy-term .views-row {
+  background-color: $base-background-color;
+
+  &:nth-child(2n) {
+    background-color: $table-background;
+  }
+}

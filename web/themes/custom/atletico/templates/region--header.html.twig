@@ -4,20 +4,19 @@
 * Header template, to be included on every page.
 */
 #}
-<div class="header__top">
-  <div class="header__logo">
-    <a href="/{{ front_page }}" title="{{ 'Home'|t }}" rel="home">
-      <img class="header__logo--large" src="/themes/custom/atletico/images/logo.png" alt="Durham Atletico logo">
-    </a>
-  </div>
-  {{ elements.atletico_account_menu }}
-  {{ elements.languageswitcher }}
-</div>
-
-<div class="header__main-menu">
-  <div class="header__main-menu__wrapper">
-    {{ elements.atletico_account_menu }}
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
-    {{ elements.mainnavigation }}
+<div class="navigation-wrapper">
+  <a href="/{{ front_page }}" title="{{ 'Home'|t }}" rel="home" class="logo">
+    <img class="header__logo--large" src="/themes/custom/atletico/images/logo.png" alt="Durham Atletico logo">
+  </a>
+  <a href="#js-mobile-menu" class="navigation-menu-button" id="js-mobile-menu-button" aria-expanded="false">
+    <span>MENU</span>
+    <i class="fa fa-bars"></i>
+    <i class="fa fa-close"></i>
+  </a>
+  <div class="navigation-menus" id="js-mobile-menu">
+      {{ elements.languageswitcher }}
+      {{ elements.mainnavigation }}
+      {{ elements.atletico_account_menu }}
+      <button id="js-mobile-menu-close" class="mobile-menu-close">Close <i class="fa fa-angle-up"></i></button>
   </div>
 </div>

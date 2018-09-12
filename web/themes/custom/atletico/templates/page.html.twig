@@ -63,8 +63,10 @@
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
+    {{ page.content.atletico_page_title }}
+
     <div class="layout-content">
-      {{ page.content }}
+      {{ page.content|without('atletico_page_title') }}
     </div>{# /.layout-content #}
 
     {% if page.content_left %}
@@ -76,12 +78,6 @@
     {% if page.content_right %}
       <aside class="layout-content-right" role="complementary">
         {{ page.content_right }}
-      </aside>
-    {% endif %}
-
-    {% if page.sidebar %}
-      <aside class="layout-sidebar" role="complementary">
-        {{ page.sidebar }}
       </aside>
     {% endif %}
 

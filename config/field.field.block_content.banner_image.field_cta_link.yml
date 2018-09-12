@@ -1,0 +1,23 @@
+uuid: fd43ffbe-6634-4878-8fc3-46c63e58c7df
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.banner_image
+    - field.storage.block_content.field_cta_link
+  module:
+    - link
+id: block_content.banner_image.field_cta_link
+field_name: field_cta_link
+entity_type: block_content
+bundle: banner_image
+label: 'Call to action'
+description: 'Enter the URL and button text for the CTA button.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

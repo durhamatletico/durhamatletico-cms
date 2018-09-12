@@ -1,32 +1,67 @@
-/**
- * @file
- *
- * Site-wide layout styles.
- */
+//
+// Site-wide layout styles.
+//
 
 body {
   @include outer-container();
+}
 
-  main {
-    @include span-columns(10);
-    @include shift(1);
-    @include clearfix;
-    padding: $general-spacing * 3 0;
+main {
+  @include clearfix;
+  padding: 0 0 $block-margin;
+}
+
+.block-system-main-block {
+  margin-top: $block-margin / 2;
+}
+
+.layout-content {
+  padding: 0 $general-spacing;
+}
+
+// Two-column layout.
+.layout-content-left,
+.layout-content-right {
+  margin-top: $block-margin;
+  padding: 0 $general-spacing;
+
+  @include media($small) {
+    @include span-columns(6 of 12);
   }
 
-  // Tags below posts on /posts and node pages.
-  .field--name-field-tags {
-    .field__label {
-      display: inline-block;
-    }
+  li {
+    margin: 0 0 .5em;
+  }
 
-    .field__items {
-      display: inline-block;
+  h2 a {
+    color: $dark-grey;
+  }
+}
 
-      .field__item {
-        display: inline-block;
-        margin-left: .5em;
-      }
-    }
+// Left column.
+.layout-content-left {
+  margin-bottom: $block-margin;
+
+  @include media($small) {
+    margin-bottom: 0;
+  }
+
+  @include media($medium) {
+    padding: 0 $general-spacing * 2 0 $general-spacing;
+  }
+
+  .field--name-body h2 {
+    margin-top: 1.5em;
+  }
+}
+
+// Right column.
+.layout-content-right {
+  @include media($medium) {
+    padding: 0 $general-spacing 0 $general-spacing * 2;
+  }
+
+  .menu--tools h2 {
+    margin-top: 1.5em;
   }
 }

@@ -1,49 +1,68 @@
-/**
- * @file
- *
- * Styles for node pages.
- */
+//
+// Styles for node pages and some global styles for nodes display in views.
+//
 
-.path-node {
-
-  h1 {
-    @extend %underline;
-    text-align: center;
+// Node typography styles.
+.path-node .node__content {
+  p {
+    font-size: $base-font-size * 1.3;
   }
 
-  .node__meta {
-    margin-bottom: 1.5em;
-    text-align: center;
+  li {
+    font-size: $base-font-size * 1.3;
   }
 
-  .node__content {
+  img {
+    height: auto;
+  }
+}
 
-    p {
-      font-size: $base-font-size * 1.3;
-    }
+// "Submitted by" string.
+.node__submitted {
+  font-style: italic;
+  margin-bottom: 1em;
+}
 
-    li {
-      font-size: $base-font-size * 1.3;
-    }
+// Read/comment links.
+.node__links {
+  .comment-forbidden {
+    padding: 0;
+  }
+}
 
-    // Handle floated images within posts.
-    .caption-img.align-left,
-    .caption-img.align-right {
+// Handle floated images within posts.
+figure,
+.caption-img {
+  margin: 0 0 $block-margin / 2;
+
+  &.align-left,
+  &.align-right {
+    @include media($small) {
       max-width: 50%;
-
-      img {
-        height: auto;
-      }
     }
 
-    .field--name-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .field--name-field-tags {
-      border-bottom: solid 4px $logo-red;
-      margin: 1.5em 0;
-      padding-bottom: 1.5em;
+    img {
+      height: auto;
     }
   }
+
+  &.align-left {
+    @include media($small) {
+      margin-right: $block-margin / 2;
+    }
+  }
+
+  &.align-right {
+    @include media($small) {
+      margin-left: $block-margin / 2;
+    }
+  }
+}
+
+.caption > figcaption {
+  margin-top: .5em;
+}
+
+.field--name-body p:last-child {
+  margin-bottom: 0;
 }

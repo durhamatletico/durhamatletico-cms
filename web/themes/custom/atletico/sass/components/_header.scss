@@ -1,324 +1,80 @@
-/**
- * @file
- *
- * Styles for the header region.
- */
+//
+// Styles for the header region.
+//
 
 header {
+  width: 100%;
 
-  // Top header area. ----------------------------------------------------------
-  .header__top {
-    @include span-columns(10);
-    @include shift(1);
-    background-color: $base-background-color;
-    z-index: 1;
+  .navigation-wrapper {
+    @include clearfix;
 
-    @include media ($small) {
-      min-height: $header-height;
+    display: flex;
+    position: relative;
+
+    @include media($horizontal-bar-mode) {
+      padding-top: $navigation-padding * 1.5;
+    }
+  }
+
+  .logo {
+    display: block;
+    flex-shrink: 0;
+    margin-right: auto;
+    max-height: $navigation-height-mobile;
+    padding-left: $navigation-padding;
+    padding-right: $navigation-padding;
+
+    @include media ($horizontal-bar-mode) {
+      max-height: $navigation-height;
+      padding-right: $navigation-padding * 2;
     }
 
-    // Logo styles. ------------------------------------------------------------
-    .header__logo {
-      width: 100%;
+    img {
+      max-height: $navigation-height-mobile;
+      padding: .75em 0;
 
-      @include media($header-break) {
-        display: inline-block;
-        float: left;
-        width: auto;
-      }
-
-      .header__logo--large {
-        display: block;
-        margin: 0 auto;
-        max-height: 7em;
-        padding: 1em 0;
-
-        @include media($header-break) {
-          max-height: $navigation-height;
-          padding: .5em 0;
-        }
-
-        @include media($small) {
-          margin: 0;
-          max-height: $header-height;
-          max-width: 400px;
-          padding: 1.5em 0;
-        }
-      }
-    }
-
-    // User menu ---------------------------------------------------------------
-    .menu--account {
-      display: none;
-
-      @include media($header-break) {
-        display: inline-block;
-        float: right;
-      }
-
-      ul {
-        margin: 0;
-      }
-
-      .menu-item {
-        display: inline-block;
-        line-height: $navigation-height;
-        margin-left: .5em;
-        padding: 0;
-
-        @include media($small) {
-          line-height: $header-height;
-        }
-
-        a {
-          @extend #{$all-buttons};
-          font-size: .8em;
-          padding: .75em;
-
-          @include media($small) {
-            font-size: .9em;
-          }
-
-          @include media(em(700)) {
-            font-size: 1em;
-          }
-        }
+      @include media ($horizontal-bar-mode) {
+        max-height: $navigation-height;
+        padding: 1.25em 0;
       }
     }
   }
 
-  // Main menu bar. ------------------------------------------------------------
-  .header__main-menu {
-    @include clearfix;
+  // The div containing the main and account menus.
+  .navigation-menus {
     background-color: $navigation-background;
-    clear: both;
-    position: relative;
+    box-shadow: 0 4px 6px transparentize($dark-grey, .5);
+    display: none;
+    margin: 0 auto;
+    overflow: visible;
+    padding: 0;
+    position: absolute;
+    top: $navigation-height-mobile;
+    width: 100%;
+    z-index: 2;
 
-    .header__main-menu__wrapper {
-      @include span-columns(10);
-      @include shift(1);
+    @include media($horizontal-bar-mode) {
+      background-color: transparent;
+      box-shadow: none;
+      top: $navigation-height;
     }
 
-    // Mobile menu button.
-    .navigation-menu-button {
-      color: $navigation-color;
-      display: block;
-      float: right;
-      font-family: $heading-font-family;
-      font-weight: 400;
-      line-height: 3em;
+    @include media ($horizontal-bar-mode) {
+      display: flex;
+      justify-content: space-between;
       margin: 0;
-      text-transform: uppercase;
-
-      @include media ($small) {
-        display: none;
-      }
-
-      &:focus,
-      &:hover {
-        color: $navigation-color-hover;
-      }
+      padding: 0;
+      position: static;
+      z-index: 1;
     }
+  }
 
-    // Main menu. --------------------------------------------------------------
-
-    .menu--main {
-      float: none;
-      z-index: 9999999;
-
-      @include media ($small) {
-        min-height: $navigation-height;
-      }
-
-      ul {
-        clear: both;
-        display: none;
-        margin: 0 auto;
-        overflow: visible;
-        padding: 0;
-        -webkit-transform-style: preserve-3d; // Stop webkit flicker.
-        width: 100%;
-        z-index: 9999;
-
-        @include media ($small) {
-          @include display(flex);
-          @include justify-content(center);
-          margin: 0 auto;
-          padding: 0;
-        }
-
-        &.show {
-          display: block;
-        }
-      }
-
-      // The nav items.
-
-      li {
-        background: $navigation-background;
-        border-bottom: solid 1px transparentize($navigation-color, .3);
-        display: block;
-        line-height: 2em;
-        overflow: hidden;
-        text-align: right;
-        width: 100%;
-        z-index: 9999;
-
-        @include media ($small) {
-          @include flex(1);
-          background: transparent;
-          line-height: $navigation-height;
-          text-align: center;
-          text-decoration: none;
-          width: auto;
-        }
-
-        &:last-child {
-          border-bottom: 0;
-        }
-
-        a {
-          color: $navigation-color;
-          font-family: $heading-font-family;
-          font-weight: 400;
-          text-decoration: none;
-
-          @include media($small) {
-            font-size: 1.25em;
-          }
-
-          &:focus,
-          &:hover {
-            color: $navigation-color-hover;
-          }
-        }
-      }
+  nav {
+    // Override Drupal CSS. Don't indent top level menus.
+    // scss-lint:disable QualifyingElement
+    > ul.menu {
+      margin-left: 0;
     }
-
-    // Need to match specificity of system CSS file to override it.
-    .menu .is-active {
-      color: $navigation-active-link-color;
-
-      @include media($small) {
-        border-bottom: solid 1px $navigation-active-link-color;
-        padding-bottom: .25em;
-      }
-    }
-
-    // Menu link with submenu.
-    .menu-item--expanded {
-      // scss-lint:disable ImportantRule
-      overflow: visible !important;
-      // scss-lint:enable ImportantRule
-      padding-right: 0;
-
-      @include media($small) {
-        position: relative;
-
-        > ul > li:first-child a {
-          padding-top: 1em;
-        }
-      }
-
-      // The actual link with the submenu.
-      > a {
-        position: relative;
-
-        @include media($small) {
-          padding-right: .5em;
-        }
-
-        &::after {
-          @include position(absolute, auto -.4em auto auto);
-          color: $navigation-color;
-
-          @include media($small) {
-            content: '\25BE';
-          }
-        }
-      }
-
-      &:focus > .menu,
-      &:hover > .menu {
-        display: block;
-      }
-
-      // The actual submenu.
-      // Such nesting.
-      .menu {
-        display: none;
-        padding-left: 0;
-
-        @include media($small) {
-          position: absolute;
-          top: 4em;
-        }
-
-        li {
-          display: block;
-          padding-right: 0;
-
-          @include media($small) {
-            line-height: $navigation-height / 1.3;
-
-            &:first-child > a {
-              border-top-left-radius: $base-border-radius;
-              border-top-right-radius: $base-border-radius;
-            }
-
-            &:last-child > a {
-              border-bottom-left-radius: $base-border-radius;
-              border-bottom-right-radius: $base-border-radius;
-              padding-bottom: .7em;
-            }
-          }
-
-          a {
-            display: inline-block;
-            padding-right: .5em;
-            text-align: right;
-            width: 100%;
-
-            @include media($small) {
-              background-color: $navigation-background;
-              font-size: 1.1em;
-              padding-right: 0;
-              text-align: center;
-            }
-
-            @include media($medium) {
-              font-size: 1.25em;
-            }
-          }
-        }
-      }
-    }
-
-    // User menu - only on very small screens. ---------------------------------
-    .menu--account {
-      display: inline-block;
-      float: left;
-
-      @include media($header-break) {
-        display: none;
-      }
-
-      .menu {
-        margin: 0;
-      }
-
-      .menu-item {
-        display: inline-block;
-        margin-right: .5em;
-        padding: .5em 0;
-
-        a {
-          @extend #{$all-buttons};
-          color: $base-background-color;
-          font-size: .8em;
-          padding: .75em;
-        }
-      }
-    }
+    // scss-lint:enable QualifyingElement
   }
 }

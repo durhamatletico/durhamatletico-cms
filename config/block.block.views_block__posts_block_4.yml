@@ -1,0 +1,30 @@
+uuid: 2687320d-a21b-446d-9031-df2f04cb8da9
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.posts
+  module:
+    - system
+    - views
+  theme:
+    - atletico
+id: views_block__posts_block_4
+theme: atletico
+region: content
+weight: -31
+provider: null
+plugin: 'views_block:posts-block_4'
+settings:
+  id: 'views_block:posts-block_4'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /posts
+    negate: false
+    context_mapping: {  }

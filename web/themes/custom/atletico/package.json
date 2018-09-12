@@ -1,0 +1,26 @@
+{
+  "name": "atletico",
+  "version": "1.0.0",
+  "description": "Custom theme for the Durham Atletico website",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:durhamatletico/durhamatletico-cms.git"
+  },
+  "author": "Anne Tomasevich",
+  "license": "ISC",
+  "devDependencies": {
+    "ansi-colors": "^2.0.1",
+    "autoprefixer": "^8.6.2",
+    "beeper": "^1.1.1",
+    "eslint": "^4.19.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-util": "^3.0.8"
+  }
+}

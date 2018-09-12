@@ -1,8 +1,6 @@
-/**
- * @file
- *
- * Custom form styles.
- */
+//
+// Custom form styles.
+//
 
 // Login form.
 // scss-lint:disable QualifyingElement
@@ -19,17 +17,10 @@
     }
   }
 }
+// scss-lint:enable QualifyingElement
 
 // Contact page.
 .path-contact {
-  input[type=text],
-  input[type=email],
-  textarea {
-    @include media($medium) {
-      width: 66%;
-    }
-  }
-
   .form-actions {
     margin: 0;
 
@@ -42,4 +33,3 @@
     }
   }
 }
-// scss-lint:enable QualifyingElement

@@ -1,0 +1,76 @@
+//
+// Styles for the featured item on the front page.
+//
+
+.featured-item {
+  position: relative;
+}
+
+.field--name-field-featured-item-image img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.featured-item__copy {
+  padding: 1em;
+  text-align: center;
+
+  @media all and (min-width: 420px) {
+    bottom: 0;
+    position: absolute;
+    text-align: left;
+  }
+
+  @include media($small) {
+    padding: 2em;
+  }
+
+}
+
+.featured-item__title {
+  font-size: 1.5em;
+  line-height: 1.65;
+  margin-bottom: .5em;
+  max-width: 500px;
+
+  @include media($small) {
+    font-size: 1.953em;
+  }
+
+  .field--name-field-call-to-action-big-text {
+    background-color: $dark-grey;
+    box-decoration-break: clone;
+    color: $base-background-color;
+    display: inline;
+    padding: 0 .25em;
+  }
+}
+
+.field--name-field-call-to-action-links {
+  display: flex;
+  justify-content: center;
+
+  @media all and (min-width: 420px) {
+    justify-content: flex-start;
+  }
+
+  .field__item {
+    margin: 0 .5em;
+
+    @media all and (min-width: 420px) {
+      margin: 0 1em 0 0;
+    }
+  }
+
+  a {
+    @extend #{$all-buttons};
+
+    background-color: $logo-red;
+
+    @include media($small) {
+      font-size: 1.1em;
+      padding: 1em 2em;
+    }
+  }
+}

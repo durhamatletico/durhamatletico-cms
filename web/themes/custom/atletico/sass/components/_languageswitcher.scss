@@ -1,39 +1,52 @@
 .block-language-blocklanguage-interface {
-  float: right;
+  background-color: $navigation-background;
+  flex-shrink: 0;
   overflow: hidden;
-  text-transform: uppercase;
+
+  @include media($horizontal-bar-mode) {
+    background-color: transparent;
+    order: 3;
+    padding-right: $navigation-padding;
+  }
 
   li {
-    display: inline;
-    margin-right: .25em;
+    border-bottom: solid 1px $table-border;
 
-    @include media($header-break) {
-      line-height: 8em;
+    @include media($horizontal-bar-mode) {
+      border: 0;
+      display: inline;
+      line-height: $navigation-height;
+      padding-left: 1em;
     }
 
-    .is-active {
+    &.is-active {
       display: none;
     }
 
     a {
       @extend #{$all-buttons};
-      background-color: $logo-red;
-      font-size: .8em;
-      margin-bottom: 1em;
-      padding: .75em;
 
-      @include media($header-break) {
-        font-size: .9em;
+      @include menu-link();
+      @include menu-link-small();
+
+      @include media($horizontal-bar-mode) {
+        background-color: $action-color;
+        color: $base-background-color;
+        display: inline-block;
+        font-weight: normal;
         margin-bottom: 0;
-      }
-
-      @include media(em(700)) {
-        font-size: 1em;
+        padding: .5em .75em;
+        text-transform: none;
       }
 
       &:hover,
       &:focus {
-        background-color: lighten($logo-red, 10%);
+        background-color: $navigation-background;
+
+        @include media($horizontal-bar-mode) {
+          background-color: $logo-blue;
+          color: $base-background-color;
+        }
       }
     }
   }
